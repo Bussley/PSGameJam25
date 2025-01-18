@@ -5,9 +5,11 @@ public class CropScriptableObject : ScriptableObject
 {
     public string cropType;
 
-    public float growTime;
-    public float optimalWaterLevel;
+    public float growSpeed;
+    public float amountWaterNeeded;
     public float maxHealth;
 
-    public Sprite cropSprite;
+    public Sprite youngCropSprite;
+    public Sprite growingCropSprite;
+    public Sprite ripeCropSprite;
 }
