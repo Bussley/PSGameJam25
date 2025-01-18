@@ -1,5 +1,8 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
@@ -7,23 +10,43 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rig;
 
     [SerializeField]
-    private float move_speed;
+    private float moveSpeed;
 
     [SerializeField]
-    private InputActionReference player_input;
+    private InputActionReference playerInput;
 
-    private Vector2 move_direction;
+    private Vector2 moveDirection;
+
+    //Temp, get rid after testing or move it to better location
+    [SerializeField]
+    private Tilemap map;
+    [SerializeField]
+    private GameObject wheatTile;
+    private List<GameObject> wheatList;
 
     private void Start() {
-        
+        wheatList = new List<GameObject>();
     }
 
     private void Update() {
-        move_direction = player_input.action.ReadValue<Vector2>();
+        moveDirection = playerInput.action.ReadValue<Vector2>();
     }
 
     private void FixedUpdate() {
-        rig.linearVelocity = new Vector2(move_direction.x * move_speed,
-                                         move_direction.y * move_speed);
+        rig.linearVelocity = new Vector2(moveDirection.x * moveSpeed,
+                                         moveDirection.y * moveSpeed);
+    }
+
+    public void TestPlaceWhate(InputAction.CallbackContext context) {
+        //Test logic
+        if (context.performed)
+        {
+            Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            Vector3Int grid_pos = map.WorldToCell(mouse_pos);
+            Debug.Log("Position at" + grid_pos);
+            GameObject wheat = Instantiate(wheatTile);
+            wheatList.Add(wheat);
+            map.SetTile(grid_pos, new Tile() { gameObject = wheat });
+        }
     }
 }
