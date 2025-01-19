@@ -217,7 +217,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -243,10 +243,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rig: {fileID: 2678468580882921569}
   moveSpeed: 5
+  CurrentWeapon: 
   playerInput: {fileID: -6270165054496254709, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   laserPrefab: {fileID: 8687622037540719887, guid: 59c14a14db685d643af5b6426bce146f, type: 3}
-  map: {fileID: 0}
-  wheatTile: {fileID: 8682874596834359429, guid: a0f451c057d971847804206450d91fb6, type: 3}
+  typesOfWeapons:
+  - Why are we using key input 0.. GROSS. Need this as place holder for array. Until
+    we actually want to use this.
+  - lazer
+  - shotgun
+  - sword
+  - missle
 --- !u!50 &2678468580882921569
 Rigidbody2D:
   serializedVersion: 5
@@ -319,7 +325,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3351602065597119800}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: FireLaser
+        m_MethodName: FireWeapon
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -371,6 +377,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 702cea40-d76f-4999-a2c2-3aee29072361
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3351602065597119800}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: SwitchWeapons
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 914565cf-b675-4408-a1a7-87a31a0b153d
+    m_ActionName: 'Player/Numbers[/Keyboard/1,/Keyboard/2,/Keyboard/3,/Keyboard/4]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player

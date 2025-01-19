@@ -11,6 +11,7 @@ public class Shooting : MonoBehaviour
     public GameObject bullet;
     public Transform bulletTransform;
     public bool canFire;
+    private GameObject newobj;
     private float timer;
     public float timeBetweenFiring;
     void Start()
@@ -42,7 +43,9 @@ public class Shooting : MonoBehaviour
       if ( Input.GetMouseButton(0) && canFire)
       {
         canFire = false;
-        Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+        newobj = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+
+        //Destroy(newobj);
       }
     }
 }
