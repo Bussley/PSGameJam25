@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rig: {fileID: 2678468580882921569}
-  moveSpeed: 0
+  moveSpeed: 5
   playerInput: {fileID: -6270165054496254709, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   map: {fileID: 0}
   wheatTile: {fileID: 8682874596834359429, guid: a0f451c057d971847804206450d91fb6, type: 3}
