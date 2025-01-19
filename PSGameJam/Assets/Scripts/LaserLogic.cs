@@ -82,6 +82,7 @@ public class LaserLogic : MonoBehaviour
 
         // Create timer for lasers plotting the land
         TimerManager.AddTimer(laserToLandFunc, dur);
+        Destroy(gameObject);
     }
 
     public void Charge(int direction) {
