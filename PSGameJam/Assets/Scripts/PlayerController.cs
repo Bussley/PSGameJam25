@@ -4,14 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
+
 public class PlayerController : MonoBehaviour
 {
-    private enum Direction
-    {
-        N, NE, E, SE, S, SW, W, NW,
-        None
-    };
-
     [SerializeField]
     private Rigidbody2D rig;
 
@@ -21,19 +16,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private InputActionReference playerInput;
 
+    [SerializeField]
+    private GameObject laserPrefab;
+
     private Vector2 moveDirection;
-    private Direction playerDirection;
+
+    // N = 0, NE = 1, E = 2, SE = 3
+    // S = 4, NW = 5, W = 6, SW = 7
+    private int playerDirection;
     private bool canMove;
 
-    //Temp, get rid after testing or move it to better location
-    [SerializeField]
-    private Tilemap map;
-    [SerializeField]
-    private GameObject wheatTile;
-
+    private GameObject laserGO;
 
     private void Start() {
-        playerDirection = Direction.S;
+        playerDirection = 4;
         canMove = true;
     }
 
@@ -51,29 +47,11 @@ public class PlayerController : MonoBehaviour
         if (context.performed && canMove)
         {
             moveDirection = playerInput.action.ReadValue<Vector2>();
-            int dir = (int)(Vector2.Angle(Vector2.up, moveDirection) / 45.0f);
+            playerDirection = (int)(Vector2.Angle(Vector2.up, moveDirection) / 45.0f);
 
-            if (dir == 0)
-                playerDirection = Direction.N;
-            else if (dir == 4)
-                playerDirection = Direction.S;
-            else if (moveDirection.x < 0)
+            if (moveDirection.x < 0)
             {
-                if (dir == 1)
-                    playerDirection = Direction.NW;
-                else if (dir == 2)
-                    playerDirection = Direction.W;
-                else if (dir == 3)
-                    playerDirection = Direction.SW;
-            }
-            else if (moveDirection.x > 0)
-            {
-                if (dir == 1)
-                    playerDirection = Direction.NE;
-                else if (dir == 2)
-                    playerDirection = Direction.E;
-                else if (dir == 3)
-                    playerDirection = Direction.SE;
+                playerDirection += 4;
             }
             Debug.Log(playerDirection);
         }
@@ -88,9 +66,11 @@ public class PlayerController : MonoBehaviour
             canMove = false;
 
             // Spawn aimer
-
+            laserGO = Instantiate(laserPrefab, transform);
+            laserGO.GetComponent<LaserLogic>().Charge(playerDirection);
         }
         else if (context.canceled) {
+            laserGO.GetComponent<LaserLogic>().Fire();
             canMove = true;
         }
     }
@@ -100,14 +80,7 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            Vector3Int grid_pos = map.WorldToCell(mouse_pos);
-
-            GameObject gameObjectAtPosition = map.GetInstantiatedObject(grid_pos);
-            if (gameObjectAtPosition == null)
-            {
-                map.SetTile(grid_pos, new Tile() { gameObject = wheatTile });
-                Debug.Log("test");
-            }
+            TileManager.ChangeTile(mouse_pos);
         }
     }
 }
