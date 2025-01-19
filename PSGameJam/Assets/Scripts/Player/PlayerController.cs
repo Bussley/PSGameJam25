@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,6 +14,12 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float moveSpeed;
+
+        [SerializeField]
+    public string CurrentWeapon {
+        get { return CurrentWeapon; }
+        set { CurrentWeapon = CurrentWeapon; }
+    }
 
     [SerializeField]
     private InputActionReference playerInput;
@@ -34,6 +42,11 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update() {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Debug.Log("Test input key");
+            Debug.Log(Input.GetKey(KeyCode.Space));
+        }
 
     }
 
@@ -73,6 +86,7 @@ public class PlayerController : MonoBehaviour
             laserGO.GetComponent<LaserLogic>().Fire();
             canMove = true;
         }
+
     }
 
     public void TestPlaceWhate(InputAction.CallbackContext context) {
@@ -83,4 +97,11 @@ public class PlayerController : MonoBehaviour
             TileManager.ChangeTile(mouse_pos);
         }
     }
+
+    public void SwitchWeapons (InputAction.CallbackContext context) 
+    {
+        // context.control will have 3 actions/ output. action, cancel, something else.
+        Debug.Log(context.control); 
+    }
+    
 }
