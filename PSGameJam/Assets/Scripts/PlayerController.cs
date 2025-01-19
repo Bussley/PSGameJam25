@@ -22,10 +22,9 @@ public class PlayerController : MonoBehaviour
     private Tilemap map;
     [SerializeField]
     private GameObject wheatTile;
-    private List<GameObject> wheatList;
 
     private void Start() {
-        wheatList = new List<GameObject>();
+
     }
 
     private void Update() {
@@ -43,10 +42,17 @@ public class PlayerController : MonoBehaviour
         {
             Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             Vector3Int grid_pos = map.WorldToCell(mouse_pos);
-            Debug.Log("Position at" + grid_pos);
-            GameObject wheat = Instantiate(wheatTile);
-            wheatList.Add(wheat);
-            map.SetTile(grid_pos, new Tile() { gameObject = wheat });
+            //Debug.Log("Position at" + grid_pos);
+
+            GameObject gameObjectAtPosition = map.GetInstantiatedObject(grid_pos);
+            if (gameObjectAtPosition == null)
+            {
+                map.SetTile(grid_pos, new Tile() { gameObject = wheatTile });
+                Debug.Log("test");
+            }
+            //map.SetTile(grid_pos, new Tile() { gameObject = wheatTile });
+
+
         }
     }
 }
