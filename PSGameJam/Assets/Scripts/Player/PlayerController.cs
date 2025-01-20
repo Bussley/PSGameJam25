@@ -128,11 +128,9 @@ public class PlayerController : MonoBehaviour
             // Spawn aimer
             laserGO = Instantiate(laserPrefab, transform);
             laserGO.GetComponent<LaserLogic>().Charge(playerDirection);
-            Debug.Log(playerDirection);
         }
         else if (context.canceled) {
             laserGO.GetComponent<LaserLogic>().Fire();
-            canMove = true;
         }
 
     }
@@ -198,6 +196,10 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void SetMove(bool move) {
+        canMove = move;
     }
     
 }
