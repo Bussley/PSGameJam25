@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using NUnit.Framework.Internal;
 using Unity.VisualScripting;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
@@ -10,11 +11,15 @@ using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
+
     [SerializeField]
     private Rigidbody2D rig;
 
     [SerializeField]
     private float moveSpeed;
+
+    [SerializeField]
+    private float changeDirectionTimer;
 
     [SerializeField]
     private string CurrentWeapon;
@@ -46,6 +51,7 @@ public class PlayerController : MonoBehaviour
     private void Start() {
         playerDirection = 4;
         canMove = true;
+        moveDirection = new Vector2();
     }
 
     private void Update() {
@@ -56,21 +62,29 @@ public class PlayerController : MonoBehaviour
                                          moveDirection.y * moveSpeed);
     }
 
+    private void ChangeDirection() {
+
+        playerDirection = (int)(Vector2.Angle(Vector2.up, moveDirection) / 45.0f);
+
+        if (moveDirection.x < 0)
+            playerDirection += 4;
+    }
+
     public void DetermineDirection(InputAction.CallbackContext context) {
+        moveDirection = Vector2.zero;
+
         // Get direction of player and move
         if (context.performed && canMove)
         {
             moveDirection = playerInput.action.ReadValue<Vector2>();
-            playerDirection = (int)(Vector2.Angle(Vector2.up, moveDirection) / 45.0f);
-
-            if (moveDirection.x < 0)
+            Action changeDir = () =>
             {
-                playerDirection += 4;
-            }
-            Debug.Log(playerDirection);
+                if(moveDirection != Vector2.zero)
+                    ChangeDirection();
+            };
+
+            TimerManager.AddTimer(changeDir, changeDirectionTimer);
         }
-        else if(context.canceled)
-            moveDirection = Vector2.zero;
     }
 
     public void FireWeapon(InputAction.CallbackContext context) {
