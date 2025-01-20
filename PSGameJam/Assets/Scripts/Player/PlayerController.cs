@@ -146,36 +146,44 @@ public class PlayerController : MonoBehaviour
     }
 
     public void FireLaser(InputAction.CallbackContext context) {
-        if(context.started) {
-            // Stop Player
-            moveDirection = Vector2.zero;
-            canMove = false;
+        if (!usingJets)
+        {
+            if (context.started)
+            {
+                // Stop Player
+                moveDirection = Vector2.zero;
+                canMove = false;
 
-            // Spawn aimer
-            laserGO = Instantiate(laserPrefab, transform);
-            laserGO.GetComponent<LaserLogic>().Charge(playerDirection);
+                // Spawn aimer
+                laserGO = Instantiate(laserPrefab, transform);
+                laserGO.GetComponent<LaserLogic>().Charge(playerDirection);
+            }
+            else if (context.canceled && laserGO != null)
+            {
+                laserGO.GetComponent<LaserLogic>().Fire();
+            }
         }
-        else if (context.canceled) {
-            laserGO.GetComponent<LaserLogic>().Fire();
-        }
-
     }
 
     public void FireShotGun(InputAction.CallbackContext context) {
-        if(context.started) {
-            // Stop Player
-            moveDirection = Vector2.zero;
-            canMove = false;
+        if (!usingJets)
+        {
+            if (context.started)
+            {
+                // Stop Player
+                moveDirection = Vector2.zero;
+                canMove = false;
 
-            // Spawn aimer
-            shotgunGO = Instantiate(shotgunPrefab, transform);
-            shotgunGO.GetComponent<ShotgunLogic>().Charge(playerDirection);
+                // Spawn aimer
+                shotgunGO = Instantiate(shotgunPrefab, transform);
+                shotgunGO.GetComponent<ShotgunLogic>().Charge(playerDirection);
+            }
+            else if (context.canceled && shotgunGO != null)
+            {
+                shotgunGO.GetComponent<ShotgunLogic>().Fire();
+                canMove = true;
+            }
         }
-        else if (context.canceled) {
-            shotgunGO.GetComponent<ShotgunLogic>().Fire();
-            canMove = true;
-        }
-
     }
 
     public void TestPlaceWhate(InputAction.CallbackContext context) {
