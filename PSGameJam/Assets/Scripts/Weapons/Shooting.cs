@@ -44,7 +44,6 @@ public class Shooting : MonoBehaviour
       {
         canFire = false;
         newobj = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-
         //Destroy(newobj);
       }
     }

@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject laserPrefab;
 
+    [SerializeField]
+    private GameObject shotgunPrefab;
+
+
     private Vector2 moveDirection;
 
     [SerializeField]
@@ -42,6 +46,8 @@ public class PlayerController : MonoBehaviour
     private bool canMove;
 
     private GameObject laserGO;
+
+    private GameObject shotgunGO;
 
     private void Start() {
         playerDirection = 4;
@@ -124,11 +130,11 @@ public class PlayerController : MonoBehaviour
             canMove = false;
 
             // Spawn aimer
-            laserGO = Instantiate(laserPrefab, transform);
-            laserGO.GetComponent<ShotgunLogic>().Charge(playerDirection);
+            shotgunGO = Instantiate(shotgunPrefab, transform);
+            shotgunGO.GetComponent<ShotgunLogic>().Charge(playerDirection);
         }
         else if (context.canceled) {
-            laserGO.GetComponent<ShotgunLogic>().Fire();
+            shotgunGO.GetComponent<ShotgunLogic>().Fire();
             canMove = true;
         }
 

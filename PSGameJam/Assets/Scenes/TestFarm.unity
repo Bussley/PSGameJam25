@@ -24467,6 +24467,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3087827467637050833, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3087827467637050833, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3087827467637050833, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3351602065597119800, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+      propertyPath: shotgunPrefab
+      value: 
+      objectReference: {fileID: 8687622037540719887, guid: 10332563ebaab30488e887948cea98ff, type: 3}
     - target: {fileID: 4763989127697635506, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.75
@@ -24507,6 +24523,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6212975701205849594, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 653505090, guid: c6196956c95d18446afdc571eb79acff, type: 3}
     - target: {fileID: 6493987535443878733, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
       propertyPath: m_Name
       value: Player
