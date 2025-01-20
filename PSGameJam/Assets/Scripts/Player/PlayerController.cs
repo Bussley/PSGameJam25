@@ -38,11 +38,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private String[] typesOfWeapons = {
-        "Why are we using key input 0.. GROSS. Need this as place holder for array. Until we actually want to use this.",
-        "lazer",
-        "shotgun",
+        "none",
         "sword",
-        "missle",
+        "firehose",
+        "shotgun",
+        "lazer",
     };
 
     // N = 0, NE = 1, E = 2, SE = 3
@@ -99,22 +99,23 @@ public class PlayerController : MonoBehaviour
         // Creating statements to fire weapon based off of the current weapon.
         if (typesOfWeapons[0] == CurrentWeapon)
         {
-        }
-        else if (typesOfWeapons[0] == CurrentWeapon)
-        {
+            Debug.Log("Putting away items");
         }
         else if (typesOfWeapons[1] == CurrentWeapon)
         {
-            FireLaser(context);
-        } 
+        }
         else if (typesOfWeapons[2] == CurrentWeapon)
         {
-            FireShotGun(context);
+            FireLaser(context);
         } 
         else if (typesOfWeapons[3] == CurrentWeapon)
         {
-        }
+            FireShotGun(context);
+        } 
         else if (typesOfWeapons[4] == CurrentWeapon)
+        {
+        }
+        else if (typesOfWeapons[5] == CurrentWeapon)
         {
         }
     }
