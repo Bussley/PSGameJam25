@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Wheat
   m_EditorClassIdentifier: 
   cropType: Wheat
-  growTime: 5
-  optimalWaterLevel: 2
+  growSpeedTime: 3
+  growToYoungCrop: 10
+  growToGrowingCrop: 50
+  amountWaterNeeded: 0
   maxHealth: 10
-  cropSprite: {fileID: 0}
+  youngCropSprite: {fileID: 6879123979283378301, guid: c6196956c95d18446afdc571eb79acff, type: 3}
+  growingCropSprite: {fileID: 21300000, guid: a242678ffe41d0e4b8da2a7a58199c7d, type: 3}
+  ripeCropSprite: {fileID: 842455257256177374, guid: c6196956c95d18446afdc571eb79acff, type: 3}
