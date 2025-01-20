@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateAmount: 0.1
+  randomMinRange: 0
+  randomMaxRange: 2
   shotgunSpeed: 1
   aimPrefab: {fileID: 965893174730871508, guid: f4ca80542a83ffe4bb7ea11981034b62, type: 3}
   shotgunPrefab: {fileID: 8762243788235311304, guid: c271be9cdc8058847bb428c10fed7c85, type: 3}

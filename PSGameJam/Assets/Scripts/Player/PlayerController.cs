@@ -145,10 +145,9 @@ public class PlayerController : MonoBehaviour
 
             // Spawn aimer
             shotgunGO = Instantiate(shotgunPrefab, transform);
-            shotgunGO.GetComponent<ShotgunLogic>().Charge(playerDirection);
         }
         else if (context.canceled) {
-            shotgunGO.GetComponent<ShotgunLogic>().Fire();
+            shotgunGO.GetComponent<ShotgunLogic>().Fire(playerDirection);
             canMove = true;
         }
 
