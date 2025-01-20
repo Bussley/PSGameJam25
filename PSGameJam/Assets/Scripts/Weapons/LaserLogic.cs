@@ -1,4 +1,6 @@
 using System;
+using System.Threading.Tasks;
+using Unity.Mathematics;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -17,8 +19,8 @@ public class LaserLogic : MonoBehaviour
     private GameObject aimObject2;
     private GameObject laserObject1;
     private GameObject laserObject2;
-    private Vector2 laser1Destination;
-    private Vector2 laser2Destination;
+    private float duration;
+    private float currentDuration;
 
     private bool fired;
     private bool aimCreated;
@@ -26,6 +28,7 @@ public class LaserLogic : MonoBehaviour
     void Awake() {
         fired = false;
         aimCreated = false;
+        currentDuration = 0;
     }
 
     void Update()
@@ -33,6 +36,18 @@ public class LaserLogic : MonoBehaviour
         // Rotate for a aimers at rotate amount until Fire is called
         if (aimCreated && !fired)
             RotateAim();
+        else if(fired)
+        {
+            if (currentDuration < duration)
+                currentDuration++;
+            else
+            {
+                transform.parent.GetComponent<PlayerController>().SetMove(true);
+                Destroy(laserObject1);
+                Destroy(laserObject2);
+                Destroy(gameObject);
+            }
+        }
     }
 
     private float DetermineSpawnAngle(int direction) {
@@ -44,45 +59,30 @@ public class LaserLogic : MonoBehaviour
         aimObject2.transform.RotateAround(transform.position, Vector3.forward, -rotateAmount);
     }
 
-    private void PlotLand(Vector2 pos)
-    {
-        TileManager.ChangeTile(pos);
-    }
-
+    // Return duration to let player move again after lasers are done
     public void Fire() {
         //Destroy aimobject and fire red laser
         fired = true;
 
         // Spawn laser 1 and get direction it is heading
-        laser1Destination = aimObject1.transform.position - transform.position;
-        Vector2 laser1Dir = laser1Destination.normalized;
+        Vector3 laser1Dir = (aimObject1.transform.position - transform.position).normalized;
         laserObject1 = Instantiate(laserPrefab);
-        laserObject1.transform.position = transform.position;
-        laserObject1.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(laser1Dir.x * laserSpeed, laser1Dir.y * laserSpeed);
+        laserObject1.transform.rotation = aimObject1.transform.rotation;
+        laserObject1.transform.position = transform.position + (laser1Dir * laserObject1.transform.lossyScale.x/2);
+        laserObject1.GetComponent<LaserBeamLogic>().ExpandBeam(laserSpeed, laser1Dir);
 
         // Spawn laser 2 and get direction it is heading
-        laser2Destination = aimObject2.transform.position - transform.position;
-        Vector2 laser2Dir = laser2Destination.normalized;
+        Vector3 laser2Dir = (aimObject2.transform.position - transform.position).normalized;
         laserObject2 = Instantiate(laserPrefab);
-        laserObject2.transform.position = transform.position;
-        laserObject2.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(laser2Dir.x * laserSpeed, laser2Dir.y * laserSpeed);
+        laserObject2.transform.rotation = aimObject2.transform.rotation;
+        laserObject2.transform.position = transform.position + (laser2Dir * laserObject2.transform.lossyScale.x/2);
+        laserObject2.GetComponent<LaserBeamLogic>().ExpandBeam(laserSpeed, laser2Dir);
 
-        float dur = aimObject1.transform.lossyScale.x * laserSpeed;
+        // Get amount of frames it will take to complete
+        duration = (aimObject1.transform.lossyScale.x - laserObject1.transform.lossyScale.x) / laserSpeed;
 
         Destroy(aimObject1);
         Destroy(aimObject2);
-
-        Action laserToLandFunc = () =>
-        {
-            PlotLand(laserObject1.transform.position);
-            PlotLand(laserObject2.transform.position);
-            Destroy(laserObject1);
-            Destroy(laserObject2);
-        };
-
-        // Create timer for lasers plotting the land
-        TimerManager.AddTimer(laserToLandFunc, dur);
-        Destroy(gameObject);
     }
 
     public void Charge(int direction) {
@@ -94,7 +94,7 @@ public class LaserLogic : MonoBehaviour
         aimObject2 = Instantiate(aimPrefab, transform);
 
         // Need to flip when facing East to rotate correctly
-        if(direction > 4) {
+        if (direction > 4) {
 
             aimObject1.transform.RotateAround(transform.position, Vector3.forward, angle + 180.0f);
             aimObject2.transform.RotateAround(transform.position, Vector3.forward, angle);

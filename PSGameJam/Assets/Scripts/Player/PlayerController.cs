@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed;
 
     [SerializeField]
+    private float jetSpeed;
+    [SerializeField]
+    private float jetOffsetSpeed;
+
+    [SerializeField]
     private float changeDirectionTimer;
 
     [SerializeField]
@@ -33,9 +38,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject shotgunPrefab;
 
-
-    private Vector2 moveDirection;
-
     [SerializeField]
     private String[] typesOfWeapons = {
         "Why are we using key input 0.. GROSS. Need this as place holder for array. Until we actually want to use this.",
@@ -48,7 +50,9 @@ public class PlayerController : MonoBehaviour
     // N = 0, NE = 1, E = 2, SE = 3
     // S = 4, NW = 5, W = 6, SW = 7
     private int playerDirection;
+    private Vector2 moveDirection;
     private bool canMove;
+    private bool usingJets;
 
     private GameObject laserGO;
 
@@ -57,6 +61,7 @@ public class PlayerController : MonoBehaviour
     private void Start() {
         playerDirection = 4;
         canMove = true;
+        usingJets = false;
         moveDirection = new Vector2();
     }
 
@@ -64,8 +69,18 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        rig.linearVelocity = new Vector2(moveDirection.x * moveSpeed,
-                                         moveDirection.y * moveSpeed);
+        if(usingJets)
+        {
+            Vector2 vel = rig.linearVelocity + (moveDirection * jetOffsetSpeed);
+            if (vel.magnitude < jetSpeed)
+                rig.linearVelocity = vel;
+            else
+                rig.linearVelocity = vel.normalized * jetSpeed;
+        }
+        else
+        {
+            rig.linearVelocity = moveDirection * moveSpeed;
+        }
     }
 
     private void ChangeDirection() {
@@ -91,6 +106,17 @@ public class PlayerController : MonoBehaviour
 
             TimerManager.AddTimer(changeDir, changeDirectionTimer);
         }
+    }
+
+    public void JetBoost(InputAction.CallbackContext context) {
+        // Get direction of player and move
+        if (context.performed && canMove)
+        {
+            rig.linearVelocity = moveDirection * jetSpeed;
+            usingJets = true;
+        }
+        else if(context.canceled)
+            usingJets = false;
     }
 
     public void FireWeapon(InputAction.CallbackContext context) {
@@ -120,38 +146,44 @@ public class PlayerController : MonoBehaviour
     }
 
     public void FireLaser(InputAction.CallbackContext context) {
-        if(context.started) {
-            // Stop Player
-            moveDirection = Vector2.zero;
-            canMove = false;
+        if (!usingJets)
+        {
+            if (context.started)
+            {
+                // Stop Player
+                moveDirection = Vector2.zero;
+                canMove = false;
 
-            // Spawn aimer
-            laserGO = Instantiate(laserPrefab, transform);
-            laserGO.GetComponent<LaserLogic>().Charge(playerDirection);
-            Debug.Log(playerDirection);
+                // Spawn aimer
+                laserGO = Instantiate(laserPrefab, transform);
+                laserGO.GetComponent<LaserLogic>().Charge(playerDirection);
+            }
+            else if (context.canceled && laserGO != null)
+            {
+                laserGO.GetComponent<LaserLogic>().Fire();
+            }
         }
-        else if (context.canceled) {
-            laserGO.GetComponent<LaserLogic>().Fire();
-            canMove = true;
-        }
-
     }
 
     public void FireShotGun(InputAction.CallbackContext context) {
-        if(context.started) {
-            // Stop Player
-            moveDirection = Vector2.zero;
-            canMove = false;
+        if (!usingJets)
+        {
+            if (context.started)
+            {
+                // Stop Player
+                moveDirection = Vector2.zero;
+                canMove = false;
 
-            // Spawn aimer
-            shotgunGO = Instantiate(shotgunPrefab, transform);
-            shotgunGO.GetComponent<ShotgunLogic>().Charge(playerDirection);
+                // Spawn aimer
+                shotgunGO = Instantiate(shotgunPrefab, transform);
+                shotgunGO.GetComponent<ShotgunLogic>().Charge(playerDirection);
+            }
+            else if (context.canceled && shotgunGO != null)
+            {
+                shotgunGO.GetComponent<ShotgunLogic>().Fire();
+                canMove = true;
+            }
         }
-        else if (context.canceled) {
-            shotgunGO.GetComponent<ShotgunLogic>().Fire();
-            canMove = true;
-        }
-
     }
 
     public void TestPlaceWhate(InputAction.CallbackContext context) {
@@ -198,6 +230,10 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void SetMove(bool move) {
+        canMove = move;
     }
     
 }

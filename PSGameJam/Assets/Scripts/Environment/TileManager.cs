@@ -29,4 +29,12 @@ public class TileManager : MonoBehaviour
             //Debug.Log("test");
         }
     }
+    public static Vector2 rotate(Vector2 v, float delta)
+    {
+        float rad = Mathf.Deg2Rad * delta;
+        return new Vector2(
+            v.x * Mathf.Cos(rad) - v.y * Mathf.Sin(rad),
+            v.x * Mathf.Sin(rad) + v.y * Mathf.Cos(rad)
+        );
+    }
 }
