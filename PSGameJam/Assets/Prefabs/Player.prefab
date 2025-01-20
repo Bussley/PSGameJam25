@@ -168,7 +168,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5574682863096212209}
@@ -218,7 +218,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
+  m_Sprite: {fileID: 653505090, guid: c6196956c95d18446afdc571eb79acff, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -242,10 +242,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rig: {fileID: 2678468580882921569}
-  moveSpeed: 5
+  moveSpeed: 2
+  jetSpeed: 4
+  jetOffsetSpeed: 0.1
+  changeDirectionTimer: 0.05
   CurrentWeapon: 
   playerInput: {fileID: -6270165054496254709, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   laserPrefab: {fileID: 8687622037540719887, guid: 59c14a14db685d643af5b6426bce146f, type: 3}
+  shotgunPrefab: {fileID: 8687622037540719887, guid: 10332563ebaab30488e887948cea98ff, type: 3}
   typesOfWeapons:
   - Why are we using key input 0.. GROSS. Need this as place holder for array. Until
     we actually want to use this.
@@ -393,6 +397,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 914565cf-b675-4408-a1a7-87a31a0b153d
     m_ActionName: 'Player/Numbers[/Keyboard/1,/Keyboard/2,/Keyboard/3,/Keyboard/4]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3351602065597119800}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: JetBoost
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9a3bc7f5-c754-4b56-b3bf-4af3e485f41b
+    m_ActionName: 'Player/JetBoost[/Keyboard/shift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -435,8 +455,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    pivot: {x: 0.5, y: 0.12}
+    oldSize: {x: 2, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
