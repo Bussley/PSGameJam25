@@ -44,7 +44,7 @@ public class CropLogic : MonoBehaviour
                 GrowTask();
             };
 
-            Debug.Log(growthPercentage);
+            //Debug.Log(growthPercentage);
             TimerManager.AddTimer(repeatGrow, cropSO.growSpeedTime);
         }
         else { // Switch from growing crop to ripe
