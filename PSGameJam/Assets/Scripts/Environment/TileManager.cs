@@ -26,7 +26,7 @@ public class TileManager : MonoBehaviour
         if (gameObjectAtPosition == null)
         {
             map.SetTile(grid_pos, new Tile() { gameObject = wheatTile });
-            Debug.Log("test");
+            //Debug.Log("test");
         }
     }
 }
