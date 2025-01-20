@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -17,8 +18,6 @@ public class LaserLogic : MonoBehaviour
     private GameObject aimObject2;
     private GameObject laserObject1;
     private GameObject laserObject2;
-    private Vector2 laser1Destination;
-    private Vector2 laser2Destination;
 
     private bool fired;
     private bool aimCreated;
@@ -54,15 +53,13 @@ public class LaserLogic : MonoBehaviour
         fired = true;
 
         // Spawn laser 1 and get direction it is heading
-        laser1Destination = aimObject1.transform.position - transform.position;
-        Vector2 laser1Dir = laser1Destination.normalized;
+        Vector2 laser1Dir = (aimObject1.transform.position - transform.position).normalized;
         laserObject1 = Instantiate(laserPrefab);
         laserObject1.transform.position = transform.position;
         laserObject1.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(laser1Dir.x * laserSpeed, laser1Dir.y * laserSpeed);
 
         // Spawn laser 2 and get direction it is heading
-        laser2Destination = aimObject2.transform.position - transform.position;
-        Vector2 laser2Dir = laser2Destination.normalized;
+        Vector2 laser2Dir = (aimObject2.transform.position - transform.position).normalized;
         laserObject2 = Instantiate(laserPrefab);
         laserObject2.transform.position = transform.position;
         laserObject2.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(laser2Dir.x * laserSpeed, laser2Dir.y * laserSpeed);
