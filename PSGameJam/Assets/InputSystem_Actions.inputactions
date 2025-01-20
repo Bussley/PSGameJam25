@@ -36,6 +36,9 @@
                     "name": "Spacebar",
                     "type": "Button",
                     "id": "f5a5d9a0-ac5d-47bd-a210-089e0f8ca0f0",
+                    "name": "JetBoost",
+                    "type": "Button",
+                    "id": "9a3bc7f5-c754-4b56-b3bf-4af3e485f41b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -183,6 +186,12 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Spacebar",
+                    "id": "346aba3d-7dfa-48c1-9ce7-b0b253c28514",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "JetBoost",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
