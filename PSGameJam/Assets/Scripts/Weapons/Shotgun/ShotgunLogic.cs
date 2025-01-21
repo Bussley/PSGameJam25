@@ -7,11 +7,7 @@ using UnityEngine;
 public class ShotgunLogic : MonoBehaviour
 {
     [SerializeField]
-    private float rotateAmount;
-
-    [SerializeField]
     private float randomMinRange;
-
     [SerializeField]
     private float randomMaxRange;
     [SerializeField]

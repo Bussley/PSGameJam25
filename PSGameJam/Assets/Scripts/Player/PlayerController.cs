@@ -237,15 +237,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void TestPlaceWhate(InputAction.CallbackContext context) {
-        //Test logic
-        if (context.performed)
-        {
-            Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            TileManager.ChangeTile(mouse_pos);
-        }
-    }
-
     public void SwitchWeapons (InputAction.CallbackContext context) 
     {
         int keyNumPress = Convert.ToInt16(context.control.name);
