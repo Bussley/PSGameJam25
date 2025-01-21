@@ -6,7 +6,7 @@ public class HarvestBladeLogic : MonoBehaviour
     private float arcLength;
 
     [SerializeField]
-    private float rotateAmount;
+    private float rotateSpeed;
 
     [SerializeField]
     private Vector2 rotatePoint;
@@ -23,7 +23,7 @@ public class HarvestBladeLogic : MonoBehaviour
     private void Update() {
 
         if (curTime < duration)
-            transform.RotateAround(offsetPosition, Vector3.forward, -rotateAmount);
+            transform.RotateAround(offsetPosition, Vector3.forward, -rotateSpeed);
         else
         {
             transform.parent.GetComponent<PlayerController>().SetMove(true);
@@ -49,7 +49,7 @@ public class HarvestBladeLogic : MonoBehaviour
         Vector3 xRot = TileManager.rotate(new Vector2(-rotatePoint.x, 0), startAngle);
 
         startAngle += arcLength;
-        duration = (arcLength * 2) / rotateAmount;
+        duration = (arcLength * 2) / rotateSpeed;
 
         // Set position to offset Position
         offsetPosition += xRot;

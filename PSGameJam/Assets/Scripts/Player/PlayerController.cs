@@ -12,23 +12,14 @@ using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
-
-    [SerializeField]
-    private Rigidbody2D rig;
-
     [SerializeField]
     private float moveSpeed;
-
     [SerializeField]
     private float jetSpeed;
     [SerializeField]
     private float jetOffsetSpeed;
-
     [SerializeField]
     private float changeDirectionTimer;
-
-    [SerializeField]
-    private string CurrentWeapon;
 
     [SerializeField]
     private InputActionReference playerInput;
@@ -42,10 +33,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject harvestBladePrefab;
 
-    [SerializeField]
-    private Animator playerAnimatior;
-
-    [SerializeField]
     private String[] typesOfWeapons = {
         "Why are we using key input 0.. GROSS. Need this as place holder for array. Until we actually want to use this.",
         "lazer",
@@ -58,8 +45,15 @@ public class PlayerController : MonoBehaviour
     // S = 4, NW = 5, W = 6, SW = 7
     private int playerDirection;
     private Vector2 moveDirection;
+    private Vector2 lastMoveDirection;
     private bool canMove;
     private bool usingJets;
+
+    private Rigidbody2D rig;
+
+    private Animator playerAnimatior;
+
+    private string CurrentWeapon;
 
     private GameObject laserGO;
 
@@ -68,11 +62,12 @@ public class PlayerController : MonoBehaviour
     private GameObject harvestBladeGO;
 
     private void Awake() {
-        playerDirection = 4;
+        playerDirection = 1;
         canMove = true;
         usingJets = false;
         moveDirection = new Vector2();
         playerAnimatior = GetComponent<Animator>();
+        rig = GetComponent<Rigidbody2D>();
     }
 
     private void Update() {
@@ -91,21 +86,14 @@ public class PlayerController : MonoBehaviour
         {
             rig.linearVelocity = moveDirection * moveSpeed;
             
-            if(moveDirection.magnitude != 0)
-            {
-            
-            playerAnimatior.SetFloat("Horizontal", moveDirection.x);
-            playerAnimatior.SetFloat("Vertical", moveDirection.y);
-            
-               
-            }
+            playerAnimatior.SetFloat("Horizontal", lastMoveDirection.x);
+            playerAnimatior.SetFloat("Vertical", lastMoveDirection.y);
             playerAnimatior.SetFloat("Magnitude", moveDirection.magnitude);
-            playerAnimatior.SetInteger("Direction", playerDirection);
-            
         }
     }
 
     private void ChangeDirection() {
+        lastMoveDirection = moveDirection;
         playerDirection = (int)(Vector2.Angle(Vector2.up, moveDirection) / 45.0f);
 
         if (moveDirection.x < 0)
@@ -179,7 +167,8 @@ public class PlayerController : MonoBehaviour
             }
             else if (context.canceled && laserGO != null)
             {
-                laserGO.GetComponent<LaserLogic>().Fire();
+                if(laserGO != null && !laserGO.GetComponent<LaserLogic>().Fired())
+                    laserGO.GetComponent<LaserLogic>().Fire();
             }
         }
     }
@@ -202,15 +191,6 @@ public class PlayerController : MonoBehaviour
                 shotgunGO.GetComponent<ShotgunLogic>().Fire();
                 canMove = true;
             }
-        }
-    }
-
-    public void TestPlaceWhate(InputAction.CallbackContext context) {
-        //Test logic
-        if (context.performed)
-        {
-            Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            TileManager.ChangeTile(mouse_pos);
         }
     }
 

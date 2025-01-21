@@ -17,6 +17,8 @@ public class ShotgunLogic : MonoBehaviour
     [SerializeField]
     private float shotgunSpeed;
     [SerializeField]
+    private int seedCount;
+    [SerializeField]
     private GameObject aimPrefab;
     [SerializeField]
     private GameObject shotgunPrefab;
@@ -27,7 +29,7 @@ public class ShotgunLogic : MonoBehaviour
     private float maxAimDegree;
 
     public void Fire() {
-        for (int i = 0; i<= 3; i++)
+        for (int i = 0; i< seedCount; i++)
         {
             var ran = UnityEngine.Random.Range(minAimDegree, maxAimDegree);
             GameObject testme;

@@ -6,9 +6,6 @@ public class CropLogic : MonoBehaviour
     [SerializeField]
     private CropScriptableObject cropSO;
 
-    [SerializeField]
-    private float dryCropTimer;
-
     // Grows from 0 to 100, each crop has different stages based on percentage:
     // SEEDED (brand new crop, denotes early life. First 10% of life)
     // YOUNG (younger half of growing. 20-70% of growing)
@@ -20,7 +17,7 @@ public class CropLogic : MonoBehaviour
 
     private float health;
 
-    private bool watered;
+    private float hydrationlevel;
 
     private void Start() {
         growthPercentage = 0;
@@ -53,12 +50,6 @@ public class CropLogic : MonoBehaviour
     }
 
     public void WaterCrop() {
-        watered = true;
 
-        Action dryCrop = () => {
-            watered = false;
-        };
-
-        TimerManager.AddTimer(dryCrop, dryCropTimer);
     }
 }

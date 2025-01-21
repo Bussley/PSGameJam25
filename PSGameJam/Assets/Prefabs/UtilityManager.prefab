@@ -57,5 +57,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd14e8813a9063478aaa679ae4efc2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setMap: {fileID: 0}
-  setWheatTile: {fileID: 8682874596834359429, guid: a0f451c057d971847804206450d91fb6, type: 3}
+  setGroundMap: {fileID: 0}
+  tilledSoilPrefab: {fileID: 7210712777747002729, guid: 2ea0294d3dc270f40b3b8810e6bd58a6, type: 3}

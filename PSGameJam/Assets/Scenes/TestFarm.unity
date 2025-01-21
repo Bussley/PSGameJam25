@@ -23053,6 +23053,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3351602065597119800, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+      propertyPath: jetSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3351602065597119800, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+      propertyPath: moveSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3351602065597119800, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+      propertyPath: jetOffsetSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3351602065597119800, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
       propertyPath: playerAnimation
       value: 
       objectReference: {fileID: 9100000, guid: ff88d61ad46f07843922bc638191ca14, type: 2}
@@ -23060,6 +23072,10 @@ PrefabInstance:
       propertyPath: harvestBladePrefab
       value: 
       objectReference: {fileID: 7632485419616046028, guid: d46d9bd770db5854fba4db2d45f021a4, type: 3}
+    - target: {fileID: 3351602065597119800, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+      propertyPath: changeDirectionTimer
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 4763989127697635506, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.63
@@ -23133,13 +23149,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 306338980459476179, guid: 4321e5701a458254ba7571a69210dd51, type: 3}
-      propertyPath: setMap
+      propertyPath: setGroundMap
       value: 
       objectReference: {fileID: 1338263966}
-    - target: {fileID: 306338980459476179, guid: 4321e5701a458254ba7571a69210dd51, type: 3}
-      propertyPath: tilledSoilPrefab
-      value: 
-      objectReference: {fileID: 7210712777747002729, guid: 2ea0294d3dc270f40b3b8810e6bd58a6, type: 3}
     - target: {fileID: 1291524959347015240, guid: 4321e5701a458254ba7571a69210dd51, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.48369

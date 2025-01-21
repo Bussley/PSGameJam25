@@ -5,27 +5,29 @@ using UnityEngine.Tilemaps;
 public class TileManager : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap setMap;
+    private Tilemap setGroundMap;
     [SerializeField]
     private GameObject tilledSoilPrefab;
 
-    private static Tilemap map;
+    private static Tilemap groundMap;
     private static GameObject tilledSoil;
 
     private void Awake()
     {
-        map = setMap;
+        groundMap = setGroundMap;
         tilledSoil = tilledSoilPrefab;
     }
 
-    public static void ChangeTile(Vector2 pos)
+    public static void LaserTile(Vector2 pos)
     {
-        Vector3Int grid_pos = map.WorldToCell(pos);
+        Vector3Int grid_pos = groundMap.WorldToCell(pos);
 
-        //GameObject gameObjectAtPosition = map.GetInstantiatedObject(grid_pos);
-        if (map.GetTile(grid_pos).name == "Terrain_01_8")
+        //Check bounds too
+        TileBase t = groundMap.GetTile(grid_pos);
+
+        if (t != null && t.name == "Terrain_01_8")
         {
-            map.SetTile(grid_pos, new Tile() { gameObject = tilledSoil });
+            groundMap.SetTile(grid_pos, new Tile() { gameObject = tilledSoil });
         }
     }
     public static Vector2 rotate(Vector2 v, float delta)

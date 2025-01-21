@@ -7,9 +7,11 @@ using UnityEngine;
 public class LaserLogic : MonoBehaviour
 {
     [SerializeField]
-    private float rotateAmount;
+    private float aimRotateSpeed;
     [SerializeField]
-    private float laserSpeed;
+    private float aimStartArc;
+    [SerializeField]
+    private float laserBeamSpeed;
     [SerializeField]
     private GameObject aimPrefab;
     [SerializeField]
@@ -19,8 +21,10 @@ public class LaserLogic : MonoBehaviour
     private GameObject aimObject2;
     private GameObject laserObject1;
     private GameObject laserObject2;
-    private float duration;
-    private float currentDuration;
+    private float maxAimDuration;
+    private float currentAimDuration;
+    private float maxLaserBeamDuration;
+    private float currentLaserBeamDuration;
 
     private bool fired;
     private bool aimCreated;
@@ -28,7 +32,8 @@ public class LaserLogic : MonoBehaviour
     void Awake() {
         fired = false;
         aimCreated = false;
-        currentDuration = 0;
+        currentLaserBeamDuration = 0;
+        currentAimDuration = 0;
     }
 
     void Update()
@@ -38,25 +43,34 @@ public class LaserLogic : MonoBehaviour
             RotateAim();
         else if(fired)
         {
-            if (currentDuration < duration)
-                currentDuration++;
-            else
+            if (currentLaserBeamDuration > maxLaserBeamDuration)
             {
                 transform.parent.GetComponent<PlayerController>().SetMove(true);
                 Destroy(laserObject1);
                 Destroy(laserObject2);
                 Destroy(gameObject);
             }
+            currentLaserBeamDuration++;
         }
     }
 
     private float DetermineSpawnAngle(int direction) {
-        return Mathf.Abs(4 - direction) * 45.0f;
+
+        float startAngle = 45 * (6 - direction);
+        if (direction > 4)
+            startAngle = 45 * (direction - 6);
+
+        return startAngle + aimStartArc;
     }
 
     private void RotateAim() {
-        aimObject1.transform.RotateAround(transform.position, Vector3.forward, rotateAmount);
-        aimObject2.transform.RotateAround(transform.position, Vector3.forward, -rotateAmount);
+        aimObject1.transform.RotateAround(transform.position, Vector3.forward, aimRotateSpeed);
+        aimObject2.transform.RotateAround(transform.position, Vector3.forward, -aimRotateSpeed);
+
+        if (maxAimDuration < currentAimDuration)
+            Fire();
+
+        currentAimDuration++;
     }
 
     // Return duration to let player move again after lasers are done
@@ -69,17 +83,17 @@ public class LaserLogic : MonoBehaviour
         laserObject1 = Instantiate(laserPrefab);
         laserObject1.transform.rotation = aimObject1.transform.rotation;
         laserObject1.transform.position = transform.position + (laser1Dir * laserObject1.transform.lossyScale.x/2);
-        laserObject1.GetComponent<LaserBeamLogic>().ExpandBeam(laserSpeed, laser1Dir);
+        laserObject1.GetComponent<LaserBeamLogic>().ExpandBeam(laserBeamSpeed, laser1Dir);
 
         // Spawn laser 2 and get direction it is heading
         Vector3 laser2Dir = (aimObject2.transform.position - transform.position).normalized;
         laserObject2 = Instantiate(laserPrefab);
         laserObject2.transform.rotation = aimObject2.transform.rotation;
         laserObject2.transform.position = transform.position + (laser2Dir * laserObject2.transform.lossyScale.x/2);
-        laserObject2.GetComponent<LaserBeamLogic>().ExpandBeam(laserSpeed, laser2Dir);
+        laserObject2.GetComponent<LaserBeamLogic>().ExpandBeam(laserBeamSpeed, laser2Dir);
 
         // Get amount of frames it will take to complete
-        duration = (aimObject1.transform.lossyScale.x - laserObject1.transform.lossyScale.x) / laserSpeed;
+        maxLaserBeamDuration = (aimObject1.transform.lossyScale.x - laserObject1.transform.lossyScale.x) / laserBeamSpeed;
 
         Destroy(aimObject1);
         Destroy(aimObject2);
@@ -88,22 +102,18 @@ public class LaserLogic : MonoBehaviour
     public void Charge(int direction) {
         //Determine Starting angle
         float angle = DetermineSpawnAngle(direction);
-        Debug.Log(angle);
 
         aimObject1 = Instantiate(aimPrefab, transform);
         aimObject2 = Instantiate(aimPrefab, transform);
 
-        // Need to flip when facing East to rotate correctly
-        if (direction > 4) {
+        aimObject1.transform.RotateAround(transform.position, Vector3.forward, angle + (aimStartArc * 2));
+        aimObject2.transform.RotateAround(transform.position, Vector3.forward, angle);
 
-            aimObject1.transform.RotateAround(transform.position, Vector3.forward, angle + 180.0f);
-            aimObject2.transform.RotateAround(transform.position, Vector3.forward, angle);
-        }
-        else {
-            aimObject1.transform.RotateAround(transform.position, Vector3.forward, angle);
-            aimObject2.transform.RotateAround(transform.position, Vector3.forward, angle + 180.0f);
-        }
-
+        maxAimDuration = aimStartArc / aimRotateSpeed;
         aimCreated = true;
+    }
+
+    public bool Fired() {
+        return fired;
     }
 }

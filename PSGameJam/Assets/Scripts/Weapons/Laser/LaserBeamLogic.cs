@@ -9,7 +9,7 @@ public class LaserBeamLogic : MonoBehaviour
     {
         transform.localScale = transform.localScale + new Vector3(speed, 0.0f, 0.0f);
         transform.position = transform.position + (dir * (speed/2));
-        TileManager.ChangeTile(transform.position + (dir * (transform.lossyScale.x/2)));
+        TileManager.LaserTile(transform.position + (dir * (transform.lossyScale.x/2)));
     }
 
     public void ExpandBeam(float _speed, Vector3 _dir) {
