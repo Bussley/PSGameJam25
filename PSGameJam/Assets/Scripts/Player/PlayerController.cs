@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
             playerAnimatior.SetFloat("Horizontal", moveDirection.x);
             playerAnimatior.SetFloat("Vertical", moveDirection.y);
             playerAnimatior.SetFloat("Magnitude", moveDirection.magnitude);
+            playerAnimatior.SetInteger("Direction", playerDirection);
         }
     }
 
