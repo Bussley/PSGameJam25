@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using NUnit.Framework.Internal;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -42,6 +43,9 @@ public class PlayerController : MonoBehaviour
     private GameObject harvestBladePrefab;
 
     [SerializeField]
+    private Animator playerAnimatior;
+
+    [SerializeField]
     private String[] typesOfWeapons = {
         "Why are we using key input 0.. GROSS. Need this as place holder for array. Until we actually want to use this.",
         "lazer",
@@ -63,11 +67,12 @@ public class PlayerController : MonoBehaviour
 
     private GameObject harvestBladeGO;
 
-    private void Start() {
+    private void Awake() {
         playerDirection = 4;
         canMove = true;
         usingJets = false;
         moveDirection = new Vector2();
+        playerAnimatior = GetComponent<Animator>();
     }
 
     private void Update() {
@@ -85,11 +90,15 @@ public class PlayerController : MonoBehaviour
         else
         {
             rig.linearVelocity = moveDirection * moveSpeed;
+            
+            playerAnimatior.SetFloat("Horizontal", moveDirection.x);
+            playerAnimatior.SetFloat("Vertical", moveDirection.y);
+            playerAnimatior.SetFloat("Magnitude", moveDirection.magnitude);
+            playerAnimatior.SetInteger("Direction", playerDirection);
         }
     }
 
     private void ChangeDirection() {
-
         playerDirection = (int)(Vector2.Angle(Vector2.up, moveDirection) / 45.0f);
 
         if (moveDirection.x < 0)
