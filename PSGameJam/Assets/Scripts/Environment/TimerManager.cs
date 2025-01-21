@@ -1,24 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class TimerManager : MonoBehaviour
 {
-    private static List<Tuple<Action, float>> timerList = new List<Tuple<Action, float>>();
+    public static async void AddTimer(Action func, float duration) {
+        var end = Time.time + duration;
 
-    private void Update() {
-        // Loop through and call any actions that met timer
-        for (int i = 0; i < timerList.Count; i++)
+        while(Time.time < end)
         {
-            if (timerList[i].Item2 <= Time.time)
-            {
-                timerList[i].Item1();
-            }
+            await Task.Yield();
         }
-        timerList.RemoveAll(item => item.Item2 <= Time.time);
+
+        func();
     }
 
-    public static void AddTimer(Action func, float duration) {
-        timerList.Add(new Tuple<Action, float>(func, Time.time + duration));
-    }
 }

@@ -8,6 +8,7 @@ public class ShotgunSeedLogic : MonoBehaviour
 
         Action shotgunToLandFunc = () =>
         {
+            TileManager.SeedTile(transform.position);
             Destroy(gameObject);
         };
         TimerManager.AddTimer(shotgunToLandFunc, time);

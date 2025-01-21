@@ -23,6 +23,7 @@ public class CropLogic : MonoBehaviour
         growthPercentage = 0;
         health = cropSO.maxHealth;
         mSprite = GetComponent<SpriteRenderer>();
+        mSprite.sprite = cropSO.seedSprite;
         GrowTask();
     }
     

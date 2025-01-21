@@ -3,7 +3,10 @@ using UnityEngine;
 public class SoilLogic : MonoBehaviour
 {
     [SerializeField]
-    private CropScriptableObject crop;
+    private GameObject potatoPrefab;
+
+    private GameObject crop;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,5 +17,10 @@ public class SoilLogic : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void AddSeed() {
+        if(crop == null)
+            crop = Instantiate(potatoPrefab, transform);
     }
 }

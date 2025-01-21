@@ -11,9 +11,9 @@ public class CropScriptableObject : ScriptableObject
     public int growToYoungCrop;
     public int growToGrowingCrop;
 
-    public float amountWaterNeeded;
     public float maxHealth;
 
+    public Sprite seedSprite;
     public Sprite youngCropSprite;
     public Sprite growingCropSprite;
     public Sprite ripeCropSprite;

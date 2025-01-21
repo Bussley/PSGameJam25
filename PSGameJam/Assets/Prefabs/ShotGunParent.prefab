@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e4f8a14ca65e74988b8b8058d85c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomMinRange: 0
-  randomMaxRange: 2
-  shotgunSpeed: 1
-  seedCount: 4
+  randomMinRange: 0.1
+  randomMaxRange: 0.4
+  shotgunSpeed: 5
+  seedCount: 8
   aimPrefab: {fileID: 965893174730871508, guid: f4ca80542a83ffe4bb7ea11981034b62, type: 3}
   shotgunPrefab: {fileID: 8762243788235311304, guid: c271be9cdc8058847bb428c10fed7c85, type: 3}

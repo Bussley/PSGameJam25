@@ -25,7 +25,7 @@ public class TileManager : MonoBehaviour
         TileBase t = groundMap.GetTile(grid_pos);
 
         //Check if we are hitting anything worth tilling
-        if (t != null && t.name == "Terrain_01_8")
+        if (t != null && t.name == "Grass_Center")
         {
             groundMap.SetTile(grid_pos, new Tile() { gameObject = tilledSoil });
         }
@@ -39,7 +39,7 @@ public class TileManager : MonoBehaviour
         
         if(t != null && t.tag == "Soil")
         {
-
+            t.GetComponent<SoilLogic>().AddSeed();
         }
     }
 

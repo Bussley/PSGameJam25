@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1520352019, guid: c6196956c95d18446afdc571eb79acff, type: 3}
+  m_Sprite: {fileID: 401971053, guid: c6196956c95d18446afdc571eb79acff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,8 +126,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.75}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.38}
+    oldSize: {x: 1, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -152,3 +152,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310fe06dc5d858a49bb853c4848f1f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potatoPrefab: {fileID: 8771309082223981841, guid: 0bab12f052b6a5649b8eaad075dd5282, type: 3}
