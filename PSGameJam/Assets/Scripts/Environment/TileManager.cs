@@ -22,14 +22,27 @@ public class TileManager : MonoBehaviour
     {
         Vector3Int grid_pos = groundMap.WorldToCell(pos);
 
-        //Check bounds too
         TileBase t = groundMap.GetTile(grid_pos);
 
-        if (t != null && t.name == "Terrain_01_8")
+        //Check if we are hitting anything worth tilling
+        if (t != null && t.name == "Grass_Center")
         {
             groundMap.SetTile(grid_pos, new Tile() { gameObject = tilledSoil });
         }
     }
+
+    public static void SeedTile(Vector2 pos)
+    {
+        Vector3Int grid_pos = groundMap.WorldToCell(pos);
+
+        GameObject t = groundMap.GetInstantiatedObject(grid_pos);
+        
+        if(t != null && t.tag == "Soil")
+        {
+            t.GetComponent<SoilLogic>().AddSeed();
+        }
+    }
+
     public static Vector2 rotate(Vector2 v, float delta)
     {
         float rad = Mathf.Deg2Rad * delta;

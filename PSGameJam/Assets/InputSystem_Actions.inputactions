@@ -33,9 +33,18 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Spacebar",
+                    "type": "Button",
+                    "id": "f5a5d9a0-ac5d-47bd-a210-089e0f8ca0f0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "JetBoost",
                     "type": "Button",
-                    "id": "9a3bc7f5-c754-4b56-b3bf-4af3e485f41b",
+                    "id": "5c80d7bc-19e3-42c2-aa63-eb5a7c2ddb54",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -177,11 +186,33 @@
                 },
                 {
                     "name": "",
-                    "id": "346aba3d-7dfa-48c1-9ce7-b0b253c28514",
+                    "id": "716c98bd-9718-40a3-b22b-b7af220f6b03",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Numbers",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2897c10d-0fbb-4280-9c53-eba3f2ff9815",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Spacebar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "05f576c7-ac49-40d3-9935-b7b0c03502bf",
                     "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "JetBoost",
                     "isComposite": false,
                     "isPartOfComposite": false

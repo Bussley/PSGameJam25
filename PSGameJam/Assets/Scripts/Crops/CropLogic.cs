@@ -17,15 +17,17 @@ public class CropLogic : MonoBehaviour
 
     private float health;
 
-    private float hydrationlevel;
+    private float hydrationLevel;
 
     private void Start() {
         growthPercentage = 0;
         health = cropSO.maxHealth;
         mSprite = GetComponent<SpriteRenderer>();
+        mSprite.sprite = cropSO.seedSprite;
         GrowTask();
+        Dehydrate();
     }
-    
+
     private void GrowTask() {
         // Check if crop is still growing
         if (growthPercentage < 100) {
@@ -36,12 +38,14 @@ public class CropLogic : MonoBehaviour
                 mSprite.sprite = cropSO.growingCropSprite;
             }
 
+
             Action repeatGrow = () => {
-                growthPercentage += 1;
+                if(hydrationLevel > 0)
+                    growthPercentage += 1;
                 GrowTask();
             };
 
-            //Debug.Log(growthPercentage);
+            // Repeat this task
             TimerManager.AddTimer(repeatGrow, cropSO.growSpeedTime);
         }
         else { // Switch from growing crop to ripe
@@ -49,7 +53,28 @@ public class CropLogic : MonoBehaviour
         }
     }
 
-    public void WaterCrop() {
+    private void Dehydrate() {
+        // Maybe move implmentation to soil logic
+        // Crops die if hydration level is 0?
+        if(hydrationLevel == 0) {
+            transform.parent.GetComponent<SoilLogic>().Dry();
+            
+            //Just so it doesn't keep counting down for now
+            hydrationLevel -= 1;
+        }
+        else if (hydrationLevel > 1)
+            hydrationLevel -= 1;
 
+        Action repeatDehydration = () =>
+        {
+            Dehydrate();
+        };
+
+        TimerManager.AddTimer(repeatDehydration, CropScriptableObject.DehydrationSpeedTime);
+    }
+
+    public void WaterCrop() {
+        hydrationLevel = 100;
+        transform.parent.GetComponent<SoilLogic>().Watered();
     }
 }
