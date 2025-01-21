@@ -23101,6 +23101,33 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1557699488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6493987535443878733, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+  m_PrefabInstance: {fileID: 603871219011680829}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1557699495
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557699488}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ff88d61ad46f07843922bc638191ca14, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1588758303
 GameObject:
   m_ObjectHideFlags: 0
@@ -23156,6 +23183,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3351602065597119800, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+      propertyPath: playerAnimation
+      value: 
+      objectReference: {fileID: 9100000, guid: ff88d61ad46f07843922bc638191ca14, type: 2}
+    - target: {fileID: 3351602065597119800, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
       propertyPath: harvestBladePrefab
       value: 
       objectReference: {fileID: 7632485419616046028, guid: d46d9bd770db5854fba4db2d45f021a4, type: 3}
@@ -23199,6 +23230,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6212975701205849594, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212975701205849594, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212975701205849594, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6493987535443878733, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -23206,7 +23249,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6493987535443878733, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1557699495}
   m_SourcePrefab: {fileID: 100100000, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
 --- !u!1001 &1609182825816836125
 PrefabInstance:
