@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5838844194541503349}
-  - component: {fileID: 9101862506855760165}
+  - component: {fileID: -110640372381992473}
   m_Layer: 0
   m_Name: FireHoseParent
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9101862506855760165
+--- !u!114 &-110640372381992473
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,12 +41,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 229683154722142551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8e4f8a14ca65e74988b8b8058d85c0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b6ae3f14041531458c39456804fe54c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateAmount: 0.1
-  randomMinRange: 0
-  randomMaxRange: 2
-  shotgunSpeed: 1
   aimPrefab: {fileID: 965893174730871508, guid: f4ca80542a83ffe4bb7ea11981034b62, type: 3}
-  shotgunPrefab: {fileID: 8762243788235311304, guid: c271be9cdc8058847bb428c10fed7c85, type: 3}
+  firehosePrefab: {fileID: 7100451901593884084, guid: 6dcefc81d191b7342bb7c39e70d6ed0e, type: 3}
+  firehoseSpeed: 1

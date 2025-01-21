@@ -30,20 +30,20 @@ public class ShotgunLogic : MonoBehaviour
         for (int i = 0; i<= 3; i++)
         {
             var ran = UnityEngine.Random.Range(minAimDegree, maxAimDegree);
-            GameObject testme;
+            GameObject bullet;
             // Get pellete direction based on rotation
             Vector2 shotgunDir = TileManager.rotate(Vector2.left, ran).normalized;
-            testme = Instantiate(shotgunPrefab);
-            testme.transform.position = transform.position;
-            testme.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(shotgunDir.x * shotgunSpeed, shotgunDir.y * shotgunSpeed);
+            bullet = Instantiate(shotgunPrefab);
+            bullet.transform.position = transform.position;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(shotgunDir.x * shotgunSpeed, shotgunDir.y * shotgunSpeed);
 
             float seedTime = UnityEngine.Random.Range(randomMinRange,randomMaxRange);
-            testme.GetComponent<ShotgunSeedLogic>().RemoveShotgunBullet(seedTime);
+            bullet.GetComponent<ShotgunSeedLogic>().RemoveShotgunBullet(seedTime);
         }
         Destroy(gameObject);
     }
 
-    public void Charge(int direction)
+    public void BulletSpread(int direction)
     {
         minAimDegree = 45 * (7 - direction);
         if (direction > 4)

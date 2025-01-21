@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e4f8a14ca65e74988b8b8058d85c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateAmount: 0.1
+  rotateAmount: 0
   randomMinRange: 0
   randomMaxRange: 2
   shotgunSpeed: 1

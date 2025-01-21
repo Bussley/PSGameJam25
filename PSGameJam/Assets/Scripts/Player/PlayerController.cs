@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
 using NUnit.Framework.Internal;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
@@ -39,17 +40,20 @@ public class PlayerController : MonoBehaviour
     private GameObject shotgunPrefab;
 
     [SerializeField]
+    private GameObject fireHosePrefab;
+
     private String[] typesOfWeapons = {
-        "none",
-        "sword",
-        "firehose",
-        "shotgun",
-        "lazer",
+        "none", // 0
+        "sword", // 1
+        "firehose", // 2
+        "shotgun", // 3
+        "lazer", // 4
     };
 
     // N = 0, NE = 1, E = 2, SE = 3
     // S = 4, NW = 5, W = 6, SW = 7
     private int playerDirection;
+    private float waterStartChargeTime;
     private Vector2 moveDirection;
     private bool canMove;
     private bool usingJets;
@@ -57,6 +61,7 @@ public class PlayerController : MonoBehaviour
     private GameObject laserGO;
 
     private GameObject shotgunGO;
+    private GameObject firehoseGO;
 
     private void Start() {
         playerDirection = 4;
@@ -129,20 +134,29 @@ public class PlayerController : MonoBehaviour
         }
         else if (typesOfWeapons[1] == CurrentWeapon)
         {
+            Debug.Log("Swing Sword");
         }
         else if (typesOfWeapons[2] == CurrentWeapon)
         {
-            FireLaser(context);
+            if (context.action.name == "Spacebar") {
+                Debug.Log("Spraying Water!");
+                FireWaterHose(context);
+            }
+
+            
         } 
         else if (typesOfWeapons[3] == CurrentWeapon)
         {
-            FireShotGun(context);
+            if (context.action.name == "Cursor") {
+                FireShotGun(context);
+                Debug.Log(context.action.name);
+            }
         } 
         else if (typesOfWeapons[4] == CurrentWeapon)
         {
-        }
-        else if (typesOfWeapons[5] == CurrentWeapon)
-        {
+            if (context.action.name == "Cursor") {
+                FireLaser(context);
+            }
         }
     }
 
@@ -177,11 +191,35 @@ public class PlayerController : MonoBehaviour
 
                 // Spawn aimer
                 shotgunGO = Instantiate(shotgunPrefab, transform);
-                shotgunGO.GetComponent<ShotgunLogic>().Charge(playerDirection);
+                shotgunGO.GetComponent<ShotgunLogic>().BulletSpread(playerDirection);
             }
             else if (context.canceled && shotgunGO != null)
             {
                 shotgunGO.GetComponent<ShotgunLogic>().Fire();
+                canMove = true;
+            }
+        }
+    }
+
+    public void FireWaterHose(InputAction.CallbackContext context) {
+        if (!usingJets)
+        {
+            if (context.started)
+            {
+                waterStartChargeTime = Time.time;
+                // Stop Player
+                moveDirection = Vector2.zero;
+                canMove = false;
+
+                // Spawn aimer
+                firehoseGO = Instantiate(fireHosePrefab, transform);
+                firehoseGO.GetComponent<FireHoseLogic>().WaterSpread(playerDirection);
+            }
+            else if (context.canceled && firehoseGO != null)
+            {
+                var endTime = Time.time;
+                var heldTime = endTime - waterStartChargeTime; 
+                firehoseGO.GetComponent<FireHoseLogic>().SprayWater(heldTime);
                 canMove = true;
             }
         }
