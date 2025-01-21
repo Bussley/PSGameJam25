@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour
     private GameObject shotgunPrefab;
 
     [SerializeField]
+    private GameObject harvestBladePrefab;
+
+    [SerializeField]
     private String[] typesOfWeapons = {
         "Why are we using key input 0.. GROSS. Need this as place holder for array. Until we actually want to use this.",
         "lazer",
@@ -57,6 +60,8 @@ public class PlayerController : MonoBehaviour
     private GameObject laserGO;
 
     private GameObject shotgunGO;
+
+    private GameObject harvestBladeGO;
 
     private void Start() {
         playerDirection = 4;
@@ -126,9 +131,6 @@ public class PlayerController : MonoBehaviour
         if (typesOfWeapons[0] == CurrentWeapon)
         {
         }
-        else if (typesOfWeapons[0] == CurrentWeapon)
-        {
-        }
         else if (typesOfWeapons[1] == CurrentWeapon)
         {
             FireLaser(context);
@@ -139,6 +141,7 @@ public class PlayerController : MonoBehaviour
         } 
         else if (typesOfWeapons[3] == CurrentWeapon)
         {
+            FireHarvestBlade(context);
         }
         else if (typesOfWeapons[4] == CurrentWeapon)
         {
@@ -234,6 +237,22 @@ public class PlayerController : MonoBehaviour
 
     public void SetMove(bool move) {
         canMove = move;
+    }
+
+    public void FireHarvestBlade(InputAction.CallbackContext context) {
+        if (!usingJets)
+        {
+            if (context.started)
+            {
+                // Stop Player
+                moveDirection = Vector2.zero;
+                canMove = false;
+
+                // Spawn aimer
+                harvestBladeGO = Instantiate(harvestBladePrefab, transform);
+                harvestBladeGO.GetComponent<HarvestBladeLogic>().Fire(playerDirection);
+            }
+        }
     }
     
 }
