@@ -91,10 +91,17 @@ public class PlayerController : MonoBehaviour
         {
             rig.linearVelocity = moveDirection * moveSpeed;
             
+            if(moveDirection.magnitude != 0)
+            {
+            
             playerAnimatior.SetFloat("Horizontal", moveDirection.x);
             playerAnimatior.SetFloat("Vertical", moveDirection.y);
+            
+               
+            }
             playerAnimatior.SetFloat("Magnitude", moveDirection.magnitude);
             playerAnimatior.SetInteger("Direction", playerDirection);
+            
         }
     }
 
