@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Potato
   m_EditorClassIdentifier: 
   cropType: Potato
-  growSpeedTime: 1
+  growSpeedTime: 0.5
   growToYoungCrop: 10
   growToGrowingCrop: 50
   maxHealth: 100

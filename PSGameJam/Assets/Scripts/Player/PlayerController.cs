@@ -232,8 +232,30 @@ public class PlayerController : MonoBehaviour
             {
                 var endTime = Time.time;
                 var heldTime = endTime - waterStartChargeTime; 
-                firehoseGO.GetComponent<FireHoseLogic>().SprayWater(heldTime);
-                canMove = true;
+                float waitTimetoMove = firehoseGO.GetComponent<FireHoseLogic>().SprayWater(heldTime);
+
+                Action moveFunc = () => {
+                    canMove = true;
+                };
+
+                TimerManager.AddTimer(moveFunc, waitTimetoMove);
+            }
+        }
+    }
+
+    public void FireHarvestBlade(InputAction.CallbackContext context)
+    {
+        if (!usingJets)
+        {
+            if (context.started)
+            {
+                // Stop Player
+                moveDirection = Vector2.zero;
+                canMove = false;
+
+                // Spawn aimer
+                harvestBladeGO = Instantiate(harvestBladePrefab, transform);
+                harvestBladeGO.GetComponent<HarvestBladeLogic>().Fire(playerDirection);
             }
         }
     }
@@ -277,22 +299,6 @@ public class PlayerController : MonoBehaviour
 
     public void SetMove(bool move) {
         canMove = move;
-    }
-
-    public void FireHarvestBlade(InputAction.CallbackContext context) {
-        if (!usingJets)
-        {
-            if (context.started)
-            {
-                // Stop Player
-                moveDirection = Vector2.zero;
-                canMove = false;
-
-                // Spawn aimer
-                harvestBladeGO = Instantiate(harvestBladePrefab, transform);
-                harvestBladeGO.GetComponent<HarvestBladeLogic>().Fire(playerDirection);
-            }
-        }
     }
     
 }

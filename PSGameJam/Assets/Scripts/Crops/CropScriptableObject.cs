@@ -17,4 +17,7 @@ public class CropScriptableObject : ScriptableObject
     public Sprite youngCropSprite;
     public Sprite growingCropSprite;
     public Sprite ripeCropSprite;
+
+
+    public static float DehydrationSpeedTime = 0.1f;
 }

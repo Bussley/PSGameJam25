@@ -21,8 +21,11 @@ public class FireHoseLogic : MonoBehaviour
     [SerializeField]
     private float firehoseSpeed;
 
+    [SerializeField]
+    private float waterShootTime;
 
-    public void SprayWater(float chargeTime) {
+
+    public float SprayWater(float chargeTime) {
         Debug.Log("Time charging: " +chargeTime);
         float scaleWater = 1.0f;
         
@@ -35,18 +38,16 @@ public class FireHoseLogic : MonoBehaviour
             scaleWater = 0.0f;
             waterSpreadY = 0.0f;
         }
+        Vector3 dir = (aimObject.transform.position - transform.position).normalized;
+        Destroy(aimObject);
+        GameObject firehose;
+        firehose = Instantiate(firehosePrefab);
+        firehose.transform.localScale = new Vector3(firehose.transform.localScale.x * scaleWater, waterSpreadY, 0);
+        firehose.transform.rotation = aimObject.transform.rotation;
+        firehose.transform.position = transform.position + (dir * firehose.transform.lossyScale.x/2);
+        firehose.GetComponent<waterPumpLogic>().DestoryWaterCannon(waterShootTime);
         Destroy(gameObject);
-        Vector3 testme = (aimObject.transform.position - transform.position).normalized;
-        GameObject testt1;
-        testt1 = Instantiate(firehosePrefab);
-        testt1.transform.localScale = new Vector3(testt1.transform.localScale.x * scaleWater, waterSpreadY, 0);
-        testt1.transform.rotation = aimObject.transform.rotation;
-        testt1.transform.position = transform.position + (testme * testt1.transform.lossyScale.x/2);
-        //testt1.GetComponent<LaserBeamLogic>().ExpandBeam(0.01f, testme);
-        // Get amount of frames it will take to complete
-        //duration = (aimObject.transform.lossyScale.x - testt1.transform.lossyScale.x) / 0.01f;
-        //testt1.GetComponent<BoxCollider2D>().enabled = false;
-        //testt1.GetComponent<BoxCollider2D>().enabled = true;
+        return waterShootTime;
     }
     
     public void WaterSpread(int direction)
