@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 2678468580882921569}
   - component: {fileID: 389341301106463280}
   - component: {fileID: 3087827467637050833}
+  - component: {fileID: 2928913835872661505}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -219,7 +220,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 653505090, guid: c6196956c95d18446afdc571eb79acff, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -241,22 +242,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3dcb829830d2c84abac25a97c696474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rig: {fileID: 2678468580882921569}
   moveSpeed: 2
   jetSpeed: 4
   jetOffsetSpeed: 0.1
   changeDirectionTimer: 0.05
-  CurrentWeapon: 
   playerInput: {fileID: -6270165054496254709, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   laserPrefab: {fileID: 8687622037540719887, guid: 59c14a14db685d643af5b6426bce146f, type: 3}
   shotgunPrefab: {fileID: 8687622037540719887, guid: 10332563ebaab30488e887948cea98ff, type: 3}
-  typesOfWeapons:
-  - Why are we using key input 0.. GROSS. Need this as place holder for array. Until
-    we actually want to use this.
-  - lazer
-  - shotgun
-  - sword
-  - missle
+  harvestBladePrefab: {fileID: 7632485419616046028, guid: d46d9bd770db5854fba4db2d45f021a4, type: 3}
 --- !u!50 &2678468580882921569
 Rigidbody2D:
   serializedVersion: 5
@@ -464,3 +457,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &2928913835872661505
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6493987535443878733}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ff88d61ad46f07843922bc638191ca14, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using NUnit.Framework.Internal;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,23 +13,14 @@ using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
-
-    [SerializeField]
-    private Rigidbody2D rig;
-
     [SerializeField]
     private float moveSpeed;
-
     [SerializeField]
     private float jetSpeed;
     [SerializeField]
     private float jetOffsetSpeed;
-
     [SerializeField]
     private float changeDirectionTimer;
-
-    [SerializeField]
-    private string CurrentWeapon;
 
     [SerializeField]
     private InputActionReference playerInput;
@@ -40,6 +32,8 @@ public class PlayerController : MonoBehaviour
     private GameObject shotgunPrefab;
 
     [SerializeField]
+    private GameObject harvestBladePrefab;
+
     private GameObject fireHosePrefab;
 
     private String[] typesOfWeapons = {
@@ -55,19 +49,30 @@ public class PlayerController : MonoBehaviour
     private int playerDirection;
     private float waterStartChargeTime;
     private Vector2 moveDirection;
+    private Vector2 lastMoveDirection;
     private bool canMove;
     private bool usingJets;
+
+    private Rigidbody2D rig;
+
+    private Animator playerAnimatior;
+
+    private string CurrentWeapon;
 
     private GameObject laserGO;
 
     private GameObject shotgunGO;
     private GameObject firehoseGO;
 
-    private void Start() {
-        playerDirection = 4;
+    private GameObject harvestBladeGO;
+
+    private void Awake() {
+        playerDirection = 1;
         canMove = true;
         usingJets = false;
         moveDirection = new Vector2();
+        playerAnimatior = GetComponent<Animator>();
+        rig = GetComponent<Rigidbody2D>();
     }
 
     private void Update() {
@@ -85,11 +90,15 @@ public class PlayerController : MonoBehaviour
         else
         {
             rig.linearVelocity = moveDirection * moveSpeed;
+            
+            playerAnimatior.SetFloat("Horizontal", lastMoveDirection.x);
+            playerAnimatior.SetFloat("Vertical", lastMoveDirection.y);
+            playerAnimatior.SetFloat("Magnitude", moveDirection.magnitude);
         }
     }
 
     private void ChangeDirection() {
-
+        lastMoveDirection = moveDirection;
         playerDirection = (int)(Vector2.Angle(Vector2.up, moveDirection) / 45.0f);
 
         if (moveDirection.x < 0)
@@ -134,22 +143,24 @@ public class PlayerController : MonoBehaviour
         }
         else if (typesOfWeapons[1] == CurrentWeapon)
         {
-            Debug.Log("Swing Sword");
+            if (context.action.name == "Cursor") {
+                FireShotGun(context);
+                Debug.Log(context.action.name);
+            }
+
         }
         else if (typesOfWeapons[2] == CurrentWeapon)
         {
             if (context.action.name == "Spacebar") {
                 Debug.Log("Spraying Water!");
                 FireWaterHose(context);
-            }
-
-            
+            } 
         } 
         else if (typesOfWeapons[3] == CurrentWeapon)
         {
             if (context.action.name == "Cursor") {
-                FireShotGun(context);
-                Debug.Log(context.action.name);
+                FireHarvestBlade(context);
+                Debug.Log("Swing Sword");
             }
         } 
         else if (typesOfWeapons[4] == CurrentWeapon)
@@ -175,7 +186,8 @@ public class PlayerController : MonoBehaviour
             }
             else if (context.canceled && laserGO != null)
             {
-                laserGO.GetComponent<LaserLogic>().Fire();
+                if(laserGO != null && !laserGO.GetComponent<LaserLogic>().Fired())
+                    laserGO.GetComponent<LaserLogic>().Fire();
             }
         }
     }
@@ -273,6 +285,22 @@ public class PlayerController : MonoBehaviour
 
     public void SetMove(bool move) {
         canMove = move;
+    }
+
+    public void FireHarvestBlade(InputAction.CallbackContext context) {
+        if (!usingJets)
+        {
+            if (context.started)
+            {
+                // Stop Player
+                moveDirection = Vector2.zero;
+                canMove = false;
+
+                // Spawn aimer
+                harvestBladeGO = Instantiate(harvestBladePrefab, transform);
+                harvestBladeGO.GetComponent<HarvestBladeLogic>().Fire(playerDirection);
+            }
+        }
     }
     
 }
