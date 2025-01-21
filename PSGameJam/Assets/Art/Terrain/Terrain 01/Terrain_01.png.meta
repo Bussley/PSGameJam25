@@ -147,15 +147,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Terrain_01_0
+      name: Rock_Light
       rect:
         serializedVersion: 2
         x: 768
-        y: 1788
+        y: 1792
         width: 128
-        height: 128
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.75}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -169,15 +169,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain_01_1
+      name: Rock_Light_Small
       rect:
         serializedVersion: 2
         x: 896
-        y: 1788
+        y: 1792
         width: 128
-        height: 128
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.75}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -191,15 +191,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain_01_2
+      name: Dirt_Center
       rect:
         serializedVersion: 2
         x: 128
         y: 1536
         width: 128
-        height: 128
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.75}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -213,37 +213,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain_01_3
+      name: Grass_Center
       rect:
         serializedVersion: 2
-        x: 768
-        y: 1541
+        x: 512
+        y: 1536
         width: 128
-        height: 128
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.75}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1b3b9c82ada205d70800000000000000
-      internalID: 9029764369353388977
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Terrain_01_4
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 1541
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.75}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -257,15 +235,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain_01_5
+      name: Rock_Dark
       rect:
         serializedVersion: 2
         x: 768
-        y: 1281
+        y: 1536
         width: 128
-        height: 128
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.75}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -279,15 +257,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain_01_6
+      name: Rock_Dark_Small
       rect:
         serializedVersion: 2
         x: 896
-        y: 1281
+        y: 1536
         width: 128
-        height: 128
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.75}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -301,15 +279,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain_01_7
+      name: Bush_01
       rect:
         serializedVersion: 2
-        x: 128
-        y: 768
+        x: 768
+        y: 1280
         width: 128
-        height: 128
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.75}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -323,15 +301,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain_01_8
+      name: Bush_01_Small
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1539
+        x: 896
+        y: 1280
         width: 128
-        height: 128
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.75}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -345,15 +323,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain_01_9
+      name: Water_Center
       rect:
         serializedVersion: 2
-        x: 384
-        y: 769
+        x: 128
+        y: 768
         width: 128
-        height: 128
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.75}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -367,59 +345,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain_01_15
+      name: Dirt_Tilled_Unwatered
       rect:
         serializedVersion: 2
-        x: 640
-        y: 256
+        x: 384
+        y: 768
         width: 128
         height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.375}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef4b4545d4427b9478bae55a9d6777b2
-      internalID: 1558848337
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Terrain_01_36
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 768
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.75}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6d8da26b5c128304c9a1670ffb8f9f8b
-      internalID: 325923928
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Terrain_01_10
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 768
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.751}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -433,15 +367,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain_01_11
+      name: Dirt_Tilled_Watered
       rect:
         serializedVersion: 2
-        x: 768
+        x: 512
         y: 768
         width: 128
-        height: 128
+        height: 256
       alignment: 9
-      pivot: {x: 0.5, y: 0.75}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -450,94 +384,6 @@ TextureImporter:
       bones: []
       spriteID: e28e8fb98e091ac4c88ff71c3b150124
       internalID: -1407950959
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Terrain_01_12
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 257
-        width: 128
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.375}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ecdc5319c429cb0418996bdf31f40844
-      internalID: 951398308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Terrain_01_13
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 512
-        width: 128
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.375}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8b08608b31529a040879aff7e7fb0756
-      internalID: -1531062856
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Terrain_01_14
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 512
-        width: 128
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.375}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 356c4f11a65206145bea44126f3193cf
-      internalID: 909395231
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Terrain_01_16
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 255
-        width: 256
-        height: 512
-      alignment: 9
-      pivot: {x: 0.5, y: 0.12}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2266123d4a8ba9f46ada94d5a49716b4
-      internalID: 653505090
       vertices: []
       indices: 
       edges: []
@@ -556,44 +402,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Terrain_01_0: 7167582669361787454
-      Terrain_01_1: 9175333171984364202
-      Terrain_01_10: 401971053
-      Terrain_01_11: -1407950959
-      Terrain_01_12: 951398308
-      Terrain_01_13: -1531062856
-      Terrain_01_14: 909395231
-      Terrain_01_15: 1558848337
-      Terrain_01_16: 653505090
-      Terrain_01_17: -1748085961
-      Terrain_01_18: -100405099
-      Terrain_01_19: 103084548
-      Terrain_01_2: 842455257256177374
-      Terrain_01_20: -1993822770
-      Terrain_01_21: 822807031
-      Terrain_01_22: 715749256
-      Terrain_01_23: 607534454
-      Terrain_01_24: -1329798423
-      Terrain_01_25: -937271704
-      Terrain_01_26: -1518964161
-      Terrain_01_27: -673723767
-      Terrain_01_28: 2088377537
-      Terrain_01_29: -630725842
+      Bush_01: 6879123979283378301
+      Bush_01_Small: 880884906
+      Dirt_Center: 842455257256177374
+      Dirt_Tilled_Unwatered: 401971053
+      Dirt_Tilled_Watered: -1407950959
+      Grass_Center: -4046446488469932246
+      Rock_Dark: 7861687154325427177
+      Rock_Dark_Small: 2632959327270462004
+      Rock_Light: 7167582669361787454
+      Rock_Light_Small: 9175333171984364202
       Terrain_01_3: 9029764369353388977
-      Terrain_01_30: -641114888
-      Terrain_01_31: 899757103
-      Terrain_01_32: -27083074
-      Terrain_01_33: 1144036336
-      Terrain_01_34: -722585987
-      Terrain_01_35: -397396068
-      Terrain_01_36: 325923928
-      Terrain_01_37: -157509716
-      Terrain_01_4: -4046446488469932246
-      Terrain_01_5: 7861687154325427177
-      Terrain_01_6: 2632959327270462004
-      Terrain_01_7: 6879123979283378301
-      Terrain_01_8: 880884906
-      Terrain_01_9: -1520352019
+      Water_Center: -1520352019
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

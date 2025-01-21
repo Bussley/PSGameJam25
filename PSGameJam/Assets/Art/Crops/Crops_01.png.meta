@@ -1,0 +1,867 @@
+fileFormatVersion: 2
+guid: 7e5d7d386721c5048b6eb13c7bc4e491
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3651139085573116045
+    second: Crops_01_0
+  - first:
+      213: -6096300570334990208
+    second: Crops_01_1
+  - first:
+      213: 1637330580386727031
+    second: Crops_01_2
+  - first:
+      213: 3194861608867546299
+    second: Crops_01_3
+  - first:
+      213: -4292937890434973423
+    second: Crops_01_4
+  - first:
+      213: -1323722299718321184
+    second: Crops_01_5
+  - first:
+      213: 2932918508063533760
+    second: Crops_01_6
+  - first:
+      213: 5277730378181330140
+    second: Crops_01_7
+  - first:
+      213: -2271620677009493346
+    second: Crops_01_8
+  - first:
+      213: 1621707001940090546
+    second: Crops_01_9
+  - first:
+      213: 8512367640996669663
+    second: Crops_01_10
+  - first:
+      213: 7561041506929510929
+    second: Crops_01_11
+  - first:
+      213: 4436150969599808949
+    second: Crops_01_12
+  - first:
+      213: 361673631735690159
+    second: Crops_01_13
+  - first:
+      213: 949846225601124729
+    second: Crops_01_14
+  - first:
+      213: -1865754355630315613
+    second: Crops_01_15
+  - first:
+      213: 6795911708992932479
+    second: Crops_01_16
+  - first:
+      213: 6958045515936142244
+    second: Crops_01_17
+  - first:
+      213: -5696892489622489110
+    second: Crops_01_18
+  - first:
+      213: 3895693799486553506
+    second: Crops_01_19
+  - first:
+      213: 429729198147086172
+    second: Crops_01_20
+  - first:
+      213: 6198957387471913607
+    second: Crops_01_21
+  - first:
+      213: -1998854784111656191
+    second: Crops_01_22
+  - first:
+      213: -892202640195881407
+    second: Crops_01_23
+  - first:
+      213: -1988325903661220375
+    second: Crops_01_24
+  - first:
+      213: -6261708365718988586
+    second: Crops_01_25
+  - first:
+      213: -3940818632155588180
+    second: Crops_01_26
+  - first:
+      213: -5170633798418684609
+    second: Crops_01_27
+  - first:
+      213: -8289266141471474238
+    second: Crops_01_28
+  - first:
+      213: -2982265049983411650
+    second: Crops_01_29
+  - first:
+      213: -2844318671787330052
+    second: Crops_01_30
+  - first:
+      213: 6766198777346370200
+    second: Crops_01_31
+  - first:
+      213: -7102372331101937611
+    second: Crops_01_32
+  - first:
+      213: -1910854909951600038
+    second: Crops_01_33
+  - first:
+      213: -7477481010005316052
+    second: Crops_01_34
+  - first:
+      213: 4168808527716495027
+    second: Crops_01_35
+  - first:
+      213: -6438456137653434449
+    second: Crops_01_36
+  - first:
+      213: 6713129564786059784
+    second: Crops_01_37
+  - first:
+      213: 5113894956562717277
+    second: Crops_01_38
+  - first:
+      213: -6899014879615571715
+    second: Crops_01_39
+  - first:
+      213: -1285847405343775707
+    second: Crops_01_40
+  - first:
+      213: -5281796202254814271
+    second: Crops_01_41
+  - first:
+      213: -5777482896644598564
+    second: Crops_01_42
+  - first:
+      213: 8178444919747880631
+    second: Crops_01_43
+  - first:
+      213: 3584325304090081372
+    second: Crops_01_44
+  - first:
+      213: -6175226881671442180
+    second: Crops_01_45
+  - first:
+      213: -2397319847339906417
+    second: Crops_01_46
+  - first:
+      213: -8785619975205884588
+    second: Crops_01_47
+  - first:
+      213: -8104324862681292755
+    second: Crops_01_48
+  - first:
+      213: 2575015679691336091
+    second: Crops_01_49
+  - first:
+      213: -7221300237619386656
+    second: Crops_01_50
+  - first:
+      213: -3123095922473385358
+    second: Crops_01_51
+  - first:
+      213: -9194076516686179017
+    second: Crops_01_52
+  - first:
+      213: -8976881344268020334
+    second: Crops_01_53
+  - first:
+      213: -3708148345676124338
+    second: Crops_01_54
+  - first:
+      213: -8339472237764520704
+    second: Crops_01_55
+  - first:
+      213: 4797908619047899839
+    second: Crops_01_56
+  - first:
+      213: -6353183461417442661
+    second: Crops_01_57
+  - first:
+      213: 5150224837029801657
+    second: Crops_01_58
+  - first:
+      213: -7024935767780429473
+    second: Crops_01_59
+  - first:
+      213: 3921430858684071272
+    second: Crops_01_60
+  - first:
+      213: -8227048032976547640
+    second: Crops_01_61
+  - first:
+      213: 7400361599033043526
+    second: Crops_01_62
+  - first:
+      213: 8176933502916666466
+    second: Crops_01_63
+  - first:
+      213: -8735905010407965724
+    second: Crops_01_64
+  - first:
+      213: -7178092730000425770
+    second: Crops_01_65
+  - first:
+      213: -3616504573619637937
+    second: Crops_01_66
+  - first:
+      213: 5292549888971938744
+    second: Crops_01_67
+  - first:
+      213: -2504494186033660272
+    second: Crops_01_68
+  - first:
+      213: 8487793918329802747
+    second: Crops_01_69
+  - first:
+      213: -670763549493852262
+    second: Crops_01_70
+  - first:
+      213: -6775408339573535726
+    second: Crops_01_71
+  - first:
+      213: -3757150806669731661
+    second: Crops_01_72
+  - first:
+      213: -3880300266578218895
+    second: Crops_01_73
+  - first:
+      213: -4021036129995514353
+    second: Crops_01_74
+  - first:
+      213: -3326156164107009100
+    second: Crops_01_75
+  - first:
+      213: -3676149388678645317
+    second: Crops_01_76
+  - first:
+      213: 2951309389250096514
+    second: Crops_01_77
+  - first:
+      213: 158767122022938404
+    second: Crops_01_78
+  - first:
+      213: 3662795314204648116
+    second: Crops_01_79
+  - first:
+      213: 8837394303275904921
+    second: Crops_01_80
+  - first:
+      213: 5330310539949153565
+    second: Crops_01_81
+  - first:
+      213: -1530355929756490091
+    second: Crops_01_82
+  - first:
+      213: 6359085200186530740
+    second: Crops_01_83
+  - first:
+      213: 2513658967991965611
+    second: Crops_01_84
+  - first:
+      213: -5873443743545599589
+    second: Crops_01_85
+  - first:
+      213: 6689760396669212373
+    second: Crops_01_86
+  - first:
+      213: 5791269974759976688
+    second: Crops_01_87
+  - first:
+      213: -6041706190188862288
+    second: Crops_01_88
+  - first:
+      213: -638973273755186191
+    second: Crops_01_89
+  - first:
+      213: 4612894250196426798
+    second: Crops_01_90
+  - first:
+      213: 289782504620913181
+    second: Crops_01_91
+  - first:
+      213: -8309538118718104093
+    second: Crops_01_92
+  - first:
+      213: -3462751352682193978
+    second: Crops_01_93
+  - first:
+      213: 4020866487291500969
+    second: Crops_01_94
+  - first:
+      213: 408773427714890894
+    second: Crops_01_95
+  - first:
+      213: 438764118158969015
+    second: Crops_01_96
+  - first:
+      213: 7056514350986287295
+    second: Crops_01_97
+  - first:
+      213: 8498775190019764223
+    second: Crops_01_98
+  - first:
+      213: -8322118956578013767
+    second: Crops_01_99
+  - first:
+      213: -5142651578419226491
+    second: Crops_01_100
+  - first:
+      213: 2549639522684227414
+    second: Crops_01_101
+  - first:
+      213: 5746183452769118244
+    second: Crops_01_102
+  - first:
+      213: -4195959773467772983
+    second: Crops_01_103
+  - first:
+      213: 5288140039617763567
+    second: Crops_01_104
+  - first:
+      213: -327395093351574052
+    second: Crops_01_105
+  - first:
+      213: -7337124554530111314
+    second: Crops_01_106
+  - first:
+      213: 2776628459369384213
+    second: Crops_01_107
+  - first:
+      213: 6130150284045095157
+    second: Crops_01_108
+  - first:
+      213: -7165450105179997321
+    second: Crops_01_109
+  - first:
+      213: -8192104446586156401
+    second: Crops_01_110
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Potato_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d80512d57a37ba230800000000000000
+      internalID: 3651139085573116045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potato_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1792
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 080fb2d4ee6956ba0800000000000000
+      internalID: -6096300570334990208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potato_3
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1792
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 774c5d7ec77f8b610800000000000000
+      internalID: 1637330580386727031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pepper_1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1792
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb44517c4bd665c20800000000000000
+      internalID: 3194861608867546299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pepper_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1792
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1110fcdcbbb6c64c0800000000000000
+      internalID: -4292937890434973423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pepper_3
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1792
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ebb600f49131ade0800000000000000
+      internalID: -1323722299718321184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pepper_4
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0caab4408d1d3b820800000000000000
+      internalID: 2932918508063533760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seeds_1
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1792
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd449cbf0d34e3940800000000000000
+      internalID: 5277730378181330140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strawberry_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e92ba62a7059970e0800000000000000
+      internalID: -2271620677009493346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strawberry_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1536
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2be17641de5718610800000000000000
+      internalID: 1621707001940090546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strawberry_3
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd8e22fd441022670800000000000000
+      internalID: 8512367640996669663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tomato_1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1536
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11a8480c0373ee860800000000000000
+      internalID: 7561041506929510929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tomato_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b550099dcf509d30800000000000000
+      internalID: 4436150969599808949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tomato_3
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1536
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa33b38704ce40500800000000000000
+      internalID: 361673631735690159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tomato_4
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1536
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97953341c188e2d00800000000000000
+      internalID: 949846225601124729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seeds_2
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1536
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a7648a7c428b16e0800000000000000
+      internalID: -1865754355630315613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tomato_5
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1280
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7a017b61bdef4e50800000000000000
+      internalID: 6795911708992932479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9ed2f707a72935547933f80b9f19083a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Pepper_1: 3194861608867546299
+      Pepper_2: -4292937890434973423
+      Pepper_3: -1323722299718321184
+      Pepper_4: 2932918508063533760
+      Potato_1: 3651139085573116045
+      Potato_2: -6096300570334990208
+      Potato_3: 1637330580386727031
+      Seeds_1: 5277730378181330140
+      Seeds_2: -1865754355630315613
+      Strawberry_1: -2271620677009493346
+      Strawberry_2: 1621707001940090546
+      Strawberry_3: 8512367640996669663
+      Tomato_1: 7561041506929510929
+      Tomato_2: 4436150969599808949
+      Tomato_3: 361673631735690159
+      Tomato_4: 949846225601124729
+      Tomato_5: 6795911708992932479
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
