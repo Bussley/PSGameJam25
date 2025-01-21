@@ -45,8 +45,10 @@ public class FireHoseLogic : MonoBehaviour
         //testt1.GetComponent<LaserBeamLogic>().ExpandBeam(0.01f, testme);
         // Get amount of frames it will take to complete
         //duration = (aimObject.transform.lossyScale.x - testt1.transform.lossyScale.x) / 0.01f;
-
+        //testt1.GetComponent<BoxCollider2D>().enabled = false;
+        //testt1.GetComponent<BoxCollider2D>().enabled = true;
     }
+    
     public void WaterSpread(int direction)
     {
         minAimDegree = 45 * (7 - direction);
@@ -60,7 +62,6 @@ public class FireHoseLogic : MonoBehaviour
         aimObject = Instantiate(aimPrefab, transform);
         aimObject.transform.RotateAround(transform.position, Vector3.forward, maxAimDegree);
     }
-
 
 }
 

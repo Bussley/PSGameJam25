@@ -34,13 +34,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject harvestBladePrefab;
 
+    [SerializeField]
     private GameObject fireHosePrefab;
 
     private String[] typesOfWeapons = {
         "none", // 0
-        "sword", // 1
+        "shotgun", // 1
         "firehose", // 2
-        "shotgun", // 3
+        "sword", // 3
         "lazer", // 4
     };
 
@@ -152,7 +153,7 @@ public class PlayerController : MonoBehaviour
         else if (typesOfWeapons[2] == CurrentWeapon)
         {
             if (context.action.name == "Spacebar") {
-                Debug.Log("Spraying Water!");
+                //Debug.Log("Spraying Water!");
                 FireWaterHose(context);
             } 
         } 
@@ -160,7 +161,7 @@ public class PlayerController : MonoBehaviour
         {
             if (context.action.name == "Cursor") {
                 FireHarvestBlade(context);
-                Debug.Log("Swing Sword");
+                //Debug.Log("Swing Sword");
             }
         } 
         else if (typesOfWeapons[4] == CurrentWeapon)
