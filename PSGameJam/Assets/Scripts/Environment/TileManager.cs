@@ -7,26 +7,25 @@ public class TileManager : MonoBehaviour
     [SerializeField]
     private Tilemap setMap;
     [SerializeField]
-    private GameObject setWheatTile;
+    private GameObject tilledSoilPrefab;
 
     private static Tilemap map;
-    private static GameObject wheatTile;
+    private static GameObject tilledSoil;
 
     private void Awake()
     {
         map = setMap;
-        wheatTile = setWheatTile;
+        tilledSoil = tilledSoilPrefab;
     }
 
     public static void ChangeTile(Vector2 pos)
     {
         Vector3Int grid_pos = map.WorldToCell(pos);
 
-        GameObject gameObjectAtPosition = map.GetInstantiatedObject(grid_pos);
-        if (gameObjectAtPosition == null)
+        //GameObject gameObjectAtPosition = map.GetInstantiatedObject(grid_pos);
+        if (map.GetTile(grid_pos).name == "Terrain_01_8")
         {
-            map.SetTile(grid_pos, new Tile() { gameObject = wheatTile });
-            //Debug.Log("test");
+            map.SetTile(grid_pos, new Tile() { gameObject = tilledSoil });
         }
     }
     public static Vector2 rotate(Vector2 v, float delta)
