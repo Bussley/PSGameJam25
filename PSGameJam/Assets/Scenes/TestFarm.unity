@@ -358,78 +358,6 @@ Tilemap:
   m_CorrespondingSourceObject: {fileID: 5781538578406203192, guid: bfc1dd2596c6fe2448a73d8fcf5b33a7, type: 3}
   m_PrefabInstance: {fileID: 5244752419100631212}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1667361991
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1740468534}
-    m_Modifications:
-    - target: {fileID: 5645751993787905044, guid: 0f53a0eb6d974754e9275fc44f3c7ef1, type: 3}
-      propertyPath: m_Name
-      value: RefuelText
-      objectReference: {fileID: 0}
-    - target: {fileID: 7282299326792327987, guid: 0f53a0eb6d974754e9275fc44f3c7ef1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7282299326792327987, guid: 0f53a0eb6d974754e9275fc44f3c7ef1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.85199994
-      objectReference: {fileID: 0}
-    - target: {fileID: 7282299326792327987, guid: 0f53a0eb6d974754e9275fc44f3c7ef1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7282299326792327987, guid: 0f53a0eb6d974754e9275fc44f3c7ef1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7282299326792327987, guid: 0f53a0eb6d974754e9275fc44f3c7ef1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7282299326792327987, guid: 0f53a0eb6d974754e9275fc44f3c7ef1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7282299326792327987, guid: 0f53a0eb6d974754e9275fc44f3c7ef1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7282299326792327987, guid: 0f53a0eb6d974754e9275fc44f3c7ef1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7282299326792327987, guid: 0f53a0eb6d974754e9275fc44f3c7ef1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7282299326792327987, guid: 0f53a0eb6d974754e9275fc44f3c7ef1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0f53a0eb6d974754e9275fc44f3c7ef1, type: 3}
---- !u!4 &1667361992 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7282299326792327987, guid: 0f53a0eb6d974754e9275fc44f3c7ef1, type: 3}
-  m_PrefabInstance: {fileID: 1667361991}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1740468534 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8853145085575650307, guid: 459a6722c29e29f438e7bf350c852a59, type: 3}
-  m_PrefabInstance: {fileID: 5651077632987434008}
-  m_PrefabAsset: {fileID: 0}
---- !u!102 &2134607583 stripped
-TextMesh:
-  m_CorrespondingSourceObject: {fileID: 8944627316531350507, guid: 0f53a0eb6d974754e9275fc44f3c7ef1, type: 3}
-  m_PrefabInstance: {fileID: 1667361991}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &400473715940990769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -730,18 +658,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2266558675962786738, guid: 459a6722c29e29f438e7bf350c852a59, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1260502836}
-    - target: {fileID: 2266558675962786738, guid: 459a6722c29e29f438e7bf350c852a59, type: 3}
-      propertyPath: refuelText
-      value: 
-      objectReference: {fileID: 2134607583}
     - target: {fileID: 5842905669418776165, guid: 459a6722c29e29f438e7bf350c852a59, type: 3}
       propertyPath: m_Name
       value: WaterRefuel
       objectReference: {fileID: 0}
+    - target: {fileID: 6175430749969941668, guid: 459a6722c29e29f438e7bf350c852a59, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1260502836}
     - target: {fileID: 8853145085575650307, guid: 459a6722c29e29f438e7bf350c852a59, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.302
@@ -784,10 +708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8853145085575650307, guid: 459a6722c29e29f438e7bf350c852a59, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1667361992}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 459a6722c29e29f438e7bf350c852a59, type: 3}
 --- !u!1660057539 &9223372036854775807

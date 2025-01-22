@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &229683154722142551
+--- !u!1 &3055755877633591794
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5838844194541503349}
-  - component: {fileID: -110640372381992473}
-  - component: {fileID: -4615299487562883497}
+  - component: {fileID: 3154868191268089555}
+  - component: {fileID: 8573475606980193175}
   m_Layer: 0
   m_Name: FireHoseParent
   m_TagString: Untagged
@@ -18,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5838844194541503349
+--- !u!4 &3154868191268089555
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229683154722142551}
+  m_GameObject: {fileID: 3055755877633591794}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.8, z: 0}
@@ -33,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-110640372381992473
+--- !u!114 &8573475606980193175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229683154722142551}
+  m_GameObject: {fileID: 3055755877633591794}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b6ae3f14041531458c39456804fe54c, type: 3}
@@ -50,15 +49,3 @@ MonoBehaviour:
   waterSpreadY: 1
   firehoseSpeed: 1
   waterShootTime: 1
---- !u!114 &-4615299487562883497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229683154722142551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efac0edadf27c604ea3740f809206332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
