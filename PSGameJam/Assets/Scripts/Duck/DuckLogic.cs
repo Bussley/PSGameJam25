@@ -53,13 +53,16 @@ public class DuckLogic : MonoBehaviour
 
     private void FlyOut()
     {
-        transform.position = Vector3.MoveTowards(transform.position, originSpot, flyInSpeed * Time.deltaTime);
-
-        if (transform.position == originSpot)
+        if (onSpot)
         {
-            flyInTime = Time.time + Random.Range(minTime, maxTime);
-            onSpot = false;
-            flyOut = false;
+            transform.position = Vector3.MoveTowards(transform.position, originSpot, flyInSpeed * Time.deltaTime);
+
+            if (transform.position == originSpot)
+            {
+                flyInTime = Time.time + Random.Range(minTime, maxTime);
+                onSpot = false;
+                flyOut = false;
+            }
         }
     }
 }

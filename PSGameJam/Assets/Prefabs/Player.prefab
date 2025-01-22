@@ -242,9 +242,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3dcb829830d2c84abac25a97c696474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterTankLevel: 100
+  laserCooldown: 4
+  shotgunCooldown: 2
+  fireHoseCooldown: 8
+  harvestBladeCooldown: 0.5
   moveSpeed: 2
   jetSpeed: 4
   jetOffsetSpeed: 0.1
+  jetUseTime: 3
+  jetCooldown: 5
   changeDirectionTimer: 0.05
   playerInput: {fileID: -6270165054496254709, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   laserPrefab: {fileID: 8687622037540719887, guid: 59c14a14db685d643af5b6426bce146f, type: 3}
