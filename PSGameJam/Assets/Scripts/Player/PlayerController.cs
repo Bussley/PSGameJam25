@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
         canMove = true;
         usingWeapon = false;
         usingJets = false;
-        moveDirection = new Vector2();
+        lastMoveDirection = new Vector2(ISO_X_DIAGNOL_DIR, ISO_Y_DIAGNOL_DIR);
         playerAnimatior = GetComponent<Animator>();
         rig = GetComponent<Rigidbody2D>();
     }

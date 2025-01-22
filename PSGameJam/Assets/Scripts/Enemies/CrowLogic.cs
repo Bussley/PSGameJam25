@@ -34,7 +34,7 @@ public class CrowLogic : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Weapon" || collision.gameObject.tag == "Player")
+        if (collision.gameObject.layer == 10 || collision.gameObject.tag == "Player")
             scaredAway = true;
     }
 

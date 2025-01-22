@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7406074395454314384}
   m_Layer: 10
   m_Name: BladeHarvestPrefab
-  m_TagString: Weapon
+  m_TagString: HarvestBlade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
