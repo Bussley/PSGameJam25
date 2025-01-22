@@ -17,7 +17,7 @@ public class CrowLogic : MonoBehaviour
         transform.position = spawnPoint;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Crop could be destroyed before crow gets to it 
         if (cropTarget != null && !scaredAway)

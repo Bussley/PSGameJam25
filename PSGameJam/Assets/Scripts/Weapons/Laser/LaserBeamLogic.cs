@@ -5,7 +5,7 @@ public class LaserBeamLogic : MonoBehaviour
     private float speed;
     private Vector3 dir;
 
-    void Update()
+    void FixedUpdate()
     {
         transform.localScale = transform.localScale + new Vector3(speed, 0.0f, 0.0f);
         transform.position = transform.position + (dir * (speed/2));

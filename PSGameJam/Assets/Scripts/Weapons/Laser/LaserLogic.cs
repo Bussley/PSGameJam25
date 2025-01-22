@@ -36,7 +36,7 @@ public class LaserLogic : MonoBehaviour
         currentAimDuration = 0;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Rotate for a aimers at rotate amount until Fire is called
         if (aimCreated && !fired)

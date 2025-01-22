@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arcLength: 60
-  rotateSpeed: 1
+  rotateSpeed: 20
   rotatePoint: {x: 0.2, y: 1}
 --- !u!50 &-5713001889359000882
 Rigidbody2D:

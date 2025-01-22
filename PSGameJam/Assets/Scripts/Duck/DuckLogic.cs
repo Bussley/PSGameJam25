@@ -28,7 +28,7 @@ public class DuckLogic : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(!onSpot && flyInTime < Time.time) {
             FlyIn();

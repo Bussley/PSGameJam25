@@ -20,7 +20,7 @@ public class HarvestBladeLogic : MonoBehaviour
         offsetPosition = transform.parent.position + new Vector3(rotatePoint.x, rotatePoint.y, 0);
     }
 
-    private void Update() {
+    private void FixedUpdate() {
 
         offsetPosition = transform.parent.position + new Vector3(rotatePoint.x, rotatePoint.y, 0);
 
