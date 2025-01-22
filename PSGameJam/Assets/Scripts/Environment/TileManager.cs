@@ -8,14 +8,18 @@ public class TileManager : MonoBehaviour
     private Tilemap setGroundMap;
     [SerializeField]
     private GameObject tilledSoilPrefab;
+    [SerializeField]
+    private Tile grassTileBase;
 
     private static Tilemap groundMap;
     private static GameObject tilledSoil;
+    private static Tile grassTile;
 
     private void Awake()
     {
         groundMap = setGroundMap;
         tilledSoil = tilledSoilPrefab;
+        grassTile = grassTileBase;
     }
 
     public static void LaserTile(Vector2 pos)
@@ -41,6 +45,12 @@ public class TileManager : MonoBehaviour
         {
             t.GetComponent<SoilLogic>().AddSeed();
         }
+    }
+
+    public static void ResetTile(Vector2 pos)
+    {
+        Vector3Int grid_pos = groundMap.WorldToCell(pos);
+        groundMap.SetTile(grid_pos, grassTile);
     }
 
     public static Vector2 rotate(Vector2 v, float delta)

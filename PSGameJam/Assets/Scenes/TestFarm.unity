@@ -6828,6 +6828,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8853145085575650307, guid: 459a6722c29e29f438e7bf350c852a59, type: 3}
   m_PrefabInstance: {fileID: 5651077632987434008}
   m_PrefabAsset: {fileID: 0}
+--- !u!102 &2134607583 stripped
+TextMesh:
+  m_CorrespondingSourceObject: {fileID: 8944627316531350507, guid: 0f53a0eb6d974754e9275fc44f3c7ef1, type: 3}
+  m_PrefabInstance: {fileID: 1667361991}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &400473715940990769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6963,6 +6968,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1338263966}
     - target: {fileID: 306338980459476179, guid: 4321e5701a458254ba7571a69210dd51, type: 3}
+      propertyPath: grassTileBase
+      value: 
+      objectReference: {fileID: 11400000, guid: 1860b995c3dac0b49b0b8e784ae29bf7, type: 2}
+    - target: {fileID: 306338980459476179, guid: 4321e5701a458254ba7571a69210dd51, type: 3}
       propertyPath: tilledSoilPrefab
       value: 
       objectReference: {fileID: 8806581635949763345, guid: 2ea0294d3dc270f40b3b8810e6bd58a6, type: 3}
@@ -7027,6 +7036,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1260502836}
+    - target: {fileID: 2266558675962786738, guid: 459a6722c29e29f438e7bf350c852a59, type: 3}
+      propertyPath: refuelText
+      value: 
+      objectReference: {fileID: 2134607583}
     - target: {fileID: 5842905669418776165, guid: 459a6722c29e29f438e7bf350c852a59, type: 3}
       propertyPath: m_Name
       value: WaterRefuel
