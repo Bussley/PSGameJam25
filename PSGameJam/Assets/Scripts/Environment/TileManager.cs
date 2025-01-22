@@ -53,6 +53,11 @@ public class TileManager : MonoBehaviour
         groundMap.SetTile(grid_pos, grassTile);
     }
 
+    public static void SetTileMap(Tilemap map)
+    {
+        groundMap = map;
+    }
+
     public static Vector2 rotate(Vector2 v, float delta)
     {
         float rad = Mathf.Deg2Rad * delta;

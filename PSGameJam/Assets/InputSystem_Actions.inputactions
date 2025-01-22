@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchSeeds",
+                    "type": "Button",
+                    "id": "19d5fff3-b2e1-49f1-b95c-8db4cf340ed3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -214,6 +223,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "JetBoost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b103624b-7ae3-45f5-823e-2fcccf9dbb5e",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "SwitchSeeds",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

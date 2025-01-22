@@ -14,6 +14,8 @@ public class ShotgunLogic : MonoBehaviour
     private float shotgunSpeed;
     [SerializeField]
     private int seedCount;
+    [SerializeField] 
+    private float spreadAngle;
     [SerializeField]
     private GameObject aimPrefab;
     [SerializeField]
@@ -41,15 +43,15 @@ public class ShotgunLogic : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void BulletSpread(int direction)
+    public void BulletSpread(Vector2 direction)
     {
-        minAimDegree = 45 * (7 - direction);
-        if (direction > 4)
-        {
-            minAimDegree = 45 * Math.Abs(5 - direction);
-        }
+        minAimDegree = Vector2.Angle(Vector2.left, direction);
 
-        maxAimDegree = minAimDegree - 90;
+        if(direction.y > 0)
+            minAimDegree = -minAimDegree;
+
+        minAimDegree -= spreadAngle / 2.0f;
+        maxAimDegree = minAimDegree + spreadAngle;
 
         aimObject1 = Instantiate(aimPrefab, transform);
         aimObject2 = Instantiate(aimPrefab, transform);

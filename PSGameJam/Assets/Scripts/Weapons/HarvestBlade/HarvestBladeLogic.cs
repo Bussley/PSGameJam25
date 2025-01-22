@@ -22,11 +22,12 @@ public class HarvestBladeLogic : MonoBehaviour
 
     private void Update() {
 
+        offsetPosition = transform.parent.position + new Vector3(rotatePoint.x, rotatePoint.y, 0);
+
         if (curTime < duration)
             transform.RotateAround(offsetPosition, Vector3.forward, -rotateSpeed);
         else
         {
-            transform.parent.GetComponent<PlayerController>().SetMove(true);
             Destroy(gameObject);
         }
 
@@ -39,22 +40,23 @@ public class HarvestBladeLogic : MonoBehaviour
         Debug.Log("HIT");
     }
 
-    public void Fire(int direction) {
-        // Find point infront of mech
-        float startAngle = 45 * (6 - direction);
-        if (direction > 4)
-            startAngle = 45 * (direction - 6);
+    public void Fire(Vector2 direction) {
+        float angle = Vector2.Angle(Vector2.left, direction);
+
+        // Flip if face positive direction
+        if (direction.y > 0)
+            angle = -angle;
 
         // This is to get the correct X for hand swipe with sword
-        Vector3 xRot = TileManager.rotate(new Vector2(-rotatePoint.x, 0), startAngle);
+        Vector3 xRot = TileManager.rotate(new Vector2(-rotatePoint.x, 0), angle);
 
-        startAngle += arcLength;
+        angle += arcLength;
         duration = (arcLength * 2) / rotateSpeed;
 
         // Set position to offset Position
         offsetPosition += xRot;
         transform.position = offsetPosition - new Vector3(transform.lossyScale.x/2, 0);
 
-        transform.RotateAround(offsetPosition, Vector3.forward, startAngle);
+        transform.RotateAround(offsetPosition, Vector3.forward, angle);
     }
 }

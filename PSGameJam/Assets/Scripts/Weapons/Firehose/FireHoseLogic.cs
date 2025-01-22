@@ -6,8 +6,6 @@ using UnityEngine.TextCore;
 public class FireHoseLogic : MonoBehaviour
 {
     private GameObject aimObject;
-    private float minAimDegree;
-    private float maxAimDegree;
 
     [SerializeField]
     private GameObject aimPrefab;
@@ -50,18 +48,17 @@ public class FireHoseLogic : MonoBehaviour
         return waterShootTime;
     }
     
-    public void WaterSpread(int direction)
+    public void WaterSpread(Vector2 direction)
     {
-        minAimDegree = 45 * (7 - direction);
-        if (direction > 4)
-        {
-            minAimDegree = 45 * Math.Abs(5 - direction);
-        }
+        float angle = Vector2.Angle(Vector2.left, direction);
 
-        maxAimDegree = minAimDegree - 45;
+        // Flip if face positive direction
+        if (direction.y > 0)
+            angle = -angle;
+
 
         aimObject = Instantiate(aimPrefab, transform);
-        aimObject.transform.RotateAround(transform.position, Vector3.forward, maxAimDegree);
+        aimObject.transform.RotateAround(transform.position, Vector3.forward, angle);
     }
 
 }

@@ -54,15 +54,6 @@ public class LaserLogic : MonoBehaviour
         }
     }
 
-    private float DetermineSpawnAngle(int direction) {
-
-        float startAngle = 45 * (6 - direction);
-        if (direction > 4)
-            startAngle = 45 * (direction - 6);
-
-        return startAngle + aimStartArc;
-    }
-
     private void RotateAim() {
         aimObject1.transform.RotateAround(transform.position, Vector3.forward, aimRotateSpeed);
         aimObject2.transform.RotateAround(transform.position, Vector3.forward, -aimRotateSpeed);
@@ -99,15 +90,19 @@ public class LaserLogic : MonoBehaviour
         Destroy(aimObject2);
     }
 
-    public void Charge(int direction) {
+    public void Charge(Vector2 direction) {
         //Determine Starting angle
-        float angle = DetermineSpawnAngle(direction);
+        float angle = Vector2.Angle(Vector2.left, direction);
+        
+        // Flip if face positive direction
+        if(direction.y > 0)
+            angle = - angle;
 
         aimObject1 = Instantiate(aimPrefab, transform);
         aimObject2 = Instantiate(aimPrefab, transform);
 
-        aimObject1.transform.RotateAround(transform.position, Vector3.forward, angle + (aimStartArc * 2));
-        aimObject2.transform.RotateAround(transform.position, Vector3.forward, angle);
+        aimObject1.transform.RotateAround(transform.position, Vector3.forward, angle - aimStartArc);
+        aimObject2.transform.RotateAround(transform.position, Vector3.forward, angle + aimStartArc);
 
         maxAimDuration = aimStartArc / aimRotateSpeed;
         aimCreated = true;
