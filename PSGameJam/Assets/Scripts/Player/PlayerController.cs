@@ -11,8 +11,15 @@ using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
 
+
 public class PlayerController : MonoBehaviour
 {
+    const float ISO_X_DIAGNOL_DIR = 0.894427f;
+    const float ISO_Y_DIAGNOL_DIR = 0.447214f;
+
+    [SerializeField]
+    private float waterTankLevel = 100.0f;
+
     [SerializeField]
     private float moveSpeed;
     [SerializeField]
@@ -50,8 +57,10 @@ public class PlayerController : MonoBehaviour
     private int playerDirection;
     private float waterStartChargeTime;
     private Vector2 moveDirection;
+    private Vector2 isoDirection;
     private Vector2 lastMoveDirection;
     private bool canMove;
+    private bool usingWeapon;
     private bool usingJets;
 
     private Rigidbody2D rig;
@@ -70,6 +79,7 @@ public class PlayerController : MonoBehaviour
     private void Awake() {
         playerDirection = 1;
         canMove = true;
+        usingWeapon = false;
         usingJets = false;
         moveDirection = new Vector2();
         playerAnimatior = GetComponent<Animator>();
@@ -82,7 +92,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate() {
         if(usingJets)
         {
-            Vector2 vel = rig.linearVelocity + (moveDirection * jetOffsetSpeed);
+            Vector2 vel = rig.linearVelocity + (isoDirection * jetOffsetSpeed);
             if (vel.magnitude < jetSpeed)
                 rig.linearVelocity = vel;
             else
@@ -90,7 +100,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            rig.linearVelocity = moveDirection * moveSpeed;
+            rig.linearVelocity = isoDirection * moveSpeed;
             
             playerAnimatior.SetFloat("Horizontal", lastMoveDirection.x);
             playerAnimatior.SetFloat("Vertical", lastMoveDirection.y);
@@ -108,11 +118,24 @@ public class PlayerController : MonoBehaviour
 
     public void DetermineDirection(InputAction.CallbackContext context) {
         moveDirection = Vector2.zero;
+        isoDirection = Vector2.zero;
 
         // Get direction of player and move
         if (context.performed && canMove)
         {
             moveDirection = playerInput.action.ReadValue<Vector2>();
+            isoDirection = moveDirection;
+
+            if (moveDirection.x > 0.0f && moveDirection.y > 0.0f)
+                isoDirection = new Vector2(ISO_X_DIAGNOL_DIR, ISO_Y_DIAGNOL_DIR);
+            else if (moveDirection.x > 0.0f && moveDirection.y < 0.0f)
+                isoDirection = new Vector2(ISO_X_DIAGNOL_DIR, -ISO_Y_DIAGNOL_DIR);
+            else if (moveDirection.x < 0.0f && moveDirection.y > 0.0f)
+                isoDirection = new Vector2(-ISO_X_DIAGNOL_DIR, ISO_Y_DIAGNOL_DIR);
+            else if (moveDirection.x < 0.0f && moveDirection.y < 0.0f)
+                isoDirection = new Vector2(-ISO_X_DIAGNOL_DIR, -ISO_Y_DIAGNOL_DIR);
+
+
             Action changeDir = () =>
             {
                 if(moveDirection != Vector2.zero)
@@ -135,128 +158,129 @@ public class PlayerController : MonoBehaviour
     }
 
     public void FireWeapon(InputAction.CallbackContext context) {
-        // I HATE HAVING TO DO THIS PLZ HELP SHOW ME THE WAY. DO YOU KNOW DA WHEY? 
 
-        // Creating statements to fire weapon based off of the current weapon.
-        if (typesOfWeapons[0] == CurrentWeapon)
+        if (!usingJets)
         {
-            Debug.Log("Putting away items");
-        }
-        else if (typesOfWeapons[1] == CurrentWeapon)
-        {
-            if (context.action.name == "Cursor") {
-                FireShotGun(context);
-                Debug.Log(context.action.name);
+            // Creating statements to fire weapon based off of the current weapon.
+            if (typesOfWeapons[0] == CurrentWeapon)
+            {
+                Debug.Log("Putting away items");
             }
+            else if (typesOfWeapons[1] == CurrentWeapon)
+            {
+                if (context.action.name == "Cursor")
+                {
+                    FireShotGun(context);
+                    Debug.Log(context.action.name);
+                }
 
-        }
-        else if (typesOfWeapons[2] == CurrentWeapon)
-        {
-            if (context.action.name == "Spacebar") {
-                //Debug.Log("Spraying Water!");
-                FireWaterHose(context);
-            } 
-        } 
-        else if (typesOfWeapons[3] == CurrentWeapon)
-        {
-            if (context.action.name == "Cursor") {
-                FireHarvestBlade(context);
-                //Debug.Log("Swing Sword");
             }
-        } 
-        else if (typesOfWeapons[4] == CurrentWeapon)
-        {
-            if (context.action.name == "Cursor") {
-                FireLaser(context);
+            else if (typesOfWeapons[2] == CurrentWeapon)
+            {
+                if (context.action.name == "Spacebar")
+                {
+                    //Debug.Log("Spraying Water!");
+                    FireWaterHose(context);
+                }
+            }
+            else if (typesOfWeapons[3] == CurrentWeapon)
+            {
+                if (context.action.name == "Cursor")
+                {
+                    FireHarvestBlade(context);
+                    //Debug.Log("Swing Sword");
+                }
+            }
+            else if (typesOfWeapons[4] == CurrentWeapon)
+            {
+                if (context.action.name == "Cursor")
+                {
+                    FireLaser(context);
+                }
             }
         }
     }
 
     public void FireLaser(InputAction.CallbackContext context) {
-        if (!usingJets)
+        if (context.started && !usingWeapon)
         {
-            if (context.started)
-            {
-                // Stop Player
-                moveDirection = Vector2.zero;
-                canMove = false;
+            // Stop Player
+            moveDirection = Vector2.zero;
+            canMove = false;
+            usingWeapon = true;
 
-                // Spawn aimer
-                laserGO = Instantiate(laserPrefab, transform);
-                laserGO.GetComponent<LaserLogic>().Charge(playerDirection);
-            }
-            else if (context.canceled && laserGO != null)
-            {
-                if(laserGO != null && !laserGO.GetComponent<LaserLogic>().Fired())
-                    laserGO.GetComponent<LaserLogic>().Fire();
-            }
+            // Spawn aimer
+            laserGO = Instantiate(laserPrefab, transform);
+            laserGO.GetComponent<LaserLogic>().Charge(playerDirection);
+        }
+        else if (context.canceled && laserGO != null)
+        {
+            if(laserGO != null && !laserGO.GetComponent<LaserLogic>().Fired())
+                laserGO.GetComponent<LaserLogic>().Fire();
         }
     }
 
     public void FireShotGun(InputAction.CallbackContext context) {
-        if (!usingJets)
+        if (context.started)
         {
-            if (context.started)
-            {
-                // Stop Player
-                moveDirection = Vector2.zero;
-                canMove = false;
+            // Stop Player
+            moveDirection = Vector2.zero;
+            canMove = false;
+            usingWeapon = true;
 
-                // Spawn aimer
-                shotgunGO = Instantiate(shotgunPrefab, transform);
-                shotgunGO.GetComponent<ShotgunLogic>().BulletSpread(playerDirection);
-            }
-            else if (context.canceled && shotgunGO != null)
-            {
-                shotgunGO.GetComponent<ShotgunLogic>().Fire();
-                canMove = true;
-            }
+            // Spawn aimer
+            shotgunGO = Instantiate(shotgunPrefab, transform);
+            shotgunGO.GetComponent<ShotgunLogic>().BulletSpread(playerDirection);
+        }
+        else if (context.canceled && shotgunGO != null)
+        {
+            shotgunGO.GetComponent<ShotgunLogic>().Fire();
+            canMove = true;
+            usingWeapon = false;
         }
     }
 
     public void FireWaterHose(InputAction.CallbackContext context) {
-        if (!usingJets)
+        if (context.started && waterTankLevel > 0.0f && !usingWeapon)
         {
-            if (context.started)
-            {
-                waterStartChargeTime = Time.time;
-                // Stop Player
-                moveDirection = Vector2.zero;
-                canMove = false;
-
-                // Spawn aimer
-                firehoseGO = Instantiate(fireHosePrefab, transform);
-                firehoseGO.GetComponent<FireHoseLogic>().WaterSpread(playerDirection);
-            }
-            else if (context.canceled && firehoseGO != null)
-            {
-                var endTime = Time.time;
-                var heldTime = endTime - waterStartChargeTime; 
-                float waitTimetoMove = firehoseGO.GetComponent<FireHoseLogic>().SprayWater(heldTime);
-
-                Action moveFunc = () => {
-                    canMove = true;
-                };
-
-                TimerManager.AddTimer(moveFunc, waitTimetoMove);
-            }
+            waterStartChargeTime = Time.time;
+            // Stop Player
+            moveDirection = Vector2.zero;
+            canMove = false;
+            usingWeapon = true;
+            // Spawn aimer
+            firehoseGO = Instantiate(fireHosePrefab, transform);
+            firehoseGO.GetComponent<FireHoseLogic>().WaterSpread(playerDirection);
+        }
+        else if (context.canceled && firehoseGO != null && waterTankLevel > 0.0f)
+        {
+            var endTime = Time.time;
+            var heldTime = endTime - waterStartChargeTime; 
+            float waitTimetoMove = firehoseGO.GetComponent<FireHoseLogic>().SprayWater(heldTime);
+            Action moveFunc = () => {
+                canMove = true;
+                usingWeapon = false;
+            };
+            TimerManager.AddTimer(moveFunc, waitTimetoMove);
+            float wlevel = waterTankLevel - 25.0f;
+            PlayerWaterTankLevel(wlevel);
+        }
+        else {
+            Debug.Log("Player out of water. Need to Refil. Waterlevel=" + waterTankLevel);
         }
     }
 
     public void FireHarvestBlade(InputAction.CallbackContext context)
     {
-        if (!usingJets)
+        if (context.started)
         {
-            if (context.started)
-            {
-                // Stop Player
-                moveDirection = Vector2.zero;
-                canMove = false;
+            // Stop Player
+            moveDirection = Vector2.zero;
+            canMove = false;
 
-                // Spawn aimer
-                harvestBladeGO = Instantiate(harvestBladePrefab, transform);
-                harvestBladeGO.GetComponent<HarvestBladeLogic>().Fire(playerDirection);
-            }
+            // Spawn aimer
+            harvestBladeGO = Instantiate(harvestBladePrefab, transform);
+            harvestBladeGO.GetComponent<HarvestBladeLogic>().Fire(playerDirection);
         }
     }
 
@@ -267,7 +291,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(context.performed);
 
         // Check user number key input. Switch weapon based off key input.
-        if (context.performed) {
+        if (context.performed && !usingWeapon) {
             Debug.Log(context.control.name);
             String dbugmsg = "Setting current weapon to";
 
@@ -299,6 +323,11 @@ public class PlayerController : MonoBehaviour
 
     public void SetMove(bool move) {
         canMove = move;
+        usingWeapon = false;
     }
     
+    public void PlayerWaterTankLevel(float level) {
+        waterTankLevel = level;
+        Debug.Log(waterTankLevel);
+    }
 }

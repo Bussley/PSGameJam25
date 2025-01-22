@@ -16,4 +16,9 @@ public class LaserBeamLogic : MonoBehaviour
         speed = _speed;
         dir = _dir;
     }
+
+    public void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Soil")
+            collision.gameObject.GetComponent<SoilLogic>().CharTile();
+    }
 }

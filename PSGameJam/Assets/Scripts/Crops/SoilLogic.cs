@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class SoilLogic : MonoBehaviour
@@ -11,31 +12,59 @@ public class SoilLogic : MonoBehaviour
     [SerializeField]
     private Sprite drySoil;
 
-    private GameObject crop;
+    [SerializeField]
+    private Sprite charredSoil;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField]
+    private float charredTimer;
+
+    private GameObject crop;
+    private SpriteRenderer spr;
+    private float invincibilityTime;
+
+    private bool charred;
+
+    void Awake()
     {
-        
+        // This controls charred time timer invicibilty so newly spawn soil doesn't go away
+        invincibilityTime = Time.time + 1.0f;
+        charred = false;
+        spr = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(charred && charredTimer < Time.time) {
+            // Reset tile back to grass and destroy this object
+            TileManager.ResetTile(transform.position);
+        }
     }
 
     public void AddSeed() {
-        if(crop == null)
+        if(!charred && crop == null)
             crop = Instantiate(potatoPrefab, transform);
     }
 
     public void Watered()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = wateredSoil;
+        spr.sprite = wateredSoil;
     }
+
     public void Dry()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = drySoil;
+        spr.sprite = drySoil;
+    }
+
+    public void CharTile() {
+        // Make sure not to char tile if just spawned
+        if(Time.time > invincibilityTime)
+        {
+            if(crop != null)
+                Destroy(transform.GetChild(0).gameObject);
+            spr.sprite = charredSoil;
+            charred = true;
+            charredTimer += Time.time;
+        }
+
     }
 }
