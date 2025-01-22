@@ -11,8 +11,13 @@ using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
 
+
 public class PlayerController : MonoBehaviour
 {
+
+    [SerializeField]
+    private float waterTankLevel = 100.0f;
+
     [SerializeField]
     private float moveSpeed;
     [SerializeField]
@@ -135,7 +140,6 @@ public class PlayerController : MonoBehaviour
     }
 
     public void FireWeapon(InputAction.CallbackContext context) {
-        // I HATE HAVING TO DO THIS PLZ HELP SHOW ME THE WAY. DO YOU KNOW DA WHEY? 
 
         // Creating statements to fire weapon based off of the current weapon.
         if (typesOfWeapons[0] == CurrentWeapon)
@@ -217,28 +221,30 @@ public class PlayerController : MonoBehaviour
     public void FireWaterHose(InputAction.CallbackContext context) {
         if (!usingJets)
         {
-            if (context.started)
+            if (context.started && waterTankLevel > 0.0f )
             {
                 waterStartChargeTime = Time.time;
                 // Stop Player
                 moveDirection = Vector2.zero;
                 canMove = false;
-
                 // Spawn aimer
                 firehoseGO = Instantiate(fireHosePrefab, transform);
                 firehoseGO.GetComponent<FireHoseLogic>().WaterSpread(playerDirection);
             }
-            else if (context.canceled && firehoseGO != null)
+            else if (context.canceled && firehoseGO != null && waterTankLevel > 0.0f)
             {
                 var endTime = Time.time;
                 var heldTime = endTime - waterStartChargeTime; 
                 float waitTimetoMove = firehoseGO.GetComponent<FireHoseLogic>().SprayWater(heldTime);
-
                 Action moveFunc = () => {
                     canMove = true;
                 };
-
                 TimerManager.AddTimer(moveFunc, waitTimetoMove);
+                float wlevel = waterTankLevel - 25.0f;
+                PlayerWaterTankLevel(wlevel);
+            }
+            else {
+                Debug.Log("Player out of water. Need to Refil. Waterlevel=" + waterTankLevel);
             }
         }
     }
@@ -301,4 +307,8 @@ public class PlayerController : MonoBehaviour
         canMove = move;
     }
     
+    public void PlayerWaterTankLevel(float level) {
+        waterTankLevel = level;
+        Debug.Log(waterTankLevel);
+    }
 }
