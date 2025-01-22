@@ -12,6 +12,7 @@ public class refuel : MonoBehaviour
  private TextMesh refuelText;
  private bool refuelAllowed;
 
+[SerializeField]
 private PlayerController player;
 
  private void Start () {

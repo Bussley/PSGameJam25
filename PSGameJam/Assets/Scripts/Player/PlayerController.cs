@@ -65,6 +65,11 @@ public class PlayerController : MonoBehaviour
         "lazer", // 4
     };
 
+    
+    [SerializeField]
+    private SeedLogic seeds;
+
+
     // N = 0, NE = 1, E = 2, SE = 3
     // S = 4, NW = 5, W = 6, SW = 7
     private float waterStartChargeTime;
@@ -190,7 +195,7 @@ public class PlayerController : MonoBehaviour
             if (context.action.name == "Cursor")
             {
                 FireShotGun(context);
-                Debug.Log(context.action.name);
+                //Debug.Log(context.action.name);
             }
 
         }
@@ -241,6 +246,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void FireShotGun(InputAction.CallbackContext context) {
+
         if (context.started && shotgunCooldownTimer < Time.time)
         {
             shotgunCooldownTimer = Time.time + shotgunCooldown;
@@ -257,7 +263,14 @@ public class PlayerController : MonoBehaviour
         }
         else if (context.canceled && shotgunGO != null)
         {
-            shotgunGO.GetComponent<ShotgunLogic>().Fire();
+            int seedCount = seeds.ShootSeed(5);
+            Debug.Log(seedCount);
+            if (seedCount != 0) {
+                shotgunGO.GetComponent<ShotgunLogic>().Fire();
+            }
+            else {
+                Destroy(shotgunGO);
+            }
             canMove = true;
             usingWeapon = false;
         }
@@ -354,5 +367,11 @@ public class PlayerController : MonoBehaviour
     public void PlayerWaterTankLevel(float level) {
         waterTankLevel = level;
         Debug.Log(waterTankLevel);
+    }
+
+    public void SwitchSeeds(InputAction.CallbackContext context) {
+        if (context.control.name == "u" && context.canceled) {
+            seeds.NextSeed(context);
+        }
     }
 }
