@@ -263,6 +263,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (context.canceled && shotgunGO != null)
         {
+            /*
             int seedCount = seeds.ShootSeed(5);
             Debug.Log(seedCount);
             if (seedCount != 0) {
@@ -270,7 +271,9 @@ public class PlayerController : MonoBehaviour
             }
             else {
                 Destroy(shotgunGO);
-            }
+            }*/
+            shotgunGO.GetComponent<ShotgunLogic>().Fire();
+            Destroy(shotgunGO);
             canMove = true;
             usingWeapon = false;
         }

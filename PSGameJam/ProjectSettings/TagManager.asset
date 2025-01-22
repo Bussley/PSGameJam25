@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Crop
   - Soil
+  - Weapon
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -16,9 +18,9 @@ TagManager:
   - Crop
   - Soil
   - Duck
-  - 
-  - 
-  - 
+  - Player
+  - Weapon
+  - Enemy
   - 
   - 
   - 

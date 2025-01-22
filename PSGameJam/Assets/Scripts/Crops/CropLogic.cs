@@ -19,7 +19,10 @@ public class CropLogic : MonoBehaviour
 
     private float hydrationLevel;
 
+    public bool scareCrowProtected { get; set; }
+
     private void Start() {
+        scareCrowProtected = false;
         growthPercentage = 0;
         health = cropSO.maxHealth;
         mSprite = GetComponent<SpriteRenderer>();

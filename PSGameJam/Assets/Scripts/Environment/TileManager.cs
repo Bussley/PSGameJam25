@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -26,12 +27,14 @@ public class TileManager : MonoBehaviour
     {
         Vector3Int grid_pos = groundMap.WorldToCell(pos);
 
-        TileBase t = groundMap.GetTile(grid_pos);
+        TileBase tb = groundMap.GetTile(grid_pos);
 
         //Check if we are hitting anything worth tilling
-        if (t != null && t.name == "Grass_Center")
+        if (tb != null && tb.name == "Grass_Center")
         {
-            groundMap.SetTile(grid_pos, new Tile() { gameObject = tilledSoil });
+            Tile t = ScriptableObject.CreateInstance<Tile>();
+            t.gameObject = tilledSoil;
+            groundMap.SetTile(grid_pos, t) ;
         }
     }
 
@@ -50,6 +53,7 @@ public class TileManager : MonoBehaviour
     public static void ResetTile(Vector2 pos)
     {
         Vector3Int grid_pos = groundMap.WorldToCell(pos);
+
         groundMap.SetTile(grid_pos, grassTile);
     }
 

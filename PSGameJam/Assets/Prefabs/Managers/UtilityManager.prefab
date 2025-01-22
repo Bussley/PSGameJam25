@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1291524959347015240}
   - component: {fileID: 3787416025323424965}
   - component: {fileID: 306338980459476179}
+  - component: {fileID: -1937792012087931326}
   m_Layer: 0
   m_Name: UtilityManager
   m_TagString: Untagged
@@ -60,3 +61,17 @@ MonoBehaviour:
   setGroundMap: {fileID: 0}
   tilledSoilPrefab: {fileID: 8806581635949763345, guid: 2ea0294d3dc270f40b3b8810e6bd58a6, type: 3}
   grassTileBase: {fileID: 11400000, guid: 1860b995c3dac0b49b0b8e784ae29bf7, type: 2}
+--- !u!114 &-1937792012087931326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4477647027082334977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc8ab40b292c6342b8833a7c7b8a004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crowSpawnTimer: 5
+  crowPrefab: {fileID: 248034251025000828, guid: 6fe2be8efb2c01c4b900a5f7559a6936, type: 3}

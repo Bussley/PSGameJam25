@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8232465418494918892}
   - component: {fileID: 3818254883772176346}
   - component: {fileID: 3730105245239556791}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WaterSplotch
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,10 +130,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 2368
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 183
+    m_Bits: 1719
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
