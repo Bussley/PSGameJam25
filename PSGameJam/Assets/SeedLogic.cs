@@ -18,7 +18,7 @@ public class SeedLogic : MonoBehaviour
     private int strawBerryCount = 0;
 
     [SerializeField]
-    private string currentSeed = "wheat";
+    public string currentSeed = "wheat";
 
     [SerializeField]    
     private String[] typesOfSeeds = {
@@ -29,6 +29,14 @@ public class SeedLogic : MonoBehaviour
         "potato", // 4
     };
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void Start() {
+        tomatoCount = 0;
+        wheatCount = 25;
+        potatoCount = 0;
+        pepperCount = 0;
+        strawBerryCount = 0;
+    }
 
     public void SeedLevel(int num,String seedType) {
         switch (seedType) {
@@ -50,7 +58,24 @@ public class SeedLogic : MonoBehaviour
         }
     }
 
-     public void NextSeed (InputAction.CallbackContext context) {
+    public int GetSeedCount(String seedType) {
+        switch (seedType) {
+            case "wheat":
+                return wheatCount;
+            case "tomato":
+                return tomatoCount;
+            case "pepper":
+                return pepperCount;
+            case "strawberry":
+                return strawBerryCount;
+            case "potato":
+                return potatoCount;
+            default:
+                return 0;
+        }
+    }
+
+    public void NextSeed (InputAction.CallbackContext context) {
         if (context.control.name == "u" && context.canceled) {
             int num = System.Array.IndexOf(typesOfSeeds, currentSeed);
             if (num >= typesOfSeeds.Length -1) {

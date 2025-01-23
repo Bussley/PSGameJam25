@@ -198,150 +198,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &660256338
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 660256340}
-  - component: {fileID: 660256339}
-  m_Layer: 0
-  m_Name: Seeds
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &660256339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 660256338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 111a8fdedd7534145be40bd4604c3f76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tomatoCount: 0
-  wheatCount: 25
-  potatoCount: 0
-  pepperCount: 0
-  strawBerryCount: 0
-  currentSeed: wheat
-  typesOfSeeds:
-  - wheat
-  - tomato
-  - pepper
-  - strawberry
-  - potato
---- !u!4 &660256340
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 660256338}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.61742944, y: -0.3555434, z: -8.351858}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 934022357}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &934022356
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 934022357}
-  - component: {fileID: 934022358}
-  m_Layer: 0
-  m_Name: SeedSprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &934022357
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 934022356}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 8.351858}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 660256340}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &934022358
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 934022356}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 5277730378181330140, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
-  m_Color: {r: 0.7264151, g: 0.3264158, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!114 &1260502836 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3351602065597119800, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
@@ -353,10 +209,101 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3dcb829830d2c84abac25a97c696474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!102 &1269201425 stripped
+TextMesh:
+  m_CorrespondingSourceObject: {fileID: 3317063295953255400, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+  m_PrefabInstance: {fileID: 988510300407977792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1839735485 &1338263966 stripped
 Tilemap:
   m_CorrespondingSourceObject: {fileID: 5781538578406203192, guid: bfc1dd2596c6fe2448a73d8fcf5b33a7, type: 3}
   m_PrefabInstance: {fileID: 5244752419100631212}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1570862478
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.087
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.057
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914583670136443059, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_Name
+      value: Triangle (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650724442926391598, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1260502836}
+    - target: {fileID: 7650724442926391598, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: showText
+      value: '{ Press E to Refuel Wheat Seeds }'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650724442926391598, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: seedBinText
+      value: 
+      objectReference: {fileID: 1570862479}
+    - target: {fileID: 7650724442926391598, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: refuelAllowed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650724442926391598, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: seedHolderName
+      value: wheat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8030389979030118350, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+--- !u!102 &1570862479 stripped
+TextMesh:
+  m_CorrespondingSourceObject: {fileID: 3317063295953255400, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+  m_PrefabInstance: {fileID: 1570862478}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &400473715940990769
 PrefabInstance:
@@ -470,7 +417,7 @@ PrefabInstance:
     - target: {fileID: 3351602065597119800, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
       propertyPath: seeds
       value: 
-      objectReference: {fileID: 660256339}
+      objectReference: {fileID: 4881669829250498636, guid: 8e52b02c585c9ff4384453dd0961b5e1, type: 3}
     - target: {fileID: 3351602065597119800, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
       propertyPath: refuelText
       value: 
@@ -524,6 +471,87 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+--- !u!1001 &988510300407977792
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.218
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.057
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932060530570995325, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914583670136443059, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_Name
+      value: Triangle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650724442926391598, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1260502836}
+    - target: {fileID: 7650724442926391598, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: showText
+      value: '{ Press E to Refuel Potato Seeds }'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650724442926391598, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: seedBinText
+      value: 
+      objectReference: {fileID: 1269201425}
+    - target: {fileID: 7650724442926391598, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: refuelAllowed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650724442926391598, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: seedHolderName
+      value: potato
+      objectReference: {fileID: 0}
+    - target: {fileID: 8030389979030118350, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
 --- !u!1001 &4552606801926777709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -721,4 +749,5 @@ SceneRoots:
   - {fileID: 400473715940990769}
   - {fileID: 5651077632987434008}
   - {fileID: 57798784}
-  - {fileID: 660256340}
+  - {fileID: 988510300407977792}
+  - {fileID: 1570862478}

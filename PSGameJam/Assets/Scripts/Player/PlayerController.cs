@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
     
     [SerializeField]
-    private SeedLogic seeds;
+    public SeedLogic seeds;
 
 
     // N = 0, NE = 1, E = 2, SE = 3
@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Putting away items");
         }
-        else if (typesOfWeapons[1] == CurrentWeapon && !usingJets)
+        else if (typesOfWeapons[1] == CurrentWeapon && !usingJets && seeds.ShootSeed(0) != 0)
         {
             if (context.action.name == "Cursor")
             {
@@ -263,15 +263,13 @@ public class PlayerController : MonoBehaviour
         }
         else if (context.canceled && shotgunGO != null)
         {
-            /*
+            
             int seedCount = seeds.ShootSeed(5);
             Debug.Log(seedCount);
             if (seedCount != 0) {
                 shotgunGO.GetComponent<ShotgunLogic>().Fire();
             }
-            else {
-                Destroy(shotgunGO);
-            }*/
+
             shotgunGO.GetComponent<ShotgunLogic>().Fire();
             Destroy(shotgunGO);
             canMove = true;

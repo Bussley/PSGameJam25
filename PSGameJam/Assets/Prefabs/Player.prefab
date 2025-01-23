@@ -258,7 +258,7 @@ MonoBehaviour:
   shotgunPrefab: {fileID: 8687622037540719887, guid: 10332563ebaab30488e887948cea98ff, type: 3}
   harvestBladePrefab: {fileID: 7632485419616046028, guid: d46d9bd770db5854fba4db2d45f021a4, type: 3}
   fireHosePrefab: {fileID: 3055755877633591794, guid: 91fc32ba37a85484fbec856b4217c376, type: 3}
-  seeds: {fileID: 0}
+  seeds: {fileID: 4881669829250498636, guid: 8e52b02c585c9ff4384453dd0961b5e1, type: 3}
 --- !u!50 &2678468580882921569
 Rigidbody2D:
   serializedVersion: 5
