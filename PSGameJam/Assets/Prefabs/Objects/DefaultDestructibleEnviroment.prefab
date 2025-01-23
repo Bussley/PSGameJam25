@@ -130,10 +130,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1536
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 3063
+    m_Bits: 6647
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -179,3 +179,4 @@ MonoBehaviour:
   canBeDestroyedByShotgun: 1
   canBeDestroyedByFireHose: 1
   canBeDestroyedByHarvestBlade: 1
+  canBeDestroyedByPlayer: 1
