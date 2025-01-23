@@ -103,23 +103,46 @@ public class PlayerController : MonoBehaviour
     private float harvestBladeCooldownTimer;
     private float jetCooldownTimer;
     private float jetStartUseTimer;
+    private float speedInterval;
+    private float speedIntervalTimer;
+
 
     private void Awake() {
         canMove = true;
         usingWeapon = false;
         usingJets = false;
+        speedIntervalTimer = 0.0f;
         lastMoveDirection = new Vector2(ISO_X_DIAGNOL_DIR, ISO_Y_DIAGNOL_DIR);
         playerAnimatior = GetComponent<Animator>();
         rig = GetComponent<Rigidbody2D>();
     }
 
     private void Update() {
+        if (moveDirection.magnitude > 0) 
+        {
+            if(speedIntervalTimer < Time.time)
+            {
+                if(speedInterval == 0)
+                {
+                    speedInterval = moveSpeed;
+                    speedIntervalTimer = Time.time + 0.6f;
+                }
+                else
+                {
+                    speedInterval = 0;
+                    speedIntervalTimer = Time.time + 0.2f;
+                }
+            }
+        }
+        else
+        {
+            speedInterval = moveSpeed;
+        }
     }
 
     private void FixedUpdate() {
         if(usingJets)
         {
-
             Vector2 vel = rig.linearVelocity + (isoDirection * jetOffsetSpeed);
             if (vel.magnitude < jetSpeed)
                 rig.linearVelocity = vel;
@@ -135,7 +158,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            rig.linearVelocity = isoDirection * moveSpeed;
+            rig.linearVelocity = isoDirection * speedInterval;
             
             playerAnimatior.SetFloat("Horizontal", lastMoveDirection.x);
             playerAnimatior.SetFloat("Vertical", lastMoveDirection.y);
