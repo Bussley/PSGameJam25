@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 8687622037540719887}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49,5 +49,6 @@ MonoBehaviour:
   shotgunSpeed: 5
   seedCount: 8
   spreadAngle: 90
-  aimPrefab: {fileID: 965893174730871508, guid: f4ca80542a83ffe4bb7ea11981034b62, type: 3}
+  offsetPoint: {x: -0.4, y: -0.5}
   shotgunPrefab: {fileID: 8762243788235311304, guid: c271be9cdc8058847bb428c10fed7c85, type: 3}
+  shotgunVFXPrefab: {fileID: 4379057717520099566, guid: c54a93169ef16794882ad06faee2b102, type: 3}

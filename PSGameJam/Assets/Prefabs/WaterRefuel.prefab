@@ -249,4 +249,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refuelText: {fileID: 8944627316531350507}
-  player: {fileID: 0}
+  player: {fileID: 3351602065597119800, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}

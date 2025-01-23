@@ -252,6 +252,8 @@ MonoBehaviour:
   jetOffsetSpeed: 0.1
   jetUseTime: 3
   jetCooldown: 5
+  jetPackVFX: {fileID: 7868398657293384759, guid: 5b6b5f5282fcce54287a6666b602acc2, type: 3}
+  jetVFXOffset: {x: 0.4, y: 0}
   changeDirectionTimer: 0.05
   playerInput: {fileID: -6270165054496254709, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   laserPrefab: {fileID: 8687622037540719887, guid: 59c14a14db685d643af5b6426bce146f, type: 3}
