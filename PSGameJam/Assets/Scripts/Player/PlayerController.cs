@@ -323,11 +323,8 @@ public class PlayerController : MonoBehaviour
         else if (context.canceled && shotgunGO != null)
         {
             
-            int seedCount = seeds.ShootSeed(5);
+            int seedCount = seeds.ShootSeed(shotgunGO.GetComponent<ShotgunLogic>().GetSeedCount());
             Debug.Log(seedCount);
-            if (seedCount != 0) {
-                shotgunGO.GetComponent<ShotgunLogic>().Fire();
-            }
 
             shotgunGO.GetComponent<ShotgunLogic>().Fire();
             canMove = true;
