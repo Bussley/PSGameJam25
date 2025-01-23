@@ -350,6 +350,7 @@ public class PlayerController : MonoBehaviour
             isoDirection = Vector2.zero;
             canMove = false;
             usingWeapon = true;
+            Debug.Log("Waterlevel=" + waterTankLevel);
         }
         else if (context.canceled && firehoseGO != null && waterTankLevel > 0.0f)
         {
@@ -364,9 +365,7 @@ public class PlayerController : MonoBehaviour
             float wlevel = waterTankLevel - 25.0f;
             PlayerWaterTankLevel(wlevel);
         }
-        else {
-            Debug.Log("Player out of water. Need to Refil. Waterlevel=" + waterTankLevel);
-        }
+
     }
 
     public void FireHarvestBlade(InputAction.CallbackContext context)
