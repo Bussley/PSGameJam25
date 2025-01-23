@@ -40,6 +40,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float jetCooldown;
     [SerializeField]
+    private GameObject jetPackVFX;
+    [SerializeField]
+    private Vector2 jetVFXOffset;
+
+    [SerializeField]
     private float changeDirectionTimer;
 
     [SerializeField]
@@ -90,6 +95,7 @@ public class PlayerController : MonoBehaviour
     private GameObject shotgunGO;
     private GameObject firehoseGO;
     private GameObject harvestBladeGO;
+    private GameObject jetPackVFXGO;
 
     private float laserCooldownTimer;
     private float shotgunCooldownTimer;
@@ -113,6 +119,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate() {
         if(usingJets)
         {
+
             Vector2 vel = rig.linearVelocity + (isoDirection * jetOffsetSpeed);
             if (vel.magnitude < jetSpeed)
                 rig.linearVelocity = vel;
@@ -121,6 +128,7 @@ public class PlayerController : MonoBehaviour
 
             if (jetStartUseTimer < Time.time)
             {
+                Destroy(jetPackVFXGO);
                 jetCooldownTimer = Time.time + jetCooldown;
                 usingJets = false;
             }
@@ -137,6 +145,20 @@ public class PlayerController : MonoBehaviour
 
     private void ChangeDirection() {
         lastMoveDirection = moveDirection;
+
+        if(usingJets)
+        {
+            Vector3 origin = transform.position + jetPackVFX.transform.position;
+            var angle = Vector2.Angle(Vector2.left, moveDirection);
+
+            // Flip if face positive direction
+            if (moveDirection.y > 0)
+                angle = -angle;
+
+            Vector3 rot_offset = TileManager.rotate(jetVFXOffset, angle);
+            jetPackVFXGO.transform.position = origin + rot_offset;
+
+        }
     }
 
     public void DetermineDirection(InputAction.CallbackContext context) {
@@ -175,10 +197,23 @@ public class PlayerController : MonoBehaviour
         {
             jetStartUseTimer = Time.time + jetUseTime;
             rig.linearVelocity = moveDirection * jetSpeed;
+
+            // Spawn and set up jetPackVFXGO
+            jetPackVFXGO = Instantiate(jetPackVFX, transform);
+            var angle = Vector2.Angle(Vector2.left, moveDirection);
+
+            // Flip if face positive direction
+            if (moveDirection.y > 0)
+                angle = -angle;
+
+            Vector3 rot_offset = TileManager.rotate(jetVFXOffset, angle);
+            jetPackVFXGO.transform.position = jetPackVFXGO.transform.position + rot_offset;
+
             usingJets = true;
         }
         else if(context.canceled && usingJets)
         {
+            Destroy(jetPackVFXGO);
             jetCooldownTimer = Time.time + jetCooldown;
             usingJets = false;
         }
@@ -273,7 +308,6 @@ public class PlayerController : MonoBehaviour
                 Destroy(shotgunGO);
             }*/
             shotgunGO.GetComponent<ShotgunLogic>().Fire();
-            Destroy(shotgunGO);
             canMove = true;
             usingWeapon = false;
         }

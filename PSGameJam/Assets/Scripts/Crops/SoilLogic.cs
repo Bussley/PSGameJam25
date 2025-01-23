@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
@@ -32,14 +33,6 @@ public class SoilLogic : MonoBehaviour
         spr = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
-    {
-        if(charred && charredTimer < Time.time) {
-            // Reset tile back to grass and destroy this object
-            TileManager.ResetTile(transform.position);
-        }
-    }
-
     public void AddSeed() {
         if(!charred && crop == null)
             crop = Instantiate(potatoPrefab, transform);
@@ -57,13 +50,20 @@ public class SoilLogic : MonoBehaviour
 
     public void CharTile() {
         // Make sure not to char tile if just spawned
-        if(Time.time > invincibilityTime)
+        if(Time.time > invincibilityTime && !charred)
         {
+            charred = true;
             if(crop != null)
                 Destroy(transform.GetChild(0).gameObject);
+
             spr.sprite = charredSoil;
-            charred = true;
-            charredTimer += Time.time;
+
+            Action func = () =>
+            {
+                TileManager.ResetTile(transform.position);
+            };
+
+            TimerManager.AddTimer(func, charredTimer);
         }
 
     }
