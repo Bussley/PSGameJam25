@@ -217,6 +217,7 @@ public class PlayerController : MonoBehaviour
             jetCooldownTimer = Time.time + jetCooldown;
             usingJets = false;
         }
+
     }
 
     public void FireWeapon(InputAction.CallbackContext context) {
