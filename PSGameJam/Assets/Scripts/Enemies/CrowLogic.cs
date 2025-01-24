@@ -36,11 +36,22 @@ public class CrowLogic : MonoBehaviour
     {
         if (collision.gameObject.layer == 10 || collision.gameObject.tag == "Player")
             scaredAway = true;
+        else if (collision.gameObject.tag == "Crop")
+            collision.gameObject.GetComponent<CropLogic>().CrowOnCrop(true);
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Crop")
+        {
+            collision.gameObject.GetComponent<CropLogic>().targeted = false;
+            collision.gameObject.GetComponent<CropLogic>().CrowOnCrop(false);
+        }
     }
 
     public void TargetCrop(GameObject target)
     {
         cropTarget = target;
     }
+
 
 }

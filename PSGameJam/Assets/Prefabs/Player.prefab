@@ -250,17 +250,21 @@ MonoBehaviour:
   moveSpeed: 2
   jetSpeed: 4
   jetOffsetSpeed: 0.1
-  jetUseTime: 3
-  jetCooldown: 5
+  overHeatRate: 1
+  cooldownRate: 5
   jetPackVFX: {fileID: 7868398657293384759, guid: 5b6b5f5282fcce54287a6666b602acc2, type: 3}
-  jetVFXOffset: {x: 0.4, y: 0}
+  jetVFXOffset: {x: 0.2, y: 0}
+  FlamethrowerOffset: {x: 0, y: 0}
   changeDirectionTimer: 0.05
   playerInput: {fileID: -6270165054496254709, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   laserPrefab: {fileID: 8687622037540719887, guid: 59c14a14db685d643af5b6426bce146f, type: 3}
   shotgunPrefab: {fileID: 8687622037540719887, guid: 10332563ebaab30488e887948cea98ff, type: 3}
   harvestBladePrefab: {fileID: 7632485419616046028, guid: d46d9bd770db5854fba4db2d45f021a4, type: 3}
   fireHosePrefab: {fileID: 3055755877633591794, guid: 91fc32ba37a85484fbec856b4217c376, type: 3}
+  flameThrowerPrefab: {fileID: 5617961853591481934, guid: c107f010cbb99d54ebd4dce0202830f5, type: 3}
   seeds: {fileID: 4881669829250498636, guid: 8e52b02c585c9ff4384453dd0961b5e1, type: 3}
+  goTime: 0.4
+  stopTime: 0.25
 --- !u!50 &2678468580882921569
 Rigidbody2D:
   serializedVersion: 5
@@ -501,7 +505,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.08}
+    pivot: {x: 0.5, y: 0.4}
     oldSize: {x: 2, y: 4}
     newSize: {x: 2, y: 4}
     adaptiveTilingThreshold: 0.5
@@ -510,8 +514,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.38, y: 0.15}
-      - {x: 0.26, y: -0.22}
-      - {x: 0.65, y: 0.03}
-      - {x: 0.01, y: 0.42}
+    - - {x: -0.38, y: -0.6}
+      - {x: 0.26, y: -0.95}
+      - {x: 0.65, y: -0.7}
+      - {x: 0.01, y: -0.35}
   m_UseDelaunayMesh: 0

@@ -33,8 +33,10 @@ public class EnemyManager : MonoBehaviour
             // Find first crop not protected by scarecrow
             foreach (var c in cropList)
             {
-                if (!c.GetComponent<CropLogic>().scareCrowProtected)
+                CropLogic cropLogic = c.GetComponent<CropLogic>();
+                if (!cropLogic.scareCrowProtected && !cropLogic.targeted)
                 {
+                    cropLogic.targeted = true;
                     crop = c;
                     break;
                 }
