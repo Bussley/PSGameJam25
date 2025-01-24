@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tomatoCount: 0
-  wheatCount: 25
+  wheatCount: 500
   potatoCount: 0
   pepperCount: 0
   strawBerryCount: 0

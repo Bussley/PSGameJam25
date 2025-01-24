@@ -36,13 +36,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float jetOffsetSpeed;
     [SerializeField]
-    private float jetUseTime;
+    private float overHeatRate;
     [SerializeField]
-    private float jetCooldown;
+    private float cooldownRate;
     [SerializeField]
     private GameObject jetPackVFX;
     [SerializeField]
     private Vector2 jetVFXOffset;
+    [SerializeField]
+    private Vector2 FlamethrowerOffset;
 
     [SerializeField]
     private float changeDirectionTimer;
@@ -62,17 +64,26 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject fireHosePrefab;
 
+    [SerializeField]
+    private GameObject flameThrowerPrefab;
+
     private String[] typesOfWeapons = {
         "none", // 0
         "shotgun", // 1
         "firehose", // 2
         "sword", // 3
         "lazer", // 4
+        "flamethrower", // 5
     };
 
     
     [SerializeField]
     public SeedLogic seeds;
+
+    [SerializeField]
+    private float goTime;
+    [SerializeField]
+    private float stopTime;
 
 
     // N = 0, NE = 1, E = 2, SE = 3
@@ -84,6 +95,9 @@ public class PlayerController : MonoBehaviour
     private bool canMove;
     private bool usingWeapon;
     private bool usingJets;
+    private bool jetLockdown;
+    private bool flameThrowerLockdown;
+
 
     private Rigidbody2D rig;
 
@@ -95,52 +109,80 @@ public class PlayerController : MonoBehaviour
     private GameObject shotgunGO;
     private GameObject firehoseGO;
     private GameObject harvestBladeGO;
+    private GameObject flameThrowerGO;
     private GameObject jetPackVFXGO;
 
     private float laserCooldownTimer;
     private float shotgunCooldownTimer;
     private float fireHoseCooldownTimer;
     private float harvestBladeCooldownTimer;
-    private float jetCooldownTimer;
-    private float jetStartUseTimer;
+    private float speedInterval;
+    private float speedIntervalTimer;
+    private float overheatVal;
+
 
     private void Awake() {
         canMove = true;
         usingWeapon = false;
         usingJets = false;
-        lastMoveDirection = new Vector2(ISO_X_DIAGNOL_DIR, ISO_Y_DIAGNOL_DIR);
+        jetLockdown = false;
+        flameThrowerLockdown = false;
+        speedIntervalTimer = 0.0f;
+        overheatVal = 0.0f;
+        lastMoveDirection = new Vector2(1, 1).normalized;
         playerAnimatior = GetComponent<Animator>();
         rig = GetComponent<Rigidbody2D>();
     }
 
     private void Update() {
+        if (moveDirection.magnitude > 0) 
+        {
+            if(speedIntervalTimer < Time.time)
+            {
+                if(speedInterval == 0) // Go Time
+                {
+                    speedInterval = moveSpeed;
+                    speedIntervalTimer = Time.time + goTime;
+                }
+                else // Stop Time
+                {
+                    speedInterval = 0;
+                    speedIntervalTimer = Time.time + stopTime;
+                }
+            }
+        }
+        else
+        {
+            speedInterval = moveSpeed;
+        }
+
+        ProcessOverHeat();
     }
 
     private void FixedUpdate() {
         if(usingJets)
         {
-
             Vector2 vel = rig.linearVelocity + (isoDirection * jetOffsetSpeed);
             if (vel.magnitude < jetSpeed)
                 rig.linearVelocity = vel;
             else
                 rig.linearVelocity = vel.normalized * jetSpeed;
 
-            if (jetStartUseTimer < Time.time)
+            if (jetLockdown)
             {
                 Destroy(jetPackVFXGO);
-                jetCooldownTimer = Time.time + jetCooldown;
                 usingJets = false;
             }
         }
         else
         {
-            rig.linearVelocity = isoDirection * moveSpeed;
+            rig.linearVelocity = isoDirection * speedInterval;
             
             playerAnimatior.SetFloat("Horizontal", lastMoveDirection.x);
             playerAnimatior.SetFloat("Vertical", lastMoveDirection.y);
             playerAnimatior.SetFloat("Magnitude", moveDirection.magnitude);
         }
+
     }
 
     private void ChangeDirection() {
@@ -149,7 +191,7 @@ public class PlayerController : MonoBehaviour
         if(usingJets)
         {
             Vector3 origin = transform.position + jetPackVFX.transform.position;
-            var angle = Vector2.Angle(Vector2.left, moveDirection);
+            var angle = Vector2.Angle(Vector2.left, lastMoveDirection);
 
             // Flip if face positive direction
             if (moveDirection.y > 0)
@@ -158,6 +200,22 @@ public class PlayerController : MonoBehaviour
             Vector3 rot_offset = TileManager.rotate(jetVFXOffset, angle);
             jetPackVFXGO.transform.position = origin + rot_offset;
 
+
+        }
+
+        if (flameThrowerGO != null)
+        {
+            var angle = Vector2.Angle(Vector2.left, lastMoveDirection);
+
+            // Flip if face positive direction
+            if (lastMoveDirection.y > 0)
+                angle = -angle;
+
+            angle += 90;
+            flameThrowerGO.transform.eulerAngles = new Vector3(0.0f, 0.0f, angle);
+            Vector3 rot_offset = TileManager.rotate(FlamethrowerOffset, angle);
+
+            flameThrowerGO.transform.position = transform.position + rot_offset;
         }
     }
 
@@ -183,7 +241,7 @@ public class PlayerController : MonoBehaviour
 
             Action changeDir = () =>
             {
-                if(moveDirection != Vector2.zero)
+                if(moveDirection != Vector2.zero && lastMoveDirection != moveDirection)
                     ChangeDirection();
             };
 
@@ -193,9 +251,8 @@ public class PlayerController : MonoBehaviour
 
     public void JetBoost(InputAction.CallbackContext context) {
         // Get direction of player and move
-        if (context.performed && canMove && jetCooldownTimer < Time.time)
+        if (context.performed && canMove && !jetLockdown)
         {
-            jetStartUseTimer = Time.time + jetUseTime;
             rig.linearVelocity = moveDirection * jetSpeed;
 
             // Spawn and set up jetPackVFXGO
@@ -214,7 +271,6 @@ public class PlayerController : MonoBehaviour
         else if(context.canceled && usingJets)
         {
             Destroy(jetPackVFXGO);
-            jetCooldownTimer = Time.time + jetCooldown;
             usingJets = false;
         }
 
@@ -258,6 +314,39 @@ public class PlayerController : MonoBehaviour
                 FireLaser(context);
             }
         }
+        else if (typesOfWeapons[5] == CurrentWeapon && !usingJets)
+        {
+            if (context.action.name == "Cursor")
+            {
+                FireFlameThrower(context);
+            }
+        }
+    }
+    public void FireFlameThrower(InputAction.CallbackContext context)
+    {
+        if (context.started && !usingWeapon && !flameThrowerLockdown)
+        {
+            flameThrowerGO = Instantiate(flameThrowerPrefab, transform);
+
+            var angle = Vector2.Angle(Vector2.left, lastMoveDirection);
+
+            // Flip if face positive direction
+            if (lastMoveDirection.y > 0)
+                angle = -angle;
+            angle += 90;
+            flameThrowerGO.transform.eulerAngles = new Vector3(0.0f, 0.0f, angle);
+            Vector3 rot_offset = TileManager.rotate(FlamethrowerOffset, angle);
+
+            flameThrowerGO.transform.position = transform.position + rot_offset;
+
+            usingWeapon = true;
+
+        }
+        else if (context.canceled && flameThrowerGO != null)
+        {
+            Destroy(flameThrowerGO);
+            usingWeapon = false;
+        }
     }
 
     public void FireLaser(InputAction.CallbackContext context) {
@@ -300,11 +389,8 @@ public class PlayerController : MonoBehaviour
         else if (context.canceled && shotgunGO != null)
         {
             
-            int seedCount = seeds.ShootSeed(5);
+            int seedCount = seeds.ShootSeed(shotgunGO.GetComponent<ShotgunLogic>().GetSeedCount());
             Debug.Log(seedCount);
-            if (seedCount != 0) {
-                shotgunGO.GetComponent<ShotgunLogic>().Fire();
-            }
 
             shotgunGO.GetComponent<ShotgunLogic>().Fire();
             canMove = true;
@@ -327,6 +413,7 @@ public class PlayerController : MonoBehaviour
             isoDirection = Vector2.zero;
             canMove = false;
             usingWeapon = true;
+            Debug.Log("Waterlevel=" + waterTankLevel);
         }
         else if (context.canceled && firehoseGO != null && waterTankLevel > 0.0f)
         {
@@ -341,9 +428,7 @@ public class PlayerController : MonoBehaviour
             float wlevel = waterTankLevel - 25.0f;
             PlayerWaterTankLevel(wlevel);
         }
-        else {
-            Debug.Log("Player out of water. Need to Refil. Waterlevel=" + waterTankLevel);
-        }
+
     }
 
     public void FireHarvestBlade(InputAction.CallbackContext context)
@@ -360,37 +445,20 @@ public class PlayerController : MonoBehaviour
 
     public void SwitchWeapons (InputAction.CallbackContext context) 
     {
-        int keyNumPress = Convert.ToInt16(context.control.name);
         // context.control will have 3 actions/ output. action, cancel, something else.
         //Debug.Log(context.performed);
 
         // Check user number key input. Switch weapon based off key input.
-        if (context.performed && !usingWeapon) {
+        if (context.performed && !usingWeapon)
+        {
+            int keyNumPress = Convert.ToInt16(context.control.name);
             Debug.Log(context.control.name);
             String dbugmsg = "Setting current weapon to";
 
-            switch (keyNumPress)
+            if(keyNumPress < typesOfWeapons.Length)
             {
-                case 0:
-                    Debug.Log(dbugmsg + " " + typesOfWeapons[keyNumPress]);
-                    CurrentWeapon = typesOfWeapons[keyNumPress];
-                    break;            
-                case 1:
-                    Debug.Log(dbugmsg + " " + typesOfWeapons[keyNumPress]);
-                    CurrentWeapon = typesOfWeapons[keyNumPress];
-                    break;
-                case 2:
-                    Debug.Log(dbugmsg + " " + typesOfWeapons[keyNumPress]);
-                    CurrentWeapon = typesOfWeapons[keyNumPress];
-                    break;
-                case 3:
-                    Debug.Log(dbugmsg + " " + typesOfWeapons[keyNumPress]);
-                    CurrentWeapon = typesOfWeapons[keyNumPress];
-                    break;
-                case 4:
-                    Debug.Log(dbugmsg + " " + typesOfWeapons[keyNumPress]);
-                    CurrentWeapon = typesOfWeapons[keyNumPress];
-                    break;
+                Debug.Log(dbugmsg + " " + typesOfWeapons[keyNumPress]);
+                CurrentWeapon = typesOfWeapons[keyNumPress];
             }
         }
     }
@@ -410,4 +478,39 @@ public class PlayerController : MonoBehaviour
             seeds.NextSeed(context);
         }
     }
+    
+    private void ProcessOverHeat()
+    {
+        if (usingJets)
+            overheatVal += overHeatRate / 100;
+
+        if (flameThrowerGO != null)
+            overheatVal += overHeatRate / 100;
+
+        if (overheatVal > 100.0f)
+        {
+            overheatVal = 100.0f;
+            jetLockdown = true;
+            flameThrowerLockdown = true;
+
+            if (flameThrowerGO != null)
+            {
+                usingWeapon = false;
+                Destroy(flameThrowerGO);
+            }
+        }
+
+        if (!usingJets && flameThrowerGO == null)
+            overheatVal -= cooldownRate / 100;
+
+        if (overheatVal < 0.0f)
+        {
+            overheatVal = 0.0f;
+            jetLockdown = false;
+            flameThrowerLockdown = false;
+        }
+    }
+
+    public bool GetUsingJets()
+    { return usingJets; }
 }

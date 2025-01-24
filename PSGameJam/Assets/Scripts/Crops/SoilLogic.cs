@@ -48,6 +48,12 @@ public class SoilLogic : MonoBehaviour
         spr.sprite = drySoil;
     }
 
+    public void RemoveCrop()
+    {
+        if (crop != null)
+            Destroy(transform.GetChild(0).gameObject);
+    }
+
     public void CharTile() {
         // Make sure not to char tile if just spawned
         if(Time.time > invincibilityTime && !charred)

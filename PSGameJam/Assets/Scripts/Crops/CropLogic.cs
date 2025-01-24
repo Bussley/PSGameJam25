@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class CropLogic : MonoBehaviour
 {
@@ -15,20 +16,35 @@ public class CropLogic : MonoBehaviour
 
     private SpriteRenderer mSprite;
 
-    private float health;
+    private float durabilityTime;
 
     private float hydrationLevel;
 
     public bool scareCrowProtected { get; set; }
+    public bool targeted { get; set; }
 
-    private void Start() {
+    private bool attacked;
+
+    private float attackedTime;
+
+    private void Awake() {
+        targeted = false;
+        attacked = false;
         scareCrowProtected = false;
         growthPercentage = 0;
-        health = cropSO.maxHealth;
+        durabilityTime = cropSO.cropDurabilityTime;
         mSprite = GetComponent<SpriteRenderer>();
         mSprite.sprite = cropSO.seedSprite;
         GrowTask();
         Dehydrate();
+    }
+
+    private void Update()
+    {
+        if(attacked && attackedTime < Time.time)
+        {
+            transform.parent.gameObject.GetComponent<SoilLogic>().RemoveCrop();
+        }
     }
 
     private void GrowTask() {
@@ -79,5 +95,24 @@ public class CropLogic : MonoBehaviour
     public void WaterCrop() {
         hydrationLevel = 100;
         transform.parent.GetComponent<SoilLogic>().Watered();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player" && !collision.gameObject.GetComponent<PlayerController>().GetUsingJets())
+        {
+            transform.parent.gameObject.GetComponent<SoilLogic>().RemoveCrop();
+        }    
+    }
+
+    public void CrowOnCrop(bool onCrop)
+    {
+        if(onCrop)
+        {
+            attackedTime = Time.time + cropSO.cropDurabilityTime;
+            attacked = true;
+        }
+        else
+            attacked = false;
     }
 }
