@@ -108,7 +108,6 @@ public class CropLogic : MonoBehaviour
         transform.parent.GetComponent<SoilLogic>().Watered();
     }
 
-<<<<<<< HEAD
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player" && !collision.gameObject.GetComponent<PlayerController>().GetUsingJets())
@@ -127,7 +126,6 @@ public class CropLogic : MonoBehaviour
         else
             attacked = false;
     }
-=======
 
     // Types of Crop Logic
 
@@ -197,20 +195,6 @@ public class CropLogic : MonoBehaviour
         }
     }
 
-    public void NextCrop (InputAction.CallbackContext context) {
-        if (context.control.name == "u" && context.canceled) {
-            int num = System.Array.IndexOf(typesOfCrops, currentCrop);
-            if (num >= typesOfCrops.Length -1) {
-                num = 0;
-            }
-            else {
-                num += 1;
-            }
-            currentCrop = typesOfCrops[num];
-            UnityEngine.Debug.Log(currentCrop);
-        }
-     }
-
     public int CropExchange(int cropShot, int numToExchange, String cropType) {
         switch (cropType) {
             case "wheat":
@@ -264,6 +248,4 @@ public class CropLogic : MonoBehaviour
                 return 0;
         }
     }
-
->>>>>>> f3c6afd (test adding more crop logic)
 }
