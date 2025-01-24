@@ -93,7 +93,7 @@ public class SeedLogic : MonoBehaviour
         String seedType = currentSeed;
         switch (seedType) {
             case "wheat":
-                int wnum = wheatCount -= seedShot;
+                int wnum = wheatCount - seedShot;
                 if (wnum <= 0) {
                     wheatCount = 0;
                 }
@@ -103,7 +103,7 @@ public class SeedLogic : MonoBehaviour
                 }
                 return wheatCount;
             case "tomato":
-                int tnum = wheatCount -= seedShot;
+                int tnum = wheatCount - seedShot;
                 if (tnum <= 0) {
                     tomatoCount = 0;
                 }
@@ -113,7 +113,7 @@ public class SeedLogic : MonoBehaviour
                 }            
                 return tomatoCount;
             case "pepper":
-                int pnum = wheatCount -= seedShot;
+                int pnum = wheatCount - seedShot;
                 if (pnum <= 0) {
                     pepperCount = 0;
                 }
@@ -123,7 +123,7 @@ public class SeedLogic : MonoBehaviour
                 }            
                 return pepperCount;
             case "strawberry":
-                int snum = wheatCount -= seedShot;
+                int snum = wheatCount - seedShot;
                 if (snum <= 0) {
                     strawBerryCount = 0;
                 }
@@ -133,14 +133,13 @@ public class SeedLogic : MonoBehaviour
                 } 
                 return strawBerryCount;
             case "potato":
-                int ponum = wheatCount -= seedShot;
+                int ponum = wheatCount - seedShot;
                 if (ponum <= 0) {
                     potatoCount = 0;
                 }
                 else
                 {
                     potatoCount -= seedShot;
-                    ;
                 }
                 return potatoCount;
             default:
