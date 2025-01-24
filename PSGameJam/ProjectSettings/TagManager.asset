@@ -12,6 +12,8 @@ TagManager:
   - SeedPellete
   - WaterShot
   - HarvestBlade
+  - FlameThrower
+  - CropMarketBoard
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - Weapon
   - Enemy
   - DestructibleEnviroment
-  - 
+  - CropMarketBoard
   - 
   - 
   - 

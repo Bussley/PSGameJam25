@@ -86,4 +86,9 @@ public class ShotgunLogic : MonoBehaviour
         aimObject2.transform.RotateAround(transform.position, Vector3.forward, spreadAngle / 2.0f);
         */
     }
+
+    public int GetSeedCount()
+    {
+        return seedCount;
+    }
 }

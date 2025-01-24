@@ -5,13 +5,15 @@ public class CropScriptableObject : ScriptableObject
 {
     public string cropType;
 
+    public int baseMarketValue;
+
     // Time it takes to grow by 1%
     public float growSpeedTime;
 
     public int growToYoungCrop;
     public int growToGrowingCrop;
 
-    public float maxHealth;
+    public float cropDurabilityTime;
 
     public Sprite seedSprite;
     public Sprite youngCropSprite;

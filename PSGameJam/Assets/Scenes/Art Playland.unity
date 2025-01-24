@@ -95179,7 +95179,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 0b0a87b69d534264b97acb9614a75f3e, type: 3}
   m_Resource: {fileID: 8300000, guid: 0b0a87b69d534264b97acb9614a75f3e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -100832,6 +100832,10 @@ PrefabInstance:
     - target: {fileID: 3087827467637050833, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3351602065597119800, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
+      propertyPath: moveSpeed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4763989127697635506, guid: 2aab4ba39941a6e4fae79227d591595b, type: 3}
       propertyPath: m_LocalPosition.x

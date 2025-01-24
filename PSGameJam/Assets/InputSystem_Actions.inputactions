@@ -206,6 +206,17 @@
                 },
                 {
                     "name": "",
+                    "id": "87294ae1-c4d6-46cd-a9a2-c0ebaf518830",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Numbers",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2897c10d-0fbb-4280-9c53-eba3f2ff9815",
                     "path": "<Keyboard>/space",
                     "interactions": "",
