@@ -6,8 +6,6 @@ public class SeedHolder : MonoBehaviour
     [SerializeField]
     private TextMesh seedBinText;
 
-  
-
     [SerializeField]
     public string seedHolderName;
 
@@ -17,7 +15,6 @@ public class SeedHolder : MonoBehaviour
     [SerializeField]
     private bool seedRefuelAllowed;
 
-    [SerializeField]
     private PlayerController player;
 
     [SerializeField]
@@ -25,6 +22,7 @@ public class SeedHolder : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         seedBinText.text = showText;
         seedBinText.gameObject.SetActive(false);
     }
