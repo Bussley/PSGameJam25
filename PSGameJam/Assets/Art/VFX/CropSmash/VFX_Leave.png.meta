@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: bfd70765372ff7946956cd03e81a1978
+guid: e042c6a8c0b83104d99e6c9f7279ae04
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8971287790025223389
-    second: Props_01_0
-  - first:
-      213: -3498541127576264823
-    second: Props_01_1
+      213: 1123083048280882627
+    second: VFX_Leave_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,133 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Props_01_0
+      name: VFX_Leave_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 768
+        y: 0
         width: 128
-        height: 256
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7e60b5ca00e292744b041719a1486d97
-      internalID: 157730773
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Props_01_1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 768
-        width: 128
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f94153b319775494794cfc1fcc0e53ce
-      internalID: -356269467
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Props_01_2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 768
-        width: 128
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.38}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5bc0abafd3720674898ad5631f716ebb
-      internalID: -875236539
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Props_01_3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 768
-        width: 128
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.38}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76eed65bf209c7a4d9268a2ce7683855
-      internalID: -799769413
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Props_01_4
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 768
-        width: 128
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.38}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2a5cf965d420cf46a7a16f2d6d052ec
-      internalID: 1823332388
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Props_01_5
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 768
-        width: 128
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.38}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2710dcfa393b42418f93e725b496aab
-      internalID: -948155924
+      spriteID: 3cd7b02051ef59f00800000000000000
+      internalID: 1123083048280882627
       vertices: []
       indices: 
       edges: []
@@ -264,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cfdd306ab91cc8e4c8041534b424dd0d
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -274,12 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Props_01_0: 157730773
-      Props_01_1: -356269467
-      Props_01_2: -875236539
-      Props_01_3: -799769413
-      Props_01_4: 1823332388
-      Props_01_5: -948155924
+      VFX_Leave_0: 1123083048280882627
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

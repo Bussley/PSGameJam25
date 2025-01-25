@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: bfd70765372ff7946956cd03e81a1978
+guid: 0a716c4fccec41a49b1fa20f73e19ee1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8971287790025223389
-    second: Props_01_0
+      213: 5271199959136902475
+    second: Weapons_01_0
   - first:
-      213: -3498541127576264823
-    second: Props_01_1
+      213: 8944843246150331935
+    second: Weapons_01_1
+  - first:
+      213: -948374852437134752
+    second: Weapons_01_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,133 +132,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Props_01_0
+      name: Weapons_01_0
       rect:
         serializedVersion: 2
         x: 0
         y: 768
         width: 128
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7e60b5ca00e292744b041719a1486d97
-      internalID: 157730773
+      spriteID: b4d98605f60172940800000000000000
+      internalID: 5271199959136902475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Props_01_1
+      name: Weapons_01_1
       rect:
         serializedVersion: 2
         x: 128
         y: 768
         width: 128
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f94153b319775494794cfc1fcc0e53ce
-      internalID: -356269467
+      spriteID: f1ea7526a87722c70800000000000000
+      internalID: 8944843246150331935
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Props_01_2
+      name: Weapons_01_2
       rect:
         serializedVersion: 2
         x: 256
         y: 768
         width: 128
         height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.38}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5bc0abafd3720674898ad5631f716ebb
-      internalID: -875236539
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Props_01_3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 768
-        width: 128
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.38}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76eed65bf209c7a4d9268a2ce7683855
-      internalID: -799769413
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Props_01_4
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 768
-        width: 128
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.38}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2a5cf965d420cf46a7a16f2d6d052ec
-      internalID: 1823332388
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Props_01_5
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 768
-        width: 128
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.38}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2710dcfa393b42418f93e725b496aab
-      internalID: -948155924
+      spriteID: 062329ea812b6d2f0800000000000000
+      internalID: -948374852437134752
       vertices: []
       indices: 
       edges: []
@@ -264,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cfdd306ab91cc8e4c8041534b424dd0d
+    spriteID: 4b08496bfe08b4c4b94c03acd6199f9d
     internalID: 0
     vertices: []
     indices: 
@@ -274,12 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Props_01_0: 157730773
-      Props_01_1: -356269467
-      Props_01_2: -875236539
-      Props_01_3: -799769413
-      Props_01_4: 1823332388
-      Props_01_5: -948155924
+      Weapons_01_0: 5271199959136902475
+      Weapons_01_1: 8944843246150331935
+      Weapons_01_2: -948374852437134752
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
