@@ -12,6 +12,7 @@ TagManager:
   - SeedPellete
   - WaterShot
   - HarvestBlade
+  - FlameThrower
   - CropMarketBoard
   layers:
   - Default
