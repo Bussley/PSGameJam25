@@ -102,6 +102,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rig;
 
     private Animator playerAnimatior;
+	
+	private SFXController sfx;
 
     private string CurrentWeapon;
 
@@ -132,6 +134,7 @@ public class PlayerController : MonoBehaviour
         lastMoveDirection = new Vector2(1, 1).normalized;
         playerAnimatior = GetComponent<Animator>();
         rig = GetComponent<Rigidbody2D>();
+		sfx = GetComponent<SFXController>();
     }
 
     private void Update() {
@@ -143,11 +146,13 @@ public class PlayerController : MonoBehaviour
                 {
                     speedInterval = moveSpeed;
                     speedIntervalTimer = Time.time + goTime;
+					sfx.playSound(8); //try playing footstep
                 }
                 else // Stop Time
                 {
                     speedInterval = 0;
                     speedIntervalTimer = Time.time + stopTime;
+					
                 }
             }
         }
@@ -258,7 +263,10 @@ public class PlayerController : MonoBehaviour
             // Spawn and set up jetPackVFXGO
             jetPackVFXGO = Instantiate(jetPackVFX, transform);
             var angle = Vector2.Angle(Vector2.left, moveDirection);
-
+			
+			//PLAY THE JET SOUND :)
+			sfx.playSound(0);
+			
             // Flip if face positive direction
             if (moveDirection.y > 0)
                 angle = -angle;
@@ -272,6 +280,9 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(jetPackVFXGO);
             usingJets = false;
+			
+			//STOP THE JET SOUND. FLOAT IS HOW LONG TO QUIET IT DOWN. 
+			sfx.stopSound(1.0f);
         }
 
     }
@@ -305,6 +316,7 @@ public class PlayerController : MonoBehaviour
             {
                 FireHarvestBlade(context);
                 //Debug.Log("Swing Sword");
+				sfx.playSound(2);
             }
         }
         else if (typesOfWeapons[4] == CurrentWeapon && !usingJets)
