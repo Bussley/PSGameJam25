@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7650724442926391598}
   - component: {fileID: 8030389979030118350}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: SeedHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
