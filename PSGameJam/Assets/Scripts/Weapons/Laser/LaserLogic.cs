@@ -83,8 +83,8 @@ public class LaserLogic : MonoBehaviour
         laserObject2.transform.position = transform.position + (laser2Dir * laserObject2.transform.lossyScale.x/2);
         laserObject2.GetComponent<LaserBeamLogic>().ExpandBeam(laserBeamSpeed, laser2Dir);
 
-        // Get amount of frames it will take to complete
-        maxLaserBeamDuration = (aimObject1.transform.lossyScale.x - laserObject1.transform.lossyScale.x) / laserBeamSpeed;
+        // Get amount of frames it will take to complete //RCCOLA: I DIVIDED THIS BY HALF TO MAKE IT GO LONGER :^)
+        maxLaserBeamDuration = (aimObject1.transform.lossyScale.x - laserObject1.transform.lossyScale.x) / laserBeamSpeed / 0.5f;
 
         Destroy(aimObject1);
         Destroy(aimObject2);

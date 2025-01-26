@@ -18,6 +18,10 @@ public class CropMarketPlaceLogic : MonoBehaviour
     private Dictionary<String, int> baseCropMarketPrices = new Dictionary<string, int>();
     private Dictionary<String, int> cropMarketPrices = new Dictionary<string, int>();
 
+    public Dictionary<String, int> GetCropMarketPrices () {
+        return cropMarketPrices;
+    }
+
     void Awake()
     {
         marketPopUpBoard = transform.GetChild(0).gameObject;

@@ -26,6 +26,6 @@ public class FlameThrowerLogic : MonoBehaviour
     {
         //Soil to destroy crop
         if (collision.gameObject.tag == "Soil")
-            collision.gameObject.GetComponent<SoilLogic>().RemoveCrop();
+            collision.gameObject.GetComponent<SoilLogic>().CharTile();
     }
 }

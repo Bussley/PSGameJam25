@@ -129,15 +129,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1301468849882872767, guid: aed35257264c6bf438e93b7ad9d15393, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.6588259
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1301468849882872767, guid: aed35257264c6bf438e93b7ad9d15393, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.113262
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1301468849882872767, guid: aed35257264c6bf438e93b7ad9d15393, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.023861531
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1301468849882872767, guid: aed35257264c6bf438e93b7ad9d15393, type: 3}
       propertyPath: m_LocalRotation.w
@@ -167,6 +167,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5873322894701170615, guid: aed35257264c6bf438e93b7ad9d15393, type: 3}
+      propertyPath: TileMapPrefab
+      value: 
+      objectReference: {fileID: 8971614090246061872, guid: fcd3356584633c941b5f6dd3c2bcd5f9, type: 3}
     - target: {fileID: 9071928142786054720, guid: aed35257264c6bf438e93b7ad9d15393, type: 3}
       propertyPath: m_Name
       value: InitiManager

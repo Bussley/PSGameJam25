@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 306338980459476179}
   - component: {fileID: -1937792012087931326}
   - component: {fileID: 5210325241299362435}
+  - component: {fileID: -3962857984801171487}
   m_Layer: 0
   m_Name: UtilityManager
   m_TagString: Untagged
@@ -98,3 +99,18 @@ MonoBehaviour:
   daySwitchIntensity: 0.4
   dayNightCycleTime: 15
   nightColor: {r: 0.009211446, g: 0.09933352, b: 0.6509434, a: 0}
+--- !u!114 &-3962857984801171487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4477647027082334977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e8de8546d5b6d4d9372d4bbcf276c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rainPrefab: {fileID: 3246746372274513530, guid: 31eceea71196ba24fa932a68b44dc41d, type: 3}
+  snowPrefab: {fileID: 3246746372274513530, guid: 31eceea71196ba24fa932a68b44dc41d, type: 3}
+  snowFall: {fileID: 0}

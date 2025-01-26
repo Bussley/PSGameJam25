@@ -10,7 +10,7 @@ public class SeedHolder : MonoBehaviour
     public string seedHolderName;
 
     [SerializeField]
-    private string showText = "{Press E to Refuel Seeds}";
+    private string showText = "{Press F to Refuel Seeds}";
 
     [SerializeField]
     private bool seedRefuelAllowed;
@@ -29,7 +29,7 @@ public class SeedHolder : MonoBehaviour
 
     private void Update()
     {
-        if (seedRefuelAllowed && Input.GetKeyDown(KeyCode.E))
+        if (seedRefuelAllowed && Input.GetKeyDown(KeyCode.F))
         {
             Refuel();
         }
