@@ -10,26 +10,29 @@ public class SeedHolder : MonoBehaviour
     public string seedHolderName;
 
     [SerializeField]
-    private string showText = "{Press E to Refuel Seeds}";
+    private string showText = "{Press F to Refuel Seeds}";
 
     [SerializeField]
     private bool seedRefuelAllowed;
 
-    private PlayerController player;
+    private PlayerController playerLogic;
+
+    private GameObject playerObj;
 
     [SerializeField]
     private Int16 maxSeedRefuel = 25;
 
-    private void Start()
+    private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerObj = GameObject.FindGameObjectWithTag("Player");
+        playerLogic = playerObj.GetComponent<PlayerController>();
         seedBinText.text = showText;
         seedBinText.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        if (seedRefuelAllowed && Input.GetKeyDown(KeyCode.E))
+        if (seedRefuelAllowed && Input.GetKeyDown(KeyCode.F))
         {
             Refuel();
         }
@@ -37,8 +40,8 @@ public class SeedHolder : MonoBehaviour
 
     private void Refuel()
     {
-        player.seeds.SeedLevel(maxSeedRefuel, seedHolderName);
-        Debug.Log(seedHolderName+":"+ player.seeds.GetSeedCount(seedHolderName));
+        playerLogic.seeds.SeedLevel(maxSeedRefuel, playerLogic.seeds.currentSeed);
+        Debug.Log(seedHolderName+":"+ playerLogic.seeds.GetSeedCount(seedHolderName));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -50,8 +50,8 @@ public class SoilLogic : MonoBehaviour
 
     public void RemoveCrop()
     {
-        if (crop != null)
-            Destroy(transform.GetChild(0).gameObject);
+        if (crop != null && !crop.GetComponent<CropLogic>().IsSeed())
+            Destroy(crop);
     }
 
     public void CharTile() {

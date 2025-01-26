@@ -1,27 +1,34 @@
 using System;
 using System.Diagnostics;
 using System.Globalization;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 
 public class SeedLogic : MonoBehaviour
 {
     [SerializeField]
-    private int tomatoCount = 0;
+    private int tomatoSeedCount = 0;
     [SerializeField]
-    private int wheatCount = 25;
+    private int wheatSeedCount = 25;
     [SerializeField]
-    private int potatoCount = 0;
+    private int potatoSeedCount = 0;
     [SerializeField]
-    private int pepperCount = 0;
+    private int pepperSeedCount = 0;
     [SerializeField]
-    private int strawBerryCount = 0;
+    private int strawBerrySeedCount = 0;
+
+
+    private PlayerController playerLogic;
+
+    private GameObject playerObj;
 
     [SerializeField]
     public string currentSeed = "wheat";
 
     [SerializeField]    
-    private String[] typesOfSeeds = {
+    public String[] typesOfSeeds = {
         "wheat", // 0
         "tomato", // 1
         "pepper", // 2
@@ -30,30 +37,30 @@ public class SeedLogic : MonoBehaviour
     };
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    private void Start() {
-        tomatoCount = 0;
-        wheatCount = 25;
-        potatoCount = 0;
-        pepperCount = 0;
-        strawBerryCount = 0;
+    private void Awake() {
+        tomatoSeedCount = 0;
+        wheatSeedCount = 25;
+        potatoSeedCount = 0;
+        pepperSeedCount = 0;
+        strawBerrySeedCount = 0;
     }
 
     public void SeedLevel(int num,String seedType) {
         switch (seedType) {
             case "wheat":
-                wheatCount += num;
+                wheatSeedCount += num;
                 break;
             case "tomato":
-                tomatoCount += num;
+                tomatoSeedCount += num;
                 break;
             case "pepper":
-                pepperCount += num;
+                pepperSeedCount += num;
                 break;
             case "strawberry":
-                strawBerryCount += num;
+                strawBerrySeedCount += num;
                 break;
             case "potato":
-                potatoCount += num;
+                potatoSeedCount += num;
                 break;                                                
         }
     }
@@ -61,23 +68,23 @@ public class SeedLogic : MonoBehaviour
     public int GetSeedCount(String seedType) {
         switch (seedType) {
             case "wheat":
-                return wheatCount;
+                return wheatSeedCount;
             case "tomato":
-                return tomatoCount;
+                return tomatoSeedCount;
             case "pepper":
-                return pepperCount;
+                return pepperSeedCount;
             case "strawberry":
-                return strawBerryCount;
+                return strawBerrySeedCount;
             case "potato":
-                return potatoCount;
+                return potatoSeedCount;
             default:
                 return 0;
         }
     }
 
     public void NextSeed (InputAction.CallbackContext context) {
-        if (context.control.name == "u" && context.canceled) {
-            int num = System.Array.IndexOf(typesOfSeeds, currentSeed);
+        int num = System.Array.IndexOf(typesOfSeeds, currentSeed);
+        if (context.control.name == "e" && context.canceled) {
             if (num >= typesOfSeeds.Length -1) {
                 num = 0;
             }
@@ -85,63 +92,77 @@ public class SeedLogic : MonoBehaviour
                 num += 1;
             }
             currentSeed = typesOfSeeds[num];
-            UnityEngine.Debug.Log(currentSeed);
         }
+        else if (context.control.name == "q" && context.canceled) {
+            if (num - 1 < 0) {
+                num = typesOfSeeds.Length -1;
+            }
+            else if (num == 0) {
+                num = typesOfSeeds.Length -1;
+            }
+            else {
+                num -= 1;
+            }
+            currentSeed = typesOfSeeds[num];
+        }
+        UnityEngine.Debug.Log(currentSeed);
+
      }
 
     public int ShootSeed(int seedShot) {
         String seedType = currentSeed;
         switch (seedType) {
             case "wheat":
-                int wnum = wheatCount - seedShot;
+                int wnum = wheatSeedCount - seedShot;
                 if (wnum <= 0) {
-                    wheatCount = 0;
+                    wheatSeedCount = 0;
                 }
                 else
                 {
-                    wheatCount -= seedShot;
+                    wheatSeedCount -= seedShot;
                 }
-                return wheatCount;
+                return wheatSeedCount;
             case "tomato":
-                int tnum = wheatCount - seedShot;
+                int tnum = wheatSeedCount - seedShot;
                 if (tnum <= 0) {
-                    tomatoCount = 0;
+                    tomatoSeedCount = 0;
                 }
                 else
                 {
-                    tomatoCount -= seedShot;
+                    tomatoSeedCount -= seedShot;
                 }            
-                return tomatoCount;
+                return tomatoSeedCount;
             case "pepper":
-                int pnum = wheatCount - seedShot;
+                int pnum = wheatSeedCount - seedShot;
                 if (pnum <= 0) {
-                    pepperCount = 0;
+                    pepperSeedCount = 0;
                 }
                 else
                 {
-                    pepperCount -= seedShot;
+                    pepperSeedCount -= seedShot;
                 }            
-                return pepperCount;
+                return pepperSeedCount;
             case "strawberry":
-                int snum = wheatCount - seedShot;
+                int snum = wheatSeedCount - seedShot;
                 if (snum <= 0) {
-                    strawBerryCount = 0;
+                    strawBerrySeedCount = 0;
                 }
                 else
                 {
-                    strawBerryCount -= seedShot;
+                    strawBerrySeedCount -= seedShot;
                 } 
-                return strawBerryCount;
+                return strawBerrySeedCount;
             case "potato":
-                int ponum = wheatCount - seedShot;
+                int ponum = wheatSeedCount - seedShot;
                 if (ponum <= 0) {
-                    potatoCount = 0;
+                    potatoSeedCount = 0;
                 }
                 else
                 {
-                    potatoCount -= seedShot;
+                    potatoSeedCount -= seedShot;
+                    ;
                 }
-                return potatoCount;
+                return potatoSeedCount;
             default:
                 return 0;
         }

@@ -829,6 +829,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Crops_01_0
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 1627
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d880f49b56b275b4ca474b92a05e8130
+      internalID: -1422528454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -843,6 +865,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Crops_01_0: -1422528454
       Pepper_1: 3194861608867546299
       Pepper_2: -4292937890434973423
       Pepper_3: -1323722299718321184
