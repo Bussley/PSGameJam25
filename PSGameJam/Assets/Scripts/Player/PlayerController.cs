@@ -6,11 +6,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    public float wallet;
+
     const float ISO_X_DIAGNOL_DIR = 0.894427f;
     const float ISO_Y_DIAGNOL_DIR = 0.447214f;
-
-    [SerializeField]
-    private float wallet = 10.0f;
 
     [SerializeField]
     private float waterTankLevel = 100.0f;
@@ -61,8 +61,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private GameObject flameThrowerPrefab;
-
-    [SerializeField]
+ 
     public SeedLogic seeds;
 
     [SerializeField]
@@ -118,6 +117,7 @@ public class PlayerController : MonoBehaviour
     public float Wallet { get => wallet; set => wallet = value; }
 
     private void Awake() {
+        wallet = 0.0f;
         canMove = true;
         usingWeapon = false;
         usingJets = false;
@@ -129,6 +129,7 @@ public class PlayerController : MonoBehaviour
         playerAnimatior = GetComponent<Animator>();
         rig = GetComponent<Rigidbody2D>();
 		sfx = GetComponent<SFXController>();
+        seeds = GetComponent<SeedLogic>();
     }
 
     private void Update() {

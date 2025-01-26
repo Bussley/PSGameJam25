@@ -23,7 +23,7 @@ public class SeedLogic : MonoBehaviour
     public string currentSeed = "wheat";
 
     [SerializeField]    
-    private String[] typesOfSeeds = {
+    public String[] typesOfSeeds = {
         "wheat", // 0
         "tomato", // 1
         "pepper", // 2
@@ -32,7 +32,7 @@ public class SeedLogic : MonoBehaviour
     };
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    private void Start() {
+    private void Awake() {
         tomatoSeedCount = 0;
         wheatSeedCount = 25;
         potatoSeedCount = 0;
