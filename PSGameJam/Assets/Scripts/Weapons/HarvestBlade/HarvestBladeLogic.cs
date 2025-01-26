@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class HarvestBladeLogic : MonoBehaviour
 {
@@ -15,7 +16,15 @@ public class HarvestBladeLogic : MonoBehaviour
     private float curTime;
     private Vector3 offsetPosition;
 
+
+    private PlayerController playerLogic;
+
+    private GameObject playerObj;
+
+
     private void Awake() {
+        playerObj = GameObject.FindGameObjectWithTag("Player");
+        playerLogic = playerObj.GetComponent<PlayerController>();
         curTime = 0;
     }
 
@@ -32,6 +41,11 @@ public class HarvestBladeLogic : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.gameObject.name);
+        playerLogic.seeds.SeedLevel(UnityEngine.Random.Range(1, 3),collision.gameObject.name);
+        playerLogic.cLogic.HarvestCrop(playerLogic.cLogic.harvestAmount, collision.gameObject.name);
+        playerLogic.wallet += playerLogic.cLogic.ExchangeCrop(collision.gameObject.name);
+        Debug.Log(playerLogic.wallet);
         // HIT A CROP TO HARVEST. LOGIC TO CALL CROP.HARVEST HERE
         Debug.Log("HIT");
     }
