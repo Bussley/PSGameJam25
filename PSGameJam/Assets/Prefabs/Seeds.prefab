@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4881669829250498636}
   m_Layer: 0
   m_Name: Seeds
-  m_TagString: Untagged
+  m_TagString: Seeds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,12 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111a8fdedd7534145be40bd4604c3f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tomatoCount: 0
-  wheatCount: 500
-  potatoCount: 0
-  pepperCount: 0
-  strawBerryCount: 0
-  currentSeed: wheat
+  tomatoSeedCount: 0
+  wheatSeedCount: 0
+  potatoSeedCount: 0
+  pepperSeedCount: 0
+  strawBerrySeedCount: 0
+  currentSeed: tomato
   typesOfSeeds:
   - wheat
   - tomato

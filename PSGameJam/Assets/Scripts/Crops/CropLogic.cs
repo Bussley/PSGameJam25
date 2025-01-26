@@ -1,4 +1,5 @@
 using System;
+using System.Security.Authentication;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -8,10 +9,13 @@ public class CropLogic : MonoBehaviour
     private CropScriptableObject cropSO;
 
     [SerializeField]
+
     private LayerMask hitMask;
 
+    private bool exchange = false;
+
     // Grows from 0 to 100, each crop has different stages based on percentage:
-    // SEEDED (brand new crop, denotes early life. First 10% of life)
+    // CropED (brand new crop, denotes early life. First 10% of life)
     // YOUNG (younger half of growing. 20-70% of growing)
     // ALMOST-RIPE (denotes that this will soon be ready 70-99% of growing)
     // RIPE (ready to harvest. 100% of growing)
@@ -42,8 +46,17 @@ public class CropLogic : MonoBehaviour
         mSprite = GetComponent<SpriteRenderer>();
         mSprite.sprite = cropSO.seedSprite;
         collisionBounds = GetComponent<PolygonCollider2D>().bounds;
+
+        mSprite.sprite = cropSO.CropSprite;
         GrowTask();
         Dehydrate();
+
+        tomatoCount = 0;
+        wheatCount = 0;
+        potatoCount = 0;
+        pepperCount = 0;
+        strawBerryCount = 0;
+        exchange = false;
     }
 
     private void FixedUpdate()
@@ -75,7 +88,7 @@ public class CropLogic : MonoBehaviour
     private void GrowTask() {
         // Check if crop is still growing
         if (growthPercentage < 100) {
-            if (growthPercentage == cropSO.growToYoungCrop) { // Switch from seed to young crop
+            if (growthPercentage == cropSO.growToYoungCrop) { // Switch from Crop to young crop
                 mSprite.sprite = cropSO.youngCropSprite;
             }
             else if (growthPercentage == cropSO.growToGrowingCrop) { // Switch from young crop to growing
@@ -152,6 +165,127 @@ public class CropLogic : MonoBehaviour
             freezeTime = Time.time + cropSO.cropFreezeDurabilityTime;
             Debug.Log(freezeTime);
             cold = true;
+        }
+    }
+    // Types of Crop Logic
+
+    [SerializeField]
+    private int tomatoCount = 0;
+    [SerializeField]
+    private int wheatCount = 25;
+    [SerializeField]
+    private int potatoCount = 0;
+    [SerializeField]
+    private int pepperCount = 0;
+    [SerializeField]
+    private int strawBerryCount = 0;
+
+    [SerializeField]    
+    private String[] typesOfCrops = {
+        "wheat", // 0
+        "tomato", // 1
+        "pepper", // 2
+        "strawberry", // 3
+        "potato", // 4
+    };
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void Start() {
+        tomatoCount = 0;
+        wheatCount = 25;
+        potatoCount = 0;
+        pepperCount = 0;
+        strawBerryCount = 0;
+    }
+
+    public void HarvestCrop(int num,String CropType) {
+        switch (CropType) {
+            case "wheat":
+                wheatCount += num;
+                break;
+            case "tomato":
+                tomatoCount += num;
+                break;
+            case "pepper":
+                pepperCount += num;
+                break;
+            case "strawberry":
+                strawBerryCount += num;
+                break;
+            case "potato":
+                potatoCount += num;
+                break;                                                
+        }
+    }
+
+    public int GetCropCount(String CropType) {
+        switch (CropType) {
+            case "wheat":
+                return wheatCount;
+            case "tomato":
+                return tomatoCount;
+            case "pepper":
+                return pepperCount;
+            case "strawberry":
+                return strawBerryCount;
+            case "potato":
+                return potatoCount;
+            default:
+                return 0;
+        }
+    }
+
+    public int CropExchange(int cropShot, int numToExchange, String cropType) {
+        switch (cropType) {
+            case "wheat":
+                if (wheatCount - numToExchange >= 0) {
+                    wheatCount -= cropShot;
+                    exchange = true;
+                }
+                return wheatCount;
+            case "tomato":
+                int tnum = wheatCount - cropShot;
+                if (tnum <= 0) {
+                    tomatoCount = 0;
+                }
+                else
+                {
+                    tomatoCount -= cropShot;
+                }            
+                return tomatoCount;
+            case "pepper":
+                int pnum = wheatCount - cropShot;
+                if (pnum <= 0) {
+                    pepperCount = 0;
+                }
+                else
+                {
+                    pepperCount -= cropShot;
+                }            
+                return pepperCount;
+            case "strawberry":
+                int snum = wheatCount - cropShot;
+                if (snum <= 0) {
+                    strawBerryCount = 0;
+                }
+                else
+                {
+                    strawBerryCount -= cropShot;
+                } 
+                return strawBerryCount;
+            case "potato":
+                int ponum = wheatCount - cropShot;
+                if (ponum <= 0) {
+                    potatoCount = 0;
+                }
+                else
+                {
+                    potatoCount -= cropShot;
+                    ;
+                }
+                return potatoCount;
+            default:
+                return 0;
         }
     }
 }

@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    public float wallet;
+
     const float ISO_X_DIAGNOL_DIR = 0.894427f;
     const float ISO_Y_DIAGNOL_DIR = 0.447214f;
 
@@ -58,8 +61,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private GameObject flameThrowerPrefab;
-
-    [SerializeField]
+ 
     public SeedLogic seeds;
 
     [SerializeField]
@@ -112,8 +114,10 @@ public class PlayerController : MonoBehaviour
     private float speedIntervalTimer;
     private float overheatVal;
 
+    public float Wallet { get => wallet; set => wallet = value; }
 
     private void Awake() {
+        wallet = 0.0f;
         canMove = true;
         usingWeapon = false;
         usingJets = false;
@@ -125,6 +129,7 @@ public class PlayerController : MonoBehaviour
         playerAnimatior = GetComponent<Animator>();
         rig = GetComponent<Rigidbody2D>();
 		sfx = GetComponent<SFXController>();
+        seeds = GetComponent<SeedLogic>();
     }
 
     private void Update() {
@@ -485,9 +490,10 @@ public class PlayerController : MonoBehaviour
     }
 
     public void SwitchSeeds(InputAction.CallbackContext context) {
-        if (context.control.name == "u" && context.canceled) {
+        if ((context.control.name == "e" || context.control.name == "q") && context.canceled) {
             seeds.NextSeed(context);
         }
+
     }
     
     private void ProcessOverHeat()
