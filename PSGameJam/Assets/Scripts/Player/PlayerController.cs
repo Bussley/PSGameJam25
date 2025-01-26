@@ -187,7 +187,6 @@ public class PlayerController : MonoBehaviour
             playerAnimatior.SetFloat("Vertical", lastMoveDirection.y);
             playerAnimatior.SetFloat("Magnitude", moveDirection.magnitude);
         }
-
     }
 
     private void ChangeDirection() {
@@ -338,6 +337,8 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started && !usingWeapon && !flameThrowerLockdown)
         {
+			sfx.playSound(0); //play flame opener sound 
+			sfx.playSound(1); //play flame continuous sound
             flameThrowerGO = Instantiate(flameThrowerPrefab, transform);
 
             var angle = Vector2.Angle(Vector2.left, lastMoveDirection);
@@ -358,6 +359,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(flameThrowerGO);
             usingWeapon = false;
+			sfx.stopSound(0.5f); //quiet the flame continuous sound
         }
     }
 
@@ -378,7 +380,10 @@ public class PlayerController : MonoBehaviour
         else if (context.canceled && laserGO != null)
         {
             if(!laserGO.GetComponent<LaserLogic>().Fired())
+			{
                 laserGO.GetComponent<LaserLogic>().Fire();
+				sfx.playSound(5);		//play laser sound 
+			}
         }
     }
 
@@ -405,14 +410,17 @@ public class PlayerController : MonoBehaviour
             Debug.Log(seedCount);
 
             shotgunGO.GetComponent<ShotgunLogic>().Fire();
+			sfx.playSound(6); //play shotgun sound
             canMove = true;
             usingWeapon = false;
+			sfx.playSound(7); //play reload sound
         }
     }
 
     public void FireWaterHose(InputAction.CallbackContext context) {
         if (context.started && waterTankLevel > 0.0f && !usingWeapon && fireHoseCooldownTimer < Time.time)
         {
+
             fireHoseCooldownTimer = Time.time + fireHoseCooldown;
             waterStartChargeTime = Time.time;
 
@@ -432,7 +440,8 @@ public class PlayerController : MonoBehaviour
             var endTime = Time.time;
             var heldTime = endTime - waterStartChargeTime; 
             float waitTimetoMove = firehoseGO.GetComponent<FireHoseLogic>().SprayWater(heldTime);
-            Action moveFunc = () => {
+            sfx.playSound(3); //play hydro sfx
+			Action moveFunc = () => {
                 canMove = true;
                 usingWeapon = false;
             };

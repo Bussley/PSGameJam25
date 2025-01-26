@@ -469,7 +469,7 @@ MonoBehaviour:
   bladeSwing: {fileID: 8300000, guid: cade49d326d58b74ea1972458f80aaf6, type: 3}
   bladeVolume: 0.536
   hydroCannon: {fileID: 8300000, guid: 427a25b865cfa15468b446e853e1136a, type: 3}
-  hydroVolume: 0.518
+  hydroVolume: 0.565
   jetPack: {fileID: 8300000, guid: 25cde165b94ed3d4faafad6f45c92b3f, type: 3}
   jetVolume: 0.518
   laserSound: {fileID: 8300000, guid: e5ac67bb06ae4af44976c357b3560422, type: 3}

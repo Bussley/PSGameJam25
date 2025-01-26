@@ -9,6 +9,7 @@ using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
+
 //^ I BORROWED ALL THE STUFF FROM PLAYERCONTROLLER I DO NOT KNOW WHAT I NEED :^)
 
 /* SOUND EFFECTS CONTROLLER BY RCCOLA96 (GAME DESIGNER)
@@ -123,6 +124,7 @@ public class SFXController : MonoBehaviour
 
 		//volume scaling is janky so lets keep reseting it until we get smarter about it
 		myaudio.volume = 1.0f;
+		myaudio.pitch = UnityEngine.Random.Range(0.7f, 1.3f);
 		
 		if(index==0)
 		{
@@ -130,7 +132,8 @@ public class SFXController : MonoBehaviour
 		}
 		else if(index==1)
 		{
-			myaudio.PlayOneShot(flameOngoing, flameOngoingVolume);
+			myaudio.clip = flameOngoing;
+			myaudio.Play();
 		}
 		else if(index==2)
 		{
@@ -142,7 +145,8 @@ public class SFXController : MonoBehaviour
 		}
 		else if(index==4)
 		{
-			myaudio.PlayOneShot(jetPack, jetVolume);
+			myaudio.clip = jetPack;
+			myaudio.Play();
 		}
 		else if(index==5)
 		{
