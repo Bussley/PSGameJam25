@@ -22,7 +22,7 @@ public class RefuelWater : MonoBehaviour
 
     private void Update()
     {
-        if (refuelAllowed && Input.GetKeyDown(KeyCode.E))
+        if (refuelAllowed && Input.GetKeyDown(KeyCode.F))
         {
             Refuel();
         }

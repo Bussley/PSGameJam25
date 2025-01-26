@@ -12,8 +12,6 @@ public class CropLogic : MonoBehaviour
 
     private LayerMask hitMask;
 
-    private bool exchange = false;
-
     [SerializeField]
     public Int16 harvestAmount = 1;
 
@@ -59,7 +57,6 @@ public class CropLogic : MonoBehaviour
         potatoCount = 0;
         pepperCount = 0;
         strawBerryCount = 0;
-        exchange = false;
     }
 
     private void FixedUpdate()
@@ -252,61 +249,6 @@ public class CropLogic : MonoBehaviour
             case "strawberry":
                 return strawBerryCount;
             case "potato":
-                return potatoCount;
-            default:
-                return 0;
-        }
-    }
-
-    // Could use later.. will figure out...
-    public int BountyExchange(int cropShot, int numToExchange, String cropType) {
-        switch (cropType) {
-            case "wheat":
-                if (wheatCount - numToExchange >= 0) {
-                    wheatCount -= cropShot;
-                    exchange = true;
-                }
-                return wheatCount;
-            case "tomato":
-                int tnum = wheatCount - cropShot;
-                if (tnum <= 0) {
-                    tomatoCount = 0;
-                }
-                else
-                {
-                    tomatoCount -= cropShot;
-                }            
-                return tomatoCount;
-            case "pepper":
-                int pnum = wheatCount - cropShot;
-                if (pnum <= 0) {
-                    pepperCount = 0;
-                }
-                else
-                {
-                    pepperCount -= cropShot;
-                }            
-                return pepperCount;
-            case "strawberry":
-                int snum = wheatCount - cropShot;
-                if (snum <= 0) {
-                    strawBerryCount = 0;
-                }
-                else
-                {
-                    strawBerryCount -= cropShot;
-                } 
-                return strawBerryCount;
-            case "potato":
-                int ponum = wheatCount - cropShot;
-                if (ponum <= 0) {
-                    potatoCount = 0;
-                }
-                else
-                {
-                    potatoCount -= cropShot;
-                    ;
-                }
                 return potatoCount;
             default:
                 return 0;
