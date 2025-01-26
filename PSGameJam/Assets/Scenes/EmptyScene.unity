@@ -170,7 +170,7 @@ PrefabInstance:
     - target: {fileID: 5873322894701170615, guid: aed35257264c6bf438e93b7ad9d15393, type: 3}
       propertyPath: TileMapPrefab
       value: 
-      objectReference: {fileID: 5973299649568077924, guid: bfc1dd2596c6fe2448a73d8fcf5b33a7, type: 3}
+      objectReference: {fileID: 8971614090246061872, guid: fcd3356584633c941b5f6dd3c2bcd5f9, type: 3}
     - target: {fileID: 9071928142786054720, guid: aed35257264c6bf438e93b7ad9d15393, type: 3}
       propertyPath: m_Name
       value: InitiManager
