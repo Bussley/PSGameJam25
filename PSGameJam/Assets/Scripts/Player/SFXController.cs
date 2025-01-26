@@ -124,7 +124,19 @@ public class SFXController : MonoBehaviour
 
 		//volume scaling is janky so lets keep reseting it until we get smarter about it
 		myaudio.volume = 1.0f;
-		myaudio.pitch = UnityEngine.Random.Range(0.7f, 1.3f);
+		float variance = UnityEngine.Random.Range(-0.1f, 0.1f);
+		myaudio.pitch += variance;
+		if(myaudio.pitch > 1.25f)
+		{	
+		   myaudio.pitch = 1.25f;
+		   myaudio.pitch -= variance;
+		}
+		else if(myaudio.pitch < 0.75f)
+		{
+			myaudio.pitch = 0.75f;
+			myaudio.pitch -= variance;
+		}
+			
 		
 		if(index==0)
 		{

@@ -6,14 +6,19 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField]
-    private float crowSpawnTimer;
+    private float crowSpawnTimerMin;
+    [SerializeField]
+    private float crowSpawnTimerMax;
 
     [SerializeField]
     private GameObject crowPrefab;
 
+    [SerializeField]
+    private GameObject scareCrowPrefab;
+
     void Awake()
     {
-        TimerManager.AddTimer(SpawnCrow, crowSpawnTimer);
+        TimerManager.AddTimer(SpawnCrow, UnityEngine.Random.Range(crowSpawnTimerMin, crowSpawnTimerMax));
     }
     
 
@@ -50,11 +55,17 @@ public class EnemyManager : MonoBehaviour
             }
         }
 
-        TimerManager.AddTimer(SpawnCrow, crowSpawnTimer);
+        TimerManager.AddTimer(SpawnCrow, UnityEngine.Random.Range(crowSpawnTimerMin, crowSpawnTimerMax));
     }
 
     int RanndomSort(GameObject a, GameObject b)
     {
         return UnityEngine.Random.Range(- 1, 1);
+    }
+
+    public void SpawnScarecrow()
+    {
+        // Find a random place to spawn scare crow
+        Instantiate(scareCrowPrefab, TileManager.GetSpawnableRandomPosition(), new Quaternion());
     }
 }

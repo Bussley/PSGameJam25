@@ -1,14 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using JetBrains.Annotations;
-using NUnit.Framework.Internal;
-using Unity.VisualScripting;
-using UnityEditor.Animations;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Tilemaps;
 
 
 
@@ -67,24 +59,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject flameThrowerPrefab;
 
-    private String[] typesOfWeapons = {
-        "none", // 0
-        "shotgun", // 1
-        "firehose", // 2
-        "sword", // 3
-        "lazer", // 4
-        "flamethrower", // 5
-    };
-
-    
     [SerializeField]
     public SeedLogic seeds;
 
     [SerializeField]
     private float goTime;
+
     [SerializeField]
     private float stopTime;
 
+    private String[] typesOfWeapons = {
+        "none", // 0
+        "lazer", // 1
+        "shotgun", // 2
+        "firehose", // 3
+        "sword", // 4
+        "flamethrower", // 5
+    };
 
     // N = 0, NE = 1, E = 2, SE = 3
     // S = 4, NW = 5, W = 6, SW = 7
@@ -97,7 +88,6 @@ public class PlayerController : MonoBehaviour
     private bool usingJets;
     private bool jetLockdown;
     private bool flameThrowerLockdown;
-
 
     private Rigidbody2D rig;
 
@@ -292,7 +282,14 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Putting away items");
         }
-        else if (typesOfWeapons[1] == CurrentWeapon && !usingJets && seeds.ShootSeed(0) != 0)
+        else if (typesOfWeapons[1] == CurrentWeapon && !usingJets)
+        {
+            if (context.action.name == "Cursor")
+            {
+                FireLaser(context);
+            }
+        }
+        else if (typesOfWeapons[2] == CurrentWeapon && !usingJets && seeds.ShootSeed(0) != 0)
         {
             if (context.action.name == "Cursor")
             {
@@ -301,15 +298,15 @@ public class PlayerController : MonoBehaviour
             }
 
         }
-        else if (typesOfWeapons[2] == CurrentWeapon && !usingJets)
+        else if (typesOfWeapons[3] == CurrentWeapon && !usingJets)
         {
-            if (context.action.name == "Spacebar")
+            if (context.action.name == "Cursor")
             {
                 //Debug.Log("Spraying Water!");
                 FireWaterHose(context);
             }
         }
-        else if (typesOfWeapons[3] == CurrentWeapon)
+        else if (typesOfWeapons[4] == CurrentWeapon)
         {
             if (context.action.name == "Cursor")
             {
@@ -318,14 +315,7 @@ public class PlayerController : MonoBehaviour
 				sfx.playSound(2);
             }
         }
-        else if (typesOfWeapons[4] == CurrentWeapon && !usingJets)
-        {
-            if (context.action.name == "Cursor")
-            {
-                FireLaser(context);
-            }
-        }
-        else if (typesOfWeapons[5] == CurrentWeapon && !usingJets)
+        else if (typesOfWeapons[5] == CurrentWeapon)
         {
             if (context.action.name == "Cursor")
             {
