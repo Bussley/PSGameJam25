@@ -14,6 +14,9 @@ public class CropLogic : MonoBehaviour
 
     private bool exchange = false;
 
+    [SerializeField]
+    public Int16 harvestAmount = 1;
+
     // Grows from 0 to 100, each crop has different stages based on percentage:
     // CropED (brand new crop, denotes early life. First 10% of life)
     // YOUNG (younger half of growing. 20-70% of growing)
@@ -181,7 +184,7 @@ public class CropLogic : MonoBehaviour
     private int strawBerryCount = 0;
 
     [SerializeField]    
-    private String[] typesOfCrops = {
+    public String[] typesOfCrops = {
         "wheat", // 0
         "tomato", // 1
         "pepper", // 2
@@ -189,15 +192,7 @@ public class CropLogic : MonoBehaviour
         "potato", // 4
     };
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-    private void Start() {
-        tomatoCount = 0;
-        wheatCount = 25;
-        potatoCount = 0;
-        pepperCount = 0;
-        strawBerryCount = 0;
-    }
-
+    // Havisting crops yeald 1 of that crop. and randomize 1-3 seeds.
     public void HarvestCrop(int num,String CropType) {
         switch (CropType) {
             case "wheat":
@@ -218,6 +213,34 @@ public class CropLogic : MonoBehaviour
         }
     }
 
+   public int ExchangeCrop(String CropType) {
+        int money = 0;
+
+        switch (CropType) {
+            case "wheat":
+                money = wheatCount;
+                wheatCount = 0;
+                return money;
+            case "tomato":
+                money = tomatoCount;
+                tomatoCount = 0;
+                return money;
+            case "pepper":
+                money = pepperCount;
+                pepperCount = 0;
+                return money;
+            case "strawberry":
+                money = strawBerryCount;
+                strawBerryCount = 0;
+                return money;
+            case "potato":
+                money = potatoCount;
+                potatoCount = 0;
+                return money;
+            default:
+                return money;                                              
+        }
+    }
     public int GetCropCount(String CropType) {
         switch (CropType) {
             case "wheat":
@@ -235,7 +258,8 @@ public class CropLogic : MonoBehaviour
         }
     }
 
-    public int CropExchange(int cropShot, int numToExchange, String cropType) {
+    // Could use later.. will figure out...
+    public int BountyExchange(int cropShot, int numToExchange, String cropType) {
         switch (cropType) {
             case "wheat":
                 if (wheatCount - numToExchange >= 0) {
