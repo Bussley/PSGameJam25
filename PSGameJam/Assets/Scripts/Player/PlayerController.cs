@@ -294,6 +294,7 @@ public class PlayerController : MonoBehaviour
 			
 			//STOP THE JET SOUND. FLOAT IS HOW LONG TO QUIET IT DOWN. 
 			sfx.stopSound(1.0f);
+			foot.left = true;
         }
 
     }
@@ -334,7 +335,6 @@ public class PlayerController : MonoBehaviour
             {
                 FireHarvestBlade(context);
                 //Debug.Log("Swing Sword");
-				sfx.playSound(2);
             }
         }
         else if (typesOfWeapons[5] == CurrentWeapon)
@@ -473,6 +473,7 @@ public class PlayerController : MonoBehaviour
             // Spawn aimer
             harvestBladeGO = Instantiate(harvestBladePrefab, transform);
             harvestBladeGO.GetComponent<HarvestBladeLogic>().Fire(lastMoveDirection);
+			sfx.playSound(2);  //play sound
         }
     }
 

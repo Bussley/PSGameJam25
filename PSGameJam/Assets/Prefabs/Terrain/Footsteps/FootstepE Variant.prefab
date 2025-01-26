@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 316993831500506446, guid: e4391f7dd320f7146b6b4b04f02d8314, type: 3}
+    - target: {fileID: 604957753605641674, guid: 426564a38e9a6da43ae9d2f4134f3d84, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1638598654688745770, guid: 426564a38e9a6da43ae9d2f4134f3d84, type: 3}
       propertyPath: m_Name
       value: FootstepE Variant

@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,6 +102,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cropSO: {fileID: 11400000, guid: 5282a9cacf14b2840a0bdab4bbafb9a4, type: 2}
+  exchange: 0
+  tomatoCount: 0
+  wheatCount: 25
+  potatoCount: 0
+  pepperCount: 0
+  strawBerryCount: 0
+  typesOfCrops:
+  - wheat
+  - tomato
+  - pepper
+  - strawberry
+  - potato
 --- !u!60 &-2842388326054122426
 PolygonCollider2D:
   m_ObjectHideFlags: 0

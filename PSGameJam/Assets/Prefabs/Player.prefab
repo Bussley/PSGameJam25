@@ -221,7 +221,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 8355083937188093795, guid: b303ed4b3d1d9ab43ac02b70ea7c7df3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3dcb829830d2c84abac25a97c696474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wallet: 10
   waterTankLevel: 100
   laserCooldown: 4
   shotgunCooldown: 2
@@ -681,3 +682,4 @@ MonoBehaviour:
   footsies6: {fileID: 2710414459838391568, guid: 5cbf1ac65890b6c4a8ff581f70e2c0fd, type: 3}
   footsies7: {fileID: 8044704292343409670, guid: 6f234b767edce304ba8dd6256985f4ec, type: 3}
   Robot: 1
+  left: 1
