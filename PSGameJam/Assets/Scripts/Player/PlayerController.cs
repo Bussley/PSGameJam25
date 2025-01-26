@@ -95,6 +95,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rig;
 
     private Animator playerAnimatior;
+	
+	private SFXController sfx;
 
     private string CurrentWeapon;
 
@@ -126,6 +128,7 @@ public class PlayerController : MonoBehaviour
         lastMoveDirection = new Vector2(1, 1).normalized;
         playerAnimatior = GetComponent<Animator>();
         rig = GetComponent<Rigidbody2D>();
+		sfx = GetComponent<SFXController>();
     }
 
     private void Update() {
@@ -137,11 +140,13 @@ public class PlayerController : MonoBehaviour
                 {
                     speedInterval = moveSpeed;
                     speedIntervalTimer = Time.time + goTime;
+					sfx.playSound(8); //try playing footstep
                 }
                 else // Stop Time
                 {
                     speedInterval = 0;
                     speedIntervalTimer = Time.time + stopTime;
+					
                 }
             }
         }
@@ -176,7 +181,6 @@ public class PlayerController : MonoBehaviour
             playerAnimatior.SetFloat("Vertical", lastMoveDirection.y);
             playerAnimatior.SetFloat("Magnitude", moveDirection.magnitude);
         }
-
     }
 
     private void ChangeDirection() {
@@ -252,7 +256,10 @@ public class PlayerController : MonoBehaviour
             // Spawn and set up jetPackVFXGO
             jetPackVFXGO = Instantiate(jetPackVFX, transform);
             var angle = Vector2.Angle(Vector2.left, moveDirection);
-
+			
+			//PLAY THE JET SOUND :)
+			sfx.playSound(0);
+			
             // Flip if face positive direction
             if (moveDirection.y > 0)
                 angle = -angle;
@@ -266,6 +273,9 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(jetPackVFXGO);
             usingJets = false;
+			
+			//STOP THE JET SOUND. FLOAT IS HOW LONG TO QUIET IT DOWN. 
+			sfx.stopSound(1.0f);
         }
 
     }
@@ -306,6 +316,7 @@ public class PlayerController : MonoBehaviour
             {
                 FireHarvestBlade(context);
                 //Debug.Log("Swing Sword");
+				sfx.playSound(2);
             }
         }
         else if (typesOfWeapons[5] == CurrentWeapon)
@@ -320,6 +331,8 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started && !usingWeapon && !flameThrowerLockdown)
         {
+			sfx.playSound(0); //play flame opener sound 
+			sfx.playSound(1); //play flame continuous sound
             flameThrowerGO = Instantiate(flameThrowerPrefab, transform);
 
             var angle = Vector2.Angle(Vector2.left, lastMoveDirection);
@@ -340,6 +353,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(flameThrowerGO);
             usingWeapon = false;
+			sfx.stopSound(0.5f); //quiet the flame continuous sound
         }
     }
 
@@ -360,7 +374,10 @@ public class PlayerController : MonoBehaviour
         else if (context.canceled && laserGO != null)
         {
             if(!laserGO.GetComponent<LaserLogic>().Fired())
+			{
                 laserGO.GetComponent<LaserLogic>().Fire();
+				sfx.playSound(5);		//play laser sound 
+			}
         }
     }
 
@@ -387,14 +404,17 @@ public class PlayerController : MonoBehaviour
             Debug.Log(seedCount);
 
             shotgunGO.GetComponent<ShotgunLogic>().Fire();
+			sfx.playSound(6); //play shotgun sound
             canMove = true;
             usingWeapon = false;
+			sfx.playSound(7); //play reload sound
         }
     }
 
     public void FireWaterHose(InputAction.CallbackContext context) {
         if (context.started && waterTankLevel > 0.0f && !usingWeapon && fireHoseCooldownTimer < Time.time)
         {
+
             fireHoseCooldownTimer = Time.time + fireHoseCooldown;
             waterStartChargeTime = Time.time;
 
@@ -414,7 +434,8 @@ public class PlayerController : MonoBehaviour
             var endTime = Time.time;
             var heldTime = endTime - waterStartChargeTime; 
             float waitTimetoMove = firehoseGO.GetComponent<FireHoseLogic>().SprayWater(heldTime);
-            Action moveFunc = () => {
+            sfx.playSound(3); //play hydro sfx
+			Action moveFunc = () => {
                 canMove = true;
                 usingWeapon = false;
             };

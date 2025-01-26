@@ -26,7 +26,9 @@ public class InitializeScene : MonoBehaviour
         MarketBoard = GameObject.FindGameObjectWithTag("CropMarketBoard");
 
         //Add Listeners to day night cycle
-        um.GetComponent<EnviromnentManager>().AddEventCall(() => MarketBoard.GetComponent<CropMarketPlaceLogic>().RollMarket());
+        if(MarketBoard != null )
+            um.GetComponent<EnviromnentManager>().AddEventCall(() => MarketBoard.GetComponent<CropMarketPlaceLogic>().RollMarket());
         um.GetComponent<EnviromnentManager>().AddEventCall(() => um.GetComponent<EnemyManager>().SpawnScarecrow());
+        um.GetComponent<EnviromnentManager>().AddEventCall(() => um.GetComponent<WeatherManager>().RollWather());
     }
 }
