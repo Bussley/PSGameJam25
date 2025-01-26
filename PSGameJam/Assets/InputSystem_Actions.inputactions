@@ -240,10 +240,21 @@
                 {
                     "name": "",
                     "id": "b103624b-7ae3-45f5-823e-2fcccf9dbb5e",
-                    "path": "<Keyboard>/u",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
+                    "action": "SwitchSeeds",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "76e62d76-f146-4035-85ff-5b1591a70841",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "SwitchSeeds",
                     "isComposite": false,
                     "isPartOfComposite": false
