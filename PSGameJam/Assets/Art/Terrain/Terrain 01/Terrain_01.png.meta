@@ -608,6 +608,94 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Terrain_01_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1280
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8744511be13a824e9998bdafc148592
+      internalID: 1551660237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Terrain_01_11
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da5f0d32217feb04e8c28d6cbce1a049
+      internalID: 437991702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Terrain_01_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1792
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c95b0c9e1f77b6b42bfe1894d1b1fc45
+      internalID: 805094738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Terrain_01_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b952ea2959cbb6b45ae0fb0c9b048e0f
+      internalID: 2070250114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -634,6 +722,10 @@ TextureImporter:
       Rock_Light_Small: 9175333171984364202
       Terrain_01_0: -1332094873
       Terrain_01_1: 761454550
+      Terrain_01_10: 1551660237
+      Terrain_01_11: 437991702
+      Terrain_01_12: 805094738
+      Terrain_01_13: 2070250114
       Terrain_01_2: -1645136010
       Terrain_01_3: 9029764369353388977
       Terrain_01_4: 1487236326
