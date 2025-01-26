@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     const float ISO_Y_DIAGNOL_DIR = 0.447214f;
 
     [SerializeField]
+    private float wallet = 10.0f;
+
+    [SerializeField]
     private float waterTankLevel = 100.0f;
 
     [SerializeField]
@@ -112,6 +115,7 @@ public class PlayerController : MonoBehaviour
     private float speedIntervalTimer;
     private float overheatVal;
 
+    public float Wallet { get => wallet; set => wallet = value; }
 
     private void Awake() {
         canMove = true;
@@ -503,9 +507,10 @@ public class PlayerController : MonoBehaviour
     }
 
     public void SwitchSeeds(InputAction.CallbackContext context) {
-        if (context.control.name == "u" && context.canceled) {
+        if ((context.control.name == "e" || context.control.name == "q") && context.canceled) {
             seeds.NextSeed(context);
         }
+
     }
     
     private void ProcessOverHeat()
