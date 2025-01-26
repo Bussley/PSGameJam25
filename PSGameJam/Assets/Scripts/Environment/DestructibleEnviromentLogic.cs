@@ -11,6 +11,8 @@ public class DestructibleEnviromentLogic : MonoBehaviour
     [SerializeField]
     private bool canBeDestroyedByHarvestBlade;
     [SerializeField]
+    private bool canBeDestroyedByFlameThrower;
+    [SerializeField]
     private bool canBeDestroyedByPlayer;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,6 +24,8 @@ public class DestructibleEnviromentLogic : MonoBehaviour
         else if(canBeDestroyedByFireHose && collision.gameObject.tag == "WaterShot")
             Destroy(gameObject);
         else if(canBeDestroyedByHarvestBlade && collision.gameObject.tag == "HarvestBlade")
+            Destroy(gameObject);
+        else if (canBeDestroyedByFlameThrower && collision.gameObject.tag == "FlameThrower")
             Destroy(gameObject);
         else if (canBeDestroyedByPlayer && collision.gameObject.tag == "Player")
             Destroy(gameObject);

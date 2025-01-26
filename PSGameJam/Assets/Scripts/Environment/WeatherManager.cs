@@ -14,12 +14,20 @@ public class WeatherManager : MonoBehaviour {
     private GameObject snowPrefab;
     [SerializeField]
     private GameObject snowFall;
+    [SerializeField]
+    private float snowFallRate;
 
     private Weather m_Weather;
+    private GameObject rainParticaleObject;
+    private GameObject snowParticaleObject;
+    private float nextSnowSpawn;
 
     void Awake()
     {
+        rainParticaleObject = Instantiate(rainPrefab, GameObject.FindGameObjectWithTag("MainCamera").transform);
+        snowParticaleObject = Instantiate(snowPrefab, GameObject.FindGameObjectWithTag("MainCamera").transform);
         m_Weather = Weather.Sunny;
+        nextSnowSpawn = Time.time;
     }
 
     void Update()
@@ -39,12 +47,18 @@ public class WeatherManager : MonoBehaviour {
 
     private void RainLogic()
     {
-
+        // Rain hydrate plants
     }
 
     private void SnowLogic()
     {
-        Vector3 snowspawn = TileManager.GetSpawnableRandomPosition();
+        // Make snow fall
+        if (nextSnowSpawn < Time.time)
+        {
+            Vector3 snowspawn = TileManager.GetSpawnableRandomPosition();
+            Instantiate(snowFall, snowspawn, new Quaternion());
+            nextSnowSpawn = Time.time + snowFallRate;
+        }
     }
 
     public void RollWather()
@@ -54,18 +68,21 @@ public class WeatherManager : MonoBehaviour {
         switch (ran)
         {
             case 0:
-                rainPrefab.SetActive(false);
-                snowPrefab.SetActive(false);
-                m_Weather = Weather.Sunny; 
+                Debug.Log("SUNNY");
+                rainParticaleObject.SetActive(false);
+                snowParticaleObject.SetActive(false);
+                m_Weather = Weather.Snowy; 
                 break;
             case 1:
-                rainPrefab.SetActive(true);
-                snowPrefab.SetActive(false);
-                m_Weather = Weather.Rain;
+                Debug.Log("Rain");
+                rainParticaleObject.SetActive(true);
+                snowParticaleObject.SetActive(false);
+                m_Weather = Weather.Snowy;
                 break;
             case 2:
-                rainPrefab.SetActive(false);
-                snowPrefab.SetActive(true);
+                Debug.Log("SNOW");
+                rainParticaleObject.SetActive(false);
+                snowParticaleObject.SetActive(true);
                 m_Weather = Weather.Snowy;
                 break;
             default:

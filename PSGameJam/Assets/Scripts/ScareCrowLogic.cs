@@ -9,11 +9,11 @@ public class ScareCrowLogic : MonoBehaviour
     {
         if (collision.gameObject.tag == "Crop")
             collision.gameObject.GetComponent<CropLogic>().scareCrowProtected = true;
-        else if (collision.gameObject.tag == "Weapon")
+        else if (collision.gameObject.layer == 10)
         {
             hitPoints -= 1;
 
-            if (hitPoints == 0)
+            if (hitPoints <= 0)
                 Destroy(gameObject);
         }
     }

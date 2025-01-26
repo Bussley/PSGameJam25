@@ -147,7 +147,7 @@ CircleCollider2D:
     m_Bits: 1024
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 3063
+    m_Bits: 15351
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -165,7 +165,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.21133333}
+  m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
 --- !u!1 &5445243570112392151
 GameObject:
@@ -217,7 +217,7 @@ CircleCollider2D:
     m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4023
+    m_Bits: 16311
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

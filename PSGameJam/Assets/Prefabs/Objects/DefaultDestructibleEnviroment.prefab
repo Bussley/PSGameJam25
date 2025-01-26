@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3441836501623529877}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.673463, y: -3.155247, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -179,4 +179,5 @@ MonoBehaviour:
   canBeDestroyedByShotgun: 1
   canBeDestroyedByFireHose: 1
   canBeDestroyedByHarvestBlade: 1
+  canBeDestroyedByFlameThrower: 1
   canBeDestroyedByPlayer: 1

@@ -7,6 +7,9 @@ public class CropLogic : MonoBehaviour
     [SerializeField]
     private CropScriptableObject cropSO;
 
+    [SerializeField]
+    private LayerMask hitMask;
+
     // Grows from 0 to 100, each crop has different stages based on percentage:
     // SEEDED (brand new crop, denotes early life. First 10% of life)
     // YOUNG (younger half of growing. 20-70% of growing)
@@ -16,34 +19,56 @@ public class CropLogic : MonoBehaviour
 
     private SpriteRenderer mSprite;
 
-    private float durabilityTime;
-
     private float hydrationLevel;
 
     public bool scareCrowProtected { get; set; }
     public bool targeted { get; set; }
 
+    private bool cold;
+
+    private Bounds collisionBounds;
+
     private bool attacked;
 
     private float attackedTime;
+    private float freezeTime;
 
     private void Awake() {
         targeted = false;
         attacked = false;
+        cold = false;
         scareCrowProtected = false;
         growthPercentage = 0;
-        durabilityTime = cropSO.cropDurabilityTime;
         mSprite = GetComponent<SpriteRenderer>();
         mSprite.sprite = cropSO.seedSprite;
+        collisionBounds = GetComponent<PolygonCollider2D>().bounds;
         GrowTask();
         Dehydrate();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(attacked && attackedTime < Time.time)
         {
             transform.parent.gameObject.GetComponent<SoilLogic>().RemoveCrop();
+        }
+
+        if (cold)
+        {
+            Collider2D hits = Physics2D.OverlapBox(collisionBounds.center, collisionBounds.extents, 0.0f, hitMask);
+
+            if (hits != null)
+            {
+                if (freezeTime < Time.time)
+                {
+                    transform.parent.gameObject.GetComponent<SoilLogic>().RemoveCrop();
+                }
+            }
+            else
+            {
+                Debug.Log("NOT COLD");
+                cold = false;
+            }
         }
     }
 
@@ -97,22 +122,36 @@ public class CropLogic : MonoBehaviour
         transform.parent.GetComponent<SoilLogic>().Watered();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Player" && !collision.gameObject.GetComponent<PlayerController>().GetUsingJets())
-        {
-            transform.parent.gameObject.GetComponent<SoilLogic>().RemoveCrop();
-        }    
-    }
-
     public void CrowOnCrop(bool onCrop)
     {
         if(onCrop)
         {
-            attackedTime = Time.time + cropSO.cropDurabilityTime;
+            attackedTime = Time.time + cropSO.cropCrowDurabilityTime;
             attacked = true;
         }
         else
             attacked = false;
+    }
+
+    public bool IsSeed()
+    {
+        if(growthPercentage < cropSO.growToYoungCrop)
+            return true;
+        else
+            return false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && !collision.gameObject.GetComponent<PlayerController>().GetUsingJets())
+        {
+            transform.parent.gameObject.GetComponent<SoilLogic>().RemoveCrop();
+        }
+        else if(collision.gameObject.tag == "SnowPowder" && !cold)
+        {
+            freezeTime = Time.time + cropSO.cropFreezeDurabilityTime;
+            Debug.Log(freezeTime);
+            cold = true;
+        }
     }
 }
