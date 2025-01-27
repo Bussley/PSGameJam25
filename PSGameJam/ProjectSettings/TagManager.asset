@@ -18,6 +18,7 @@ TagManager:
   - Undefined
   - CropPrefab
   - SnowPowder
+  - UICanvas
   layers:
   - Default
   - TransparentFX

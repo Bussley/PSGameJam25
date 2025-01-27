@@ -4,6 +4,12 @@ using UnityEngine.Animations;
 public class HarvestBladeLogic : MonoBehaviour
 {
     [SerializeField] 
+    private int seedMin;
+
+    [SerializeField] 
+    private int seeMax;
+
+    [SerializeField] 
     private float arcLength;
 
     [SerializeField]
@@ -21,11 +27,19 @@ public class HarvestBladeLogic : MonoBehaviour
 
     private GameObject playerObj;
 
+    private BountyLogic bountyLogic;
+
+    private GameObject bountyObj;
+
 
     private void Awake() {
         playerObj = GameObject.FindGameObjectWithTag("Player");
         playerLogic = playerObj.GetComponent<PlayerController>();
+        bountyObj = GameObject.FindGameObjectWithTag("CropMarketBoard");
+        bountyLogic = bountyObj.GetComponent<BountyLogic>();
         curTime = 0;
+        seedMin = 1;
+        seeMax = 5;
     }
 
     private void FixedUpdate() {
@@ -40,12 +54,18 @@ public class HarvestBladeLogic : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
+    { 
         Debug.Log(collision.gameObject.name);
-        playerLogic.seeds.SeedLevel(UnityEngine.Random.Range(1, 3),collision.gameObject.name);
-        playerLogic.cLogic.HarvestCrop(playerLogic.cLogic.harvestAmount, collision.gameObject.name);
-        playerLogic.wallet += playerLogic.cLogic.ExchangeCrop(collision.gameObject.name);
-        Debug.Log(playerLogic.wallet);
+        if (collision.gameObject.tag == "Crop") {
+            playerLogic.seeds.SeedLevel(UnityEngine.Random.Range(seedMin, seeMax),collision.gameObject.name);
+            playerLogic.cLogic.HarvestCrop(playerLogic.cLogic.harvestAmount, collision.gameObject.name);
+            playerLogic.wallet += playerLogic.cLogic.ExchangeCrop(collision.gameObject.name);
+            Debug.Log(bountyLogic.bountyCrop + "test");
+            if (collision.gameObject.name == bountyLogic.bountyCrop && bountyLogic.bountyStart) {
+                bountyLogic.bountyCropCount += 1;
+            }
+            Debug.Log(playerLogic.wallet);
+        }
         // HIT A CROP TO HARVEST. LOGIC TO CALL CROP.HARVEST HERE
         Debug.Log("HIT");
     }

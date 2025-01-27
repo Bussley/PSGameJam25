@@ -11,7 +11,7 @@ public class BountyLogic : MonoBehaviour
 {
     // The amount of crop you've harvested for the bounty
     [SerializeField]
-    private int bountyCropCount;
+    public int bountyCropCount;
 
     // The bounty number to reach
     [SerializeField]
@@ -27,11 +27,11 @@ public class BountyLogic : MonoBehaviour
 
     // Have we started the bounty
     [SerializeField]
-    private bool bountyStart;
+    public bool bountyStart;
 
     // The Crop used for bounty
     [SerializeField]
-    private string bountyCrop;
+    public string bountyCrop;
 
     // Number of bounties completed
     [SerializeField]
@@ -62,6 +62,8 @@ public class BountyLogic : MonoBehaviour
 
     private bool startTimer = false;
 
+    private bool interactWithBoard;
+
     /*
     function that will payout if bounty is complete
     function to generate bounty
@@ -81,6 +83,9 @@ public class BountyLogic : MonoBehaviour
         cropMarketPrices.Add("pepper", pepperValue);
         cropMarketPrices.Add("eggplant", eggplantValue);
         cropMarketPrices.Add("blackberry", blackberryValue);
+        interactWithBoard = false;
+        bountyStart = false;
+        bountyMaxCount = 10;
 
     }
 
@@ -93,9 +98,14 @@ public class BountyLogic : MonoBehaviour
             bountyStartTime = Time.time;
             startTimer = false;
         }
+        if (interactWithBoard) {
+            if (!bountyStart && Input.GetKeyDown(KeyCode.L)) {
+                BountyGenerate();
+                startTimer = true;
+                Debug.Log("Accepting Bounty");
+            }
+        }
     }
-
-
 
     // Generate new bounty
     private void BountyGenerate() {
@@ -108,10 +118,12 @@ public class BountyLogic : MonoBehaviour
         var ran = UnityEngine.Random.Range(0, ncrops);
         int counter = 0;
         foreach (var key in cropMarketPrices.Keys){
-            Debug.Log("Generating bounty Listing keys in dictionary" + key) ;
-            if (counter == ncrops){
+            
+            if (counter == ran){
+                Debug.Log("Generating bounty: " + key) ;
                 bountyCrop = key;
             }
+            counter++;
 
         }
         bountyCropCount = 0;
@@ -122,18 +134,22 @@ public class BountyLogic : MonoBehaviour
             bountyStart = false;
             bountyCropCount = 0;
             bountyNumCompleted += 1;
+            Debug.Log("Crop" + bountyCrop);
             // Payout
             playerLogic.wallet += cropMarketPrices[bountyCrop];
             Debug.Log("Congradulations You've completed a bounty! Here is the number of completed bountys: " + bountyNumCompleted);
+            Debug.Log("Player money: "+ playerLogic.wallet);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!bountyStart && Input.GetKeyDown(KeyCode.L)) {
-            BountyGenerate();
-            startTimer = true;
-            Debug.Log("Accepting Bounty");
-        }
+        interactWithBoard = true;
+
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        interactWithBoard = false;
     }
 
     public void BountyIncrease(int crop) {
@@ -144,14 +160,12 @@ public class BountyLogic : MonoBehaviour
     // Put timer on bounty
     private void BountyCheckTimer() {
         var currentTime = Time.time;
-        var timePassed = bountyStartTime - currentTime;
-        Debug.Log("Time passed: " + timePassed);
+        var timePassed = currentTime - bountyStartTime;
+        //Debug.Log("Time passed: " + timePassed);
         if ( timePassed > bountyMaxTime ){
             Debug.Log("Failed to complete bounty!");
             bountyStart = false;
             bountyCropCount = 0;
         }
-
     }
-
 }
