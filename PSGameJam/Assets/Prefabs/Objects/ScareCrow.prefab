@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 6074366057695782349}
   - component: {fileID: 1722719275462216049}
   - component: {fileID: 721364262964206521}
-  - component: {fileID: 8266915102784834331}
   - component: {fileID: 8445419041950929811}
-  m_Layer: 11
+  - component: {fileID: 5067254062891182073}
+  m_Layer: 12
   m_Name: ScareCrow
-  m_TagString: Enemy
+  m_TagString: DestructibleEnviroment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,19 +118,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8266915102784834331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144086706409290232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c78b125de0c8af543acc1a78cd2deaae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitPoints: 3
 --- !u!58 &8445419041950929811
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -167,6 +154,68 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &5067254062891182073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144086706409290232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc2416c0cc1793449928fcb6429c4ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  shakeTime: 0.2
+  shakeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0027427673
+      value: -0.0027138572
+      inSlope: 1.595438
+      outSlope: 1.595438
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.17901543
+      value: 0.28727007
+      inSlope: 0.5593992
+      outSlope: 0.5593992
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5762539
+      value: 0.09793049
+      inSlope: -0.34972626
+      outSlope: -0.34972626
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0096436
+      value: 0.0013656616
+      inSlope: -0.22281295
+      outSlope: -0.22281295
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  canBeDestroyedByLaser: 1
+  canBeDestroyedByShotgun: 1
+  canBeDestroyedByFireHose: 0
+  canBeDestroyedByHarvestBlade: 1
+  canBeDestroyedByFlameThrower: 1
+  canBeDestroyedByPlayer: 0
 --- !u!1 &5445243570112392151
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,9 +228,9 @@ GameObject:
   - component: {fileID: 6520598890404070255}
   - component: {fileID: 8674423938970262424}
   - component: {fileID: 4444916905877238913}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: ScareCrowRadius
-  m_TagString: Enemy
+  m_TagString: DestructibleEnviroment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,4 +325,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b125de0c8af543acc1a78cd2deaae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 0

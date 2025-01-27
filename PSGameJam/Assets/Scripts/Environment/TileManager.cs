@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,26 +9,27 @@ public class TileManager : MonoBehaviour
     [SerializeField]
     private GameObject tilledSoilPrefab;
     [SerializeField]
-    private Tile grassTileBase;
-    [SerializeField]
-    private BoundsInt spawnableArea;
+    private List<String> tillableTiles; 
 
     private static Tilemap groundMap;
     private static GameObject tilledSoil;
-    private static Tile grassTile;
     private static List<Vector3Int> spawnableTiles;
+
+    private static List<String> staticTillableTiles;
+    private static Dictionary<Vector3Int, Tile> removedTiles;
 
     private void Awake()
     {
         tilledSoil = tilledSoilPrefab;
-        grassTile = grassTileBase;
+        staticTillableTiles = tillableTiles;
 
+        removedTiles = new Dictionary<Vector3Int, Tile>();
         spawnableTiles = new List<Vector3Int>();
         foreach (var pos in groundMap.cellBounds.allPositionsWithin)
         {
             var t = groundMap.GetTile(pos);
 
-            if (t != null && t.name == "Grass_Center")
+            if (t != null && tillableTiles.Contains(t.name))
             {
                 spawnableTiles.Add(pos);
             }
@@ -39,12 +41,13 @@ public class TileManager : MonoBehaviour
         Vector3Int grid_pos = groundMap.WorldToCell(pos);
         spawnableTiles.Remove(grid_pos);
 
-        TileBase tb = groundMap.GetTile(grid_pos);
+        Tile tb = groundMap.GetTile<Tile>(grid_pos);
 
 
         //Check if we are hitting anything worth tilling
-        if (tb != null && tb.name == "Grass_Center")
+        if (tb != null && staticTillableTiles.Contains(tb.name))
         {
+            removedTiles.Add(grid_pos, tb);
             Tile t = ScriptableObject.CreateInstance<Tile>();
             t.gameObject = tilledSoil;
             groundMap.SetTile(grid_pos, t) ;
@@ -68,7 +71,8 @@ public class TileManager : MonoBehaviour
         Vector3Int grid_pos = groundMap.WorldToCell(pos);
         spawnableTiles.Add(grid_pos);
 
-        groundMap.SetTile(grid_pos, grassTile);
+        groundMap.SetTile(grid_pos, removedTiles[grid_pos]);
+        removedTiles.Remove(grid_pos);
     }
 
     public static void SetTileMap(Tilemap map)
@@ -87,6 +91,6 @@ public class TileManager : MonoBehaviour
     
     public static Vector3 GetSpawnableRandomPosition()
     {
-        return groundMap.CellToWorld(spawnableTiles[Random.Range(0, spawnableTiles.Count - 1)]);
+        return groundMap.CellToWorld(spawnableTiles[UnityEngine.Random.Range(0, spawnableTiles.Count - 1)]);
     }
 }

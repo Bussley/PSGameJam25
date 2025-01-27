@@ -203,8 +203,8 @@ GameObject:
   - component: {fileID: 8718599777891099908}
   - component: {fileID: 4631361793005702973}
   - component: {fileID: 5736033407230226572}
-  - component: {fileID: 6244721676125702792}
   - component: {fileID: 8215194280769094780}
+  - component: {fileID: 2110487730783684609}
   m_Layer: 13
   m_Name: CropMarketBoard
   m_TagString: CropMarketBoard
@@ -297,8 +297,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6244721676125702792
-BoxCollider2D:
+--- !u!114 &8215194280769094780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8423950987056503866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14ecb489b6c64b44d854cd1a1ef9d2f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bountyCropCount: 0
+  bountyMaxCount: 0
+  bountyStartTime: 0
+  bountyMaxTime: 60
+  bountyStart: 0
+  bountyCrop: 
+  bountyNumCompleted: 0
+  wheatValue: 1
+  potatoValue: 2
+  tomatoValue: 5
+  strawberryValue: 7
+  pepperValue: 3
+  eggplantValue: 4
+  blackberryValue: 6
+--- !u!60 &2110487730783684609
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -313,7 +339,7 @@ BoxCollider2D:
     m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 15863
+    m_Bits: 32247
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -341,31 +367,14 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &8215194280769094780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8423950987056503866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14ecb489b6c64b44d854cd1a1ef9d2f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bountyCropCount: 0
-  bountyMaxCount: 0
-  bountyStartTime: 0
-  bountyMaxTime: 60
-  bountyStart: 0
-  bountyCrop: 
-  bountyNumCompleted: 0
-  wheatValue: 1
-  potatoValue: 2
-  tomatoValue: 5
-  strawberryValue: 7
-  pepperValue: 3
-  eggplantValue: 4
-  blackberryValue: 6
+  m_Points:
+    m_Paths:
+    - - {x: -0.034929782, y: -0.026167393}
+      - {x: 1.4422222, y: 0.69396615}
+      - {x: 1.446598, y: 1.4694362}
+      - {x: 1.2003134, y: 1.3853356}
+      - {x: 0.73116016, y: 1.2099408}
+      - {x: 0.01798302, y: 1.0111084}
+      - {x: -0.5296148, y: 0.8929613}
+      - {x: -0.543021, y: 0.23379004}
+  m_UseDelaunayMesh: 0

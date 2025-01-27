@@ -20,5 +20,8 @@ public class LaserBeamLogic : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Soil")
             collision.gameObject.GetComponent<SoilLogic>().CharTile();
+
+        if (collision.gameObject.tag == "DestructibleEnviroment")
+            Destroy(gameObject);
     }
 }

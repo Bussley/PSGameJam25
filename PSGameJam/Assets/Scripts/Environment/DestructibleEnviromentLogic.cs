@@ -1,9 +1,14 @@
+using System.Collections;
 using UnityEngine;
 
 public class DestructibleEnviromentLogic : MonoBehaviour
 {
     [SerializeField]
     private int health;
+    [SerializeField]
+    private float shakeTime;
+    [SerializeField] 
+    private AnimationCurve shakeCurve;
 
     [SerializeField]
     private bool canBeDestroyedByLaser;
@@ -17,6 +22,8 @@ public class DestructibleEnviromentLogic : MonoBehaviour
     private bool canBeDestroyedByFlameThrower;
     [SerializeField]
     private bool canBeDestroyedByPlayer;
+
+    private bool shaking = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -44,5 +51,29 @@ public class DestructibleEnviromentLogic : MonoBehaviour
 
         if (health <= 0)
             Destroy(gameObject);
+        else if (!shaking)
+        {
+            shaking = true;
+            StartCoroutine(ShakeObject());
+        }
+
+
+    }
+
+    IEnumerator ShakeObject()
+    {
+        var start_pos = transform.position;
+        float elapsed = 0f;
+
+        while (elapsed < shakeTime)
+        {
+            elapsed += Time.deltaTime;
+            float stength = shakeCurve.Evaluate(elapsed / shakeTime);
+            transform.position = start_pos + (Vector3)UnityEngine.Random.insideUnitCircle * stength;
+            yield return null;
+        }
+
+        shaking = false;
+        transform.position = start_pos;
     }
 }
