@@ -49,3 +49,4 @@ MonoBehaviour:
   waterSpreadY: 1
   firehoseSpeed: 1
   waterShootTime: 1
+  fireHoseVFX: {fileID: 101811848660185979, guid: 8a6ef1c23835de14eb57188053d9d229, type: 3}

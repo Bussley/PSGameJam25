@@ -1,31 +1,35 @@
+using System;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class FlameThrowerLogic : MonoBehaviour
 {
     [SerializeField]
     private GameObject flameVFX;
 
+    private GameObject flameVFXGO;
+
     private void Awake()
     {
-        Instantiate(flameVFX, transform);
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        flameVFXGO = Instantiate(flameVFX, transform);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Soil to destroy crop
-        if (collision.gameObject.tag == "Soil" && WeatherManager.Snowing())
+        if (collision.gameObject.tag == "Soil" && !WeatherManager.Snowing())
             collision.gameObject.GetComponent<SoilLogic>().CharTile();
+    }
+
+    public void StopFlame()
+    {
+        flameVFXGO.GetComponent<VisualEffect>().Stop();
+
+        Action action = () =>
+        {
+            Destroy(gameObject);
+        };
+
+        TimerManager.AddTimer(action, 0.2f);
     }
 }

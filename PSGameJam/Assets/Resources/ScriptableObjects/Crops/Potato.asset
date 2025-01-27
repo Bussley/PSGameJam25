@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Potato
   m_EditorClassIdentifier: 
   cropType: Potato
-  baseMarketValue: 0
+  baseMarketValue: 2
   growSpeedTime: 0.5
   growToYoungCrop: 10
   growToGrowingCrop: 50
   cropCrowDurabilityTime: 50
   cropFreezeDurabilityTime: 4
+  cropDurabilityTime: 0
+  CropSprite: {fileID: 0}
   seedSprite: {fileID: 5277730378181330140, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
   youngCropSprite: {fileID: 3651139085573116045, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
   growingCropSprite: {fileID: -6096300570334990208, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}

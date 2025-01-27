@@ -11,14 +11,11 @@ public class CropMarketPlaceLogic : MonoBehaviour
     [SerializeField]
     private float maxMarketPercentValue;
 
-    [SerializeField]
-    private float rollMarketTimer;
-
     private GameObject marketPopUpBoard;
     private Dictionary<String, int> baseCropMarketPrices = new Dictionary<string, int>();
-    private Dictionary<String, int> cropMarketPrices = new Dictionary<string, int>();
+    private static Dictionary<String, int> cropMarketPrices = new Dictionary<string, int>();
 
-    public Dictionary<String, int> GetCropMarketPrices () {
+    public Dictionary<String, int> GetCropMarketPrices() {
         return cropMarketPrices;
     }
 
@@ -27,22 +24,21 @@ public class CropMarketPlaceLogic : MonoBehaviour
         marketPopUpBoard = transform.GetChild(0).gameObject;
         marketPopUpBoard.SetActive(false);
 
-        CropScriptableObject[] allcrops = Resources.LoadAll<CropScriptableObject>("ScriptableObjects/Crops/");
+        var allcrops = Resources.LoadAll<CropScriptableObject>("ScriptableObjects/Crops/");
 
-        foreach(CropScriptableObject obj in allcrops)
+        foreach (CropScriptableObject obj in allcrops)
         {
             baseCropMarketPrices.Add(obj.cropType, obj.baseMarketValue);
+            cropMarketPrices.Add(obj.cropType, obj.baseMarketValue);
         }
-
-        TimerManager.AddTimer(RollMarket, rollMarketTimer);
+        RollMarket();
     }
 
     public void RollMarket()
     {
-        cropMarketPrices = baseCropMarketPrices;
-        foreach(var c in cropMarketPrices.Keys)
+        foreach (var c in baseCropMarketPrices)
         {
-            cropMarketPrices[c] = (int)(baseCropMarketPrices[c] * UnityEngine.Random.Range(minMarketPercentValue, maxMarketPercentValue));
+            cropMarketPrices[c.Key] = (int)(baseCropMarketPrices[c.Key] * UnityEngine.Random.Range(minMarketPercentValue, maxMarketPercentValue));
         }
     }
 
@@ -61,5 +57,12 @@ public class CropMarketPlaceLogic : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         marketPopUpBoard.SetActive(false);
+    }
+
+    public static int GetCropPrice(String crop_type)
+    {
+        foreach (var c in cropMarketPrices)
+            Debug.Log(c.Key);
+        return cropMarketPrices[crop_type];
     }
 }

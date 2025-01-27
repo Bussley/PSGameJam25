@@ -12,9 +12,6 @@ public class CropLogic : MonoBehaviour
 
     private LayerMask hitMask;
 
-    [SerializeField]
-    public Int16 harvestAmount = 1;
-
     // Grows from 0 to 100, each crop has different stages based on percentage:
     // CropED (brand new crop, denotes early life. First 10% of life)
     // YOUNG (younger half of growing. 20-70% of growing)
@@ -39,6 +36,8 @@ public class CropLogic : MonoBehaviour
     private float freezeTime;
 
     private void Awake() {
+        name = cropSO.cropType;
+
         targeted = false;
         attacked = false;
         cold = false;
@@ -55,12 +54,6 @@ public class CropLogic : MonoBehaviour
 
         GrowTask();
         Dehydrate();
-
-        tomatoCount = 0;
-        wheatCount = 0;
-        potatoCount = 0;
-        pepperCount = 0;
-        strawBerryCount = 0;
     }
 
     private void FixedUpdate()
@@ -183,6 +176,7 @@ public class CropLogic : MonoBehaviour
     }
     // Types of Crop Logic
 
+    /*
     [SerializeField]
     private int tomatoCount = 0;
     [SerializeField]
@@ -202,56 +196,29 @@ public class CropLogic : MonoBehaviour
         "strawberry", // 3
         "potato", // 4
     };
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     // Havisting crops yeald 1 of that crop. and randomize 1-3 seeds.
-    public void HarvestCrop(int num,String CropType) {
+    public void HarvestCrop(String CropType) {
         switch (CropType) {
             case "wheat":
-                wheatCount += num;
+                wheatCount += 1;
                 break;
             case "tomato":
-                tomatoCount += num;
+                tomatoCount += 1;
                 break;
             case "pepper":
-                pepperCount += num;
+                pepperCount += 1;
                 break;
             case "strawberry":
-                strawBerryCount += num;
+                strawBerryCount += 1;
                 break;
             case "potato":
-                potatoCount += num;
+                potatoCount += 1;
                 break;                                                
         }
     }
 
-   public int ExchangeCrop(String CropType) {
-        int money = 0;
 
-        switch (CropType) {
-            case "wheat":
-                money = wheatCount;
-                wheatCount = 0;
-                return money;
-            case "tomato":
-                money = tomatoCount;
-                tomatoCount = 0;
-                return money;
-            case "pepper":
-                money = pepperCount;
-                pepperCount = 0;
-                return money;
-            case "strawberry":
-                money = strawBerryCount;
-                strawBerryCount = 0;
-                return money;
-            case "potato":
-                money = potatoCount;
-                potatoCount = 0;
-                return money;
-            default:
-                return money;                                              
-        }
-    }
     public int GetCropCount(String CropType) {
         switch (CropType) {
             case "wheat":
@@ -268,4 +235,5 @@ public class CropLogic : MonoBehaviour
                 return 0;
         }
     }
+    */
 }

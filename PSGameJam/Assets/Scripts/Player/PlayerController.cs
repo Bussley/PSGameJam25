@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 
 
@@ -85,8 +86,6 @@ public class PlayerController : MonoBehaviour
 
     public SeedLogic seeds;
 
-    public CropLogic cLogic;
-
     private float waterStartChargeTime;
     private Vector2 moveDirection;
     private Vector2 isoDirection;
@@ -100,8 +99,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rig;
 
     private Animator playerAnimatior;
-	
-	private SFXController sfx;
+
+    [HideInInspector]
+	public SFXController sfx;
 	
 	private FootStep foot;
 
@@ -139,7 +139,8 @@ public class PlayerController : MonoBehaviour
 		sfx = GetComponent<SFXController>();
 		foot = GetComponent<FootStep>();
         seeds = GetComponent<SeedLogic>();
-        cLogic = GetComponent<CropLogic>();
+        jetPackVFXGO = Instantiate(jetPackVFX, transform);
+        jetPackVFXGO.GetComponent<VisualEffect>().Stop();
     }
 
     private void Update() {
@@ -158,7 +159,7 @@ public class PlayerController : MonoBehaviour
 
             if (jetLockdown)
             {
-                Destroy(jetPackVFXGO);
+                jetPackVFXGO.GetComponent<VisualEffect>().Stop();
                 usingJets = false;
             }
         }
@@ -232,8 +233,6 @@ public class PlayerController : MonoBehaviour
 
             Vector3 rot_offset = TileManager.rotate(jetVFXOffset, angle);
             jetPackVFXGO.transform.position = origin + rot_offset;
-
-
         }
 
         if (flameThrowerGO != null)
@@ -289,11 +288,12 @@ public class PlayerController : MonoBehaviour
             rig.linearVelocity = moveDirection * jetSpeed;
 
             // Spawn and set up jetPackVFXGO
-            jetPackVFXGO = Instantiate(jetPackVFX, transform);
+            
             var angle = Vector2.Angle(Vector2.left, moveDirection);
-			
-			//PLAY THE JET SOUND :)
-			sfx.playSound(0);
+
+            jetPackVFXGO.GetComponent<VisualEffect>().Play();
+            //PLAY THE JET SOUND :)
+            sfx.playSound(0);
 			
             // Flip if face positive direction
             if (moveDirection.y > 0)
@@ -306,7 +306,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(context.canceled && usingJets)
         {
-            Destroy(jetPackVFXGO);
+            jetPackVFXGO.GetComponent<VisualEffect>().Stop();
             usingJets = false;
 			
 			//STOP THE JET SOUND. FLOAT IS HOW LONG TO QUIET IT DOWN. 
@@ -386,7 +386,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (context.canceled && flameThrowerGO != null)
         {
-            Destroy(flameThrowerGO);
+            flameThrowerGO.GetComponent<FlameThrowerLogic>().StopFlame();
             usingWeapon = false;
 			sfx.stopSound(0.5f); //quiet the flame continuous sound
         }
@@ -548,7 +548,7 @@ public class PlayerController : MonoBehaviour
             if (flameThrowerGO != null)
             {
                 usingWeapon = false;
-                Destroy(flameThrowerGO);
+                flameThrowerGO.GetComponent<FlameThrowerLogic>().StopFlame();
             }
         }
 
@@ -571,16 +571,13 @@ public class PlayerController : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             float stength = screenShakeStrength.Evaluate(elapsed / screenShakeDuration);
-            Debug.Log("Before " + Camera.main.transform.position.z);
             Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z) + (Vector3)UnityEngine.Random.insideUnitCircle * stength;
-
-            Debug.Log("After " + Camera.main.transform.position.z);
-            //Debug.Log(Camera.main.transform.position);
             yield return null;
         }
 
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
     }
+
 
     public bool GetUsingJets()
     { return usingJets; }

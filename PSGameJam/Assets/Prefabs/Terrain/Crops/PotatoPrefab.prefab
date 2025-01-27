@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ee70b0008c524ca52d991e00230de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cropSO: {fileID: 11400000, guid: 5282a9cacf14b2840a0bdab4bbafb9a4, type: 2}
+  cropSO: {fileID: 11400000, guid: da992a0fd37ce88478290a32084e7bbc, type: 2}
   hitMask:
     serializedVersion: 2
     m_Bits: 16384

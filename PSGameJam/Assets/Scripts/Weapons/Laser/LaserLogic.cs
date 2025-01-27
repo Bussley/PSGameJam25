@@ -59,7 +59,10 @@ public class LaserLogic : MonoBehaviour
         aimObject2.transform.RotateAround(transform.position, Vector3.forward, -aimRotateSpeed);
 
         if (maxAimDuration < currentAimDuration)
+        {
+            transform.parent.GetComponent<PlayerController>().sfx.playSound(5);		//play laser sound 
             Fire();
+        }
 
         currentAimDuration++;
     }

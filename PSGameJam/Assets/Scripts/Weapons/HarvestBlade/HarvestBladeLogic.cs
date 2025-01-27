@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -25,16 +26,13 @@ public class HarvestBladeLogic : MonoBehaviour
 
     private PlayerController playerLogic;
 
-    private GameObject playerObj;
-
     private BountyLogic bountyLogic;
 
     private GameObject bountyObj;
 
 
     private void Awake() {
-        playerObj = GameObject.FindGameObjectWithTag("Player");
-        playerLogic = playerObj.GetComponent<PlayerController>();
+        playerLogic = transform.parent.GetComponent<PlayerController>();
         bountyObj = GameObject.FindGameObjectWithTag("CropMarketBoard");
         bountyLogic = bountyObj.GetComponent<BountyLogic>();
         curTime = 0;
@@ -56,18 +54,20 @@ public class HarvestBladeLogic : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     { 
         Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.tag == "Crop") {
+        if (collision.gameObject.tag == "Crop" && !collision.gameObject.GetComponent<CropLogic>().IsSeed()) {
             playerLogic.seeds.SeedLevel(UnityEngine.Random.Range(seedMin, seeMax),collision.gameObject.name);
-            playerLogic.cLogic.HarvestCrop(playerLogic.cLogic.harvestAmount, collision.gameObject.name);
-            playerLogic.wallet += playerLogic.cLogic.ExchangeCrop(collision.gameObject.name);
+
+            // playerLogic.cLogic.HarvestCrop(playerLogic.cLogic.harvestAmount, collision.gameObject.name);
+            // playerLogic.wallet += playerLogic.cLogic.ExchangeCrop(collision.gameObject.name);
+
+            playerLogic.wallet += CropMarketPlaceLogic.GetCropPrice(collision.gameObject.name);
+
             Debug.Log(bountyLogic.bountyCrop + "test");
             if (collision.gameObject.name == bountyLogic.bountyCrop && bountyLogic.bountyStart) {
                 bountyLogic.bountyCropCount += 1;
             }
             Debug.Log(playerLogic.wallet);
         }
-        // HIT A CROP TO HARVEST. LOGIC TO CALL CROP.HARVEST HERE
-        Debug.Log("HIT");
     }
 
     public void Fire(Vector2 direction) {
