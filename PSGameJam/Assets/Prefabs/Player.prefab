@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 1545401648524244138}
   - component: {fileID: -8409307826161904694}
   - component: {fileID: 266873412056456813}
+  - component: {fileID: 7303564420094882813}
   - component: {fileID: 2411378753843147519}
   m_Layer: 9
   m_Name: Player
@@ -221,7 +222,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 8355083937188093795, guid: b303ed4b3d1d9ab43ac02b70ea7c7df3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -246,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallet: 10
+  wallet: 10
   waterTankLevel: 100
   laserCooldown: 4
   shotgunCooldown: 2
@@ -267,8 +269,8 @@ MonoBehaviour:
   fireHosePrefab: {fileID: 3055755877633591794, guid: 91fc32ba37a85484fbec856b4217c376, type: 3}
   flameThrowerPrefab: {fileID: 5617961853591481934, guid: c107f010cbb99d54ebd4dce0202830f5, type: 3}
   seeds: {fileID: 4881669829250498636, guid: 8e52b02c585c9ff4384453dd0961b5e1, type: 3}
-  goTime: 0.4
-  stopTime: 0.25
+  goTime: 0.4583333
+  stopTime: 0.2916666
 --- !u!50 &2678468580882921569
 Rigidbody2D:
   serializedVersion: 5
@@ -661,6 +663,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7303564420094882813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6493987535443878733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 381c3bd3777c7164799926042b538f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footsies0: {fileID: 8045631252273042470, guid: 8dfe014a6fb09c64ab649d765eb401ff, type: 3}
+  footsies1: {fileID: 1638598654688745770, guid: 426564a38e9a6da43ae9d2f4134f3d84, type: 3}
+  footsies2: {fileID: 3061039653694185197, guid: 19892d5dd7663204999dd16bca8c5956, type: 3}
+  footsies3: {fileID: 7651977563970182258, guid: 1d7cbe24f1b8edb479eb4cbeaebaf93c, type: 3}
+  footsies4: {fileID: 7671184370058121510, guid: 7fdbcbcdb3fd89047a6c5b42a551e7c3, type: 3}
+  footsies5: {fileID: 1073591060862715121, guid: e59a99f59e0f709439a72c2fd6efc2cf, type: 3}
+  footsies6: {fileID: 2710414459838391568, guid: 5cbf1ac65890b6c4a8ff581f70e2c0fd, type: 3}
+  footsies7: {fileID: 8044704292343409670, guid: 6f234b767edce304ba8dd6256985f4ec, type: 3}
+  Robot: 1
+  left: 1
 --- !u!114 &2411378753843147519
 MonoBehaviour:
   m_ObjectHideFlags: 0
