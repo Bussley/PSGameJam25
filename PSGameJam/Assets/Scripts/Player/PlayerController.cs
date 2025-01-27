@@ -64,6 +64,8 @@ public class PlayerController : MonoBehaviour
  
     public SeedLogic seeds;
 
+    public CropLogic cLogic;
+
     [SerializeField]
     private float goTime;
 
@@ -130,6 +132,7 @@ public class PlayerController : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
 		sfx = GetComponent<SFXController>();
         seeds = GetComponent<SeedLogic>();
+        cLogic = GetComponent<CropLogic>();
     }
 
     private void Update() {

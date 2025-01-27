@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 1545401648524244138}
   - component: {fileID: -8409307826161904694}
   - component: {fileID: 266873412056456813}
+  - component: {fileID: 2411378753843147519}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -244,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3dcb829830d2c84abac25a97c696474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wallet: 10
   waterTankLevel: 100
   laserCooldown: 4
   shotgunCooldown: 2
@@ -659,3 +661,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2411378753843147519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6493987535443878733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 111a8fdedd7534145be40bd4604c3f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tomatoSeedCount: 0
+  wheatSeedCount: 25
+  potatoSeedCount: 0
+  pepperSeedCount: 0
+  strawBerrySeedCount: 0
+  currentSeed: wheat
+  typesOfSeeds:
+  - wheat
+  - tomato
+  - pepper
+  - strawberry
+  - potato

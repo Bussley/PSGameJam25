@@ -19,6 +19,11 @@ public class SeedLogic : MonoBehaviour
     [SerializeField]
     private int strawBerrySeedCount = 0;
 
+
+    private PlayerController playerLogic;
+
+    private GameObject playerObj;
+
     [SerializeField]
     public string currentSeed = "wheat";
 
