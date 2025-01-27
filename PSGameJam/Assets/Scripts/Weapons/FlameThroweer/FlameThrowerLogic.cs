@@ -25,7 +25,7 @@ public class FlameThrowerLogic : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Soil to destroy crop
-        if (collision.gameObject.tag == "Soil")
+        if (collision.gameObject.tag == "Soil" && WeatherManager.Snowing())
             collision.gameObject.GetComponent<SoilLogic>().CharTile();
     }
 }

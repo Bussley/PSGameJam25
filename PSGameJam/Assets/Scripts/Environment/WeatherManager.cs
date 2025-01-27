@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WeatherManager : MonoBehaviour { 
     enum Weather {
@@ -22,32 +24,24 @@ public class WeatherManager : MonoBehaviour {
     private GameObject snowParticaleObject;
     private float nextSnowSpawn;
 
+    private static bool raining;
+    private static bool snowing;
+    private static UnityEvent rainingWeather = new UnityEvent();
+
     void Awake()
     {
         rainParticaleObject = Instantiate(rainPrefab, GameObject.FindGameObjectWithTag("MainCamera").transform);
         snowParticaleObject = Instantiate(snowPrefab, GameObject.FindGameObjectWithTag("MainCamera").transform);
         m_Weather = Weather.Sunny;
+        raining = false;
+        snowing = false;
         nextSnowSpawn = Time.time;
     }
 
     void Update()
     {
-        switch (m_Weather)
-        {
-            case Weather.Rain:
-                RainLogic();
-                break;
-            case Weather.Snowy:
-                SnowLogic();
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void RainLogic()
-    {
-        // Rain hydrate plants
+        if (m_Weather == Weather.Snowy)
+            SnowLogic();
     }
 
     private void SnowLogic()
@@ -69,18 +63,25 @@ public class WeatherManager : MonoBehaviour {
         {
             case 0:
                 Debug.Log("SUNNY");
+                raining = false;
+                snowing = false;
                 rainParticaleObject.SetActive(false);
                 snowParticaleObject.SetActive(false);
                 m_Weather = Weather.Snowy; 
                 break;
             case 1:
                 Debug.Log("Rain");
+                raining = true;
+                snowing = false;
+                rainingWeather.Invoke();
                 rainParticaleObject.SetActive(true);
                 snowParticaleObject.SetActive(false);
                 m_Weather = Weather.Snowy;
                 break;
             case 2:
                 Debug.Log("SNOW");
+                raining = false;
+                snowing = true;
                 rainParticaleObject.SetActive(false);
                 snowParticaleObject.SetActive(true);
                 m_Weather = Weather.Snowy;
@@ -88,5 +89,20 @@ public class WeatherManager : MonoBehaviour {
             default:
                 break;
         }
+    }
+
+    public static void AddRainListener(UnityAction func)
+    {
+        rainingWeather.AddListener(func);
+    }
+
+    public static bool Raining()
+    {
+        return raining;
+    }
+
+    public static bool Snowing()
+    {
+        return snowing;
     }
 }
