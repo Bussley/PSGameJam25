@@ -1,14 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using JetBrains.Annotations;
-using NUnit.Framework.Internal;
-using Unity.VisualScripting;
-using UnityEditor.Animations;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Tilemaps;
 
 //^ I BORROWED ALL THE STUFF FROM PLAYERCONTROLLER I DO NOT KNOW WHAT I NEED :^)
 

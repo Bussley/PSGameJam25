@@ -31,6 +31,11 @@ public class SoilLogic : MonoBehaviour
         invincibilityTime = Time.time + 1.0f;
         charred = false;
         spr = GetComponent<SpriteRenderer>();
+
+        WeatherManager.AddRainListener(Watered);
+
+        if(WeatherManager.Raining())
+            spr.sprite = wateredSoil;
     }
 
     public void AddSeed() {

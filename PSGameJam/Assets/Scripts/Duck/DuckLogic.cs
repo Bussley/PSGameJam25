@@ -14,17 +14,14 @@ public class DuckLogic : MonoBehaviour
     private float flyInSpeed;
 
     private float flyInTime;
-    private Vector3 flyDirection;
     private bool onSpot;
     private bool flyOut;
-    private Rigidbody2D rig;
 
 
     private void Awake() {
         onSpot = false;
         flyOut = false;
         flyInTime = Time.time + Random.Range(minTime, maxTime);
-        rig = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -41,7 +38,8 @@ public class DuckLogic : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        flyOut = true;
+        if(onSpot) 
+            flyOut = true;
     }
     private void FlyIn()
     {

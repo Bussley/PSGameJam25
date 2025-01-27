@@ -82,8 +82,6 @@ public class PlayerController : MonoBehaviour
         "flamethrower", // 5
     };
 
-    // N = 0, NE = 1, E = 2, SE = 3
-    // S = 4, NW = 5, W = 6, SW = 7
     private float waterStartChargeTime;
     private Vector2 moveDirection;
     private Vector2 isoDirection;
@@ -99,6 +97,8 @@ public class PlayerController : MonoBehaviour
     private Animator playerAnimatior;
 	
 	private SFXController sfx;
+	
+	private FootStep foot;
 
     private string CurrentWeapon;
 
@@ -132,6 +132,7 @@ public class PlayerController : MonoBehaviour
         playerAnimatior = GetComponent<Animator>();
         rig = GetComponent<Rigidbody2D>();
 		sfx = GetComponent<SFXController>();
+		foot = GetComponent<FootStep>();
         seeds = GetComponent<SeedLogic>();
         cLogic = GetComponent<CropLogic>();
     }
@@ -145,12 +146,28 @@ public class PlayerController : MonoBehaviour
                 {
                     speedInterval = moveSpeed;
                     speedIntervalTimer = Time.time + goTime;
-					sfx.playSound(8); //try playing footstep
+					
+					if(usingJets == false)
+						sfx.playSound(8); //try playing footstep
+					
                 }
                 else // Stop Time
                 {
                     speedInterval = 0;
                     speedIntervalTimer = Time.time + stopTime;
+					
+					if(usingJets == false)
+					{
+						var angle = Vector2.Angle(Vector2.left, lastMoveDirection);
+						// Flip if face positive direction
+						if (moveDirection.y > 0)
+							angle = -angle;
+						foot.makeStep(angle);
+						if(foot.left)
+							foot.left = false;
+						else
+							foot.left = true;
+					}
 					
                 }
             }
@@ -158,6 +175,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             speedInterval = moveSpeed;
+			foot.left = true;
         }
 
         ProcessOverHeat();
@@ -281,6 +299,7 @@ public class PlayerController : MonoBehaviour
 			
 			//STOP THE JET SOUND. FLOAT IS HOW LONG TO QUIET IT DOWN. 
 			sfx.stopSound(1.0f);
+			foot.left = true;
         }
 
     }
@@ -321,7 +340,6 @@ public class PlayerController : MonoBehaviour
             {
                 FireHarvestBlade(context);
                 //Debug.Log("Swing Sword");
-				sfx.playSound(2);
             }
         }
         else if (typesOfWeapons[5] == CurrentWeapon)
@@ -460,6 +478,7 @@ public class PlayerController : MonoBehaviour
             // Spawn aimer
             harvestBladeGO = Instantiate(harvestBladePrefab, transform);
             harvestBladeGO.GetComponent<HarvestBladeLogic>().Fire(lastMoveDirection);
+			sfx.playSound(2);  //play sound
         }
     }
 
