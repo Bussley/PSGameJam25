@@ -588,10 +588,10 @@ TextureImporter:
       name: UI_Player_11
       rect:
         serializedVersion: 2
-        x: 4
-        y: 66
-        width: 128
-        height: 128
+        x: 22
+        y: 143
+        width: 177
+        height: 49
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -602,94 +602,6 @@ TextureImporter:
       bones: []
       spriteID: 600308129343e33438fd3f751ca0e569
       internalID: -226682392406635147
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Player_12
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 139
-        width: 60
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4bd10eb8ab234944093e16755859ff3a
-      internalID: 2566449085650286465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Player_19
-      rect:
-        serializedVersion: 2
-        x: 206
-        y: 139
-        width: 60
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35d9c0ec8c11b8c4aa4190ec7a164c3b
-      internalID: 9012524035037440889
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Player_21
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 77
-        width: 44
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40373c35cca8b9c44a1e1d76413dfddd
-      internalID: -4184108534472972306
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Player_22
-      rect:
-        serializedVersion: 2
-        x: 206
-        y: 77
-        width: 44
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ff3feff8b985d942b99d5c3c559b620
-      internalID: 958440912
       vertices: []
       indices: 
       edges: []
@@ -791,7 +703,7 @@ TextureImporter:
         width: 30
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -813,7 +725,7 @@ TextureImporter:
         width: 30
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []

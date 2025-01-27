@@ -63,6 +63,6 @@ public class HarvestBladeLogic : MonoBehaviour
         offsetPosition = transform.position + (Vector3)TileManager.rotate(rotatePoint, angle);
         duration = (arcLength * 2) / rotateSpeed;
         // Set position to offset Position
-        transform.position = offsetPosition - (Vector3)TileManager.rotate(transform.lossyScale / 2, angle);
+        transform.position = offsetPosition;
     }
 }

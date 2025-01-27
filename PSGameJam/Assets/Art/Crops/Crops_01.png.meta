@@ -1005,6 +1005,72 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Crops_01_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28a184ca63ffe1c4eb7e05d91b4ede80
+      internalID: 973163691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crops_01_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1024
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 189eea6405f67994888daab2b15e05f9
+      internalID: 525879654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crops_01_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d37cb920b5fa3b4faf27aa4f2725104
+      internalID: 1694972511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1021,12 +1087,15 @@ TextureImporter:
     nameFileIdTable:
       Crops_01_0: -1422528454
       Crops_01_1: -84004533
+      Crops_01_10: 1694972511
       Crops_01_2: 409681855
       Crops_01_3: -150464143
       Crops_01_4: -1137870186
       Crops_01_5: 1211092418
       Crops_01_6: -964263714
       Crops_01_7: 649378386
+      Crops_01_8: 973163691
+      Crops_01_9: 525879654
       Pepper_1: 3194861608867546299
       Pepper_2: -4292937890434973423
       Pepper_3: -1323722299718321184
