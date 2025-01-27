@@ -1,10 +1,10 @@
 using System;
-using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
-
+using UnityEngine.UIElements;
 
 public class SeedLogic : MonoBehaviour
 {
@@ -35,6 +35,8 @@ public class SeedLogic : MonoBehaviour
         "strawberry", // 3
         "potato", // 4
     };
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake() {
@@ -43,6 +45,7 @@ public class SeedLogic : MonoBehaviour
         potatoSeedCount = 0;
         pepperSeedCount = 0;
         strawBerrySeedCount = 0;
+
     }
 
     public void SeedLevel(int num,String seedType) {

@@ -20,6 +20,7 @@ TagManager:
   - SnowPowder
   - Seeds
   - UtilityManager
+  - UICanvas
   layers:
   - Default
   - TransparentFX

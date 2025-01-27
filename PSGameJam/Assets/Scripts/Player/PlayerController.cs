@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private GameObject fireHosePrefab;
+    public ScoreSystem scoreSystem;
 
     [SerializeField]
     private GameObject flameThrowerPrefab;
