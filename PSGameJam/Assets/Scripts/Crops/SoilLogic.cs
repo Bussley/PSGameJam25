@@ -78,4 +78,12 @@ public class SoilLogic : MonoBehaviour
         }
 
     }
+
+    public bool WetSoil()
+    {
+        if (spr.sprite == wateredSoil)
+            return true;
+        else 
+            return false;
+    }
 }

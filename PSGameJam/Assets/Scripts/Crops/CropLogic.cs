@@ -50,7 +50,7 @@ public class CropLogic : MonoBehaviour
         mSprite.sprite = cropSO.seedSprite;
         collisionBounds = GetComponent<PolygonCollider2D>().bounds;
 
-        if (WeatherManager.Raining())
+        if (transform.parent.GetComponent<SoilLogic>().WetSoil())
         {
             hydrationLevel = 100;
         }
@@ -101,8 +101,11 @@ public class CropLogic : MonoBehaviour
     }
 
     private void GrowTask() {
+        if (this == null)
+            return;
+
         // Check if crop is still growing
-        if (growthPercentage < 100) {
+        if ( growthPercentage < 100) {
             if (growthPercentage == cropSO.growToYoungCrop) { // Switch from Crop to young crop
                 mSprite.sprite = cropSO.youngCropSprite;
             }
@@ -174,10 +177,10 @@ public class CropLogic : MonoBehaviour
         {
             transform.parent.gameObject.GetComponent<SoilLogic>().RemoveCrop();
         }
-        else if(collision.gameObject.tag == "SnowPowder" && !cold)
+        
+        if(collision.gameObject.tag == "SnowPowder" && !cold)
         {
             freezeTime = Time.time + cropSO.cropFreezeDurabilityTime;
-            Debug.Log(freezeTime);
             cold = true;
         }
     }

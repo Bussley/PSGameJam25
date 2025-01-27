@@ -168,8 +168,6 @@ public class FootStep : MonoBehaviour
 			default:
 				Debug.Log("WHAT THE FUCK");
 				break;
-			
-				
 		}
 	}
 }

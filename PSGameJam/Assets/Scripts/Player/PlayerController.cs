@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -34,6 +35,10 @@ public class PlayerController : MonoBehaviour
     private float overHeatRate;
     [SerializeField]
     private float cooldownRate;
+    [SerializeField] 
+    private float screenShakeDuration;
+    [SerializeField]
+    private AnimationCurve screenShakeStrength;
     [SerializeField]
     private GameObject jetPackVFX;
     [SerializeField]
@@ -61,10 +66,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private GameObject flameThrowerPrefab;
- 
-    public SeedLogic seeds;
-
-    public CropLogic cLogic;
 
     [SerializeField]
     private float goTime;
@@ -80,6 +81,10 @@ public class PlayerController : MonoBehaviour
         "sword", // 4
         "flamethrower", // 5
     };
+
+    public SeedLogic seeds;
+
+    public CropLogic cLogic;
 
     private float waterStartChargeTime;
     private Vector2 moveDirection;
@@ -137,45 +142,6 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update() {
-        if (moveDirection.magnitude > 0) 
-        {
-            if(speedIntervalTimer < Time.time)
-            {
-                if(speedInterval == 0) // Go Time
-                {
-                    speedInterval = moveSpeed;
-                    speedIntervalTimer = Time.time + goTime;
-					
-					if(usingJets == false)
-						sfx.playSound(8); //try playing footstep
-					
-                }
-                else // Stop Time
-                {
-                    speedInterval = 0;
-                    speedIntervalTimer = Time.time + stopTime;
-					
-					if(usingJets == false)
-					{
-						var angle = Vector2.Angle(Vector2.left, lastMoveDirection);
-						// Flip if face positive direction
-						if (moveDirection.y > 0)
-							angle = -angle;
-						foot.makeStep(angle);
-						if(foot.left)
-							foot.left = false;
-						else
-							foot.left = true;
-					}
-					
-                }
-            }
-        }
-        else
-        {
-            speedInterval = moveSpeed;
-			foot.left = true;
-        }
 
         ProcessOverHeat();
     }
@@ -202,6 +168,52 @@ public class PlayerController : MonoBehaviour
             playerAnimatior.SetFloat("Horizontal", lastMoveDirection.x);
             playerAnimatior.SetFloat("Vertical", lastMoveDirection.y);
             playerAnimatior.SetFloat("Magnitude", moveDirection.magnitude);
+        }
+
+        if (moveDirection.magnitude > 0)
+        {
+            if (speedIntervalTimer < Time.time)
+            {
+                if (speedInterval == 0) // Go Time
+                {
+                    speedInterval = moveSpeed;
+                    speedIntervalTimer = Time.time + goTime;
+
+                    if (usingJets == false)
+                        sfx.playSound(8); //try playing footstep
+
+                }
+                else // Stop Time
+                {
+                    speedInterval = 0;
+                    speedIntervalTimer = Time.time + stopTime;
+
+                    if (usingJets == false)
+                    {
+                        var angle = Vector2.Angle(Vector2.left, lastMoveDirection);
+                        // Flip if face positive direction
+                        if (moveDirection.y > 0)
+                            angle = -angle;
+
+
+                        foot.makeStep(angle);
+
+                        //Shake screen
+                        StartCoroutine(ScreenShake());
+
+                        if (foot.left)
+                            foot.left = false;
+                        else
+                            foot.left = true;
+                    }
+
+                }
+            }
+        }
+        else
+        {
+            speedInterval = moveSpeed;
+            foot.left = true;
         }
     }
 
@@ -548,6 +560,25 @@ public class PlayerController : MonoBehaviour
             jetLockdown = false;
             flameThrowerLockdown = false;
         }
+    }
+
+    IEnumerator ScreenShake()
+    {
+        float elapsed = 0f;
+
+        while (elapsed < screenShakeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float stength = screenShakeStrength.Evaluate(elapsed / screenShakeDuration);
+            Debug.Log("Before " + Camera.main.transform.position.z);
+            Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z) + (Vector3)UnityEngine.Random.insideUnitCircle * stength;
+
+            Debug.Log("After " + Camera.main.transform.position.z);
+            //Debug.Log(Camera.main.transform.position);
+            yield return null;
+        }
+
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
     }
 
     public bool GetUsingJets()

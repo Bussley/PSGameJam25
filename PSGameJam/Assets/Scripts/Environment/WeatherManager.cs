@@ -32,6 +32,8 @@ public class WeatherManager : MonoBehaviour {
     {
         rainParticaleObject = Instantiate(rainPrefab, GameObject.FindGameObjectWithTag("MainCamera").transform);
         snowParticaleObject = Instantiate(snowPrefab, GameObject.FindGameObjectWithTag("MainCamera").transform);
+        rainParticaleObject.GetComponent<ParticleSystem>().Stop();
+        snowParticaleObject.GetComponent<ParticleSystem>().Stop();
         m_Weather = Weather.Sunny;
         raining = false;
         snowing = false;
@@ -57,33 +59,30 @@ public class WeatherManager : MonoBehaviour {
 
     public void RollWather()
     {
-        int ran = UnityEngine.Random.Range(0, 2);
+        int ran = UnityEngine.Random.Range(0, 3);
 
         switch (ran)
         {
             case 0:
-                Debug.Log("SUNNY");
+                rainParticaleObject.GetComponent<ParticleSystem>().Stop();
+                snowParticaleObject.GetComponent<ParticleSystem>().Stop();
                 raining = false;
                 snowing = false;
-                rainParticaleObject.SetActive(false);
-                snowParticaleObject.SetActive(false);
-                m_Weather = Weather.Snowy; 
+                m_Weather = Weather.Sunny; 
                 break;
             case 1:
-                Debug.Log("Rain");
                 raining = true;
                 snowing = false;
                 rainingWeather.Invoke();
-                rainParticaleObject.SetActive(true);
-                snowParticaleObject.SetActive(false);
-                m_Weather = Weather.Snowy;
+                rainParticaleObject.GetComponent<ParticleSystem>().Play();
+                snowParticaleObject.GetComponent<ParticleSystem>().Stop();
+                m_Weather = Weather.Rain;
                 break;
             case 2:
-                Debug.Log("SNOW");
                 raining = false;
                 snowing = true;
-                rainParticaleObject.SetActive(false);
-                snowParticaleObject.SetActive(true);
+                rainParticaleObject.GetComponent<ParticleSystem>().Stop();
+                snowParticaleObject.GetComponent<ParticleSystem>().Play();
                 m_Weather = Weather.Snowy;
                 break;
             default:
