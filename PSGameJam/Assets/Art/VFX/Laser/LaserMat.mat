@@ -45,14 +45,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _LaserEdge: 11.48
-    - _LaserScale: 8
-    - _LaserThickness: 221.6
+    - _LaserEdge: 13
+    - _LaserScale: 12
+    - _LaserThickness: 220
     - _PixelScrollSpeed: 1
     m_Colors:
     - _Color: {r: 2.1185472, g: 0.22984244, b: 0.22984244, a: 1}
     - _LaserSpeed: {r: -1, g: 0, b: 0, a: 0}
-    - _VoronoiOpacity: {r: 0.6, g: 1, b: 0, a: 0}
+    - _VoronoiOpacity: {r: 1.25, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &1955558513153096216
