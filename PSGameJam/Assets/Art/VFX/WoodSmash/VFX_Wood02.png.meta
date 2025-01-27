@@ -285,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      VFX_Wood02_0: 1063842884303855997
+      VFX_Wood02_1: 3866091606805421456
+      VFX_Wood02_2: -8558131801409171201
+      VFX_Wood02_3: 8227842446538975698
+      VFX_Wood02_4: -5589408502248325701
+      VFX_Wood02_5: -2048350391466566961
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

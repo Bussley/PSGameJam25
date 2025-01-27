@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     private GameObject jetPackVFX;
     [SerializeField]
     private Vector2 jetVFXOffset;
+
     [SerializeField]
     private Vector2 FlamethrowerOffset;
 
@@ -243,11 +244,11 @@ public class PlayerController : MonoBehaviour
             if (lastMoveDirection.y > 0)
                 angle = -angle;
 
-            angle += 90;
             flameThrowerGO.transform.eulerAngles = new Vector3(0.0f, 0.0f, angle);
             Vector3 rot_offset = TileManager.rotate(FlamethrowerOffset, angle);
+            Vector3 flameThrowerCenterOffset = new Vector3(0.0f, 0.4f, 0.0f);
 
-            flameThrowerGO.transform.position = transform.position + rot_offset;
+            flameThrowerGO.transform.position = transform.position + flameThrowerCenterOffset + rot_offset;
         }
     }
 
@@ -375,11 +376,12 @@ public class PlayerController : MonoBehaviour
             // Flip if face positive direction
             if (lastMoveDirection.y > 0)
                 angle = -angle;
-            angle += 90;
+
             flameThrowerGO.transform.eulerAngles = new Vector3(0.0f, 0.0f, angle);
             Vector3 rot_offset = TileManager.rotate(FlamethrowerOffset, angle);
+            Vector3 flameThrowerCenterOffset = new Vector3(0.0f, 0.4f, 0.0f);
 
-            flameThrowerGO.transform.position = transform.position + rot_offset;
+            flameThrowerGO.transform.position = transform.position + flameThrowerCenterOffset + rot_offset;
 
             usingWeapon = true;
 
