@@ -37,7 +37,11 @@ public class DestructibleEnviromentLogic : MonoBehaviour
             HurtObject();
         else if (canBeDestroyedByFlameThrower && collision.gameObject.tag == "FlameThrower")
             HurtObject();
-        else if (canBeDestroyedByPlayer && collision.gameObject.tag == "Player")
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (canBeDestroyedByPlayer && collision.gameObject.tag == "Player")
             HurtObject();
 
     }
