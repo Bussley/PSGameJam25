@@ -50944,6 +50944,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2730644896235863872}
     m_Modifications:
+    - target: {fileID: 2345309462084839491, guid: 36404f915ba460544a7520a358253afa, type: 3}
+      propertyPath: m_text
+      value: Potato
+      objectReference: {fileID: 0}
     - target: {fileID: 8423950987056503866, guid: 36404f915ba460544a7520a358253afa, type: 3}
       propertyPath: m_Name
       value: CropMarketBoard

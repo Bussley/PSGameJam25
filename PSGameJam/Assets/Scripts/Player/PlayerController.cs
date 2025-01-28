@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.VFX;
 using TMPro;
+using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 
 
@@ -127,6 +131,9 @@ public class PlayerController : MonoBehaviour
     private float speedInterval;
     private float speedIntervalTimer;
     private float overheatVal;
+    public Sprite UIWeaponSelect;
+
+    private List<GameObject> UIselect;
 
     public float Wallet { get => wallet; set => wallet = value; }
 
@@ -158,6 +165,10 @@ public class PlayerController : MonoBehaviour
         jetPackVFXGO.GetComponent<VisualEffect>().Stop();
         UIM = GameObject.FindGameObjectWithTag("UIMoney");
         UISSSC = GameObject.FindGameObjectWithTag("SeedSelectionSeedCount");
+        //WeaponSelection(CurrentWeapon);
+        //UIselect = new List<GameObject>();
+
+
     }
 
     private void Update() {
@@ -541,6 +552,8 @@ public class PlayerController : MonoBehaviour
                 CurrentWeapon = typesOfWeapons[keyNumPress];
             }
         }
+        //WeaponSelection(CurrentWeapon);
+
     }
 
     public void SetMove(bool move) {
@@ -610,4 +623,28 @@ public class PlayerController : MonoBehaviour
 
     public bool GetUsingJets()
     { return usingJets; }
+
+    // BROKEN FUCKING STUPID... GETTTING Object reference not set to an instance of an object
+    private void UIWeaponSelection(string uiweapon){
+        int keyval = 0;
+        foreach(var weap in typesOfWeapons){
+            if (weap == CurrentWeapon){
+                keyval = Array.IndexOf(typesOfWeapons, weap);
+            }
+        }
+
+        for (int i = 1; i < typesOfWeapons.Length; i++)
+        { 
+            string setTag = "UIWSCSlotSelect" + (i);
+            GameObject weapSelect;
+            weapSelect = GameObject.FindGameObjectWithTag(setTag);
+            UnityEngine.UI.Image m_Image = weapSelect.GetComponent<UnityEngine.UI.Image>();
+            if (UIselect[i].name == "Slot Selected"+keyval){
+                m_Image.sprite = UIWeaponSelect;
+            }
+            else {
+               m_Image.sprite = null;
+            }
+        }
+    }
 }
