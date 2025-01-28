@@ -100,4 +100,9 @@ public class EnviromnentManager : MonoBehaviour
     {
         newDayEventCall.AddListener(func);
     }
+
+    public float GetDayTimeLength()
+    {
+        return dayNightCycleTime;
+    }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2323875438309394341}
   - component: {fileID: 4856730448595854770}
   - component: {fileID: 4906084185201523895}
+  - component: {fileID: 5526121945899780529}
   m_Layer: 12
   m_Name: Rock_Dark_Small
   m_TagString: DestructibleEnviroment
@@ -203,3 +204,17 @@ PolygonCollider2D:
       - {x: -0.12705262, y: -0.30081832}
       - {x: -0.3134654, y: -0.42495388}
   m_UseDelaunayMesh: 0
+--- !u!114 &5526121945899780529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5111219102201620165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3b52adb1472fa41af42eacdae41a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regularSprite: {fileID: 2632959327270462004, guid: c6196956c95d18446afdc571eb79acff, type: 3}
+  snowSprite: {fileID: -5214438094391048201, guid: 6635996db71c3de41801e9d2637853c8, type: 3}

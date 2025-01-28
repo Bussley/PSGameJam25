@@ -31,6 +31,7 @@ public class WeatherManager : MonoBehaviour {
     private static bool raining;
     private static bool snowing;
     private static UnityEvent rainingWeather = new UnityEvent();
+    private static UnityEvent snowWeather = new UnityEvent();
     private Stack<GameObject> snowObjects = new Stack<GameObject>();
 
     void Awake()
@@ -60,6 +61,9 @@ public class WeatherManager : MonoBehaviour {
         if (nextSnowSpawn < Time.time)
         {
             Vector3 snowspawn = TileManager.GetSpawnableRandomPosition();
+
+            if (snowspawn == Vector3.zero) return;
+
             GameObject snow = Instantiate(snowFall, transform);
             snowObjects.Push(snow);
             snow.transform.position = snowspawn + new Vector3(0.0f, 0.25f, 0.0f);
@@ -94,6 +98,7 @@ public class WeatherManager : MonoBehaviour {
             case 0:
                 rainParticaleObject.GetComponent<ParticleSystem>().Stop();
                 snowParticaleObject.GetComponent<ParticleSystem>().Stop();
+                snowWeather.Invoke();
                 raining = false;
                 snowing = false;
                 m_Weather = Weather.Sunny; 
@@ -102,6 +107,7 @@ public class WeatherManager : MonoBehaviour {
                 raining = true;
                 snowing = false;
                 rainingWeather.Invoke();
+                snowWeather.Invoke();
                 rainParticaleObject.GetComponent<ParticleSystem>().Play();
                 snowParticaleObject.GetComponent<ParticleSystem>().Stop();
                 m_Weather = Weather.Rain;
@@ -109,6 +115,7 @@ public class WeatherManager : MonoBehaviour {
             case 2:
                 raining = false;
                 snowing = true;
+                snowWeather.Invoke();
                 rainParticaleObject.GetComponent<ParticleSystem>().Stop();
                 snowParticaleObject.GetComponent<ParticleSystem>().Play();
                 m_Weather = Weather.Snowy;
@@ -121,6 +128,11 @@ public class WeatherManager : MonoBehaviour {
     public static void AddRainListener(UnityAction func)
     {
         rainingWeather.AddListener(func);
+    }
+
+    public static void AddSnowListener(UnityAction func)
+    {
+        snowWeather.AddListener(func);
     }
 
     public static bool Raining()

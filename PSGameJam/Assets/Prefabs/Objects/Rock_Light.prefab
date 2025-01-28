@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5042298322236874284}
   - component: {fileID: 4021890980605614319}
   - component: {fileID: 4571614159688687052}
+  - component: {fileID: -4460894361526659465}
   m_Layer: 12
   m_Name: Rock_Light
   m_TagString: DestructibleEnviroment
@@ -203,3 +204,17 @@ PolygonCollider2D:
       - {x: 0.021803796, y: -0.07126449}
       - {x: -0.3072123, y: -0.2898184}
   m_UseDelaunayMesh: 0
+--- !u!114 &-4460894361526659465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6339419449120277459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3b52adb1472fa41af42eacdae41a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regularSprite: {fileID: 7167582669361787454, guid: c6196956c95d18446afdc571eb79acff, type: 3}
+  snowSprite: {fileID: 2708922973160301806, guid: 6635996db71c3de41801e9d2637853c8, type: 3}
