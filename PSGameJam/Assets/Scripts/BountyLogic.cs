@@ -11,6 +11,9 @@ public class BountyLogic : MonoBehaviour
 {
     // The amount of crop you've harvested for the bounty
     [SerializeField]
+    public int bountyRewardValue;
+    // The amount of crop you've harvested for the bounty
+    [SerializeField]
     public int bountyCropCount;
 
     // The bounty number to reach
@@ -90,7 +93,7 @@ public class BountyLogic : MonoBehaviour
         playerObj = GameObject.FindGameObjectWithTag("Player");
         playerLogic = playerObj.GetComponent<PlayerController>();
 
-
+        bountyRewardValue = 100;
         // Set values of Crop for max payout.
         cropMarketPrices.Add("wheat", wheatValue);
         cropMarketPrices.Add("tomato", tomatoValue);
@@ -116,7 +119,7 @@ public class BountyLogic : MonoBehaviour
             BountyIsComplete();
             BountyCheckTimer();
             UIOCOA.GetComponent<TMP_Text>().text = bountyCropCount + "/" + bountyMaxCount;
-            UITT.GetComponent<TMP_Text>().text = "Please harvest "+ bountyMaxCount + " " + bountyCrop +"s.";
+            UITT.GetComponent<TMP_Text>().text = "Please harvest "+ bountyMaxCount + " " + bountyCrop +"s. Reward: $" + bountyRewardValue;
         }
         else {
             UIOCOA.GetComponent<TMP_Text>().text = "";
@@ -166,7 +169,8 @@ public class BountyLogic : MonoBehaviour
             bountyNumCompleted += 1;
             Debug.Log("Crop" + bountyCrop);
             // Payout
-            playerLogic.wallet += cropMarketPrices[bountyCrop];
+            //playerLogic.wallet += cropMarketPrices[bountyCrop];
+            playerLogic.wallet += bountyRewardValue;
             Debug.Log("Congradulations You've completed a bounty! Here is the number of completed bountys: " + bountyNumCompleted);
             Debug.Log("Player money: "+ playerLogic.wallet);
         }

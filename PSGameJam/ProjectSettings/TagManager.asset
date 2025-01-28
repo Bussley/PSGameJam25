@@ -30,6 +30,11 @@ TagManager:
   - SeedCrateText
   - SeedSelectionSeedCount
   - SeedSelectionSeedTypeIcon
+  - UIWSCSlotSelect1
+  - UIWSCSlotSelect2
+  - UIWSCSlotSelect4
+  - UIWSCSlotSelect3
+  - UIWSCSlotSelect5
   layers:
   - Default
   - TransparentFX

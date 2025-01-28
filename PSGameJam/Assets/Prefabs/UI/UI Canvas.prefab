@@ -1614,7 +1614,7 @@ GameObject:
   - component: {fileID: 2428206300650388744}
   m_Layer: 5
   m_Name: Slot Selected 1
-  m_TagString: Untagged
+  m_TagString: UIWSCSlotSelect1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1923,7 +1923,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -343.6, y: -20.832}
+  m_AnchoredPosition: {x: -343.59998, y: -20.83197}
   m_SizeDelta: {x: -783.9902, y: -132.9838}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4440238956463790420
@@ -3848,7 +3848,7 @@ GameObject:
   - component: {fileID: 3198401634700101561}
   m_Layer: 5
   m_Name: Slot Selected 4
-  m_TagString: Untagged
+  m_TagString: UIWSCSlotSelect4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4764,7 +4764,7 @@ GameObject:
   - component: {fileID: 8196563389706686319}
   m_Layer: 5
   m_Name: Slot Selected 2
-  m_TagString: Untagged
+  m_TagString: UIWSCSlotSelect2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5230,7 +5230,7 @@ GameObject:
   - component: {fileID: 8094506378826366705}
   m_Layer: 5
   m_Name: Slot Selected 3
-  m_TagString: Untagged
+  m_TagString: UIWSCSlotSelect3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5978,7 +5978,7 @@ GameObject:
   - component: {fileID: 2081916247837540487}
   m_Layer: 5
   m_Name: Slot Selected 5
-  m_TagString: Untagged
+  m_TagString: UIWSCSlotSelect5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -301,7 +301,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   jetPackVFX: {fileID: 7868398657293384759, guid: 5b6b5f5282fcce54287a6666b602acc2, type: 3}
-  jetVFXOffset: {x: 0.2, y: 0}
+  jetVFXOffset: {x: 0.3, y: 0}
   FlamethrowerOffset: {x: -0.4, y: 0}
   changeDirectionTimer: 0.05
   playerInput: {fileID: -6270165054496254709, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

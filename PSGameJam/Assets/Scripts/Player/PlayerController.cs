@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.VFX;
 using TMPro;
+using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 
 
@@ -127,6 +131,9 @@ public class PlayerController : MonoBehaviour
     private float speedInterval;
     private float speedIntervalTimer;
     private float overheatVal;
+    public Sprite UIWeaponSelect;
+
+    private List<GameObject> UIselect;
 
     public float Wallet { get => wallet; set => wallet = value; }
 
@@ -158,6 +165,15 @@ public class PlayerController : MonoBehaviour
         jetPackVFXGO.GetComponent<VisualEffect>().Stop();
         UIM = GameObject.FindGameObjectWithTag("UIMoney");
         UISSSC = GameObject.FindGameObjectWithTag("SeedSelectionSeedCount");
+
+        UIselect = new List<GameObject>();
+
+        for (int i = 1; i < typesOfWeapons.Length; i++)
+        {
+            string setTag = "UIWSCSlotSelect" + (i);
+            UIselect.Add(GameObject.FindGameObjectWithTag(setTag));
+            UIselect[i - 1].SetActive(false);
+        }
     }
 
     private void Update() {
@@ -175,6 +191,10 @@ public class PlayerController : MonoBehaviour
             else
                 rig.linearVelocity = vel.normalized * jetSpeed;
 
+
+            playerAnimatior.SetFloat("Horizontal", lastMoveDirection.x);
+            playerAnimatior.SetFloat("Vertical", lastMoveDirection.y);
+
             if (jetLockdown)
             {
                 jetPackVFXGO.GetComponent<VisualEffect>().Stop();
@@ -188,53 +208,57 @@ public class PlayerController : MonoBehaviour
             playerAnimatior.SetFloat("Horizontal", lastMoveDirection.x);
             playerAnimatior.SetFloat("Vertical", lastMoveDirection.y);
             playerAnimatior.SetFloat("Magnitude", moveDirection.magnitude);
-        }
 
-        if (moveDirection.magnitude > 0)
-        {
-            if (speedIntervalTimer < Time.time)
+            //Foot Step logic
+            if (moveDirection.magnitude > 0)
             {
-                if (speedInterval == 0) // Go Time
+                if (speedIntervalTimer < Time.time)
                 {
-                    speedInterval = moveSpeed;
-                    speedIntervalTimer = Time.time + goTime;
-
-                    if (usingJets == false)
-                        sfx.playSound(8); //try playing footstep
-
-                }
-                else // Stop Time
-                {
-                    speedInterval = 0;
-                    speedIntervalTimer = Time.time + stopTime;
-
-                    if (usingJets == false)
+                    if (speedInterval == 0) // Go Time
                     {
-                        var angle = Vector2.Angle(Vector2.left, lastMoveDirection);
-                        // Flip if face positive direction
-                        if (moveDirection.y > 0)
-                            angle = -angle;
+                        speedInterval = moveSpeed;
+                        speedIntervalTimer = Time.time + goTime;
 
+                        if (usingJets == false)
+                            sfx.playSound(8); //try playing footstep
 
-                        foot.makeStep(angle);
-
-                        //Shake screen
-                        StartCoroutine(ScreenShake());
-
-                        if (foot.left)
-                            foot.left = false;
-                        else
-                            foot.left = true;
                     }
+                    else // Stop Time
+                    {
+                        speedInterval = 0;
+                        speedIntervalTimer = Time.time + stopTime;
 
+                        if (usingJets == false)
+                        {
+                            var angle = Vector2.Angle(Vector2.left, lastMoveDirection);
+                            // Flip if face positive direction
+                            if (moveDirection.y > 0)
+                                angle = -angle;
+
+
+                            foot.makeStep(angle);
+
+                            //Shake screen
+                            StartCoroutine(ScreenShake());
+
+                            if (foot.left)
+                                foot.left = false;
+                            else
+                                foot.left = true;
+                        }
+
+                    }
                 }
             }
+            else
+            {
+                speedInterval = moveSpeed;
+                foot.left = true;
+            }
         }
-        else
-        {
-            speedInterval = moveSpeed;
-            foot.left = true;
-        }
+
+        playerAnimatior.SetBool("isFlying", usingJets);
+
     }
 
     private void ChangeDirection() {
@@ -525,9 +549,6 @@ public class PlayerController : MonoBehaviour
 
     public void SwitchWeapons (InputAction.CallbackContext context) 
     {
-        // context.control will have 3 actions/ output. action, cancel, something else.
-        //Debug.Log(context.performed);
-
         // Check user number key input. Switch weapon based off key input.
         if (context.performed && !usingWeapon)
         {
@@ -535,12 +556,14 @@ public class PlayerController : MonoBehaviour
             Debug.Log(context.control.name);
             String dbugmsg = "Setting current weapon to";
 
-            if(keyNumPress < typesOfWeapons.Length)
+            if(keyNumPress < typesOfWeapons.Length && keyNumPress != 0)
             {
                 Debug.Log(dbugmsg + " " + typesOfWeapons[keyNumPress]);
                 CurrentWeapon = typesOfWeapons[keyNumPress];
+                UIWeaponSelection(keyNumPress);
             }
         }
+
     }
 
     public void SetMove(bool move) {
@@ -578,6 +601,7 @@ public class PlayerController : MonoBehaviour
             {
                 usingWeapon = false;
                 flameThrowerGO.GetComponent<FlameThrowerLogic>().StopFlame();
+                sfx.stopSound(0.5f); //quiet the flame continuous sound
             }
         }
 
@@ -607,7 +631,16 @@ public class PlayerController : MonoBehaviour
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
     }
 
-
     public bool GetUsingJets()
     { return usingJets; }
+
+    // BROKEN FUCKING STUPID... GETTTING Object reference not set to an instance of an object
+    private void UIWeaponSelection(int uiweapon){
+        for (int i = 1; i < typesOfWeapons.Length; i++)
+        {
+            UIselect[i - 1].SetActive(false);
+        }
+
+        UIselect[uiweapon - 1].SetActive(true);
+    }
 }
