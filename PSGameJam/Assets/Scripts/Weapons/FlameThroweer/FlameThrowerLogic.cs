@@ -27,6 +27,8 @@ public class FlameThrowerLogic : MonoBehaviour
 
         Action action = () =>
         {
+            if(this == null) return;
+
             Destroy(gameObject);
         };
 

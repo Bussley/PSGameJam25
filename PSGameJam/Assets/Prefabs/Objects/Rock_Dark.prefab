@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4040174124202216589}
   - component: {fileID: 3365470114673722764}
   - component: {fileID: 8863816927201395981}
+  - component: {fileID: -6338555364319224092}
   m_Layer: 12
   m_Name: Rock_Dark
   m_TagString: DestructibleEnviroment
@@ -204,3 +205,17 @@ MonoBehaviour:
   canBeDestroyedByHarvestBlade: 0
   canBeDestroyedByFlameThrower: 0
   canBeDestroyedByPlayer: 0
+--- !u!114 &-6338555364319224092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638819179467545887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3b52adb1472fa41af42eacdae41a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regularSprite: {fileID: 7861687154325427177, guid: c6196956c95d18446afdc571eb79acff, type: 3}
+  snowSprite: {fileID: -5470379285731763760, guid: 6635996db71c3de41801e9d2637853c8, type: 3}

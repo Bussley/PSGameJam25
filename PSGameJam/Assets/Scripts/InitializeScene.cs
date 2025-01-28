@@ -13,10 +13,14 @@ public class InitializeScene : MonoBehaviour
     [SerializeField]
     private GameObject UtilityManagerPrefab;
 
+    [SerializeField]
+    private GameObject UIPrefab;
+
     private GameObject MarketBoard;
 
     void Awake()
     {
+        Instantiate(UIPrefab);
         Instantiate(PlayerPrefab);
         GameObject map = Instantiate(TileMapPrefab);
         TileManager.SetTileMap(map.transform.GetChild(0).GetComponent<Tilemap>());

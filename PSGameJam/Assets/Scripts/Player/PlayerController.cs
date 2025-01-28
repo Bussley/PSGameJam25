@@ -186,6 +186,10 @@ public class PlayerController : MonoBehaviour
             else
                 rig.linearVelocity = vel.normalized * jetSpeed;
 
+
+            playerAnimatior.SetFloat("Horizontal", lastMoveDirection.x);
+            playerAnimatior.SetFloat("Vertical", lastMoveDirection.y);
+
             if (jetLockdown)
             {
                 jetPackVFXGO.GetComponent<VisualEffect>().Stop();
@@ -199,53 +203,57 @@ public class PlayerController : MonoBehaviour
             playerAnimatior.SetFloat("Horizontal", lastMoveDirection.x);
             playerAnimatior.SetFloat("Vertical", lastMoveDirection.y);
             playerAnimatior.SetFloat("Magnitude", moveDirection.magnitude);
-        }
 
-        if (moveDirection.magnitude > 0)
-        {
-            if (speedIntervalTimer < Time.time)
+            //Foot Step logic
+            if (moveDirection.magnitude > 0)
             {
-                if (speedInterval == 0) // Go Time
+                if (speedIntervalTimer < Time.time)
                 {
-                    speedInterval = moveSpeed;
-                    speedIntervalTimer = Time.time + goTime;
-
-                    if (usingJets == false)
-                        sfx.playSound(8); //try playing footstep
-
-                }
-                else // Stop Time
-                {
-                    speedInterval = 0;
-                    speedIntervalTimer = Time.time + stopTime;
-
-                    if (usingJets == false)
+                    if (speedInterval == 0) // Go Time
                     {
-                        var angle = Vector2.Angle(Vector2.left, lastMoveDirection);
-                        // Flip if face positive direction
-                        if (moveDirection.y > 0)
-                            angle = -angle;
+                        speedInterval = moveSpeed;
+                        speedIntervalTimer = Time.time + goTime;
 
+                        if (usingJets == false)
+                            sfx.playSound(8); //try playing footstep
 
-                        foot.makeStep(angle);
-
-                        //Shake screen
-                        StartCoroutine(ScreenShake());
-
-                        if (foot.left)
-                            foot.left = false;
-                        else
-                            foot.left = true;
                     }
+                    else // Stop Time
+                    {
+                        speedInterval = 0;
+                        speedIntervalTimer = Time.time + stopTime;
 
+                        if (usingJets == false)
+                        {
+                            var angle = Vector2.Angle(Vector2.left, lastMoveDirection);
+                            // Flip if face positive direction
+                            if (moveDirection.y > 0)
+                                angle = -angle;
+
+
+                            foot.makeStep(angle);
+
+                            //Shake screen
+                            StartCoroutine(ScreenShake());
+
+                            if (foot.left)
+                                foot.left = false;
+                            else
+                                foot.left = true;
+                        }
+
+                    }
                 }
             }
+            else
+            {
+                speedInterval = moveSpeed;
+                foot.left = true;
+            }
         }
-        else
-        {
-            speedInterval = moveSpeed;
-            foot.left = true;
-        }
+
+        playerAnimatior.SetBool("isFlying", usingJets);
+
     }
 
     private void ChangeDirection() {
@@ -591,6 +599,7 @@ public class PlayerController : MonoBehaviour
             {
                 usingWeapon = false;
                 flameThrowerGO.GetComponent<FlameThrowerLogic>().StopFlame();
+                sfx.stopSound(0.5f); //quiet the flame continuous sound
             }
         }
 
