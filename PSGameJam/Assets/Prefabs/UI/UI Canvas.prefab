@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 2250843071104450399}
   m_Layer: 5
   m_Name: Money Text
-  m_TagString: Untagged
+  m_TagString: UIMoney
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1890,9 +1890,10 @@ GameObject:
   - component: {fileID: 2723924705418784063}
   - component: {fileID: 4647912290360047000}
   - component: {fileID: 8759366790041289716}
+  - component: {fileID: 8048848973664031721}
   m_Layer: 5
   m_Name: Crop Icon
-  m_TagString: Untagged
+  m_TagString: UIOrderContainerCropIcon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1954,6 +1955,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8048848973664031721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2276090027841197439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4475c1410a608f746839dfbfb7959e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CropImages:
+  - {fileID: -1999326201, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
+  - {fileID: -1419143210, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
+  - {fileID: 957734658, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
+  - {fileID: 1241305833439133254, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
+  - {fileID: -566447418, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
+  - {fileID: -1772913089, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
+  - {fileID: -535249076, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
 --- !u!1 &2375687055006991689
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,7 +2052,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -344.79, y: -19.215}
+  m_AnchoredPosition: {x: -344.79004, y: -19.215027}
   m_SizeDelta: {x: -783.9902, y: -107.7682}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4440238956463790420
@@ -2267,7 +2288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.935486, y: -80.399994}
+  m_AnchoredPosition: {x: -5.935547, y: -80.400024}
   m_SizeDelta: {x: -223.7276, y: -71.9108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &938494577832996586
@@ -2612,7 +2633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 111.074066, y: -26.897003}
+  m_AnchoredPosition: {x: 111.074066, y: -26.897034}
   m_SizeDelta: {x: 537.964, y: -102.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8713535846133562220
@@ -3100,7 +3121,7 @@ GameObject:
   - component: {fileID: 1662429189860634164}
   m_Layer: 5
   m_Name: Task Text
-  m_TagString: Untagged
+  m_TagString: UITaskText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3671,9 +3692,10 @@ GameObject:
   - component: {fileID: 2514229378424984965}
   - component: {fileID: 7725682135138290103}
   - component: {fileID: 3470498238624737087}
+  - component: {fileID: 3520144995647889088}
   m_Layer: 5
   m_Name: Seed Type Icon
-  m_TagString: Untagged
+  m_TagString: SeedSelectionSeedTypeIcon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3694,7 +3716,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -40.606018, y: -2.4999084}
+  m_AnchoredPosition: {x: -40.605957, y: -2.499939}
   m_SizeDelta: {x: -235.8546, y: -23.674}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7725682135138290103
@@ -3735,6 +3757,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3520144995647889088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3937460977280030172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073c9d366caba904f9e235500d9c1954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CropImages:
+  - {fileID: -1999326201, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
+  - {fileID: -1419143210, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
+  - {fileID: 957734658, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
+  - {fileID: 1241305833439133254, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
+  - {fileID: -566447418, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
+  - {fileID: -1772913089, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
+  - {fileID: -535249076, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
 --- !u!1 &4300263712711037030
 GameObject:
   m_ObjectHideFlags: 0
@@ -4340,7 +4382,7 @@ GameObject:
   - component: {fileID: 838599145988488947}
   m_Layer: 5
   m_Name: Seed Count
-  m_TagString: Untagged
+  m_TagString: SeedSelectionSeedCount
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5543,7 +5585,7 @@ GameObject:
   - component: {fileID: 4396994219599747610}
   m_Layer: 5
   m_Name: Order Container
-  m_TagString: Untagged
+  m_TagString: UIOrderContainer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7199,7 +7241,7 @@ GameObject:
   - component: {fileID: 6272130414931866226}
   m_Layer: 5
   m_Name: Order Amount
-  m_TagString: Untagged
+  m_TagString: UIOrderContainerOrderAmount
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
