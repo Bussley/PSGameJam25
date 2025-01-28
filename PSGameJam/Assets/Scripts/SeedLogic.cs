@@ -18,8 +18,8 @@ public class SeedLogic : MonoBehaviour
     private int pepperSeedCount = 0;
     [SerializeField]
     private int strawBerrySeedCount = 0;
-
-
+    private int blackberrySeedCount;
+    private int eggplantSeedCount;
     private PlayerController playerLogic;
 
     private GameObject playerObj;
@@ -34,6 +34,9 @@ public class SeedLogic : MonoBehaviour
         "pepper", // 2
         "strawberry", // 3
         "potato", // 4
+        "blackberry", // 5
+        "eggplant", // 6
+
     };
 
 
@@ -45,6 +48,8 @@ public class SeedLogic : MonoBehaviour
         potatoSeedCount = 0;
         pepperSeedCount = 0;
         strawBerrySeedCount = 0;
+        blackberrySeedCount = 0;
+        eggplantSeedCount = 0;
 
     }
 
@@ -64,7 +69,13 @@ public class SeedLogic : MonoBehaviour
                 break;
             case "potato":
                 potatoSeedCount += num;
-                break;                                                
+                break;
+            case "blackberry":
+                blackberrySeedCount += num;
+                break;
+            case "eggplant":
+                blackberrySeedCount += num;
+                break;                                             
         }
     }
 
@@ -80,6 +91,10 @@ public class SeedLogic : MonoBehaviour
                 return strawBerrySeedCount;
             case "potato":
                 return potatoSeedCount;
+            case "blackberry":
+                return blackberrySeedCount;
+            case "eggplant":
+                return eggplantSeedCount;
             default:
                 return 0;
         }
@@ -166,6 +181,27 @@ public class SeedLogic : MonoBehaviour
                     ;
                 }
                 return potatoSeedCount;
+            case "blackberry":
+                int bbnum = blackberrySeedCount - seedShot;
+                if (bbnum <= 0) {
+                    blackberrySeedCount = 0;
+                }
+                else
+                {
+                    blackberrySeedCount -= seedShot;
+                } 
+                return blackberrySeedCount;
+            case "eggplant":
+                int egnum = eggplantSeedCount - seedShot;
+                if (egnum <= 0) {
+                    eggplantSeedCount = 0;
+                }
+                else
+                {
+                    eggplantSeedCount -= seedShot;
+                    ;
+                }
+                return eggplantSeedCount;
             default:
                 return 0;
         }
