@@ -302,18 +302,19 @@ MonoBehaviour:
     m_RotationOrder: 4
   jetPackVFX: {fileID: 7868398657293384759, guid: 5b6b5f5282fcce54287a6666b602acc2, type: 3}
   jetVFXOffset: {x: 0.2, y: 0}
-  FlamethrowerOffset: {x: 0, y: 0}
+  FlamethrowerOffset: {x: -0.4, y: 0}
   changeDirectionTimer: 0.05
   playerInput: {fileID: -6270165054496254709, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   laserPrefab: {fileID: 8687622037540719887, guid: 59c14a14db685d643af5b6426bce146f, type: 3}
   shotgunPrefab: {fileID: 8687622037540719887, guid: 10332563ebaab30488e887948cea98ff, type: 3}
   harvestBladePrefab: {fileID: 7632485419616046028, guid: d46d9bd770db5854fba4db2d45f021a4, type: 3}
   fireHosePrefab: {fileID: 3055755877633591794, guid: 91fc32ba37a85484fbec856b4217c376, type: 3}
+  scoreSystem: {fileID: 0}
   flameThrowerPrefab: {fileID: 5617961853591481934, guid: c107f010cbb99d54ebd4dce0202830f5, type: 3}
   goTime: 0.4583333
   stopTime: 0.2916666
   seeds: {fileID: 4881669829250498636, guid: 8e52b02c585c9ff4384453dd0961b5e1, type: 3}
-  cLogic: {fileID: 0}
+  sfx: {fileID: 0}
 --- !u!50 &2678468580882921569
 Rigidbody2D:
   serializedVersion: 5

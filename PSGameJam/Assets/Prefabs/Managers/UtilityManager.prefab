@@ -61,10 +61,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilledSoilPrefab: {fileID: 8806581635949763345, guid: 2ea0294d3dc270f40b3b8810e6bd58a6, type: 3}
-  grassTileBase: {fileID: 11400000, guid: 1860b995c3dac0b49b0b8e784ae29bf7, type: 2}
-  spawnableArea:
-    m_Position: {x: 0, y: 0, z: 0}
-    m_Size: {x: 0, y: 0, z: 0}
+  tillableTiles:
+  - Grass_Center
 --- !u!114 &-1937792012087931326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +95,7 @@ MonoBehaviour:
   lowestLightIntensity: 0.3
   highestLightIntensity: 1
   daySwitchIntensity: 0.4
-  dayNightCycleTime: 90
+  dayNightCycleTime: 90000
   nightColor: {r: 0.009211446, g: 0.09933352, b: 0.6509434, a: 0}
 --- !u!114 &-3962857984801171487
 MonoBehaviour:

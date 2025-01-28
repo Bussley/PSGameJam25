@@ -16,6 +16,8 @@ public class LaserLogic : MonoBehaviour
     private GameObject aimPrefab;
     [SerializeField]
     private GameObject laserPrefab;
+    [SerializeField]
+    private float laserTravelTime;
 
     private GameObject aimObject1;
     private GameObject aimObject2;
@@ -23,7 +25,6 @@ public class LaserLogic : MonoBehaviour
     private GameObject laserObject2;
     private float maxAimDuration;
     private float currentAimDuration;
-    private float maxLaserBeamDuration;
     private float currentLaserBeamDuration;
 
     private bool fired;
@@ -43,14 +44,18 @@ public class LaserLogic : MonoBehaviour
             RotateAim();
         else if(fired)
         {
-            if (currentLaserBeamDuration > maxLaserBeamDuration)
+            if (currentLaserBeamDuration > laserTravelTime)
             {
                 transform.parent.GetComponent<PlayerController>().SetMove(true);
-                Destroy(laserObject1);
-                Destroy(laserObject2);
+
+                if(laserObject1 != null)
+                    Destroy(laserObject1);
+
+                if (laserObject2 != null)
+                    Destroy(laserObject2);
                 Destroy(gameObject);
             }
-            currentLaserBeamDuration++;
+            currentLaserBeamDuration += Time.deltaTime;
         }
     }
 
@@ -85,9 +90,6 @@ public class LaserLogic : MonoBehaviour
         laserObject2.transform.rotation = aimObject2.transform.rotation;
         laserObject2.transform.position = transform.position + (laser2Dir * laserObject2.transform.lossyScale.x/2);
         laserObject2.GetComponent<LaserBeamLogic>().ExpandBeam(laserBeamSpeed, laser2Dir);
-
-        // Get amount of frames it will take to complete //RCCOLA: I DIVIDED THIS BY HALF TO MAKE IT GO LONGER :^)
-        maxLaserBeamDuration = (aimObject1.transform.lossyScale.x - laserObject1.transform.lossyScale.x) / laserBeamSpeed / 0.5f;
 
         Destroy(aimObject1);
         Destroy(aimObject2);

@@ -49,3 +49,4 @@ MonoBehaviour:
   laserBeamSpeed: 0.08
   aimPrefab: {fileID: 6420838654079887053, guid: 718738bab7965764b9f0b21852aeceaf, type: 3}
   laserPrefab: {fileID: 7614469629218265442, guid: 51554fa5ca06ff74da1113477fe9ef94, type: 3}
+  laserTravelTime: 0.3
