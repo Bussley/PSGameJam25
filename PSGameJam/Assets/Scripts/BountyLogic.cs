@@ -42,6 +42,20 @@ public class BountyLogic : MonoBehaviour
 
     private GameObject playerObj;
 
+    /*
+        UI stuff
+        naming shortnames
+        UI = UI
+        OC = Order Container
+        OCOCA = Order Container Order Amount
+        OCOCA = Order Container Crop Icon
+        UITT = UI Task Text
+        UIM = UI Money
+    */
+    private GameObject UIOCOA;
+    private GameObject UITT;
+    private GameObject UIM;
+
     private Dictionary<String, int> cropMarketPrices = new Dictionary<string, int>();
 
     // Values of each Crop for bounty
@@ -64,6 +78,7 @@ public class BountyLogic : MonoBehaviour
 
     private bool interactWithBoard;
 
+
     /*
     function that will payout if bounty is complete
     function to generate bounty
@@ -74,6 +89,7 @@ public class BountyLogic : MonoBehaviour
     private void Awake() {
         playerObj = GameObject.FindGameObjectWithTag("Player");
         playerLogic = playerObj.GetComponent<PlayerController>();
+
 
         // Set values of Crop for max payout.
         cropMarketPrices.Add("wheat", wheatValue);
@@ -86,13 +102,26 @@ public class BountyLogic : MonoBehaviour
         interactWithBoard = false;
         bountyStart = false;
         bountyMaxCount = 10;
+        UIOCOA = GameObject.FindGameObjectWithTag("UIOrderContainerOrderAmount");
+        UITT = GameObject.FindGameObjectWithTag("UITaskText");
+        UIM = GameObject.FindGameObjectWithTag("UIMoney");
+
 
     }
 
     private void Update(){
+        UIM.GetComponent<TMP_Text>().text = "Money: $" + playerLogic.Wallet;
+
         if (bountyStart) {
             BountyIsComplete();
             BountyCheckTimer();
+            UIOCOA.GetComponent<TMP_Text>().text = bountyCropCount + "/" + bountyMaxCount;
+            UITT.GetComponent<TMP_Text>().text = "Please harvest "+ bountyMaxCount + " " + bountyCrop +"s.";
+        }
+        else {
+            UIOCOA.GetComponent<TMP_Text>().text = "";
+            UITT.GetComponent<TMP_Text>().text = "";
+            bountyCrop = "";
         }
         if (startTimer) {
             bountyStartTime = Time.time;
@@ -105,6 +134,7 @@ public class BountyLogic : MonoBehaviour
                 Debug.Log("Accepting Bounty");
             }
         }
+        
     }
 
     // Generate new bounty

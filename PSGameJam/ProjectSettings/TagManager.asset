@@ -21,6 +21,11 @@ TagManager:
   - Seeds
   - UtilityManager
   - UICanvas
+  - UIOrderContainerCropIcon
+  - UIOrderContainer
+  - UIOrderContainerOrderAmount
+  - UIMoney
+  - UITaskText
   layers:
   - Default
   - TransparentFX
