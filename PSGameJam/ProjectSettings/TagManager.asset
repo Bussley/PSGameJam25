@@ -28,6 +28,8 @@ TagManager:
   - UITaskText
   - SeedCrate
   - SeedCrateText
+  - SeedSelectionSeedCount
+  - SeedSelectionSeedTypeIcon
   layers:
   - Default
   - TransparentFX

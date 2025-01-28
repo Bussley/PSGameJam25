@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.VFX;
+using TMPro;
 
 
 
@@ -116,6 +117,9 @@ public class PlayerController : MonoBehaviour
     private GameObject flameThrowerGO;
     private GameObject jetPackVFXGO;
 
+    // Seed Count text mesh pro
+    private TextMeshProUGUI sCount;
+
     private float laserCooldownTimer;
     private float shotgunCooldownTimer;
     private float fireHoseCooldownTimer;
@@ -126,6 +130,15 @@ public class PlayerController : MonoBehaviour
 
     public float Wallet { get => wallet; set => wallet = value; }
 
+    /*
+        UI<>
+        SSSC = Seed Selection Seed Count
+        SSSC = Seed Selection Seed Type Icon
+    */
+    private GameObject UIM;
+
+    private GameObject UISSSC;
+    
     private void Awake() {
         wallet = 0.0f;
         canMove = true;
@@ -143,10 +156,13 @@ public class PlayerController : MonoBehaviour
         seeds = GetComponent<SeedLogic>();
         jetPackVFXGO = Instantiate(jetPackVFX, transform);
         jetPackVFXGO.GetComponent<VisualEffect>().Stop();
+        UIM = GameObject.FindGameObjectWithTag("UIMoney");
+        UISSSC = GameObject.FindGameObjectWithTag("SeedSelectionSeedCount");
     }
 
     private void Update() {
-
+        UIM.GetComponent<TMP_Text>().text = "Money: $" + Wallet;
+        UISSSC.GetComponent<TMP_Text>().text = "" + seeds.GetSeedCount(seeds.currentSeed);
         ProcessOverHeat();
     }
 

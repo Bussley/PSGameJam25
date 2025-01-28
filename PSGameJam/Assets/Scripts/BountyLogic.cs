@@ -54,7 +54,7 @@ public class BountyLogic : MonoBehaviour
     */
     private GameObject UIOCOA;
     private GameObject UITT;
-    private GameObject UIM;
+
 
     private Dictionary<String, int> cropMarketPrices = new Dictionary<string, int>();
 
@@ -104,13 +104,13 @@ public class BountyLogic : MonoBehaviour
         bountyMaxCount = 10;
         UIOCOA = GameObject.FindGameObjectWithTag("UIOrderContainerOrderAmount");
         UITT = GameObject.FindGameObjectWithTag("UITaskText");
-        UIM = GameObject.FindGameObjectWithTag("UIMoney");
+        
 
 
     }
 
     private void Update(){
-        UIM.GetComponent<TMP_Text>().text = "Money: $" + playerLogic.Wallet;
+        
 
         if (bountyStart) {
             BountyIsComplete();
@@ -128,7 +128,7 @@ public class BountyLogic : MonoBehaviour
             startTimer = false;
         }
         if (interactWithBoard) {
-            if (!bountyStart && Input.GetKeyDown(KeyCode.L)) {
+            if (!bountyStart && Input.GetKeyDown(KeyCode.F)) {
                 BountyGenerate();
                 startTimer = true;
                 Debug.Log("Accepting Bounty");
