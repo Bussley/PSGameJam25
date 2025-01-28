@@ -165,10 +165,15 @@ public class PlayerController : MonoBehaviour
         jetPackVFXGO.GetComponent<VisualEffect>().Stop();
         UIM = GameObject.FindGameObjectWithTag("UIMoney");
         UISSSC = GameObject.FindGameObjectWithTag("SeedSelectionSeedCount");
-        //WeaponSelection(CurrentWeapon);
-        //UIselect = new List<GameObject>();
 
+        UIselect = new List<GameObject>();
 
+        for (int i = 1; i < typesOfWeapons.Length; i++)
+        {
+            string setTag = "UIWSCSlotSelect" + (i);
+            UIselect.Add(GameObject.FindGameObjectWithTag(setTag));
+            UIselect[i - 1].SetActive(false);
+        }
     }
 
     private void Update() {
@@ -544,9 +549,6 @@ public class PlayerController : MonoBehaviour
 
     public void SwitchWeapons (InputAction.CallbackContext context) 
     {
-        // context.control will have 3 actions/ output. action, cancel, something else.
-        //Debug.Log(context.performed);
-
         // Check user number key input. Switch weapon based off key input.
         if (context.performed && !usingWeapon)
         {
@@ -554,13 +556,13 @@ public class PlayerController : MonoBehaviour
             Debug.Log(context.control.name);
             String dbugmsg = "Setting current weapon to";
 
-            if(keyNumPress < typesOfWeapons.Length)
+            if(keyNumPress < typesOfWeapons.Length && keyNumPress != 0)
             {
                 Debug.Log(dbugmsg + " " + typesOfWeapons[keyNumPress]);
                 CurrentWeapon = typesOfWeapons[keyNumPress];
+                UIWeaponSelection(keyNumPress);
             }
         }
-        //WeaponSelection(CurrentWeapon);
 
     }
 
@@ -629,31 +631,16 @@ public class PlayerController : MonoBehaviour
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
     }
 
-
     public bool GetUsingJets()
     { return usingJets; }
 
     // BROKEN FUCKING STUPID... GETTTING Object reference not set to an instance of an object
-    private void UIWeaponSelection(string uiweapon){
-        int keyval = 0;
-        foreach(var weap in typesOfWeapons){
-            if (weap == CurrentWeapon){
-                keyval = Array.IndexOf(typesOfWeapons, weap);
-            }
+    private void UIWeaponSelection(int uiweapon){
+        for (int i = 1; i < typesOfWeapons.Length; i++)
+        {
+            UIselect[i - 1].SetActive(false);
         }
 
-        for (int i = 1; i < typesOfWeapons.Length; i++)
-        { 
-            string setTag = "UIWSCSlotSelect" + (i);
-            GameObject weapSelect;
-            weapSelect = GameObject.FindGameObjectWithTag(setTag);
-            UnityEngine.UI.Image m_Image = weapSelect.GetComponent<UnityEngine.UI.Image>();
-            if (UIselect[i].name == "Slot Selected"+keyval){
-                m_Image.sprite = UIWeaponSelect;
-            }
-            else {
-               m_Image.sprite = null;
-            }
-        }
+        UIselect[uiweapon - 1].SetActive(true);
     }
 }
