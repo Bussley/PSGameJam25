@@ -26,6 +26,8 @@ TagManager:
   - UIOrderContainerOrderAmount
   - UIMoney
   - UITaskText
+  - SeedCrate
+  - SeedCrateText
   layers:
   - Default
   - TransparentFX

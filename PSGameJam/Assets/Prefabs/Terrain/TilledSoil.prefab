@@ -157,3 +157,4 @@ MonoBehaviour:
   drySoil: {fileID: 401971053, guid: c6196956c95d18446afdc571eb79acff, type: 3}
   charredSoil: {fileID: 842455257256177374, guid: c6196956c95d18446afdc571eb79acff, type: 3}
   charredTimer: 5
+  sprites: []

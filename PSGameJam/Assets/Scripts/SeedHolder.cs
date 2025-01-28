@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using NUnit.Framework.Interfaces;
+using NUnit.Framework.Internal;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,8 +9,6 @@ using UnityEngine.Events;
 
 public class SeedHolder : MonoBehaviour
 {
-    [SerializeField]
-    private TextMesh seedBinText;
 
     [SerializeField]
     private string showText = "{Press F to Refuel Seeds}";
@@ -17,7 +17,7 @@ public class SeedHolder : MonoBehaviour
     private bool seedRefuelAllowed;
 
     private PlayerController playerLogic;
-
+    private int basdf;
     private GameObject playerObj;
 
     [SerializeField]
@@ -41,12 +41,15 @@ public class SeedHolder : MonoBehaviour
     [SerializeField]
     private int blackberryValue = 6;
 
+    private GameObject seedCrateObj;
+
+
     private void Awake()
     {
+        seedCrateObj = GameObject.FindGameObjectWithTag("SeedCrateText");
         playerObj = GameObject.FindGameObjectWithTag("Player");
         playerLogic = playerObj.GetComponent<PlayerController>();
-        seedBinText.text = showText;
-        seedBinText.gameObject.SetActive(false);
+        seedCrateObj.SetActive(false);
         seedRefuelAllowed = false;
         
 
@@ -58,10 +61,15 @@ public class SeedHolder : MonoBehaviour
         SeedPrices.Add("pepper", pepperValue);
         SeedPrices.Add("eggplant", eggplantValue);
         SeedPrices.Add("blackberry", blackberryValue);
+        showText = "Refel " + playerLogic.seeds.currentSeed;
+        seedCrateObj.GetComponent<TMP_Text>().text = showText;
+
     }
 
     private void Update()
     {
+        showText = "Refel " + playerLogic.seeds.currentSeed;
+        seedCrateObj.GetComponent<TMP_Text>().text = showText;
         if (seedRefuelAllowed && Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("Filling up Seed");
@@ -79,7 +87,7 @@ public class SeedHolder : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Player"))
         {
-            seedBinText.gameObject.SetActive(true);
+            seedCrateObj.gameObject.SetActive(true);
             seedRefuelAllowed = true;
         }
     }
@@ -89,7 +97,7 @@ public class SeedHolder : MonoBehaviour
         if (collision.gameObject.name.Equals("Player"))
         {
             Debug.Log("Good by. Please come back to get more seeds!");
-            seedBinText.gameObject.SetActive(false);
+            seedCrateObj.gameObject.SetActive(false);
             seedRefuelAllowed = false;
         }
     }
