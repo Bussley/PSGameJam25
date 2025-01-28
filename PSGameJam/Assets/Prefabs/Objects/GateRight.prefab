@@ -201,9 +201,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  canBeDestroyedByLaser: 0
-  canBeDestroyedByShotgun: 0
-  canBeDestroyedByFireHose: 0
+  canBeDestroyedByLaser: 1
+  canBeDestroyedByShotgun: 1
+  canBeDestroyedByFireHose: 1
   canBeDestroyedByHarvestBlade: 1
   canBeDestroyedByFlameThrower: 0
   canBeDestroyedByPlayer: 1

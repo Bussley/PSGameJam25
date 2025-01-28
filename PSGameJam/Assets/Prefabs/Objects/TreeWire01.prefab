@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 260232996333232290}
   - component: {fileID: 3435263166617359048}
   - component: {fileID: 480135072625671454}
-  m_Layer: 0
+  - component: {fileID: 1897750959169905828}
+  m_Layer: 12
   m_Name: TreeWire01
-  m_TagString: Untagged
+  m_TagString: DestructibleEnviroment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,3 +145,65 @@ PolygonCollider2D:
       - {x: 0.22976363, y: 0.4098632}
       - {x: 0.096147254, y: 0.34418088}
   m_UseDelaunayMesh: 0
+--- !u!114 &1897750959169905828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4135401501293635356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc2416c0cc1793449928fcb6429c4ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 8
+  shakeTime: 1
+  shakeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0027427673
+      value: -0.0027138572
+      inSlope: 1.595438
+      outSlope: 1.595438
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.17901543
+      value: 0.28727007
+      inSlope: 0.5593992
+      outSlope: 0.5593992
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5762539
+      value: 0.09793049
+      inSlope: -0.34972626
+      outSlope: -0.34972626
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0096436
+      value: 0.0013656616
+      inSlope: -0.22281295
+      outSlope: -0.22281295
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  canBeDestroyedByLaser: 1
+  canBeDestroyedByShotgun: 1
+  canBeDestroyedByFireHose: 0
+  canBeDestroyedByHarvestBlade: 1
+  canBeDestroyedByFlameThrower: 1
+  canBeDestroyedByPlayer: 0

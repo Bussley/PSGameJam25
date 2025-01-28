@@ -63,6 +63,7 @@ MonoBehaviour:
   tilledSoilPrefab: {fileID: 8806581635949763345, guid: 2ea0294d3dc270f40b3b8810e6bd58a6, type: 3}
   tillableTiles:
   - Grass_Center
+  - Dirt_Center
 --- !u!114 &-1937792012087931326
 MonoBehaviour:
   m_ObjectHideFlags: 0

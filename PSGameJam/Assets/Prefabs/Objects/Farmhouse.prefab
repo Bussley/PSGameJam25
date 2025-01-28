@@ -146,7 +146,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   canBeDestroyedByLaser: 1
   canBeDestroyedByShotgun: 1
-  canBeDestroyedByFireHose: 0
+  canBeDestroyedByFireHose: 1
   canBeDestroyedByHarvestBlade: 1
   canBeDestroyedByFlameThrower: 0
   canBeDestroyedByPlayer: 0

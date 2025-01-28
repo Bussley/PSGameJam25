@@ -146,11 +146,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   canBeDestroyedByLaser: 1
-  canBeDestroyedByShotgun: 0
+  canBeDestroyedByShotgun: 1
   canBeDestroyedByFireHose: 0
   canBeDestroyedByHarvestBlade: 1
   canBeDestroyedByFlameThrower: 0
-  canBeDestroyedByPlayer: 0
+  canBeDestroyedByPlayer: 1
 --- !u!60 &6709223877869711052
 PolygonCollider2D:
   m_ObjectHideFlags: 0

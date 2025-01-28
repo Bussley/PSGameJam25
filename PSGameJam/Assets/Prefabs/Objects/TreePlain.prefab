@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bc2416c0cc1793449928fcb6429c4ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 8
   shakeTime: 1
   shakeCurve:
     serializedVersion: 2
@@ -202,8 +202,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   canBeDestroyedByLaser: 1
-  canBeDestroyedByShotgun: 0
+  canBeDestroyedByShotgun: 1
   canBeDestroyedByFireHose: 0
   canBeDestroyedByHarvestBlade: 1
-  canBeDestroyedByFlameThrower: 0
-  canBeDestroyedByPlayer: 1
+  canBeDestroyedByFlameThrower: 1
+  canBeDestroyedByPlayer: 0
