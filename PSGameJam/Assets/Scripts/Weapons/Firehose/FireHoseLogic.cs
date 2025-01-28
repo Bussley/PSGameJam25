@@ -31,44 +31,38 @@ public class FireHoseLogic : MonoBehaviour
         Debug.Log("Time charging: " +chargeTime);
         float scaleWater = 1.0f;
         
-        if (chargeTime < 3.0f && chargeTime > 2.0f) {
+        if (chargeTime <= 4.0f && chargeTime > 2.0f) {
             scaleWater = 2.0f;
-        } else if (chargeTime < 5.0f && chargeTime > 3.0f) {
-            scaleWater = 3.0f;
-        } else if (chargeTime > 5.0f) {
-            Debug.Log("EXPLOSION OF WHATER!");
-            scaleWater = 0.0f;
-            waterSpreadY = 0.0f;
+        } else if (chargeTime <= 5.0f && chargeTime > 4.0f) {
+            scaleWater = 4.0f;
+        } else if (chargeTime > 5.0f)
+        {
+            Destroy(gameObject);
+            return 0.0f;
         }
+        Debug.Log("Scale Water: " + scaleWater);
         Vector3 dir = (aimObject.transform.position - transform.position).normalized;
 
         GameObject firehose = Instantiate(firehosePrefab);
-        GameObject firehose_vfx = Instantiate(fireHoseVFX);
+        fireHoseVFX.SetActive(true);
 
         firehose.transform.localScale = new Vector3(firehose.transform.localScale.x * scaleWater, waterSpreadY, 0);
-        firehose_vfx.GetComponent<VisualEffect>().SetFloat("Max Speed", scaleWater);
+        fireHoseVFX.GetComponent<VisualEffect>().SetFloat("MinSpeed", 2 * scaleWater);
+        fireHoseVFX.GetComponent<VisualEffect>().SetFloat("Max Speed", 3 * scaleWater);
 
         firehose.transform.rotation = aimObject.transform.rotation;
-        firehose_vfx.transform.rotation = aimObject.transform.rotation;
 
-        firehose.transform.position = transform.position + (dir * firehose.transform.lossyScale.x/2);
-        firehose_vfx.transform.position = transform.position + (dir * firehose_vfx.transform.lossyScale.x / 2);
+        firehose.transform.position = transform.position + (dir) + (dir * firehose.transform.lossyScale.x / 2.0f);
 
         firehose.GetComponent<waterPumpLogic>().DestoryWaterCannon(waterShootTime);
 
         Action stop_vfx = () =>
         {
-            firehose_vfx.GetComponent<VisualEffect>().Stop();
+            Destroy(gameObject);
         };
         TimerManager.AddTimer(stop_vfx, waterShootTime);
-        Action destroy_vfx = () =>
-        {
-            Destroy(firehose_vfx);
-        };
-        TimerManager.AddTimer(destroy_vfx, waterShootTime + 0.5f);
 
         Destroy(aimObject);
-        Destroy(gameObject);
         return waterShootTime;
     }
     
@@ -80,8 +74,46 @@ public class FireHoseLogic : MonoBehaviour
         if (direction.y > 0)
             angle = -angle;
 
+        if (direction.x < 0)
+            transform.localScale = new Vector3(1.0f, -1.0f, 1.0f);
+
+        transform.Rotate(0.0f, 0.0f, angle);
+
+        Vector3 offset;
+
+        switch (angle)
+        {
+            case 0:
+                offset = new Vector3(-0.818f, 0.08f, 0.0f);
+                break;
+            case 45:
+                offset = new Vector3(-0.107f, 0.117f, 0.0f);
+                break;
+            case 90:
+                offset = new Vector3(0.61f, -0.015f, 0.0f);
+                break;
+            case 135:
+                offset = new Vector3(0.847f, 0.114f, 0.0f);
+                break;
+            case 180:
+                offset = new Vector3(0.9f, 0.818f, 0.0f);
+                break;
+            case -45:
+                offset = new Vector3(-0.89f, 0.52f, 0.0f);
+                break;
+            case -90:
+                offset = new Vector3(-0.5f, 1f, 0.0f);
+                break;
+            case -135:
+                offset = new Vector3(0.24f, 1.128f, 0.0f);
+                break;
+            default:
+                offset = TileManager.rotate(new Vector3(0.586f, 0.471f, 0.0f), angle);
+                break;
+        }
+
         aimObject = Instantiate(aimPrefab, transform);
-        aimObject.transform.RotateAround(transform.position, Vector3.forward, angle);
+        transform.position = transform.position + (offset * 0.8f);
     }
 
 }

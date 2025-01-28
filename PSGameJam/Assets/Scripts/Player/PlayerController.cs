@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour
     private bool usingJets;
     private bool jetLockdown;
     private bool flameThrowerLockdown;
+    private bool releaseShotgun;
 
     private Rigidbody2D rig;
 
@@ -438,6 +439,7 @@ public class PlayerController : MonoBehaviour
 
         if (context.started && shotgunCooldownTimer < Time.time)
         {
+            releaseShotgun = true;
             shotgunCooldownTimer = Time.time + shotgunCooldown;
             // Spawn aimer
             shotgunGO = Instantiate(shotgunPrefab, transform);
@@ -449,18 +451,20 @@ public class PlayerController : MonoBehaviour
             canMove = false;
             usingWeapon = true;
 
-        }
-        else if (context.canceled && shotgunGO != null)
-        {
-            
-            int seedCount = seeds.ShootSeed(shotgunGO.GetComponent<ShotgunLogic>().GetSeedCount());
-            Debug.Log(seedCount);
+            playerAnimatior.SetFloat("Horizontal", lastMoveDirection.x);
+            playerAnimatior.SetFloat("Vertical", lastMoveDirection.y);
+            playerAnimatior.SetBool("IsAttacking", true);
 
+        }
+        else if (context.canceled && shotgunGO != null && releaseShotgun)
+        {
+            releaseShotgun = false;
             shotgunGO.GetComponent<ShotgunLogic>().Fire();
 			sfx.playSound(6); //play shotgun sound
             canMove = true;
             usingWeapon = false;
-			sfx.playSound(7); //play reload sound
+            playerAnimatior.SetBool("IsAttacking", false);
+            sfx.playSound(7); //play reload sound
         }
     }
 
@@ -480,6 +484,10 @@ public class PlayerController : MonoBehaviour
             isoDirection = Vector2.zero;
             canMove = false;
             usingWeapon = true;
+            playerAnimatior.SetFloat("Horizontal", lastMoveDirection.x);
+            playerAnimatior.SetFloat("Vertical", lastMoveDirection.y);
+            playerAnimatior.SetBool("IsAttacking", true);
+
             Debug.Log("Waterlevel=" + waterTankLevel);
         }
         else if (context.canceled && firehoseGO != null && waterTankLevel > 0.0f)
@@ -487,10 +495,13 @@ public class PlayerController : MonoBehaviour
             var endTime = Time.time;
             var heldTime = endTime - waterStartChargeTime; 
             float waitTimetoMove = firehoseGO.GetComponent<FireHoseLogic>().SprayWater(heldTime);
-            sfx.playSound(3); //play hydro sfx
+
+            if (waitTimetoMove > 0.0f)
+                sfx.playSound(3); //play hydro sfx
 			Action moveFunc = () => {
                 canMove = true;
                 usingWeapon = false;
+                playerAnimatior.SetBool("IsAttacking", false);
             };
             TimerManager.AddTimer(moveFunc, waitTimetoMove);
             float wlevel = waterTankLevel - 25.0f;

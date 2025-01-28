@@ -24,23 +24,20 @@ public class ShotgunLogic : MonoBehaviour
     [SerializeField]
     private GameObject shotgunPrefab;
     [SerializeField]
-    private GameObject shotgunVFXPrefab;
+    private GameObject shotgunVFX;
 
     //private GameObject aimObject1;
     //private GameObject aimObject2;
     private float minAimDegree;
     private float maxAimDegree;
-    private float destroyObjectTimer = 0.5f;
+    private float destroyObjectTimer = 0.05f;
     private bool fired = false;
 
     public void Fire() {
         if (fired)
             return;
 
-        //Destroy(aimObject1);
-        //Destroy(aimObject2);
-
-        Instantiate(shotgunVFXPrefab, transform);
+        shotgunVFX.SetActive(true);
         for (int i = 0; i< seedCount; i++)
         {
             var ran = UnityEngine.Random.Range(minAimDegree, maxAimDegree);
@@ -71,20 +68,48 @@ public class ShotgunLogic : MonoBehaviour
         if(direction.y > 0)
             minAimDegree = -minAimDegree;
 
+        if(direction.x < 0)
+            transform.localScale = new Vector3(1.0f, -1.0f, 1.0f);
+
         transform.Rotate(0.0f, 0.0f, minAimDegree);
 
-        Vector3 rot_offset = TileManager.rotate(offsetPoint, minAimDegree);
-        transform.position = transform.position + rot_offset;
+        Vector3 offset;
+
+        switch(minAimDegree)
+        {
+            case 0:
+                offset = new Vector3(-0.818f, 0.08f, 0.0f);
+                break;
+            case 45:
+                offset = new Vector3(-0.107f, 0.117f, 0.0f);
+                break;
+            case 90:
+                offset = new Vector3(0.61f, -0.015f, 0.0f);
+                break;
+            case 135:
+                offset = new Vector3(0.847f, 0.114f, 0.0f);
+                break;
+            case 180:
+                offset = new Vector3(0.9f, 0.818f, 0.0f);
+                break;
+            case -45:
+                offset = new Vector3(-0.89f, 0.52f, 0.0f);
+                break;
+            case -90:
+                offset = new Vector3(-0.5f, 1f, 0.0f);
+                break;
+            case -135:
+                offset = new Vector3(0.24f, 1.128f, 0.0f);
+                break;
+            default:
+                offset = TileManager.rotate(offsetPoint, minAimDegree);
+                break;
+        }
+
+        transform.position = transform.position + (offset * 0.8f);
 
         minAimDegree -= spreadAngle / 2.0f;
         maxAimDegree = minAimDegree + spreadAngle;
-
-        /*
-        aimObject1 = Instantiate(aimPrefab, transform);
-        aimObject2 = Instantiate(aimPrefab, transform);
-        aimObject1.transform.RotateAround(transform.position, Vector3.forward, -spreadAngle / 2.0f);
-        aimObject2.transform.RotateAround(transform.position, Vector3.forward, spreadAngle / 2.0f);
-        */
     }
 
     public int GetSeedCount()
