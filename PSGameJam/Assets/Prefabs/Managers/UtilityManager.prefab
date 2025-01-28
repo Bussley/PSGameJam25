@@ -96,8 +96,8 @@ MonoBehaviour:
   lowestLightIntensity: 0.3
   highestLightIntensity: 1
   daySwitchIntensity: 0.4
-  dayNightCycleTime: 300
-  nightColor: {r: 0.009211446, g: 0.09933352, b: 0.6509434, a: 0}
+  dayNightCycleTime: 200
+  nightColor: {r: 0.31746176, g: 0.5507687, b: 0.7735849, a: 0}
 --- !u!114 &-3962857984801171487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,5 +113,5 @@ MonoBehaviour:
   rainPrefab: {fileID: 3246746372274513530, guid: 31eceea71196ba24fa932a68b44dc41d, type: 3}
   snowPrefab: {fileID: 6778495284860084544, guid: 1887d7ff21c36aa4d884cc6cc1e4eb7b, type: 3}
   snowFall: {fileID: 3441836501623529877, guid: 39ddca9b7d0e83f40ad617796272dcf3, type: 3}
-  snowFallRate: 0.2
+  snowFallRate: 0.05
   snowMeltRate: 0.2

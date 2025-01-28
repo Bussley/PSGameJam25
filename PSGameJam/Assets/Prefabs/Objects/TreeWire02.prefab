@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bc2416c0cc1793449928fcb6429c4ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
+  health: 5
   shakeTime: 1
   shakeCurve:
     serializedVersion: 2
