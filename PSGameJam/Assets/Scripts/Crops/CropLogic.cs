@@ -60,7 +60,7 @@ public class CropLogic : MonoBehaviour
     {
         if(attacked && attackedTime < Time.time)
         {
-            transform.parent.gameObject.GetComponent<SoilLogic>().RemoveCrop();
+            Destroy(gameObject);
         }
 
         if (cold)

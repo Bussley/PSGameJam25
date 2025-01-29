@@ -38,8 +38,13 @@ public class DuckLogic : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(onSpot) 
-            flyOut = true;
+        if (onSpot)
+        {
+            if (collision.gameObject.tag == "SeedPellete")
+                transform.localScale = transform.localScale * 1.01f;
+            else
+                flyOut = true;
+        }
     }
     private void FlyIn()
     {

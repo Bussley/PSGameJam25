@@ -10,6 +10,7 @@ public class CrowLogic : MonoBehaviour
 
     private GameObject cropTarget;
     private bool scaredAway;
+    private bool onSpot;
 
     private void Awake()
     {
@@ -21,7 +22,12 @@ public class CrowLogic : MonoBehaviour
     {
         // Crop could be destroyed before crow gets to it 
         if (cropTarget != null && !scaredAway)
+        {
             transform.position = Vector3.MoveTowards(transform.position, cropTarget.transform.position, flyInSpeed * Time.deltaTime);
+
+            if(transform.position == cropTarget.transform.position)
+                onSpot = true;
+        }
         else
         {
             transform.position = Vector3.MoveTowards(transform.position, spawnPoint, flyInSpeed * Time.deltaTime);
@@ -35,8 +41,11 @@ public class CrowLogic : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 10 || collision.gameObject.tag == "Player")
+        {
             scaredAway = true;
-        else if (collision.gameObject.tag == "Crop")
+            onSpot = false;
+        }
+        else if (collision.gameObject.tag == "Crop" && onSpot)
             collision.gameObject.GetComponent<CropLogic>().CrowOnCrop(true);
     }
 
