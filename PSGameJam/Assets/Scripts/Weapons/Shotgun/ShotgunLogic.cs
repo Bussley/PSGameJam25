@@ -44,8 +44,7 @@ public class ShotgunLogic : MonoBehaviour
             GameObject bullet;
             // Get pellete direction based on rotation
             Vector2 shotgunDir = TileManager.rotate(Vector2.left, ran).normalized;
-            bullet = Instantiate(shotgunPrefab);
-            bullet.transform.position = transform.position;
+            bullet = Instantiate(shotgunPrefab, transform.position + (Vector3)shotgunDir, Quaternion.identity);
             bullet.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(shotgunDir.x * shotgunSpeed, shotgunDir.y * shotgunSpeed);
 
             float seedTime = UnityEngine.Random.Range(randomMinRange,randomMaxRange);

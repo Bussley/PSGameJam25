@@ -9951,8 +9951,8 @@ MonoBehaviour:
   randomMinRange: 0.1
   randomMaxRange: 0.4
   shotgunSpeed: 5
-  seedCount: 8
-  spreadAngle: 90
+  seedCount: 5
+  spreadAngle: 45
   offsetPoint: {x: -0.586, y: 0.471}
   shotgunPrefab: {fileID: 8762243788235311304, guid: c271be9cdc8058847bb428c10fed7c85, type: 3}
   shotgunVFX: {fileID: 971936467565522164}
