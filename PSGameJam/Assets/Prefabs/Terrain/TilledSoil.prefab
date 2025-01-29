@@ -153,6 +153,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potatoPrefab: {fileID: 8771309082223981841, guid: 0bab12f052b6a5649b8eaad075dd5282, type: 3}
+  wheatPrefab: {fileID: 1063532486796347099, guid: 0fd414ee9e0c69a48865a7fb325da973, type: 3}
+  eggplantPrefab: {fileID: 1063532486796347099, guid: 0131f5462cab3da49b9fdf454840b712, type: 3}
+  strawberryPrefab: {fileID: 1063532486796347099, guid: 60cee60d1c6562c488b6c409288e9dd2, type: 3}
+  blackberryPrefab: {fileID: 1063532486796347099, guid: 4062a6a49c9450a498bc557ff58b4c66, type: 3}
+  tomatoPrefab: {fileID: 8771309082223981841, guid: 6b9669596d4fe354c9a316df7cf2ed61, type: 3}
+  pepperPrefab: {fileID: 1063532486796347099, guid: 2d2ab03e929a1c743b496eae631b2a92, type: 3}
   wateredSoil: {fileID: -1407950959, guid: c6196956c95d18446afdc571eb79acff, type: 3}
   drySoil: {fileID: 401971053, guid: c6196956c95d18446afdc571eb79acff, type: 3}
   charredSoil: {fileID: 7216837245991315473, guid: e4391f7dd320f7146b6b4b04f02d8314, type: 3}

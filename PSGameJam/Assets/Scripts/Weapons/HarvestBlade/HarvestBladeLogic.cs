@@ -54,16 +54,21 @@ public class HarvestBladeLogic : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     { 
         Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.tag == "Crop" && !collision.gameObject.GetComponent<CropLogic>().IsSeed() && collision.gameObject.GetComponent<CropLogic>().IsGrown()) {
+        if (collision.gameObject.tag == "Crop" && !collision.gameObject.GetComponent<CropLogic>().IsSeed()) {
+
+            if (!collision.gameObject.GetComponent<CropLogic>().IsGrown())
+            {
+                collision.gameObject.transform.parent.GetComponent<SoilLogic>().RemoveCrop();
+                return;
+            }
+
             playerLogic.seeds.SeedLevel(UnityEngine.Random.Range(seedMin, seeMax),collision.gameObject.name);
 
             playerLogic.wallet += CropMarketPlaceLogic.GetCropPrice(collision.gameObject.name);
 
-            Debug.Log(bountyLogic.bountyCrop + "test");
             if (collision.gameObject.name == bountyLogic.bountyCrop && bountyLogic.bountyStart) {
                 bountyLogic.bountyCropCount += 1;
             }
-            Debug.Log(playerLogic.wallet);
 
             collision.gameObject.transform.parent.GetComponent<SoilLogic>().RemoveCrop();
         }
