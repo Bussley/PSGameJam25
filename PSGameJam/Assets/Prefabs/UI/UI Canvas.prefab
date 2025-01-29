@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 7894007194241430738}
   m_Layer: 5
   m_Name: Stalk Market
-  m_TagString: Untagged
+  m_TagString: UIStalkMarket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5058,10 +5058,9 @@ GameObject:
   - component: {fileID: 5652108361476930249}
   - component: {fileID: 3697225811637891403}
   - component: {fileID: 4124331856109255332}
-  - component: {fileID: 8739093159030248999}
   m_Layer: 5
   m_Name: Crop Icon Low
-  m_TagString: UIOrderContainerCropIcon
+  m_TagString: UILowCrop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5123,26 +5122,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8739093159030248999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6108382609974277550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4475c1410a608f746839dfbfb7959e65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CropImages:
-  - {fileID: -1999326201, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
-  - {fileID: -1419143210, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
-  - {fileID: 957734658, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
-  - {fileID: 1241305833439133254, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
-  - {fileID: -566447418, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
-  - {fileID: -1772913089, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
-  - {fileID: -535249076, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
 --- !u!1 &6261977154156055709
 GameObject:
   m_ObjectHideFlags: 0
@@ -6499,10 +6478,9 @@ GameObject:
   - component: {fileID: 3350688077009484385}
   - component: {fileID: 6712365342999726136}
   - component: {fileID: 7981198021653433499}
-  - component: {fileID: 7427415306598124428}
   m_Layer: 5
   m_Name: Crop Icon High
-  m_TagString: UIOrderContainerCropIcon
+  m_TagString: UIHighCrop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6564,26 +6542,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7427415306598124428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7773827419384123754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4475c1410a608f746839dfbfb7959e65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CropImages:
-  - {fileID: -1999326201, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
-  - {fileID: -1419143210, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
-  - {fileID: 957734658, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
-  - {fileID: 1241305833439133254, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
-  - {fileID: -566447418, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
-  - {fileID: -1772913089, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
-  - {fileID: -535249076, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
 --- !u!1 &7843760817797930930
 GameObject:
   m_ObjectHideFlags: 0

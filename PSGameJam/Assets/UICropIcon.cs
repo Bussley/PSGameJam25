@@ -36,10 +36,10 @@ public class UICropIcon : MonoBehaviour
             case "wheat":
                 m_Image.sprite = CropImages[0];
                 break;
-            case "potatot":
+            case "tomato":
                 m_Image.sprite = CropImages[1];
                 break;
-            case "tomato":
+            case "potato":
                 m_Image.sprite = CropImages[2];
                 break;
             case "strawberry":
