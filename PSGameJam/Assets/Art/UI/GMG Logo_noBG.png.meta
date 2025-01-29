@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: 0a94e08e7a1559d4d89e43166ddc2820
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5404463333860890288
+    second: GMG Logo_noBG_0
+  - first:
+      213: 797975054716732820
+    second: GMG Logo_noBG_1
+  - first:
+      213: -4778432676841221087
+    second: GMG Logo_noBG_2
+  - first:
+      213: 6613747789321048948
+    second: GMG Logo_noBG_3
+  - first:
+      213: 6803755322682992215
+    second: GMG Logo_noBG_4
+  - first:
+      213: 8380913640817330903
+    second: GMG Logo_noBG_5
+  - first:
+      213: 4547919490729201799
+    second: GMG Logo_noBG_6
+  - first:
+      213: 944712020343189349
+    second: GMG Logo_noBG_7
+  - first:
+      213: -4202908921281825899
+    second: GMG Logo_noBG_8
+  - first:
+      213: 4046643929543666803
+    second: GMG Logo_noBG_9
+  - first:
+      213: -1840026286382622253
+    second: GMG Logo_noBG_10
+  - first:
+      213: 1708281016660839339
+    second: GMG Logo_noBG_11
+  - first:
+      213: -6520828889423441951
+    second: GMG Logo_noBG_12
+  - first:
+      213: 129648951319051878
+    second: GMG Logo_noBG_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GMG Logo_noBG_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 122
+        width: 662
+        height: 691
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b6d660a4c2800b40800000000000000
+      internalID: 5404463333860890288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4f03c69394c1f6d49ba2405e23de8150
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      GMG Logo_noBG_0: 5404463333860890288
+      GMG Logo_noBG_1: 797975054716732820
+      GMG Logo_noBG_10: -1840026286382622253
+      GMG Logo_noBG_11: 1708281016660839339
+      GMG Logo_noBG_12: -6520828889423441951
+      GMG Logo_noBG_13: 129648951319051878
+      GMG Logo_noBG_2: -4778432676841221087
+      GMG Logo_noBG_3: 6613747789321048948
+      GMG Logo_noBG_4: 6803755322682992215
+      GMG Logo_noBG_5: 8380913640817330903
+      GMG Logo_noBG_6: 4547919490729201799
+      GMG Logo_noBG_7: 944712020343189349
+      GMG Logo_noBG_8: -4202908921281825899
+      GMG Logo_noBG_9: 4046643929543666803
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
