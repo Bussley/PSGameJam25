@@ -14,9 +14,16 @@ public class RefuelWater : MonoBehaviour
 
     [SerializeField]
     private PlayerController player;
+    private GameObject UIMBCHB;
+    private UnityEngine.UI.Slider UIMBCSlider;
+
 
     private void Start()
     {
+        // UI Overheat bar logic
+        UIMBCHB = GameObject.FindGameObjectWithTag("UIMBCHydroBar");
+        UIMBCSlider = UIMBCHB.GetComponent<UnityEngine.UI.Slider>();
+        
         refuelText.gameObject.SetActive(false);
     }
 
@@ -31,6 +38,7 @@ public class RefuelWater : MonoBehaviour
     private void Refuel()
     {
         player.PlayerWaterTankLevel(100.0f);
+        UIMBCSlider.value = 100.0f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

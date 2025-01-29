@@ -173,12 +173,14 @@ public class PlayerController : MonoBehaviour
         UIM = GameObject.FindGameObjectWithTag("UIMoney");
         UISSSC = GameObject.FindGameObjectWithTag("SeedSelectionSeedCount");
 
-        // UI Overheat bar logic
+
+        // UI Hydrobar logic
         UIMBCHB = GameObject.FindGameObjectWithTag("UIMBCHydroBar");
         UIMBCSlider = UIMBCHB.GetComponent<UnityEngine.UI.Slider>();
         UIMBCSlider.value = waterTankLevel;
+
         // UI Overheat bar logic
-        UIMBCOB = GameObject.FindGameObjectWithTag("UIMBCHydroBar");
+        UIMBCOB = GameObject.FindGameObjectWithTag("UIMBCOverheatBar");
         UIMBCOBlider = UIMBCOB.GetComponent<UnityEngine.UI.Slider>();
         UIMBCOBlider.value = overheatVal;
 
