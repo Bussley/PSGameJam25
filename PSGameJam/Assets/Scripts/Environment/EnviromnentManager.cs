@@ -21,7 +21,8 @@ public class EnviromnentManager : MonoBehaviour
     [SerializeField]
     private Color nightColor;
 
-    private List<GameObject> nightLightSources = new List<GameObject>();
+    [SerializeField]
+    private List<GameObject> nightLightSources;
 
     private Light2D globalLightGO;
     private float lightIntensityRate;

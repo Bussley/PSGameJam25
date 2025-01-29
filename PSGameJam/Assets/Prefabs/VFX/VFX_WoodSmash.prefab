@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7649387915619165996}
   - component: {fileID: 6969902931592094500}
   - component: {fileID: 7974907776636290720}
+  - component: {fileID: 1331871489062424317}
   m_Layer: 0
   m_Name: VFX_WoodSmash
   m_TagString: Untagged
@@ -114,3 +115,15 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
+--- !u!114 &1331871489062424317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5578777919944679626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10943e0d278d1c4f998696ccf6e46df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -20,6 +20,9 @@ public class SoilLogic : MonoBehaviour
     [SerializeField]
     private float charredTimer;
 
+    [SerializeField]
+    private GameObject cropDestroyParticales;
+
     private GameObject crop;
     private SpriteRenderer spr;
     private float invincibilityTime;
@@ -57,7 +60,10 @@ public class SoilLogic : MonoBehaviour
     public void RemoveCrop()
     {
         if (crop != null && !crop.GetComponent<CropLogic>().IsSeed())
+        {
+            Instantiate(cropDestroyParticales, crop.transform.position, Quaternion.identity);
             Destroy(crop);
+        }
     }
 
     public void CharTile() {

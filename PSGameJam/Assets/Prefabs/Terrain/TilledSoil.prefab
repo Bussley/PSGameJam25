@@ -155,6 +155,6 @@ MonoBehaviour:
   potatoPrefab: {fileID: 8771309082223981841, guid: 0bab12f052b6a5649b8eaad075dd5282, type: 3}
   wateredSoil: {fileID: -1407950959, guid: c6196956c95d18446afdc571eb79acff, type: 3}
   drySoil: {fileID: 401971053, guid: c6196956c95d18446afdc571eb79acff, type: 3}
-  charredSoil: {fileID: 842455257256177374, guid: c6196956c95d18446afdc571eb79acff, type: 3}
+  charredSoil: {fileID: 7216837245991315473, guid: e4391f7dd320f7146b6b4b04f02d8314, type: 3}
   charredTimer: 5
-  sprites: []
+  cropDestroyParticales: {fileID: 7091271451624670895, guid: e242cb585eaba0c46ad741630c3f81a2, type: 3}
