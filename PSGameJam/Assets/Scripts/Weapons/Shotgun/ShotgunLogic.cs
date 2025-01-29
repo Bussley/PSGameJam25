@@ -40,11 +40,11 @@ public class ShotgunLogic : MonoBehaviour
             GameObject bullet;
             // Get pellete direction based on rotation
             Vector2 shotgunDir = TileManager.rotate(Vector2.left, ran).normalized;
-            bullet = Instantiate(shotgunPrefab, transform.position + (Vector3)shotgunDir, Quaternion.identity);
+            bullet = Instantiate(shotgunPrefab, transform.parent.transform.position + (Vector3)shotgunDir, Quaternion.identity);
             bullet.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(shotgunDir.x * shotgunSpeed, shotgunDir.y * shotgunSpeed);
 
             float seedTime = UnityEngine.Random.Range(randomMinRange,randomMaxRange);
-            bullet.GetComponent<ShotgunSeedLogic>().RemoveShotgunBullet(seedTime);
+			bullet.GetComponent<ShotgunSeedLogic>().RemoveShotgunBullet(seedTime);
         }
 
         Action func = () =>
@@ -102,7 +102,6 @@ public class ShotgunLogic : MonoBehaviour
         }
 
         transform.position = transform.position + (offset * 0.8f);
-
         minAimDegree -= spreadAngle / 2.0f;
         maxAimDegree = minAimDegree + spreadAngle;
     }

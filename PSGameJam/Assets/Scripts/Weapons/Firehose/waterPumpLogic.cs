@@ -15,7 +15,14 @@ public class waterPumpLogic : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // HIT A CROP TO HARVEST. LOGIC TO CALL CROP.HARVEST HERE
+		// NOW WATERS TILLED SOIL
         if(collision.gameObject.tag == "Crop")
+		{
             collision.gameObject.GetComponent<CropLogic>().WaterCrop();
+		}
+		if(collision.gameObject.tag == "Soil")
+		{
+			collision.gameObject.GetComponent<SoilLogic>().Watered();
+		}
     }
 }
