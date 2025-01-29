@@ -107,14 +107,11 @@ public class BountyLogic : MonoBehaviour
         bountyMaxCount = 10;
         UIOCOA = GameObject.FindGameObjectWithTag("UIOrderContainerOrderAmount");
         UITT = GameObject.FindGameObjectWithTag("UITaskText");
-        
 
-
+        BountyGenerate();
     }
 
     private void Update(){
-        
-
         if (bountyStart) {
             BountyIsComplete();
             BountyCheckTimer();
@@ -137,7 +134,6 @@ public class BountyLogic : MonoBehaviour
                 Debug.Log("Accepting Bounty");
             }
         }
-        
     }
 
     // Generate new bounty

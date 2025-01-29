@@ -260,7 +260,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      VFX_Metal01_0: 4600488164558405920
+      VFX_Metal01_1: -6094448596636743578
+      VFX_Metal01_2: -345260550911832037
+      VFX_Metal01_3: 2948629074484801399
+      VFX_Metal01_4: 7485192200747531195
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

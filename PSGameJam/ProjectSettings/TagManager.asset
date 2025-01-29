@@ -35,6 +35,9 @@ TagManager:
   - UIWSCSlotSelect4
   - UIWSCSlotSelect3
   - UIWSCSlotSelect5
+  - UIStalkMarket
+  - UIHighCrop
+  - UILowCrop
   layers:
   - Default
   - TransparentFX
