@@ -23,7 +23,6 @@ public class SeedLogic : MonoBehaviour
 
     public static string currentSeed = "wheat";
 
-    [SerializeField]    
     public String[] typesOfSeeds = {
         "wheat", // 0
         "tomato", // 1
