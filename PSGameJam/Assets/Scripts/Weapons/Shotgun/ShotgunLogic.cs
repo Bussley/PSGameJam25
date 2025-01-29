@@ -34,7 +34,7 @@ public class ShotgunLogic : MonoBehaviour
             return;
 
         shotgunVFX.SetActive(true);
-        for (int i = 0; i< seedCount; i++)
+        for (int i = 0; i < seedCount; i++)
         {
             var ran = UnityEngine.Random.Range(minAimDegree, maxAimDegree);
             GameObject bullet;
@@ -104,10 +104,5 @@ public class ShotgunLogic : MonoBehaviour
         transform.position = transform.position + (offset * 0.8f);
         minAimDegree -= spreadAngle / 2.0f;
         maxAimDegree = minAimDegree + spreadAngle;
-    }
-
-    public int GetSeedCount()
-    {
-        return seedCount;
     }
 }

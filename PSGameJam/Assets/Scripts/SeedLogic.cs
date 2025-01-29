@@ -8,16 +8,11 @@ using UnityEngine.UIElements;
 
 public class SeedLogic : MonoBehaviour
 {
-    [SerializeField]
-    private int tomatoSeedCount = 0;
-    [SerializeField]
-    private int wheatSeedCount = 25;
-    [SerializeField]
-    private int potatoSeedCount = 0;
-    [SerializeField]
-    private int pepperSeedCount = 0;
-    [SerializeField]
-    private int strawBerrySeedCount = 0;
+    private int tomatoSeedCount;
+    private int wheatSeedCount;
+    private int potatoSeedCount;
+    private int pepperSeedCount;
+    private int strawBerrySeedCount;
     private int blackberrySeedCount;
     private int eggplantSeedCount;
 
@@ -38,7 +33,7 @@ public class SeedLogic : MonoBehaviour
 
     private void Awake() {
         tomatoSeedCount = 0;
-        wheatSeedCount = 25;
+        wheatSeedCount = 10;
         potatoSeedCount = 0;
         pepperSeedCount = 0;
         strawBerrySeedCount = 0;
@@ -123,8 +118,7 @@ public class SeedLogic : MonoBehaviour
 
     public int ShootSeed(int seedShot) {
         String seedType = currentSeed;
-		//Testing generous seeds
-		seedShot = 1;
+		//Testing generous seeds=
         switch (seedType) {
             case "wheat":
                 int wnum = wheatSeedCount - seedShot;

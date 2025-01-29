@@ -21,7 +21,8 @@ public class EnviromnentManager : MonoBehaviour
     [SerializeField]
     private Color nightColor;
 
-    private GameObject[] nightLightSources;
+    // May get rid of
+    private List<GameObject> nightLightSources;
 
     private Light2D globalLightGO;
     private float lightIntensityRate;
@@ -45,7 +46,8 @@ public class EnviromnentManager : MonoBehaviour
 
         lightIntensityRate = -((highestLightIntensity - lowestLightIntensity) / dayNightCycleTime) * 2;
 
-        nightLightSources = GameObject.FindGameObjectsWithTag("LightObject");
+        //nightLightSources = GameObject.FindGameObjectsWithTag("LightObject");
+        nightLightSources = new List<GameObject>();
 
         // Set all the night lights off
         foreach (GameObject go in nightLightSources)

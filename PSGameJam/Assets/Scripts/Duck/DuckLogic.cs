@@ -12,7 +12,6 @@ public class DuckLogic : MonoBehaviour
     private Vector3 originSpot;
     [SerializeField]
     private float flyInSpeed;
-    [SerializeField]
     private Animator animator;
 
     private float flyInTime;
@@ -23,7 +22,7 @@ public class DuckLogic : MonoBehaviour
     private void Awake() {
         onSpot = false;
         flyOut = false;
-        animator.SetBool("OnSpot", false);
+        animator = GetComponent<Animator>();
         flyInTime = Time.time + Random.Range(minTime, maxTime);
     }
 

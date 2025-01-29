@@ -508,7 +508,7 @@ public class PlayerController : MonoBehaviour
             canMove = true;
             usingWeapon = false;
             playerAnimatior.SetBool("IsAttacking", false);
-            seeds.ShootSeed(shotgunGO.GetComponent<ShotgunLogic>().GetSeedCount());
+            seeds.ShootSeed(1);
             sfx.playSound(7); //play reload sound
         }
     }

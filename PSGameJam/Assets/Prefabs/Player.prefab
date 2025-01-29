@@ -744,7 +744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tomatoSeedCount: 0
-  wheatSeedCount: 100
+  wheatSeedCount: 10
   potatoSeedCount: 0
   pepperSeedCount: 0
   strawBerrySeedCount: 0

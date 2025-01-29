@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5698810433423248471}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -6, y: 13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -103,12 +103,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb4de63198368547a2d86b32afe9369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 1
-  maxTime: 5
-  flySpot: {x: -7, y: 1.5, z: 0}
+  minTime: 30
+  maxTime: 120
+  flySpot: {x: -5.971, y: 2.7, z: 0}
   originSpot: {x: -6, y: 13, z: 0}
   flyInSpeed: 5
-  animator: {fileID: 607416559409337639}
 --- !u!50 &7518486297273996907
 Rigidbody2D:
   serializedVersion: 5
@@ -170,7 +169,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.16}
@@ -180,7 +179,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!95 &607416559409337639
 Animator:

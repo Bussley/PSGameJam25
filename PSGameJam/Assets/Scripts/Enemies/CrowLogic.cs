@@ -8,6 +8,7 @@ public class CrowLogic : MonoBehaviour
     [SerializeField]
     private Vector3 spawnPoint;
 
+    private Animator animator;
     private GameObject cropTarget;
     private bool scaredAway;
     private bool onSpot;
@@ -16,6 +17,8 @@ public class CrowLogic : MonoBehaviour
     {
         scaredAway = false;
         transform.position = spawnPoint;
+        animator = GetComponent<Animator>();
+        animator.SetBool("OnSpot", false);
     }
 
     void FixedUpdate()
@@ -25,13 +28,18 @@ public class CrowLogic : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, cropTarget.transform.position, flyInSpeed * Time.deltaTime);
 
-            if(transform.position == cropTarget.transform.position)
+            if (transform.position == cropTarget.transform.position)
+            {
+                animator.SetBool("OnSpot", true);
                 onSpot = true;
+            }
         }
         else
         {
             transform.position = Vector3.MoveTowards(transform.position, spawnPoint, flyInSpeed * Time.deltaTime);
 
+            animator.SetBool("OnSpot", false);
+            transform.localScale = Vector3.one;
             if (transform.position == spawnPoint)
             {
                 Destroy(gameObject);
@@ -42,10 +50,16 @@ public class CrowLogic : MonoBehaviour
     {
         if (collision.gameObject.layer == 10 || collision.gameObject.tag == "Player")
         {
+            animator.SetBool("OnSpot", false);
+            transform.localScale = Vector3.one;
             scaredAway = true;
             onSpot = false;
         }
-        else if (collision.gameObject.tag == "Crop" && onSpot)
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Crop" && onSpot)
             collision.gameObject.GetComponent<CropLogic>().CrowOnCrop(true);
     }
 
