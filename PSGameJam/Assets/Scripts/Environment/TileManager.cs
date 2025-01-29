@@ -92,7 +92,7 @@ public class TileManager : MonoBehaviour
     public static Vector3 GetSpawnableRandomPosition()
     {
         if(spawnableTiles.Count == 0) 
-            return Vector3.zero;
-        return groundMap.CellToWorld(spawnableTiles[UnityEngine.Random.Range(0, spawnableTiles.Count - 1)]);
+            return Vector3.one;
+        return groundMap.CellToWorld(spawnableTiles[UnityEngine.Random.Range(0, spawnableTiles.Count)]);
     }
 }

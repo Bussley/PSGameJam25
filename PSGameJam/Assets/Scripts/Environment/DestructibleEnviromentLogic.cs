@@ -30,7 +30,11 @@ public class DestructibleEnviromentLogic : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (canBeDestroyedByLaser && collision.gameObject.tag == "Laser")
+        {
+            if(health > 1)
+                Destroy(collision.gameObject);
             HurtObject();
+        }
         else if (canBeDestroyedByShotgun && collision.gameObject.tag == "SeedPellete")
             HurtObject();
         else if (canBeDestroyedByFireHose && collision.gameObject.tag == "WaterShot")
@@ -51,9 +55,6 @@ public class DestructibleEnviromentLogic : MonoBehaviour
     private void HurtObject()
     {
         health -= 1;
-
-        //Also object shake
-
 
         if (health <= 0)
         {

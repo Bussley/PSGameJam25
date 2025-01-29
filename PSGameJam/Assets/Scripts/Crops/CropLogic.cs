@@ -9,8 +9,8 @@ public class CropLogic : MonoBehaviour
     private CropScriptableObject cropSO;
 
     [SerializeField]
-
     private LayerMask hitMask;
+
 
     // Grows from 0 to 100, each crop has different stages based on percentage:
     // CropED (brand new crop, denotes early life. First 10% of life)
@@ -174,66 +174,4 @@ public class CropLogic : MonoBehaviour
             cold = true;
         }
     }
-    // Types of Crop Logic
-
-    /*
-    [SerializeField]
-    private int tomatoCount = 0;
-    [SerializeField]
-    private int wheatCount = 25;
-    [SerializeField]
-    private int potatoCount = 0;
-    [SerializeField]
-    private int pepperCount = 0;
-    [SerializeField]
-    private int strawBerryCount = 0;
-
-    [SerializeField]    
-    public String[] typesOfCrops = {
-        "wheat", // 0
-        "tomato", // 1
-        "pepper", // 2
-        "strawberry", // 3
-        "potato", // 4
-    };
-
-    // Havisting crops yeald 1 of that crop. and randomize 1-3 seeds.
-    public void HarvestCrop(String CropType) {
-        switch (CropType) {
-            case "wheat":
-                wheatCount += 1;
-                break;
-            case "tomato":
-                tomatoCount += 1;
-                break;
-            case "pepper":
-                pepperCount += 1;
-                break;
-            case "strawberry":
-                strawBerryCount += 1;
-                break;
-            case "potato":
-                potatoCount += 1;
-                break;                                                
-        }
-    }
-
-
-    public int GetCropCount(String CropType) {
-        switch (CropType) {
-            case "wheat":
-                return wheatCount;
-            case "tomato":
-                return tomatoCount;
-            case "pepper":
-                return pepperCount;
-            case "strawberry":
-                return strawBerryCount;
-            case "potato":
-                return potatoCount;
-            default:
-                return 0;
-        }
-    }
-    */
 }

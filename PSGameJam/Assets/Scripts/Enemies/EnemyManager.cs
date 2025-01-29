@@ -67,7 +67,7 @@ public class EnemyManager : MonoBehaviour
     {
         Vector3 spawn = TileManager.GetSpawnableRandomPosition();
 
-        if (spawn == Vector3.zero) return;
+        if (spawn == Vector3.one) return;
 
         // Find a random place to spawn scare crow
         Instantiate(scareCrowPrefab, spawn, new Quaternion());

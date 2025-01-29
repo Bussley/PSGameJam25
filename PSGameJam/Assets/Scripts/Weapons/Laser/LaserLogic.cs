@@ -98,10 +98,23 @@ public class LaserLogic : MonoBehaviour
     public void Charge(Vector2 direction) {
         //Determine Starting angle
         float angle = Vector2.Angle(Vector2.left, direction);
-        
+
+
         // Flip if face positive direction
-        if(direction.y > 0)
+        if (direction.y > 0)
             angle = - angle;
+
+        switch (angle)
+        {
+            case -45:
+                angle = -26;
+                break;
+            case -135:
+                angle = -153;
+                break;
+            default:
+                break;
+        }
 
         aimObject1 = Instantiate(aimPrefab, transform);
         aimObject2 = Instantiate(aimPrefab, transform);

@@ -57,9 +57,6 @@ public class HarvestBladeLogic : MonoBehaviour
         if (collision.gameObject.tag == "Crop" && !collision.gameObject.GetComponent<CropLogic>().IsSeed()) {
             playerLogic.seeds.SeedLevel(UnityEngine.Random.Range(seedMin, seeMax),collision.gameObject.name);
 
-            // playerLogic.cLogic.HarvestCrop(playerLogic.cLogic.harvestAmount, collision.gameObject.name);
-            // playerLogic.wallet += playerLogic.cLogic.ExchangeCrop(collision.gameObject.name);
-
             playerLogic.wallet += CropMarketPlaceLogic.GetCropPrice(collision.gameObject.name);
 
             Debug.Log(bountyLogic.bountyCrop + "test");
@@ -67,6 +64,8 @@ public class HarvestBladeLogic : MonoBehaviour
                 bountyLogic.bountyCropCount += 1;
             }
             Debug.Log(playerLogic.wallet);
+
+            collision.gameObject.transform.parent.GetComponent<SoilLogic>().RemoveCrop();
         }
     }
 

@@ -62,7 +62,8 @@ public class WeatherManager : MonoBehaviour {
         {
             Vector3 snowspawn = TileManager.GetSpawnableRandomPosition();
 
-            if (snowspawn == Vector3.zero) return;
+            if (snowspawn == Vector3.fwd) 
+                return;
 
             GameObject snow = Instantiate(snowFall, transform);
             snowObjects.Push(snow);
