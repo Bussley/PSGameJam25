@@ -12,6 +12,8 @@ public class DuckLogic : MonoBehaviour
     private Vector3 originSpot;
     [SerializeField]
     private float flyInSpeed;
+    [SerializeField]
+    private Animator animator;
 
     private float flyInTime;
     private bool onSpot;
@@ -21,6 +23,7 @@ public class DuckLogic : MonoBehaviour
     private void Awake() {
         onSpot = false;
         flyOut = false;
+        animator.SetBool("OnSpot", false);
         flyInTime = Time.time + Random.Range(minTime, maxTime);
     }
 
@@ -43,15 +46,21 @@ public class DuckLogic : MonoBehaviour
             if (collision.gameObject.tag == "SeedPellete")
                 transform.localScale = transform.localScale * 1.01f;
             else
+            {
+                animator.SetBool("OnSpot", false);
                 flyOut = true;
+            }
         }
     }
     private void FlyIn()
     {
         transform.position = Vector3.MoveTowards(transform.position, flySpot, flyInSpeed * Time.deltaTime);
 
-        if(transform.position == flySpot)
+        if (transform.position == flySpot)
+        {
+            animator.SetBool("OnSpot", true);
             onSpot = true;
+        }
     }
 
     private void FlyOut()
