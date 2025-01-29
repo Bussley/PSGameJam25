@@ -248,9 +248,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallet: 10
   waterTankLevel: 100
-  laserCooldown: 4
+  laserCooldown: 1
   shotgunCooldown: 2
-  fireHoseCooldown: 8
+  fireHoseCooldown: 2
   harvestBladeCooldown: 0.5
   moveSpeed: 2
   jetSpeed: 4
@@ -315,6 +315,7 @@ MonoBehaviour:
   stopTime: 0.2916666
   seeds: {fileID: 4881669829250498636, guid: 8e52b02c585c9ff4384453dd0961b5e1, type: 3}
   sfx: {fileID: 0}
+  UIWeaponSelect: {fileID: 0}
 --- !u!50 &2678468580882921569
 Rigidbody2D:
   serializedVersion: 5
@@ -742,7 +743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tomatoSeedCount: 0
-  wheatSeedCount: 25
+  wheatSeedCount: 100
   potatoSeedCount: 0
   pepperSeedCount: 0
   strawBerrySeedCount: 0

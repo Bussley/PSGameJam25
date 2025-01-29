@@ -129,6 +129,8 @@ public class SeedLogic : MonoBehaviour
 
     public int ShootSeed(int seedShot) {
         String seedType = currentSeed;
+		//Testing generous seeds
+		seedShot = 1;
         switch (seedType) {
             case "wheat":
                 int wnum = wheatSeedCount - seedShot;
