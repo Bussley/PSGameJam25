@@ -38,7 +38,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float jetOffsetSpeed;
     [SerializeField]
-    private float overHeatRate;
+    private float overHeatRateJetpack;
+    [SerializeField]
+    private float overHeatRateFlamethrower;
     [SerializeField]
     private float cooldownRate;
     [SerializeField] 
@@ -607,17 +609,15 @@ public class PlayerController : MonoBehaviour
     private void ProcessOverHeat()
     {
         if (usingJets)
-            overheatVal += overHeatRate / 100;
-            UIMBCOBlider.value = overheatVal;
+            overheatVal += overHeatRateJetpack / 100;
 
         if (flameThrowerGO != null)
-            overheatVal += overHeatRate / 100;
-            UIMBCOBlider.value = overheatVal;
+            overheatVal += overHeatRateFlamethrower / 100;
+        
 
         if (overheatVal > 100.0f)
         {
             overheatVal = 100.0f;
-            UIMBCOBlider.value = overheatVal;
             jetLockdown = true;
             flameThrowerLockdown = true;
 
@@ -631,15 +631,15 @@ public class PlayerController : MonoBehaviour
 
         if (!usingJets && flameThrowerGO == null)
             overheatVal -= cooldownRate / 100;
-            UIMBCOBlider.value = overheatVal;
 
         if (overheatVal < 0.0f)
         {
             overheatVal = 0.0f;
             jetLockdown = false;
             flameThrowerLockdown = false;
-            UIMBCOBlider.value = overheatVal;
         }
+
+        UIMBCOBlider.value = overheatVal;
     }
 
     IEnumerator ScreenShake()

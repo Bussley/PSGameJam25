@@ -54,7 +54,7 @@ public class HarvestBladeLogic : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     { 
         Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.tag == "Crop" && !collision.gameObject.GetComponent<CropLogic>().IsSeed()) {
+        if (collision.gameObject.tag == "Crop" && !collision.gameObject.GetComponent<CropLogic>().IsSeed() && collision.gameObject.GetComponent<CropLogic>().IsGrown()) {
             playerLogic.seeds.SeedLevel(UnityEngine.Random.Range(seedMin, seeMax),collision.gameObject.name);
 
             playerLogic.wallet += CropMarketPlaceLogic.GetCropPrice(collision.gameObject.name);

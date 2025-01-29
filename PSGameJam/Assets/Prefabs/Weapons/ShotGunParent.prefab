@@ -9948,11 +9948,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e4f8a14ca65e74988b8b8058d85c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomMinRange: 0.1
-  randomMaxRange: 0.4
+  randomMinRange: 0.05
+  randomMaxRange: 0.2
   shotgunSpeed: 5
   seedCount: 5
-  spreadAngle: 45
+  spreadAngle: 40
   offsetPoint: {x: -0.586, y: 0.471}
   shotgunPrefab: {fileID: 8762243788235311304, guid: c271be9cdc8058847bb428c10fed7c85, type: 3}
   shotgunVFX: {fileID: 971936467565522164}
