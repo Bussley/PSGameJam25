@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 
 public class BountyLogic : MonoBehaviour
@@ -57,6 +58,7 @@ public class BountyLogic : MonoBehaviour
     */
     private GameObject UIOCOA;
     private GameObject UITT;
+    private GameObject UIOC;
 
 
     private Dictionary<String, int> cropMarketPrices = new Dictionary<string, int>();
@@ -81,6 +83,8 @@ public class BountyLogic : MonoBehaviour
 
     private bool interactWithBoard;
 
+    
+
 
     /*
     function that will payout if bounty is complete
@@ -88,6 +92,11 @@ public class BountyLogic : MonoBehaviour
     function to pick up new bounty
     function to see if bounty expires. 
     */
+
+    private void Start() {
+        bountyStart = false;
+
+    }
 
     private void Awake() {
         playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -107,20 +116,26 @@ public class BountyLogic : MonoBehaviour
         bountyMaxCount = 10;
         UIOCOA = GameObject.FindGameObjectWithTag("UIOrderContainerOrderAmount");
         UITT = GameObject.FindGameObjectWithTag("UITaskText");
-
+        UIOC = GameObject.FindGameObjectWithTag("UIOrderContainer");
+        UIOC.SetActive(false);
         BountyGenerate();
     }
 
     private void Update(){
         if (bountyStart) {
+            UIOC.SetActive(true);
             BountyIsComplete();
             BountyCheckTimer();
             UIOCOA.GetComponent<TMP_Text>().text = bountyCropCount + "/" + bountyMaxCount;
             UITT.GetComponent<TMP_Text>().text = "Please harvest "+ bountyMaxCount + " " + bountyCrop +"s. Reward: $" + bountyRewardValue;
         }
         else {
+            if (UIOC.active) {
+                UIOC.SetActive(false);
+            }
+            
             UIOCOA.GetComponent<TMP_Text>().text = "";
-            UITT.GetComponent<TMP_Text>().text = "";
+            UITT.GetComponent<TMP_Text>().text = "Go to the Stalk Market to accept an order.";
             bountyCrop = "";
         }
         if (startTimer) {

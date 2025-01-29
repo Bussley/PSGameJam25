@@ -141,10 +141,14 @@ public class PlayerController : MonoBehaviour
         UI<>
         SSSC = Seed Selection Seed Count
         SSSC = Seed Selection Seed Type Icon
+        MBC = Meter Bar Container
+        MBCHB = Meter Bar Container Hydrobar
+        MBCOB = Meter Bar Container Overheat Bar 
     */
     private GameObject UIM;
 
     private GameObject UISSSC;
+    private GameObject UIMBC;
     
     private void Awake() {
         wallet = 0.0f;
@@ -177,7 +181,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update() {
-        UIM.GetComponent<TMP_Text>().text = "Money: $" + Wallet;
+        UIM.GetComponent<TMP_Text>().text = "$" + Wallet;
         UISSSC.GetComponent<TMP_Text>().text = "" + seeds.GetSeedCount(seeds.currentSeed);
         ProcessOverHeat();
     }
@@ -634,7 +638,6 @@ public class PlayerController : MonoBehaviour
     public bool GetUsingJets()
     { return usingJets; }
 
-    // BROKEN FUCKING STUPID... GETTTING Object reference not set to an instance of an object
     private void UIWeaponSelection(int uiweapon){
         for (int i = 1; i < typesOfWeapons.Length; i++)
         {
