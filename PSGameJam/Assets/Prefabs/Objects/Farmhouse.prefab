@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 513170616632708838}
   - component: {fileID: 214661911109469281}
   - component: {fileID: 6879541540544905890}
+  - component: {fileID: 880646517748181588}
   m_Layer: 12
   m_Name: Farmhouse
   m_TagString: DestructibleEnviroment
@@ -151,3 +152,57 @@ MonoBehaviour:
   canBeDestroyedByHarvestBlade: 1
   canBeDestroyedByFlameThrower: 0
   canBeDestroyedByPlayer: 0
+--- !u!60 &880646517748181588
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2574658996461320111}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 5, y: 6}
+    newSize: {x: 5, y: 6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -2.3672123, y: 1.3229795}
+      - {x: 0.00061124563, y: 0.09909344}
+      - {x: 0.9982189, y: -0.008621335}
+      - {x: 1.0234375, y: 0.4921875}
+      - {x: 2.3603814, y: 0.8570261}
+      - {x: 2.2624667, y: 3.8190038}
+      - {x: -2.4149294, y: 3.4746087}
+  m_UseDelaunayMesh: 0

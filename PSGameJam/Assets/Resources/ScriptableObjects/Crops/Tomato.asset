@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76fb84a304ac9204898fd9dcfa126da4, type: 3}
-  m_Name: Wheat
+  m_Name: Tomato
   m_EditorClassIdentifier: 
-  cropType: Wheat
-  baseMarketValue: 1
+  cropType: Tomato
+  baseMarketValue: 5
   growSpeedTime: 0.5
   growToYoungCrop: 10
   growToGrowingCrop: 50
   cropCrowDurabilityTime: 0
   cropFreezeDurabilityTime: 0
-  cropDurabilityTime: 0
-  CropSprite: {fileID: -1999326201, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
+  cropDurabilityTime: 10
+  CropSprite: {fileID: -1419143210, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
   seedSprite: {fileID: 5277730378181330140, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
-  youngCropSprite: {fileID: 973163691, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
-  growingCropSprite: {fileID: 525879654, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
-  ripeCropSprite: {fileID: 1694972511, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
+  youngCropSprite: {fileID: 7561041506929510929, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
+  growingCropSprite: {fileID: 4436150969599808949, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
+  ripeCropSprite: {fileID: 361673631735690159, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
