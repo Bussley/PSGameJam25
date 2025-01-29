@@ -103,6 +103,8 @@ public class WeatherManager : MonoBehaviour {
             case 0:
                 rainParticaleObject.GetComponent<ParticleSystem>().Stop();
                 snowParticaleObject.GetComponent<ParticleSystem>().Stop();
+				rainParticaleObject.GetComponent<AudioSource>().Stop();
+				snowParticaleObject.GetComponent<AudioSource>().Stop();
                 snowWeather.Invoke();
                 raining = false;
                 snowing = false;
@@ -115,6 +117,8 @@ public class WeatherManager : MonoBehaviour {
                 snowWeather.Invoke();
                 rainParticaleObject.GetComponent<ParticleSystem>().Play();
                 snowParticaleObject.GetComponent<ParticleSystem>().Stop();
+				rainParticaleObject.GetComponent<AudioSource>().Play();
+				snowParticaleObject.GetComponent<AudioSource>().Stop();
                 m_Weather = Weather.Rain;
                 break;
             case 2:
@@ -123,6 +127,8 @@ public class WeatherManager : MonoBehaviour {
                 snowWeather.Invoke();
                 rainParticaleObject.GetComponent<ParticleSystem>().Stop();
                 snowParticaleObject.GetComponent<ParticleSystem>().Play();
+				rainParticaleObject.GetComponent<AudioSource>().Stop();
+				snowParticaleObject.GetComponent<AudioSource>().Play();
                 m_Weather = Weather.Snowy;
                 break;
             default:

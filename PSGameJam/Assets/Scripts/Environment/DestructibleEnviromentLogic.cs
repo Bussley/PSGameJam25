@@ -11,6 +11,8 @@ public class DestructibleEnviromentLogic : MonoBehaviour
     private AnimationCurve shakeCurve;
     [SerializeField] 
     private GameObject smashParticale;
+	[SerializeField]
+	private AudioClip breakSound;
 
     [SerializeField]
     private bool canBeDestroyedByLaser;
@@ -58,6 +60,7 @@ public class DestructibleEnviromentLogic : MonoBehaviour
 
         if (health <= 0)
         {
+			//GetComponent<AudioSource>().PlayOneShot(breakSound);
             Instantiate(smashParticale, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

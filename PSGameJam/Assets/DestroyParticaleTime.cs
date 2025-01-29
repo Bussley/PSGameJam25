@@ -6,11 +6,13 @@ public class DestroyParticaleTime : MonoBehaviour
 
     private void Awake()
     {
-        m_Time = Time.time + 0.4f;
+        m_Time = Time.time + 2.0f;
     }
 
     void Update()
     {
+		float scale = m_Time - Time.time;
+		GetComponent<AudioSource>().volume = scale * 0.05125f;
         if(m_Time < Time.time)
             Destroy(gameObject);
     }
