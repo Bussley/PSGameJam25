@@ -61,14 +61,14 @@ public class SeedHolder : MonoBehaviour
         SeedPrices.Add("pepper", pepperValue);
         SeedPrices.Add("eggplant", eggplantValue);
         SeedPrices.Add("blackberry", blackberryValue);
-        showText = "Refel " + playerLogic.seeds.currentSeed;
+        showText = "Refel " + SeedLogic.currentSeed;
         seedCrateObj.GetComponent<TMP_Text>().text = showText;
 
     }
 
     private void Update()
     {
-        showText = "Refuel " + playerLogic.seeds.currentSeed;
+        showText = "Refuel " + SeedLogic.currentSeed;
         seedCrateObj.GetComponent<TMP_Text>().text = showText;
         if (seedRefuelAllowed && Input.GetKeyDown(KeyCode.F))
         {
@@ -104,7 +104,7 @@ public class SeedHolder : MonoBehaviour
 
     private void BuySeeds(){
         var currentMoney = playerLogic.wallet;
-        var currentSeed = playerLogic.seeds.currentSeed;
+        var currentSeed = SeedLogic.currentSeed;
         var seedPrice = SeedPrices[currentSeed];
 
         if (seedPrice > currentMoney) {
@@ -114,8 +114,8 @@ public class SeedHolder : MonoBehaviour
             // Subtract wallet money to buys seeds
             Debug.Log("Buying seed:" + currentSeed + " For price: "+ seedPrice);
             playerLogic.wallet -= seedPrice;
-            playerLogic.seeds.SeedLevel(maxSeedRefuel, playerLogic.seeds.currentSeed);
-            Debug.Log(playerLogic.seeds.currentSeed+":"+ playerLogic.seeds.GetSeedCount(playerLogic.seeds.currentSeed));
+            playerLogic.seeds.SeedLevel(maxSeedRefuel, SeedLogic.currentSeed);
+            Debug.Log(SeedLogic.currentSeed+":"+ playerLogic.seeds.GetSeedCount(SeedLogic.currentSeed));
 
         }
         else {
