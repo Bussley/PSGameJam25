@@ -85,7 +85,7 @@ public class SeedHolder : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Equals("Player"))
+        if (collision.gameObject.tag == "Player")
         {
             seedCrateObj.gameObject.SetActive(true);
             seedRefuelAllowed = true;
@@ -94,7 +94,7 @@ public class SeedHolder : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Equals("Player"))
+        if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Good by. Please come back to get more seeds!");
             seedCrateObj.gameObject.SetActive(false);
