@@ -9,9 +9,11 @@ public class SwitchSnowySprite : MonoBehaviour
     private Sprite snowSprite;
 
     private float daylength;
+    private bool alreadysnowy;
 
     void Awake()
     {
+        alreadysnowy = false;
     }
 
     private void Start()
@@ -22,6 +24,8 @@ public class SwitchSnowySprite : MonoBehaviour
 
     void RandomlySwitch()
     {
+        if (WeatherManager.Snowing() && alreadysnowy) return;
+
         Action action = () =>
         {
             SwitchSnow();
@@ -34,9 +38,15 @@ public class SwitchSnowySprite : MonoBehaviour
     {
         if (this == null) return;
 
-        if(WeatherManager.Snowing())
+        if (WeatherManager.Snowing())
+        {
             GetComponent<SpriteRenderer>().sprite = snowSprite;
+            alreadysnowy = true;
+        }
         else
+        {
             GetComponent<SpriteRenderer>().sprite = regularSprite;
+            alreadysnowy = false;
+        }
     }
 }

@@ -9,12 +9,13 @@ using TMPro;
 public class RefuelWater : MonoBehaviour
 {
     [SerializeField]
-    private TextMesh refuelText;
+    private string refuelText;
     private bool refuelAllowed;
 
     [SerializeField]
     private PlayerController player;
     private GameObject UIMBCHB;
+    private GameObject wText;
     private UnityEngine.UI.Slider UIMBCSlider;
 
 
@@ -23,8 +24,10 @@ public class RefuelWater : MonoBehaviour
         // UI Overheat bar logic
         UIMBCHB = GameObject.FindGameObjectWithTag("UIMBCHydroBar");
         UIMBCSlider = UIMBCHB.GetComponent<UnityEngine.UI.Slider>();
-        
-        refuelText.gameObject.SetActive(false);
+
+        wText = GameObject.FindGameObjectWithTag("WaterRefuelText");
+        wText.GetComponent<TMP_Text>().text = "";
+        //wText.SetActive(false);
     }
 
     private void Update()
@@ -45,7 +48,8 @@ public class RefuelWater : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Player"))
         {
-            refuelText.gameObject.SetActive(true);
+            //wText.gameObject.SetActive(true);
+            wText.GetComponent<TMP_Text>().text = refuelText;
             refuelAllowed = true;
         }
     }
@@ -54,7 +58,8 @@ public class RefuelWater : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Player"))
         {
-            refuelText.gameObject.SetActive(false);
+            //wText.SetActive(false);
+            wText.GetComponent<TMP_Text>().text = "";
             refuelAllowed = false;
         }
     }

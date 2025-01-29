@@ -36,7 +36,6 @@ public class SeedLogic : MonoBehaviour
         "potato", // 4
         "blackberry", // 5
         "eggplant", // 6
-
     };
 
 
