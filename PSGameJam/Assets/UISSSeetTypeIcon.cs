@@ -31,7 +31,7 @@ public class UISSSeetTypeIcon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (playerLogic.seeds.currentSeed) {
+        switch (SeedLogic.currentSeed) {
             case "wheat":
                 m_Image.sprite = CropImages[0];
                 break;

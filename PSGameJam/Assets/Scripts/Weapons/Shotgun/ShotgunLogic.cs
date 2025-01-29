@@ -19,15 +19,11 @@ public class ShotgunLogic : MonoBehaviour
     private float spreadAngle;
     [SerializeField]
     private Vector2 offsetPoint;
-    //[SerializeField]
-    //private GameObject aimPrefab;
     [SerializeField]
     private GameObject shotgunPrefab;
     [SerializeField]
     private GameObject shotgunVFX;
 
-    //private GameObject aimObject1;
-    //private GameObject aimObject2;
     private float minAimDegree;
     private float maxAimDegree;
     private float destroyObjectTimer = 0.05f;

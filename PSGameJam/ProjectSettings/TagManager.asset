@@ -41,6 +41,8 @@ TagManager:
   - UIMBCHydroBar
   - UIMBCOverheatBar
   - UIOCTimeBar
+  - WaterRefuel
+  - WaterRefuelText
   layers:
   - Default
   - TransparentFX

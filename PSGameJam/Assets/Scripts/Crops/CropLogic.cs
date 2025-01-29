@@ -160,6 +160,13 @@ public class CropLogic : MonoBehaviour
         else
             return false;
     }
+    public bool IsGrown()
+    {
+        if (growthPercentage >= 100)
+            return true;
+        else
+            return false;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

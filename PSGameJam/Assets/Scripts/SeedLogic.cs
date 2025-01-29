@@ -20,12 +20,8 @@ public class SeedLogic : MonoBehaviour
     private int strawBerrySeedCount = 0;
     private int blackberrySeedCount;
     private int eggplantSeedCount;
-    private PlayerController playerLogic;
 
-    private GameObject playerObj;
-
-    [SerializeField]
-    public string currentSeed = "wheat";
+    public static string currentSeed = "wheat";
 
     [SerializeField]    
     public String[] typesOfSeeds = {
@@ -36,7 +32,6 @@ public class SeedLogic : MonoBehaviour
         "potato", // 4
         "blackberry", // 5
         "eggplant", // 6
-
     };
 
 

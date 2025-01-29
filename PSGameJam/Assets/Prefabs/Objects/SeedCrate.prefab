@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8030389979030118350}
   m_Layer: 0
   m_Name: SeedCrate
-  m_TagString: Untagged
+  m_TagString: SeedCrate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 1937704530235768453}
   - component: {fileID: 8901218342771155861}
   m_Layer: 0
-  m_Name: CreateText
+  m_Name: CrateText
   m_TagString: SeedCrateText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -38,7 +38,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float jetOffsetSpeed;
     [SerializeField]
-    private float overHeatRate;
+    private float overHeatRateJetpack;
+    [SerializeField]
+    private float overHeatRateFlamethrower;
     [SerializeField]
     private float cooldownRate;
     [SerializeField] 
@@ -173,12 +175,14 @@ public class PlayerController : MonoBehaviour
         UIM = GameObject.FindGameObjectWithTag("UIMoney");
         UISSSC = GameObject.FindGameObjectWithTag("SeedSelectionSeedCount");
 
-        // UI Overheat bar logic
+
+        // UI Hydrobar logic
         UIMBCHB = GameObject.FindGameObjectWithTag("UIMBCHydroBar");
         UIMBCSlider = UIMBCHB.GetComponent<UnityEngine.UI.Slider>();
         UIMBCSlider.value = waterTankLevel;
+
         // UI Overheat bar logic
-        UIMBCOB = GameObject.FindGameObjectWithTag("UIMBCHydroBar");
+        UIMBCOB = GameObject.FindGameObjectWithTag("UIMBCOverheatBar");
         UIMBCOBlider = UIMBCOB.GetComponent<UnityEngine.UI.Slider>();
         UIMBCOBlider.value = overheatVal;
 
@@ -194,7 +198,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update() {
         UIM.GetComponent<TMP_Text>().text = "$" + Wallet;
-        UISSSC.GetComponent<TMP_Text>().text = "" + seeds.GetSeedCount(seeds.currentSeed);
+        UISSSC.GetComponent<TMP_Text>().text = "" + seeds.GetSeedCount(SeedLogic.currentSeed);
         ProcessOverHeat();
     }
 
@@ -605,17 +609,15 @@ public class PlayerController : MonoBehaviour
     private void ProcessOverHeat()
     {
         if (usingJets)
-            overheatVal += overHeatRate / 100;
-            UIMBCOBlider.value = overheatVal;
+            overheatVal += overHeatRateJetpack / 100;
 
         if (flameThrowerGO != null)
-            overheatVal += overHeatRate / 100;
-            UIMBCOBlider.value = overheatVal;
+            overheatVal += overHeatRateFlamethrower / 100;
+        
 
         if (overheatVal > 100.0f)
         {
             overheatVal = 100.0f;
-            UIMBCOBlider.value = overheatVal;
             jetLockdown = true;
             flameThrowerLockdown = true;
 
@@ -629,15 +631,15 @@ public class PlayerController : MonoBehaviour
 
         if (!usingJets && flameThrowerGO == null)
             overheatVal -= cooldownRate / 100;
-            UIMBCOBlider.value = overheatVal;
 
         if (overheatVal < 0.0f)
         {
             overheatVal = 0.0f;
             jetLockdown = false;
             flameThrowerLockdown = false;
-            UIMBCOBlider.value = overheatVal;
         }
+
+        UIMBCOBlider.value = overheatVal;
     }
 
     IEnumerator ScreenShake()

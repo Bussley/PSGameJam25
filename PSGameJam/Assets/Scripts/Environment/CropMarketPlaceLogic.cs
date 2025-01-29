@@ -96,32 +96,35 @@ public class CropMarketPlaceLogic : MonoBehaviour
     public Sprite SwitchImage(String crop_type)
     {
         // Wheat, Potato, Tomato, Strawberry, Blackberry, Pepper, Eggplant
+        Sprite ret;
+
         switch (crop_type)
         {
             case "wheat":
-                return UICropImage[0];
+                ret = UICropImage[0];
                 break;
             case "potato":
-                return UICropImage[1];
+                ret = UICropImage[1];
                 break;
             case "tomato":
-                return UICropImage[2];
+                ret = UICropImage[2];
                 break;
             case "strawberry":
-                return UICropImage[3];
+                ret = UICropImage[3];
                 break;
             case "blackberry":
-                return UICropImage[4];
+                ret = UICropImage[4];
                 break;
             case "pepper":
-                return UICropImage[5];
+                ret = UICropImage[5];
                 break;
             case "eggplant":
-                return UICropImage[6];
+                ret = UICropImage[6];
                 break;
             default:
-                return UICropImage[0];
+                ret = UICropImage[0];
                 break;
         }
+        return ret;
     }
 }

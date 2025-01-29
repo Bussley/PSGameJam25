@@ -255,7 +255,8 @@ MonoBehaviour:
   moveSpeed: 2
   jetSpeed: 4
   jetOffsetSpeed: 0.1
-  overHeatRate: 1
+  overHeatRateJetpack: 4
+  overHeatRateFlamethrower: 2
   cooldownRate: 5
   screenShakeDuration: 0.1
   screenShakeStrength:

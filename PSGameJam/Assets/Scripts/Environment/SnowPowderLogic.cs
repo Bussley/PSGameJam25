@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class SnowPowderLogic : MonoBehaviour
 {
-
+    private void OnDestroy()
+    {
+        WeatherManager.DestroySnowPowder();
+    }
 }
