@@ -26,7 +26,7 @@ public class BountyLogic : MonoBehaviour
     private float bountyStartTime;
 
     [SerializeField]
-    private short bountyMaxTime = 60;
+    private float bountyMaxTime = 200.0f;
 
 
     // Have we started the bounty
@@ -83,6 +83,10 @@ public class BountyLogic : MonoBehaviour
 
     private bool interactWithBoard;
 
+    // UI Order Container Time Bar
+    private GameObject UIOCTB;
+    private UnityEngine.UI.Slider UIOCTBSlider;
+
     
 
 
@@ -119,10 +123,12 @@ public class BountyLogic : MonoBehaviour
         UIOC = GameObject.FindGameObjectWithTag("UIOrderContainer");
         UIOC.SetActive(false);
         BountyGenerate();
+
     }
 
     private void Update(){
         if (bountyStart) {
+            //UIOCTBSlider.value = bountyMaxTime;
             UIOC.SetActive(true);
             BountyIsComplete();
             BountyCheckTimer();
@@ -204,13 +210,17 @@ public class BountyLogic : MonoBehaviour
 
     // Put timer on bounty
     private void BountyCheckTimer() {
+        UIOCTB = GameObject.FindGameObjectWithTag("UIOCTimeBar");
+        UIOCTBSlider = UIOCTB.GetComponent<UnityEngine.UI.Slider>();
         var currentTime = Time.time;
         var timePassed = currentTime - bountyStartTime;
+        //UIOCTBSlider.value = timePassed;
         //Debug.Log("Time passed: " + timePassed);
         if ( timePassed > bountyMaxTime ){
             Debug.Log("Failed to complete bounty!");
             bountyStart = false;
             bountyCropCount = 0;
         }
+        UIOCTBSlider.value = bountyMaxTime - timePassed;
     }
 }

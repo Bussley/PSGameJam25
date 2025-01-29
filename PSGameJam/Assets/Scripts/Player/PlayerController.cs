@@ -148,7 +148,10 @@ public class PlayerController : MonoBehaviour
     private GameObject UIM;
 
     private GameObject UISSSC;
-    private GameObject UIMBC;
+    private GameObject UIMBCHB;
+    private UnityEngine.UI.Slider UIMBCSlider;
+    private GameObject UIMBCOB;
+    private UnityEngine.UI.Slider UIMBCOBlider;
     
     private void Awake() {
         wallet = 0.0f;
@@ -169,6 +172,15 @@ public class PlayerController : MonoBehaviour
         jetPackVFXGO.GetComponent<VisualEffect>().Stop();
         UIM = GameObject.FindGameObjectWithTag("UIMoney");
         UISSSC = GameObject.FindGameObjectWithTag("SeedSelectionSeedCount");
+
+        // UI Overheat bar logic
+        UIMBCHB = GameObject.FindGameObjectWithTag("UIMBCHydroBar");
+        UIMBCSlider = UIMBCHB.GetComponent<UnityEngine.UI.Slider>();
+        UIMBCSlider.value = waterTankLevel;
+        // UI Overheat bar logic
+        UIMBCOB = GameObject.FindGameObjectWithTag("UIMBCHydroBar");
+        UIMBCOBlider = UIMBCOB.GetComponent<UnityEngine.UI.Slider>();
+        UIMBCOBlider.value = overheatVal;
 
         UIselect = new List<GameObject>();
 
@@ -492,6 +504,7 @@ public class PlayerController : MonoBehaviour
             canMove = true;
             usingWeapon = false;
             playerAnimatior.SetBool("IsAttacking", false);
+            seeds.ShootSeed(shotgunGO.GetComponent<ShotgunLogic>().GetSeedCount());
             sfx.playSound(7); //play reload sound
         }
     }
@@ -534,6 +547,8 @@ public class PlayerController : MonoBehaviour
             TimerManager.AddTimer(moveFunc, waitTimetoMove);
             float wlevel = waterTankLevel - 25.0f;
             PlayerWaterTankLevel(wlevel);
+            UIMBCSlider.value = waterTankLevel;
+
         }
 
     }
@@ -591,13 +606,16 @@ public class PlayerController : MonoBehaviour
     {
         if (usingJets)
             overheatVal += overHeatRate / 100;
+            UIMBCOBlider.value = overheatVal;
 
         if (flameThrowerGO != null)
             overheatVal += overHeatRate / 100;
+            UIMBCOBlider.value = overheatVal;
 
         if (overheatVal > 100.0f)
         {
             overheatVal = 100.0f;
+            UIMBCOBlider.value = overheatVal;
             jetLockdown = true;
             flameThrowerLockdown = true;
 
@@ -611,12 +629,14 @@ public class PlayerController : MonoBehaviour
 
         if (!usingJets && flameThrowerGO == null)
             overheatVal -= cooldownRate / 100;
+            UIMBCOBlider.value = overheatVal;
 
         if (overheatVal < 0.0f)
         {
             overheatVal = 0.0f;
             jetLockdown = false;
             flameThrowerLockdown = false;
+            UIMBCOBlider.value = overheatVal;
         }
     }
 
