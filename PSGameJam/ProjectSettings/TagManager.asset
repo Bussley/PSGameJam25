@@ -38,6 +38,9 @@ TagManager:
   - UIStalkMarket
   - UIHighCrop
   - UILowCrop
+  - UIMBCHydroBar
+  - UIMBCOverheatBar
+  - UIOCTimeBar
   layers:
   - Default
   - TransparentFX

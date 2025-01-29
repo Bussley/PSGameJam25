@@ -141,10 +141,17 @@ public class PlayerController : MonoBehaviour
         UI<>
         SSSC = Seed Selection Seed Count
         SSSC = Seed Selection Seed Type Icon
+        MBC = Meter Bar Container
+        MBCHB = Meter Bar Container Hydrobar
+        MBCOB = Meter Bar Container Overheat Bar 
     */
     private GameObject UIM;
 
     private GameObject UISSSC;
+    private GameObject UIMBCHB;
+    private UnityEngine.UI.Slider UIMBCSlider;
+    private GameObject UIMBCOB;
+    private UnityEngine.UI.Slider UIMBCOBlider;
     
     private void Awake() {
         wallet = 0.0f;
@@ -166,6 +173,17 @@ public class PlayerController : MonoBehaviour
         UIM = GameObject.FindGameObjectWithTag("UIMoney");
         UISSSC = GameObject.FindGameObjectWithTag("SeedSelectionSeedCount");
 
+
+        // UI Hydrobar logic
+        UIMBCHB = GameObject.FindGameObjectWithTag("UIMBCHydroBar");
+        UIMBCSlider = UIMBCHB.GetComponent<UnityEngine.UI.Slider>();
+        UIMBCSlider.value = waterTankLevel;
+
+        // UI Overheat bar logic
+        UIMBCOB = GameObject.FindGameObjectWithTag("UIMBCOverheatBar");
+        UIMBCOBlider = UIMBCOB.GetComponent<UnityEngine.UI.Slider>();
+        UIMBCOBlider.value = overheatVal;
+
         UIselect = new List<GameObject>();
 
         for (int i = 1; i < typesOfWeapons.Length; i++)
@@ -177,7 +195,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update() {
-        UIM.GetComponent<TMP_Text>().text = "Money: $" + Wallet;
+        UIM.GetComponent<TMP_Text>().text = "$" + Wallet;
         UISSSC.GetComponent<TMP_Text>().text = "" + seeds.GetSeedCount(seeds.currentSeed);
         ProcessOverHeat();
     }
@@ -488,6 +506,7 @@ public class PlayerController : MonoBehaviour
             canMove = true;
             usingWeapon = false;
             playerAnimatior.SetBool("IsAttacking", false);
+            seeds.ShootSeed(shotgunGO.GetComponent<ShotgunLogic>().GetSeedCount());
             sfx.playSound(7); //play reload sound
         }
     }
@@ -530,6 +549,8 @@ public class PlayerController : MonoBehaviour
             TimerManager.AddTimer(moveFunc, waitTimetoMove);
             float wlevel = waterTankLevel - 25.0f;
             PlayerWaterTankLevel(wlevel);
+            UIMBCSlider.value = waterTankLevel;
+
         }
 
     }
@@ -587,13 +608,16 @@ public class PlayerController : MonoBehaviour
     {
         if (usingJets)
             overheatVal += overHeatRate / 100;
+            UIMBCOBlider.value = overheatVal;
 
         if (flameThrowerGO != null)
             overheatVal += overHeatRate / 100;
+            UIMBCOBlider.value = overheatVal;
 
         if (overheatVal > 100.0f)
         {
             overheatVal = 100.0f;
+            UIMBCOBlider.value = overheatVal;
             jetLockdown = true;
             flameThrowerLockdown = true;
 
@@ -607,12 +631,14 @@ public class PlayerController : MonoBehaviour
 
         if (!usingJets && flameThrowerGO == null)
             overheatVal -= cooldownRate / 100;
+            UIMBCOBlider.value = overheatVal;
 
         if (overheatVal < 0.0f)
         {
             overheatVal = 0.0f;
             jetLockdown = false;
             flameThrowerLockdown = false;
+            UIMBCOBlider.value = overheatVal;
         }
     }
 
@@ -634,7 +660,6 @@ public class PlayerController : MonoBehaviour
     public bool GetUsingJets()
     { return usingJets; }
 
-    // BROKEN FUCKING STUPID... GETTTING Object reference not set to an instance of an object
     private void UIWeaponSelection(int uiweapon){
         for (int i = 1; i < typesOfWeapons.Length; i++)
         {

@@ -68,7 +68,7 @@ public class SeedHolder : MonoBehaviour
 
     private void Update()
     {
-        showText = "Refel " + playerLogic.seeds.currentSeed;
+        showText = "Refuel " + playerLogic.seeds.currentSeed;
         seedCrateObj.GetComponent<TMP_Text>().text = showText;
         if (seedRefuelAllowed && Input.GetKeyDown(KeyCode.F))
         {

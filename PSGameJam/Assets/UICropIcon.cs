@@ -26,39 +26,43 @@ public class UICropIcon : MonoBehaviour
         bontyObj = GameObject.FindGameObjectWithTag("CropMarketBoard");
         bLogic = bontyObj.GetComponent<BountyLogic>();
         m_Image = GetComponent<Image>();
+        m_Image.sprite = null;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (bLogic.bountyCrop) {
-            case "wheat":
-                m_Image.sprite = CropImages[0];
-                break;
-            case "tomato":
-                m_Image.sprite = CropImages[1];
-                break;
-            case "potato":
-                m_Image.sprite = CropImages[2];
-                break;
-            case "strawberry":
-                m_Image.sprite = CropImages[3];
-                break;
-            case "pepper":
-                m_Image.sprite = CropImages[4];
-                break;
-            case "eggplant":
-                m_Image.sprite = CropImages[5];
-                break;
-            case "blackberry":
-                m_Image.sprite = CropImages[6];
-                break;
-            default:
-                m_Image.sprite = null;
-                break;                                              
+        if (bLogic.bountyStart) {
+            switch (bLogic.bountyCrop) {
+                case "wheat":
+                    m_Image.sprite = CropImages[0];
+                    break;
+                case "tomato":
+                    m_Image.sprite = CropImages[1];
+                    break;
+                case "potato":
+                    m_Image.sprite = CropImages[2];
+                    break;
+                case "strawberry":
+                    m_Image.sprite = CropImages[3];
+                    break;
+                case "pepper":
+                    m_Image.sprite = CropImages[4];
+                    break;
+                case "eggplant":
+                    m_Image.sprite = CropImages[5];
+                    break;
+                case "blackberry":
+                    m_Image.sprite = CropImages[6];
+                    break;
+                default:
+                    m_Image.sprite = null;
+                    break;                                              
+            }
         }
-        
-        
+        else {
+            m_Image.sprite = null;
+        }      
     }
 }

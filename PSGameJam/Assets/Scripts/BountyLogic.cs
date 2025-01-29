@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 
 public class BountyLogic : MonoBehaviour
@@ -25,7 +26,7 @@ public class BountyLogic : MonoBehaviour
     private float bountyStartTime;
 
     [SerializeField]
-    private short bountyMaxTime = 60;
+    private float bountyMaxTime = 200.0f;
 
 
     // Have we started the bounty
@@ -57,6 +58,7 @@ public class BountyLogic : MonoBehaviour
     */
     private GameObject UIOCOA;
     private GameObject UITT;
+    private GameObject UIOC;
 
 
     private Dictionary<String, int> cropMarketPrices = new Dictionary<string, int>();
@@ -81,6 +83,12 @@ public class BountyLogic : MonoBehaviour
 
     private bool interactWithBoard;
 
+    // UI Order Container Time Bar
+    private GameObject UIOCTB;
+    private UnityEngine.UI.Slider UIOCTBSlider;
+
+    
+
 
     /*
     function that will payout if bounty is complete
@@ -88,6 +96,11 @@ public class BountyLogic : MonoBehaviour
     function to pick up new bounty
     function to see if bounty expires. 
     */
+
+    private void Start() {
+        bountyStart = false;
+
+    }
 
     private void Awake() {
         playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -107,20 +120,28 @@ public class BountyLogic : MonoBehaviour
         bountyMaxCount = 10;
         UIOCOA = GameObject.FindGameObjectWithTag("UIOrderContainerOrderAmount");
         UITT = GameObject.FindGameObjectWithTag("UITaskText");
-
+        UIOC = GameObject.FindGameObjectWithTag("UIOrderContainer");
+        UIOC.SetActive(false);
         BountyGenerate();
+
     }
 
     private void Update(){
         if (bountyStart) {
+            //UIOCTBSlider.value = bountyMaxTime;
+            UIOC.SetActive(true);
             BountyIsComplete();
             BountyCheckTimer();
             UIOCOA.GetComponent<TMP_Text>().text = bountyCropCount + "/" + bountyMaxCount;
             UITT.GetComponent<TMP_Text>().text = "Please harvest "+ bountyMaxCount + " " + bountyCrop +"s. Reward: $" + bountyRewardValue;
         }
         else {
+            if (UIOC.active) {
+                UIOC.SetActive(false);
+            }
+            
             UIOCOA.GetComponent<TMP_Text>().text = "";
-            UITT.GetComponent<TMP_Text>().text = "";
+            UITT.GetComponent<TMP_Text>().text = "Go to the Stalk Market to accept an order.";
             bountyCrop = "";
         }
         if (startTimer) {
@@ -189,13 +210,17 @@ public class BountyLogic : MonoBehaviour
 
     // Put timer on bounty
     private void BountyCheckTimer() {
+        UIOCTB = GameObject.FindGameObjectWithTag("UIOCTimeBar");
+        UIOCTBSlider = UIOCTB.GetComponent<UnityEngine.UI.Slider>();
         var currentTime = Time.time;
         var timePassed = currentTime - bountyStartTime;
+        //UIOCTBSlider.value = timePassed;
         //Debug.Log("Time passed: " + timePassed);
         if ( timePassed > bountyMaxTime ){
             Debug.Log("Failed to complete bounty!");
             bountyStart = false;
             bountyCropCount = 0;
         }
+        UIOCTBSlider.value = bountyMaxTime - timePassed;
     }
 }

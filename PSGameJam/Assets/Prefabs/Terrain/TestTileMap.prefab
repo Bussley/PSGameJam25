@@ -50948,6 +50948,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Potato
       objectReference: {fileID: 0}
+    - target: {fileID: 8215194280769094780, guid: 36404f915ba460544a7520a358253afa, type: 3}
+      propertyPath: bountyMaxTime
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 8423950987056503866, guid: 36404f915ba460544a7520a358253afa, type: 3}
       propertyPath: m_Name
       value: CropMarketBoard

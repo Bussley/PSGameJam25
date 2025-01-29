@@ -8,9 +8,6 @@ public class UISSSeetTypeIcon : MonoBehaviour
 
 
     private PlayerController playerLogic;
-    // Seed Count text mesh pro
-    private TextMesh sCount;
-
     private GameObject playerObj;
     /*
     0 wheat
@@ -60,7 +57,5 @@ public class UISSSeetTypeIcon : MonoBehaviour
                 m_Image.sprite = null;
                 break;                                              
         }
-        
-        
     }
 }
