@@ -42,14 +42,19 @@ public class SeedHolder : MonoBehaviour
     private int blackberryValue = 6;
 
     private GameObject seedCrateObj;
+    private GameObject seedCrateObj1;
 
+    private string scStext = "<Q R>";
 
     private void Awake()
     {
         seedCrateObj = GameObject.FindGameObjectWithTag("SeedCrateText");
+        seedCrateObj1 = GameObject.FindGameObjectWithTag("SeedCreateSwitchText");
         playerObj = GameObject.FindGameObjectWithTag("Player");
         playerLogic = playerObj.GetComponent<PlayerController>();
         seedCrateObj.SetActive(false);
+        seedCrateObj1.SetActive(false);
+
         seedRefuelAllowed = false;
         
 
@@ -63,6 +68,8 @@ public class SeedHolder : MonoBehaviour
         SeedPrices.Add("blackberry", blackberryValue);
         showText = "Refel " + SeedLogic.currentSeed;
         seedCrateObj.GetComponent<TMP_Text>().text = showText;
+        seedCrateObj1.GetComponent<TMP_Text>().text = scStext;
+
 
     }
 
@@ -70,6 +77,7 @@ public class SeedHolder : MonoBehaviour
     {
         showText = "Refuel " + SeedLogic.currentSeed;
         seedCrateObj.GetComponent<TMP_Text>().text = showText;
+        seedCrateObj1.GetComponent<TMP_Text>().text = scStext;
         if (seedRefuelAllowed && Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("Filling up Seed");
@@ -87,6 +95,7 @@ public class SeedHolder : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            seedCrateObj1.gameObject.SetActive(true);
             seedCrateObj.gameObject.SetActive(true);
             seedRefuelAllowed = true;
         }
@@ -98,6 +107,8 @@ public class SeedHolder : MonoBehaviour
         {
             Debug.Log("Good by. Please come back to get more seeds!");
             seedCrateObj.gameObject.SetActive(false);
+            seedCrateObj1.gameObject.SetActive(false);
+
             seedRefuelAllowed = false;
         }
     }
