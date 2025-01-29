@@ -255,8 +255,8 @@ MonoBehaviour:
   moveSpeed: 2
   jetSpeed: 4
   jetOffsetSpeed: 0.1
-  overHeatRateJetpack: 4
-  overHeatRateFlamethrower: 2
+  overHeatRateJetpack: 20
+  overHeatRateFlamethrower: 10
   cooldownRate: 5
   screenShakeDuration: 0.1
   screenShakeStrength:
@@ -743,11 +743,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111a8fdedd7534145be40bd4604c3f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tomatoSeedCount: 0
-  wheatSeedCount: 10
-  potatoSeedCount: 0
-  pepperSeedCount: 0
-  strawBerrySeedCount: 0
   typesOfSeeds:
   - wheat
   - tomato

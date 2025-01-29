@@ -44,7 +44,7 @@ public class SeedHolder : MonoBehaviour
     private GameObject seedCrateObj;
     private GameObject seedCrateObj1;
 
-    private string scStext = "<Q R>";
+    private string scStext = "< Q   R >";
 
     private void Awake()
     {
