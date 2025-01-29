@@ -48,3 +48,4 @@ MonoBehaviour:
   TileMapPrefab: {fileID: 8971614090246061872, guid: fcd3356584633c941b5f6dd3c2bcd5f9, type: 3}
   UtilityManagerPrefab: {fileID: 4477647027082334977, guid: 4321e5701a458254ba7571a69210dd51, type: 3}
   UIPrefab: {fileID: 6081733069611784623, guid: db36357216bd5db42aa9255a93913122, type: 3}
+  DuckPrefab: {fileID: 5698810433423248471, guid: c9e319756bbb01749b458f701d920f52, type: 3}

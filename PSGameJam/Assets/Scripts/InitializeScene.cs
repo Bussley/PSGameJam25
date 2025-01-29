@@ -16,10 +16,14 @@ public class InitializeScene : MonoBehaviour
     [SerializeField]
     private GameObject UIPrefab;
 
+    [SerializeField]
+    private GameObject DuckPrefab;
+
     private GameObject MarketBoard;
 
     void Awake()
     {
+        Instantiate(DuckPrefab);
         Instantiate(UIPrefab);
         Instantiate(PlayerPrefab);
         GameObject map = Instantiate(TileMapPrefab);
