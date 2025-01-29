@@ -46,7 +46,7 @@ public class RefuelWater : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Equals("Player"))
+        if (collision.gameObject.tag == "Player")
         {
             //wText.gameObject.SetActive(true);
             wText.GetComponent<TMP_Text>().text = refuelText;
@@ -56,7 +56,7 @@ public class RefuelWater : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Equals("Player"))
+        if (collision.gameObject.tag == "Player")
         {
             //wText.SetActive(false);
             wText.GetComponent<TMP_Text>().text = "";
