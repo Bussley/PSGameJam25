@@ -43,6 +43,7 @@ TagManager:
   - UIOCTimeBar
   - WaterRefuel
   - WaterRefuelText
+  - SeedCreateSwitchText
   layers:
   - Default
   - TransparentFX

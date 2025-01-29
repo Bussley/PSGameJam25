@@ -14,6 +14,8 @@ public class RefuelWater : MonoBehaviour
 
     [SerializeField]
     private PlayerController player;
+
+    private GameObject playerObj;
     private GameObject UIMBCHB;
     private GameObject wText;
     private UnityEngine.UI.Slider UIMBCSlider;
@@ -21,6 +23,8 @@ public class RefuelWater : MonoBehaviour
 
     private void Start()
     {
+        playerObj = GameObject.FindGameObjectWithTag("Player");
+        player = playerObj.GetComponent<PlayerController>();
         // UI Overheat bar logic
         UIMBCHB = GameObject.FindGameObjectWithTag("UIMBCHydroBar");
         UIMBCSlider = UIMBCHB.GetComponent<UnityEngine.UI.Slider>();

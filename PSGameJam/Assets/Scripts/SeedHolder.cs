@@ -42,14 +42,19 @@ public class SeedHolder : MonoBehaviour
     private int blackberryValue = 6;
 
     private GameObject seedCrateObj;
+    private GameObject seedCrateObj1;
 
+    private string scStext = "<Q R>";
 
     private void Awake()
     {
         seedCrateObj = GameObject.FindGameObjectWithTag("SeedCrateText");
+        seedCrateObj1 = GameObject.FindGameObjectWithTag("SeedCreateSwitchText");
         playerObj = GameObject.FindGameObjectWithTag("Player");
         playerLogic = playerObj.GetComponent<PlayerController>();
         seedCrateObj.SetActive(false);
+        seedCrateObj1.SetActive(false);
+
         seedRefuelAllowed = false;
         
 
@@ -61,15 +66,18 @@ public class SeedHolder : MonoBehaviour
         SeedPrices.Add("pepper", pepperValue);
         SeedPrices.Add("eggplant", eggplantValue);
         SeedPrices.Add("blackberry", blackberryValue);
-        showText = "Refel " + playerLogic.seeds.currentSeed;
+        showText = "Refel " + SeedLogic.currentSeed;
         seedCrateObj.GetComponent<TMP_Text>().text = showText;
+        seedCrateObj1.GetComponent<TMP_Text>().text = scStext;
+
 
     }
 
     private void Update()
     {
-        showText = "Refuel " + playerLogic.seeds.currentSeed;
+        showText = "Refuel " + SeedLogic.currentSeed;
         seedCrateObj.GetComponent<TMP_Text>().text = showText;
+        seedCrateObj1.GetComponent<TMP_Text>().text = scStext;
         if (seedRefuelAllowed && Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("Filling up Seed");
@@ -87,6 +95,7 @@ public class SeedHolder : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            seedCrateObj1.gameObject.SetActive(true);
             seedCrateObj.gameObject.SetActive(true);
             seedRefuelAllowed = true;
         }
@@ -98,13 +107,15 @@ public class SeedHolder : MonoBehaviour
         {
             Debug.Log("Good by. Please come back to get more seeds!");
             seedCrateObj.gameObject.SetActive(false);
+            seedCrateObj1.gameObject.SetActive(false);
+
             seedRefuelAllowed = false;
         }
     }
 
     private void BuySeeds(){
         var currentMoney = playerLogic.wallet;
-        var currentSeed = playerLogic.seeds.currentSeed;
+        var currentSeed = SeedLogic.currentSeed;
         var seedPrice = SeedPrices[currentSeed];
 
         if (seedPrice > currentMoney) {
@@ -114,8 +125,8 @@ public class SeedHolder : MonoBehaviour
             // Subtract wallet money to buys seeds
             Debug.Log("Buying seed:" + currentSeed + " For price: "+ seedPrice);
             playerLogic.wallet -= seedPrice;
-            playerLogic.seeds.SeedLevel(maxSeedRefuel, playerLogic.seeds.currentSeed);
-            Debug.Log(playerLogic.seeds.currentSeed+":"+ playerLogic.seeds.GetSeedCount(playerLogic.seeds.currentSeed));
+            playerLogic.seeds.SeedLevel(maxSeedRefuel, SeedLogic.currentSeed);
+            Debug.Log(SeedLogic.currentSeed+":"+ playerLogic.seeds.GetSeedCount(SeedLogic.currentSeed));
 
         }
         else {

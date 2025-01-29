@@ -198,7 +198,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update() {
         UIM.GetComponent<TMP_Text>().text = "$" + Wallet;
-        UISSSC.GetComponent<TMP_Text>().text = "" + seeds.GetSeedCount(seeds.currentSeed);
+        UISSSC.GetComponent<TMP_Text>().text = "" + seeds.GetSeedCount(SeedLogic.currentSeed);
         ProcessOverHeat();
     }
 

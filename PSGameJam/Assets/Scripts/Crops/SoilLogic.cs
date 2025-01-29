@@ -7,6 +7,18 @@ public class SoilLogic : MonoBehaviour
 {
     [SerializeField]
     private GameObject potatoPrefab;
+    [SerializeField]
+    private GameObject wheatPrefab;
+    [SerializeField]
+    private GameObject eggplantPrefab;
+    [SerializeField]
+    private GameObject strawberryPrefab;
+    [SerializeField]
+    private GameObject blackberryPrefab;
+    [SerializeField]
+    private GameObject tomatoPrefab;
+    [SerializeField]
+    private GameObject pepperPrefab;
 
     [SerializeField]
     private Sprite wateredSoil;
@@ -43,8 +55,37 @@ public class SoilLogic : MonoBehaviour
     }
 
     public void AddSeed() {
-        if(!charred && crop == null)
-            crop = Instantiate(potatoPrefab, transform);
+        if (!charred && crop == null)
+        {
+            switch(SeedLogic.currentSeed)
+            {
+                case "potato":
+                    crop = Instantiate(potatoPrefab, transform);
+                    break;
+                case "wheat":
+                    crop = Instantiate(wheatPrefab, transform);
+                    break;
+                case "eggplant":
+                    crop = Instantiate(eggplantPrefab, transform);
+                    break;
+                case "strawberry":
+                    crop = Instantiate(strawberryPrefab, transform);
+                    break;
+                case "blackberry":
+                    crop = Instantiate(blackberryPrefab, transform);
+                    break;
+                case "tomato":
+                    crop = Instantiate(tomatoPrefab, transform);
+                    break;
+                case "pepper":
+                    crop = Instantiate(pepperPrefab, transform);
+                    break;
+                default:
+                    crop = Instantiate(potatoPrefab, transform);
+                    break;
+            }
+            
+        }
     }
 
     public void Watered()
