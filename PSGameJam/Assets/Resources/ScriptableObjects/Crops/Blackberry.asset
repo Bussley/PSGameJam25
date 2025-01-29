@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76fb84a304ac9204898fd9dcfa126da4, type: 3}
-  m_Name: Blackberry
+  m_Name: blackberry
   m_EditorClassIdentifier: 
-  cropType: Blackberry
+  cropType: blackberry
   baseMarketValue: 6
   growSpeedTime: 0.5
   growToYoungCrop: 10
   growToGrowingCrop: 50
   cropCrowDurabilityTime: 0
   cropFreezeDurabilityTime: 0
-  cropDurabilityTime: 10
-  CropSprite: {fileID: -535249076, guid: 04d98741ebe63294d8e2a069384846c9, type: 3}
+  cropDurabilityTime: 0
+  CropSprite: {fileID: 0}
   seedSprite: {fileID: 5277730378181330140, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
   youngCropSprite: {fileID: -84004533, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
   growingCropSprite: {fileID: 409681855, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
