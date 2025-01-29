@@ -9,6 +9,8 @@ public class DestructibleEnviromentLogic : MonoBehaviour
     private float shakeTime;
     [SerializeField] 
     private AnimationCurve shakeCurve;
+    [SerializeField] 
+    private GameObject smashParticale;
 
     [SerializeField]
     private bool canBeDestroyedByLaser;
@@ -54,7 +56,10 @@ public class DestructibleEnviromentLogic : MonoBehaviour
 
 
         if (health <= 0)
+        {
+            Instantiate(smashParticale, transform.position, Quaternion.identity);
             Destroy(gameObject);
+        }
         else if (!shaking)
         {
             shaking = true;

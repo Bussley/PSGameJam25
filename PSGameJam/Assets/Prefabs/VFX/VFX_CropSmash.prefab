@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7909793202261350673}
   - component: {fileID: 6618586601823290584}
   - component: {fileID: 5768935662804854186}
+  - component: {fileID: 3561750195798474298}
   m_Layer: 0
   m_Name: VFX_CropSmash
   m_TagString: Untagged
@@ -114,3 +115,15 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
+--- !u!114 &3561750195798474298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7091271451624670895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10943e0d278d1c4f998696ccf6e46df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
