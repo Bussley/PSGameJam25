@@ -145,6 +145,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  smashParticale: {fileID: 5429062377882239139, guid: 52894ecb48be22647aaeaf65e596d672, type: 3}
   canBeDestroyedByLaser: 1
   canBeDestroyedByShotgun: 1
   canBeDestroyedByFireHose: 0
