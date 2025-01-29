@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: -8409307826161904694}
   - component: {fileID: 266873412056456813}
   - component: {fileID: 7303564420094882813}
-  - component: {fileID: 2411378753843147519}
+  - component: {fileID: 2736123016531937430}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -731,7 +731,7 @@ MonoBehaviour:
   footsies7: {fileID: 8044704292343409670, guid: 6f234b767edce304ba8dd6256985f4ec, type: 3}
   Robot: 1
   left: 1
---- !u!114 &2411378753843147519
+--- !u!114 &2736123016531937430
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -748,10 +748,11 @@ MonoBehaviour:
   potatoSeedCount: 0
   pepperSeedCount: 0
   strawBerrySeedCount: 0
-  currentSeed: wheat
   typesOfSeeds:
   - wheat
   - tomato
   - pepper
   - strawberry
   - potato
+  - blackberry
+  - eggplant
