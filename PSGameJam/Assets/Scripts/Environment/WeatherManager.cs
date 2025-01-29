@@ -34,6 +34,8 @@ public class WeatherManager : MonoBehaviour {
     private static UnityEvent snowWeather = new UnityEvent();
     private Stack<GameObject> snowObjects = new Stack<GameObject>();
 
+    private static int amountSnowPowder = 0;
+
     void Awake()
     {
         rainParticaleObject = Instantiate(rainPrefab, GameObject.FindGameObjectWithTag("MainCamera").transform);
@@ -58,7 +60,7 @@ public class WeatherManager : MonoBehaviour {
     private void SnowSpawnLogic()
     {
         // Make snow fall
-        if (nextSnowSpawn < Time.time)
+        if (amountSnowPowder <= 100 && nextSnowSpawn < Time.time)
         {
             Vector3 snowspawn = TileManager.GetSpawnableRandomPosition();
 
@@ -69,6 +71,7 @@ public class WeatherManager : MonoBehaviour {
             snowObjects.Push(snow);
             snow.transform.position = snowspawn + new Vector3(0.0f, 0.25f, 0.0f);
             nextSnowSpawn = Time.time + snowFallRate;
+            amountSnowPowder += 1;
         }
     }
     private void SnowMeltLogic()
@@ -87,6 +90,7 @@ public class WeatherManager : MonoBehaviour {
 
             Destroy(snowObjects.Pop());
             nextSnowMelt = Time.time + snowMeltRate;
+            amountSnowPowder -= 1;
         }
     }
 
@@ -144,5 +148,10 @@ public class WeatherManager : MonoBehaviour {
     public static bool Snowing()
     {
         return snowing;
+    }
+
+    public static void DestroySnowPowder()
+    {
+        amountSnowPowder -= 1;
     }
 }

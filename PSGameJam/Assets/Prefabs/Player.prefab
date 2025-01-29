@@ -255,7 +255,8 @@ MonoBehaviour:
   moveSpeed: 2
   jetSpeed: 4
   jetOffsetSpeed: 0.1
-  overHeatRate: 1
+  overHeatRateJetpack: 4
+  overHeatRateFlamethrower: 2
   cooldownRate: 5
   screenShakeDuration: 0.1
   screenShakeStrength:
@@ -315,6 +316,7 @@ MonoBehaviour:
   stopTime: 0.2916666
   seeds: {fileID: 4881669829250498636, guid: 8e52b02c585c9ff4384453dd0961b5e1, type: 3}
   sfx: {fileID: 0}
+  UIWeaponSelect: {fileID: 0}
 --- !u!50 &2678468580882921569
 Rigidbody2D:
   serializedVersion: 5

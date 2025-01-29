@@ -15,14 +15,11 @@ public class CropScriptableObject : ScriptableObject
 
     public float cropCrowDurabilityTime;
     public float cropFreezeDurabilityTime;
-    public float cropDurabilityTime;
     
-    public Sprite CropSprite;
     public Sprite seedSprite;
     public Sprite youngCropSprite;
     public Sprite growingCropSprite;
     public Sprite ripeCropSprite;
-
 
     public static float DehydrationSpeedTime = 0.1f;
 }
