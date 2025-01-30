@@ -129,7 +129,7 @@ MonoBehaviour:
   bountyCropCount: 0
   bountyMaxCount: 0
   bountyStartTime: 0
-  bountyMaxTime: 60
+  bountyMaxTime: 200
   bountyStart: 0
   bountyCrop: 
   bountyNumCompleted: 0
