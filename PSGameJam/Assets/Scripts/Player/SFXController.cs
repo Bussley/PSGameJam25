@@ -75,6 +75,9 @@ public class SFXController : MonoBehaviour
 	[SerializeField]
 	private AudioClip click;
 	
+	[SerializeField]
+	private AudioClip kaboom;
+	
 	AudioSource myaudio;
 	float countdown = 0;
 	
@@ -173,6 +176,10 @@ public class SFXController : MonoBehaviour
 		else if(index==9)
 		{
 			myaudio.PlayOneShot(click, 0.4f);
+		}
+		else if(index==10)
+		{
+			myaudio.PlayOneShot(kaboom, 0.15f);
 		}
 	}
 	
