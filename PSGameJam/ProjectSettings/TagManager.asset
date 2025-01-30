@@ -44,6 +44,7 @@ TagManager:
   - WaterRefuel
   - WaterRefuelText
   - SeedCreateSwitchText
+  - WitheredCrop
   layers:
   - Default
   - TransparentFX

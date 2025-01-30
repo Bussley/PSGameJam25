@@ -13,14 +13,12 @@ MonoBehaviour:
   m_Name: tomato
   m_EditorClassIdentifier: 
   cropType: tomato
-  baseMarketValue: 5
-  growSpeedTime: 0.5
-  growToYoungCrop: 10
-  growToGrowingCrop: 50
-  cropCrowDurabilityTime: 0
-  cropFreezeDurabilityTime: 0
-  cropDurabilityTime: 0
-  CropSprite: {fileID: 0}
+  baseMarketValue: 250
+  growSpeedTime: 0.3
+  growToYoungCrop: 33
+  growToGrowingCrop: 66
+  cropCrowDurabilityTime: 10
+  cropFreezeDurabilityTime: 10
   seedSprite: {fileID: 5277730378181330140, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
   youngCropSprite: {fileID: 7561041506929510929, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
   growingCropSprite: {fileID: 4436150969599808949, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}

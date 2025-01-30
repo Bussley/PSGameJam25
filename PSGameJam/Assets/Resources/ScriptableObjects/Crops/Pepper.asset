@@ -13,14 +13,12 @@ MonoBehaviour:
   m_Name: pepper
   m_EditorClassIdentifier: 
   cropType: pepper
-  baseMarketValue: 3
+  baseMarketValue: 50
   growSpeedTime: 0.5
-  growToYoungCrop: 10
-  growToGrowingCrop: 50
-  cropCrowDurabilityTime: 0
-  cropFreezeDurabilityTime: 0
-  cropDurabilityTime: 0
-  CropSprite: {fileID: 0}
+  growToYoungCrop: 30
+  growToGrowingCrop: 70
+  cropCrowDurabilityTime: 10
+  cropFreezeDurabilityTime: 20
   seedSprite: {fileID: 5277730378181330140, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
   youngCropSprite: {fileID: 3194861608867546299, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
   growingCropSprite: {fileID: -4292937890434973423, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}

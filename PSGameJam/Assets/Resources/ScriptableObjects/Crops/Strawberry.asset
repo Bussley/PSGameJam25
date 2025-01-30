@@ -13,14 +13,12 @@ MonoBehaviour:
   m_Name: strawberry
   m_EditorClassIdentifier: 
   cropType: strawberry
-  baseMarketValue: 7
+  baseMarketValue: 1000
   growSpeedTime: 0.5
-  growToYoungCrop: 10
-  growToGrowingCrop: 50
-  cropCrowDurabilityTime: 0
-  cropFreezeDurabilityTime: 0
-  cropDurabilityTime: 0
-  CropSprite: {fileID: 0}
+  growToYoungCrop: 15
+  growToGrowingCrop: 70
+  cropCrowDurabilityTime: 15
+  cropFreezeDurabilityTime: 25
   seedSprite: {fileID: 5277730378181330140, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
   youngCropSprite: {fileID: -2271620677009493346, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
   growingCropSprite: {fileID: 1621707001940090546, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}

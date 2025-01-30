@@ -13,14 +13,12 @@ MonoBehaviour:
   m_Name: eggplant
   m_EditorClassIdentifier: 
   cropType: eggplant
-  baseMarketValue: 4
-  growSpeedTime: 0.5
-  growToYoungCrop: 10
-  growToGrowingCrop: 50
-  cropCrowDurabilityTime: 0
-  cropFreezeDurabilityTime: 0
-  cropDurabilityTime: 0
-  CropSprite: {fileID: 0}
+  baseMarketValue: 100
+  growSpeedTime: 0.75
+  growToYoungCrop: 35
+  growToGrowingCrop: 55
+  cropCrowDurabilityTime: 25
+  cropFreezeDurabilityTime: 30
   seedSprite: {fileID: 5277730378181330140, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
   youngCropSprite: {fileID: -1137870186, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
   growingCropSprite: {fileID: 1211092418, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
