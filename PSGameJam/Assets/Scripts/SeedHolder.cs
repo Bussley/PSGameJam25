@@ -44,7 +44,7 @@ public class SeedHolder : MonoBehaviour
     private GameObject seedCrateObj;
     private GameObject seedCrateObj1;
 
-    private string scStext = "<Q R>";
+    private string scStext = "<Q E>";
 
     private void Awake()
     {
@@ -75,7 +75,7 @@ public class SeedHolder : MonoBehaviour
 
     private void Update()
     {
-        showText = "Refuel " + SeedLogic.currentSeed;
+        showText = "Buy " + SeedLogic.currentSeed + "  $" + SeedPrices[SeedLogic.currentSeed];
         seedCrateObj.GetComponent<TMP_Text>().text = showText;
         seedCrateObj1.GetComponent<TMP_Text>().text = scStext;
         if (seedRefuelAllowed && Input.GetKeyDown(KeyCode.F))
