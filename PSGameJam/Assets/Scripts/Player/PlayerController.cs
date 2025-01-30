@@ -168,6 +168,8 @@ public class PlayerController : MonoBehaviour
 
     private GameObject WCDS5;
     private UnityEngine.UI.Slider WCDS5SliderFlamethrower;
+
+
     
     private void Awake() {
         wallet = 0.0f;
@@ -230,6 +232,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update() {
+
         UIM.GetComponent<TMP_Text>().text = "$" + Wallet;
         UISSSC.GetComponent<TMP_Text>().text = "" + seeds.GetSeedCount(SeedLogic.currentSeed);
         ProcessOverHeat();
