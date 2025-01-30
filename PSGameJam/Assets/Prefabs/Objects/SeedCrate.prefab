@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -6034789748944304746, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,10 +102,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <Q R>
+  m_text: < Q     R >
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
+  m_sharedMaterial: {fileID: -6034789748944304746, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -333,7 +333,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.8870218, y: 1.6883702}
   m_EdgeRadius: 0
 --- !u!1 &7993548063915724084
 GameObject:
@@ -395,7 +395,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2631749894111142988, guid: 54a1749608c7ffd49a67f9075b092021, type: 2}
+  - {fileID: -6034789748944304746, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -439,8 +439,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Refuel seed \nx price"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 54a1749608c7ffd49a67f9075b092021, type: 2}
-  m_sharedMaterial: {fileID: -2631749894111142988, guid: 54a1749608c7ffd49a67f9075b092021, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
+  m_sharedMaterial: {fileID: -6034789748944304746, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
