@@ -305,7 +305,7 @@ MonoBehaviour:
   jetVFXOffset: {x: 0.3, y: 0}
   FlamethrowerOffset: {x: -0.4, y: 0}
   changeDirectionTimer: 0.05
-  playerInput: {fileID: -6270165054496254709, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  playerInput: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   laserPrefab: {fileID: 8687622037540719887, guid: 59c14a14db685d643af5b6426bce146f, type: 3}
   shotgunPrefab: {fileID: 8687622037540719887, guid: 10332563ebaab30488e887948cea98ff, type: 3}
   harvestBladePrefab: {fileID: 7632485419616046028, guid: d46d9bd770db5854fba4db2d45f021a4, type: 3}
@@ -383,8 +383,48 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 9d831753-1944-41c0-bdfe-aaff6d73f9da
-    m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+    m_ActionId: 351f2ccd-1f9f-44bf-9bec-d62ac5c5f408
+    m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c95b2375-e6d9-4b88-9c4c-c5e76515df4b
+    m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7607c7b6-cd76-4816-beef-bd0341cfe950
+    m_ActionName: 'UI/Submit[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 15cef263-9014-4fd5-94d9-4e4a6234a6ef
+    m_ActionName: 'UI/Cancel[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 32b35790-4ed0-4e9a-aa41-69ac6d629449
+    m_ActionName: 'UI/Point[/Mouse/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3c7022bf-7922-4f7c-a998-c437916075ad
+    m_ActionName: 'UI/Click[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 44b200b1-1557-4083-816c-b22cbdf77ddf
+    m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dad70c86-b58c-4b17-88ad-f5e53adf419e
+    m_ActionName: 'UI/MiddleClick[/Mouse/middleButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0489e84a-4833-4c40-bfae-cea84b696689
+    m_ActionName: 'UI/ScrollWheel[/Mouse/scroll]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 24908448-c609-4bc3-a128-ea258674378a
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
+    m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3351602065597119800}
@@ -399,48 +439,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: f112b19d-92ec-45c4-80d3-d4954e70cda9
-    m_ActionName: 'Player/Cursor[/Mouse/leftButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 78bc9917-e3b7-4132-9106-8c955bca9b9a
-    m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: bde132b8-f4f6-43c0-b580-bbf413e69f40
-    m_ActionName: 'UI/Submit[/Keyboard/enter]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 405a4df1-5f07-4778-8b80-b6a8bc5df83e
-    m_ActionName: 'UI/Cancel[/Keyboard/escape]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 725f0d60-4007-424c-8f8e-65df53e10d31
-    m_ActionName: 'UI/Point[/Mouse/position]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f0071e5f-b06d-49d7-88a8-9fd52ccf99d0
-    m_ActionName: 'UI/Click[/Mouse/leftButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 295b56cb-640f-419f-9cb8-56e88968a126
-    m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: cdbd8bfa-59f0-40ad-8344-66ce9a0e3fc7
-    m_ActionName: 'UI/MiddleClick[/Mouse/middleButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 01aa1b51-d925-4b79-b05a-5caefdca8531
-    m_ActionName: 'UI/ScrollWheel[/Mouse/scroll]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 572ce9db-71e2-4d8b-91de-66a51b88c06c
-    m_ActionName: UI/TrackedDevicePosition
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 702cea40-d76f-4999-a2c2-3aee29072361
-    m_ActionName: UI/TrackedDeviceOrientation
+    m_ActionId: 85450cd3-bc64-47e2-8104-b35a2f4897ad
+    m_ActionName: Player/New action
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3351602065597119800}
@@ -455,24 +455,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 914565cf-b675-4408-a1a7-87a31a0b153d
-    m_ActionName: 'Player/Numbers[/Keyboard/1,/Keyboard/2,/Keyboard/3,/Keyboard/4]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3351602065597119800}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: FireWeapon
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: f5a5d9a0-ac5d-47bd-a210-089e0f8ca0f0
-    m_ActionName: 'Player/Spacebar[/Keyboard/space]'
+    m_ActionId: 07af670e-27a5-4be6-80f0-885b683e6011
+    m_ActionName: Player/New action
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3351602065597119800}
@@ -487,8 +471,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 5c80d7bc-19e3-42c2-aa63-eb5a7c2ddb54
-    m_ActionName: 'Player/JetBoost[/Keyboard/shift]'
+    m_ActionId: 24aab776-23dd-4628-978b-205245ecbb32
+    m_ActionName: Player/New action
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3351602065597119800}
@@ -503,8 +487,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 19d5fff3-b2e1-49f1-b95c-8db4cf340ed3
-    m_ActionName: 'Player/SwitchSeeds[/Keyboard/u]'
+    m_ActionId: 9ec494a1-da23-498f-b3ce-1600b035e69d
+    m_ActionName: Player/New action
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3351602065597119800}
@@ -519,7 +503,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 2ed99de4-61e4-4fee-a492-d5fffa0eb677
+    m_ActionId: 27807440-ff51-488b-8e86-f96a44ae7e0a
     m_ActionName: 'Player/Menu[/Keyboard/tab,/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
@@ -630,7 +614,6 @@ MonoBehaviour:
   stepVolume: 0.525
   click: {fileID: 8300000, guid: 85dec0f528440d44484100374f9dc7d6, type: 3}
   kaboom: {fileID: 8300000, guid: 94af593e74f6d4e4f99e9af434520ff7, type: 3}
-  poof: {fileID: 8300000, guid: ce28df0e8dc53014cbb3503aeaf42e28, type: 3}
 --- !u!82 &266873412056456813
 AudioSource:
   m_ObjectHideFlags: 0
