@@ -21,7 +21,7 @@ public class SeedHolder : MonoBehaviour
     private GameObject playerObj;
 
     [SerializeField]
-    private Int16 maxSeedRefuel = 25;
+    private Int16 maxSeedRefuel = 10;
     
     private Dictionary<String, int> SeedPrices = new Dictionary<string, int>();
 
@@ -75,7 +75,12 @@ public class SeedHolder : MonoBehaviour
 
     private void Update()
     {
-        showText = "Buy " + SeedLogic.currentSeed + "  $" + SeedPrices[SeedLogic.currentSeed];
+        if (SeedLogic.currentSeed == "wheat") {
+            showText = "Buy " + SeedLogic.currentSeed + " for FREE!";
+        }
+        else {
+            showText = "Buy " + SeedLogic.currentSeed + "  $" + SeedPrices[SeedLogic.currentSeed];
+        }
         seedCrateObj.GetComponent<TMP_Text>().text = showText;
         seedCrateObj1.GetComponent<TMP_Text>().text = scStext;
         if (seedRefuelAllowed && Input.GetKeyDown(KeyCode.F))
@@ -118,19 +123,26 @@ public class SeedHolder : MonoBehaviour
         var currentSeed = SeedLogic.currentSeed;
         var seedPrice = SeedPrices[currentSeed];
 
-        if (seedPrice > currentMoney) {
-            Debug.Log("You don't have any money. You can't buy any seeds!");
-        }
-        else if (seedPrice <= currentMoney) {
-            // Subtract wallet money to buys seeds
-            Debug.Log("Buying seed:" + currentSeed + " For price: "+ seedPrice);
-            playerLogic.wallet -= seedPrice;
+        if (currentSeed == "wheat" && playerLogic.seeds.GetSeedCount(currentSeed) < 40){
             playerLogic.seeds.SeedLevel(maxSeedRefuel, SeedLogic.currentSeed);
-            Debug.Log(SeedLogic.currentSeed+":"+ playerLogic.seeds.GetSeedCount(SeedLogic.currentSeed));
-
         }
         else {
-            Debug.Log("IDK something weird going you need to look into this");
+            if (seedPrice > currentMoney) {
+                Debug.Log("You don't have any money. You can't buy any seeds!");
+            }
+            else if (seedPrice <= currentMoney) {
+                // Subtract wallet money to buys seeds
+                Debug.Log("Buying seed:" + currentSeed + " For price: "+ seedPrice);
+                playerLogic.wallet -= seedPrice;
+                playerLogic.seeds.SeedLevel(maxSeedRefuel, SeedLogic.currentSeed);
+                Debug.Log(SeedLogic.currentSeed+":"+ playerLogic.seeds.GetSeedCount(SeedLogic.currentSeed));
+
+            }
+            else {
+                Debug.Log("IDK something weird going you need to look into this");
+            }
         }
+
+
     }
 }
