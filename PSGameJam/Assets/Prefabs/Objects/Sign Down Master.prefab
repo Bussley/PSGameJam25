@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1012327123818991620}
   - component: {fileID: 5574073543589214908}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sign Down Master
-  m_TagString: Untagged
+  m_TagString: DestructibleEnviroment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
