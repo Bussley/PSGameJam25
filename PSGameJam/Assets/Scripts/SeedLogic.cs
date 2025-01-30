@@ -63,7 +63,7 @@ public class SeedLogic : MonoBehaviour
                 blackberrySeedCount += num;
                 break;
             case "eggplant":
-                blackberrySeedCount += num;
+                eggplantSeedCount += num;
                 break;                                             
         }
     }

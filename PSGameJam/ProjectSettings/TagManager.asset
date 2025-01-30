@@ -44,6 +44,11 @@ TagManager:
   - WaterRefuel
   - WaterRefuelText
   - SeedCreateSwitchText
+  - Slot1CoolDown
+  - Slot2CoolDown
+  - Slot3CoolDown
+  - Slot4CoolDown
+  - Slot5CoolDown
   layers:
   - Default
   - TransparentFX

@@ -154,6 +154,20 @@ public class PlayerController : MonoBehaviour
     private UnityEngine.UI.Slider UIMBCSlider;
     private GameObject UIMBCOB;
     private UnityEngine.UI.Slider UIMBCOBlider;
+
+    // WCDS = Weapon Cool Down Slot
+    private GameObject WCDS1;
+    private UnityEngine.UI.Slider WCDS1SliderLazer;
+    private GameObject WCDS2;
+    private UnityEngine.UI.Slider WCDS2SliderShotgun;
+
+    private GameObject WCDS3;
+    private UnityEngine.UI.Slider WCDS3SliderWaterhose;
+    private GameObject WCDS4;
+    private UnityEngine.UI.Slider WCDS4SliderSword;
+
+    private GameObject WCDS5;
+    private UnityEngine.UI.Slider WCDS5SliderFlamethrower;
     
     private void Awake() {
         wallet = 0.0f;
@@ -175,6 +189,25 @@ public class PlayerController : MonoBehaviour
         UIM = GameObject.FindGameObjectWithTag("UIMoney");
         UISSSC = GameObject.FindGameObjectWithTag("SeedSelectionSeedCount");
 
+        WCDS1 = GameObject.FindGameObjectWithTag("Slot1CoolDown");
+        WCDS2 = GameObject.FindGameObjectWithTag("Slot2CoolDown");
+        WCDS3 = GameObject.FindGameObjectWithTag("Slot3CoolDown");
+        WCDS4 = GameObject.FindGameObjectWithTag("Slot4CoolDown");
+        WCDS5 = GameObject.FindGameObjectWithTag("Slot5CoolDown");
+        WCDS1SliderLazer = WCDS1.GetComponent<UnityEngine.UI.Slider>();
+        WCDS1SliderLazer.value = 0.0f;
+
+        WCDS2SliderShotgun = WCDS2.GetComponent<UnityEngine.UI.Slider>();
+        WCDS2SliderShotgun.value = 0.0f;
+
+        WCDS3SliderWaterhose = WCDS3.GetComponent<UnityEngine.UI.Slider>();
+        WCDS3SliderWaterhose.value = 0.0f;
+
+        WCDS4SliderSword = WCDS4.GetComponent<UnityEngine.UI.Slider>();
+        WCDS4SliderSword.value = 0.0f;
+
+        WCDS5SliderFlamethrower = WCDS5.GetComponent<UnityEngine.UI.Slider>();
+        WCDS5SliderFlamethrower.value = 0.0f;
 
         // UI Hydrobar logic
         UIMBCHB = GameObject.FindGameObjectWithTag("UIMBCHydroBar");
@@ -200,6 +233,31 @@ public class PlayerController : MonoBehaviour
         UIM.GetComponent<TMP_Text>().text = "$" + Wallet;
         UISSSC.GetComponent<TMP_Text>().text = "" + seeds.GetSeedCount(SeedLogic.currentSeed);
         ProcessOverHeat();
+        if (shotgunCooldownTimer > Time.time)
+        {
+            WCDS2SliderShotgun.value = shotgunCooldownTimer - Time.time;
+        } else {
+            WCDS2SliderShotgun.value = 0.0f;
+        }
+        if (laserCooldownTimer > Time.time)
+        {
+            WCDS1SliderLazer.value = laserCooldownTimer - Time.time;
+        } else {
+            WCDS1SliderLazer.value = 0.0f;
+        }
+        if (fireHoseCooldownTimer > Time.time)
+        {
+            WCDS3SliderWaterhose.value = fireHoseCooldownTimer - Time.time;
+        } else {
+            WCDS3SliderWaterhose.value = 0.0f;
+        }
+        if (harvestBladeCooldownTimer > Time.time)
+        {
+            WCDS4SliderSword.value = harvestBladeCooldownTimer - Time.time;
+        } else {
+            WCDS4SliderSword.value = 0.0f;
+        }
+
     }
 
     private void FixedUpdate() {
@@ -617,6 +675,7 @@ public class PlayerController : MonoBehaviour
 
         if (overheatVal > 100.0f)
         {
+            WCDS5SliderFlamethrower.value = overheatVal;
             overheatVal = 100.0f;
             jetLockdown = true;
             flameThrowerLockdown = true;
@@ -635,6 +694,8 @@ public class PlayerController : MonoBehaviour
         if (overheatVal < 0.0f)
         {
             overheatVal = 0.0f;
+            WCDS5SliderFlamethrower.value = overheatVal;
+
             jetLockdown = false;
             flameThrowerLockdown = false;
         }

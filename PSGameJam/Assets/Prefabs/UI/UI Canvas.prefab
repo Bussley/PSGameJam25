@@ -2713,7 +2713,7 @@ GameObject:
   - component: {fileID: 862847838521278207}
   m_Layer: 5
   m_Name: Cooldown
-  m_TagString: Untagged
+  m_TagString: Slot3CoolDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2783,7 +2783,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 2
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
@@ -3667,7 +3667,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.7540894, y: 7.5999756}
+  m_AnchoredPosition: {x: -4.7541504, y: 7.5999756}
   m_SizeDelta: {x: -235.8546, y: -23.674}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7725682135138290103
@@ -4680,7 +4680,7 @@ GameObject:
   - component: {fileID: 5190399317239015152}
   m_Layer: 5
   m_Name: Cooldown
-  m_TagString: Untagged
+  m_TagString: Slot1CoolDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5766,7 +5766,7 @@ GameObject:
   - component: {fileID: 1938461221019391560}
   m_Layer: 5
   m_Name: Cooldown
-  m_TagString: Untagged
+  m_TagString: Slot2CoolDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5836,7 +5836,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 2
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
@@ -7374,7 +7374,7 @@ GameObject:
   - component: {fileID: 4105180291537012133}
   m_Layer: 5
   m_Name: Cooldown
-  m_TagString: Untagged
+  m_TagString: Slot4CoolDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7444,9 +7444,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 0.5
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7809,7 +7809,7 @@ GameObject:
   - component: {fileID: 1520507162758504862}
   m_Layer: 5
   m_Name: 'Cooldown '
-  m_TagString: Untagged
+  m_TagString: Slot5CoolDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7879,9 +7879,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

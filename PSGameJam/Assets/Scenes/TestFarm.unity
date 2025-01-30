@@ -257,6 +257,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7993548063915724084, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4785468800300757277, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
 --- !u!1001 &422470025
 PrefabInstance:
@@ -289,6 +292,10 @@ PrefabInstance:
     - target: {fileID: 194193345692657679, guid: db36357216bd5db42aa9255a93913122, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1520507162758504862, guid: db36357216bd5db42aa9255a93913122, type: 3}
+      propertyPath: m_MaxValue
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1929460820007228841, guid: db36357216bd5db42aa9255a93913122, type: 3}
       propertyPath: m_AnchorMax.x
@@ -684,6 +691,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7993548063915724084, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4785468800300757277, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e207f0f911117ba43bc4a2e629824bec, type: 3}
