@@ -96,7 +96,7 @@ public class WeatherManager : MonoBehaviour {
 
     public void RollWather()
     {
-        int ran = UnityEngine.Random.Range(2, 3);
+        int ran = UnityEngine.Random.Range(0, 3);
 
         switch (ran)
         {
