@@ -2324,11 +2324,11 @@ GameObject:
   - component: {fileID: 7100783942417060814}
   m_Layer: 5
   m_Name: How To Play container
-  m_TagString: Untagged
+  m_TagString: HowToPlay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8047052967792953958
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5448,7 +5448,7 @@ GameObject:
   - component: {fileID: 8098322907558067795}
   m_Layer: 0
   m_Name: Out of Ammo Text
-  m_TagString: Untagged
+  m_TagString: OutOfAmmo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8215,11 +8215,11 @@ GameObject:
   - component: {fileID: 5688287895480985959}
   m_Layer: 0
   m_Name: Out of Ammo Popup
-  m_TagString: Untagged
+  m_TagString: OutOfAmmo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5688287895480985959
 Transform:
   m_ObjectHideFlags: 0

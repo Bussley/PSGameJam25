@@ -46,6 +46,7 @@ public class RefuelWater : MonoBehaviour
     {
         player.PlayerWaterTankLevel(100.0f);
         UIMBCSlider.value = 100.0f;
+		GetComponent<AudioSource>().Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

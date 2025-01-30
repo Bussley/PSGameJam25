@@ -72,6 +72,10 @@ public class HarvestBladeLogic : MonoBehaviour
 
             collision.gameObject.transform.parent.GetComponent<SoilLogic>().RemoveCrop();
         }
+        else if(collision.gameObject.tag == "WitheredCrop")
+        {
+            collision.gameObject.transform.parent.GetComponent<SoilLogic>().RemoveCrop();
+        }
     }
 
     public void Fire(Vector2 direction) {

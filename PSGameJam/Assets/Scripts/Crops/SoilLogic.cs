@@ -19,6 +19,8 @@ public class SoilLogic : MonoBehaviour
     private GameObject tomatoPrefab;
     [SerializeField]
     private GameObject pepperPrefab;
+    [SerializeField]
+    private GameObject witheredCrop;
 
     [SerializeField]
     private Sprite wateredSoil;
@@ -87,6 +89,12 @@ public class SoilLogic : MonoBehaviour
             
         }
     }
+    
+    public void AddWithered()
+    {
+        Destroy(crop);
+        crop = Instantiate(witheredCrop, transform);
+    }
 
     public void Watered()
     {
@@ -100,7 +108,7 @@ public class SoilLogic : MonoBehaviour
 
     public void RemoveCrop()
     {
-        if (crop != null && !crop.GetComponent<CropLogic>().IsSeed())
+        if (crop != null && (crop.tag == "WitheredCrop" || !crop.GetComponent<CropLogic>().IsSeed()))
         {
             Instantiate(cropDestroyParticales, crop.transform.position, Quaternion.identity);
             Destroy(crop);

@@ -60,7 +60,7 @@ public class WeatherManager : MonoBehaviour {
     private void SnowSpawnLogic()
     {
         // Make snow fall
-        if (amountSnowPowder <= 100 && nextSnowSpawn < Time.time)
+        if (amountSnowPowder <= 400 && nextSnowSpawn < Time.time)
         {
             Vector3 snowspawn = TileManager.GetSpawnableRandomPosition();
 
@@ -96,7 +96,7 @@ public class WeatherManager : MonoBehaviour {
 
     public void RollWather()
     {
-        int ran = UnityEngine.Random.Range(0, 3);
+        int ran = UnityEngine.Random.Range(2, 3);
 
         switch (ran)
         {

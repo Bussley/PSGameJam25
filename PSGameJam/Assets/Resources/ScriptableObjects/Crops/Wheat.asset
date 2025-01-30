@@ -13,14 +13,12 @@ MonoBehaviour:
   m_Name: wheat
   m_EditorClassIdentifier: 
   cropType: wheat
-  baseMarketValue: 1
-  growSpeedTime: 0.5
-  growToYoungCrop: 10
-  growToGrowingCrop: 50
-  cropCrowDurabilityTime: 0
-  cropFreezeDurabilityTime: 0
-  cropDurabilityTime: 0
-  CropSprite: {fileID: 0}
+  baseMarketValue: 10
+  growSpeedTime: 1
+  growToYoungCrop: 20
+  growToGrowingCrop: 65
+  cropCrowDurabilityTime: 15
+  cropFreezeDurabilityTime: 60
   seedSprite: {fileID: 5277730378181330140, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
   youngCropSprite: {fileID: 973163691, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}
   growingCropSprite: {fileID: 525879654, guid: 7e5d7d386721c5048b6eb13c7bc4e491, type: 3}

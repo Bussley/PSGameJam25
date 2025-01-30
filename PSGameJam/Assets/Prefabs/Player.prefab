@@ -255,9 +255,9 @@ MonoBehaviour:
   moveSpeed: 2
   jetSpeed: 4
   jetOffsetSpeed: 0.1
-  overHeatRateJetpack: 20
-  overHeatRateFlamethrower: 10
-  cooldownRate: 5
+  overHeatRateJetpack: 13
+  overHeatRateFlamethrower: 10.5
+  cooldownRate: 10
   screenShakeDuration: 0.1
   screenShakeStrength:
     serializedVersion: 2
@@ -505,6 +505,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 19d5fff3-b2e1-49f1-b95c-8db4cf340ed3
     m_ActionName: 'Player/SwitchSeeds[/Keyboard/u]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3351602065597119800}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: ShowMenu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2ed99de4-61e4-4fee-a492-d5fffa0eb677
+    m_ActionName: 'Player/Menu[/Keyboard/tab,/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -612,6 +628,9 @@ MonoBehaviour:
   shotgunReload: {fileID: 8300000, guid: a127146d6135e844cb5a620f86275365, type: 3}
   footStep: {fileID: 8300000, guid: 57d526e5733e7574ab19b490cf1cde18, type: 3}
   stepVolume: 0.525
+  click: {fileID: 8300000, guid: 85dec0f528440d44484100374f9dc7d6, type: 3}
+  kaboom: {fileID: 8300000, guid: 94af593e74f6d4e4f99e9af434520ff7, type: 3}
+  poof: {fileID: 8300000, guid: ce28df0e8dc53014cbb3503aeaf42e28, type: 3}
 --- !u!82 &266873412056456813
 AudioSource:
   m_ObjectHideFlags: 0

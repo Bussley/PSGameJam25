@@ -11,7 +11,6 @@ public class CropLogic : MonoBehaviour
     [SerializeField]
     private LayerMask hitMask;
 
-
     // Grows from 0 to 100, each crop has different stages based on percentage:
     // CropED (brand new crop, denotes early life. First 10% of life)
     // YOUNG (younger half of growing. 20-70% of growing)
@@ -34,9 +33,11 @@ public class CropLogic : MonoBehaviour
 
     private float attackedTime;
     private float freezeTime;
+    private float colorPoint;
 
     private void Awake() {
         name = cropSO.cropType;
+        colorPoint = 0;
 
         targeted = false;
         attacked = false;
@@ -71,12 +72,16 @@ public class CropLogic : MonoBehaviour
             {
                 if (freezeTime < Time.time)
                 {
-                    // Spawn withered crop object
-                    transform.parent.gameObject.GetComponent<SoilLogic>().RemoveCrop();
+                    transform.parent.gameObject.GetComponent<SoilLogic>().AddWithered();
                 }
+
+                colorPoint += Time.deltaTime / cropSO.cropFreezeDurabilityTime;
+                mSprite.color = Color.Lerp(Color.white, Color.blue, colorPoint);
             }
             else
             {
+                colorPoint = 0;
+                mSprite.color = Color.white;
                 cold = false;
             }
         }
