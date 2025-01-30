@@ -125,6 +125,8 @@ public class SeedHolder : MonoBehaviour
 
         if (currentSeed == "wheat" && playerLogic.seeds.GetSeedCount(currentSeed) < 40){
             playerLogic.seeds.SeedLevel(maxSeedRefuel, SeedLogic.currentSeed);
+			//playing sound
+			GetComponent<AudioSource>().Play();
         }
         else {
             if (seedPrice > currentMoney) {
