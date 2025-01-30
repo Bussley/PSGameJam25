@@ -685,6 +685,9 @@ public class PlayerController : MonoBehaviour
         {
             WCDS5SliderFlamethrower.value = overheatVal;
             overheatVal = 100.0f;
+			//play sound the first frame we are overheated
+			if(jetLockdown==false)
+				sfx.playSound(10);
             jetLockdown = true;
             flameThrowerLockdown = true;
 

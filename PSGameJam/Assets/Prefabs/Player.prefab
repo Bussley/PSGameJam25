@@ -255,9 +255,9 @@ MonoBehaviour:
   moveSpeed: 2
   jetSpeed: 4
   jetOffsetSpeed: 0.1
-  overHeatRateJetpack: 20
-  overHeatRateFlamethrower: 10
-  cooldownRate: 5
+  overHeatRateJetpack: 13
+  overHeatRateFlamethrower: 10.5
+  cooldownRate: 10
   screenShakeDuration: 0.1
   screenShakeStrength:
     serializedVersion: 2
@@ -629,6 +629,8 @@ MonoBehaviour:
   footStep: {fileID: 8300000, guid: 57d526e5733e7574ab19b490cf1cde18, type: 3}
   stepVolume: 0.525
   click: {fileID: 8300000, guid: 85dec0f528440d44484100374f9dc7d6, type: 3}
+  kaboom: {fileID: 8300000, guid: 94af593e74f6d4e4f99e9af434520ff7, type: 3}
+  poof: {fileID: 8300000, guid: ce28df0e8dc53014cbb3503aeaf42e28, type: 3}
 --- !u!82 &266873412056456813
 AudioSource:
   m_ObjectHideFlags: 0
