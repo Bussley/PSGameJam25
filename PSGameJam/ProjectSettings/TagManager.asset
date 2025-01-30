@@ -50,6 +50,7 @@ TagManager:
   - Slot4CoolDown
   - Slot5CoolDown
   - UIPayday
+  - WitheredCrop
   - OutOfAmmo
   layers:
   - Default

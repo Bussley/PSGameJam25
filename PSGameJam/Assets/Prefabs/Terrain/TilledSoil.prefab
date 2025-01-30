@@ -159,6 +159,7 @@ MonoBehaviour:
   blackberryPrefab: {fileID: 1063532486796347099, guid: 4062a6a49c9450a498bc557ff58b4c66, type: 3}
   tomatoPrefab: {fileID: 8771309082223981841, guid: 6b9669596d4fe354c9a316df7cf2ed61, type: 3}
   pepperPrefab: {fileID: 1063532486796347099, guid: 2d2ab03e929a1c743b496eae631b2a92, type: 3}
+  witheredCrop: {fileID: 1063532486796347099, guid: f4abefceaec1db94b8722c3bb72601f6, type: 3}
   wateredSoil: {fileID: -1407950959, guid: c6196956c95d18446afdc571eb79acff, type: 3}
   drySoil: {fileID: 401971053, guid: c6196956c95d18446afdc571eb79acff, type: 3}
   charredSoil: {fileID: 7216837245991315473, guid: e4391f7dd320f7146b6b4b04f02d8314, type: 3}

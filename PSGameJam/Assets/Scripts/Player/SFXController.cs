@@ -72,6 +72,9 @@ public class SFXController : MonoBehaviour
 	[SerializeField]
 	private float stepVolume;
 	
+	[SerializeField]
+	private AudioClip click;
+	
 	AudioSource myaudio;
 	float countdown = 0;
 	
@@ -167,9 +170,9 @@ public class SFXController : MonoBehaviour
 		{
 			myaudio.PlayOneShot(footStep, 0.2f);
 		}
-		else
+		else if(index==9)
 		{
-			
+			myaudio.PlayOneShot(click, 0.4f);
 		}
 	}
 	

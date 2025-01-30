@@ -36,8 +36,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: Magnitude
+  - m_ConditionMode: 1
+    m_ConditionEvent: OnSpot
     m_EventTreshold: 0.001
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7058243769828006226}
@@ -113,8 +113,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: Magnitude
+  - m_ConditionMode: 2
+    m_ConditionEvent: OnSpot
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6132355041850653135}
@@ -166,13 +166,13 @@ AnimatorController:
   m_Name: Crow
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Magnitude
-    m_Type: 1
+  - m_Name: IsCawing
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: IsCawing
+  - m_Name: OnSpot
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
