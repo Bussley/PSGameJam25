@@ -281,7 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showText: '{ Press F to Refuel Seeds }'
   seedRefuelAllowed: 1
-  maxSeedRefuel: 25
+  maxSeedRefuel: 10
   wheatValue: 1
   potatoValue: 2
   tomatoValue: 5
