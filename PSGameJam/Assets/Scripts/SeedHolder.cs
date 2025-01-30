@@ -11,7 +11,7 @@ public class SeedHolder : MonoBehaviour
 {
 
     [SerializeField]
-    private string showText = "{Press F to Refuel Seeds}";
+    private string showText = "{Press F to Buy Seeds}";
 
     [SerializeField]
     private bool seedRefuelAllowed;
@@ -44,7 +44,7 @@ public class SeedHolder : MonoBehaviour
     private GameObject seedCrateObj;
     private GameObject seedCrateObj1;
 
-    private string scStext = "<Q R>";
+    private string scStext = "< Q   E >";
 
     private void Awake()
     {
@@ -66,7 +66,7 @@ public class SeedHolder : MonoBehaviour
         SeedPrices.Add("pepper", pepperValue);
         SeedPrices.Add("eggplant", eggplantValue);
         SeedPrices.Add("blackberry", blackberryValue);
-        showText = "Refel " + SeedLogic.currentSeed;
+        showText = "Buy " + SeedLogic.currentSeed;
         seedCrateObj.GetComponent<TMP_Text>().text = showText;
         seedCrateObj1.GetComponent<TMP_Text>().text = scStext;
 
@@ -75,7 +75,7 @@ public class SeedHolder : MonoBehaviour
 
     private void Update()
     {
-        showText = "Refuel " + SeedLogic.currentSeed;
+        showText = "Buy " + SeedLogic.currentSeed;
         seedCrateObj.GetComponent<TMP_Text>().text = showText;
         seedCrateObj1.GetComponent<TMP_Text>().text = scStext;
         if (seedRefuelAllowed && Input.GetKeyDown(KeyCode.F))
