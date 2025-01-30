@@ -75,7 +75,7 @@ public class SeedHolder : MonoBehaviour
 
     private void Update()
     {
-        showText = "Buy " + SeedLogic.currentSeed;
+        showText = "Buy " + SeedLogic.currentSeed + "  $" + SeedPrices[SeedLogic.currentSeed];
         seedCrateObj.GetComponent<TMP_Text>().text = showText;
         seedCrateObj1.GetComponent<TMP_Text>().text = scStext;
         if (seedRefuelAllowed && Input.GetKeyDown(KeyCode.F))
