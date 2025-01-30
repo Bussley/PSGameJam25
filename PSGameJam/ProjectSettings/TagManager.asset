@@ -49,6 +49,7 @@ TagManager:
   - Slot3CoolDown
   - Slot4CoolDown
   - Slot5CoolDown
+  - UIPayday
   layers:
   - Default
   - TransparentFX
