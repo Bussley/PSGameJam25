@@ -61,7 +61,8 @@ public class DestructibleEnviromentLogic : MonoBehaviour
         if (health <= 0)
         {
 			//GetComponent<AudioSource>().PlayOneShot(breakSound);
-            Instantiate(smashParticale, transform.position, Quaternion.identity);
+            if(smashParticale != null)
+                Instantiate(smashParticale, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (!shaking)
