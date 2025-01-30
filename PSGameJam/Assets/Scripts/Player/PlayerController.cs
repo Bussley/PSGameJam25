@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using NUnit.Framework.Internal;
 
 
 
@@ -135,6 +136,20 @@ public class PlayerController : MonoBehaviour
     private float overheatVal;
     public Sprite UIWeaponSelect;
 
+    // FirehoseText
+    private GameObject hText;
+    // HarvestBladeText
+    private GameObject bText;
+    // Flamethrower Text
+    private GameObject fText;
+    // Shotgun Text
+    private GameObject sText;
+    // Lazer Text
+    private GameObject lText;
+
+    // WeaponSelectPopUP
+    private GameObject WSPU;
+
     private List<GameObject> UIselect;
 
     public float Wallet { get => wallet; set => wallet = value; }
@@ -200,6 +215,21 @@ public class PlayerController : MonoBehaviour
         WCDS3 = GameObject.FindGameObjectWithTag("Slot3CoolDown");
         WCDS4 = GameObject.FindGameObjectWithTag("Slot4CoolDown");
         WCDS5 = GameObject.FindGameObjectWithTag("Slot5CoolDown");
+
+        fText = GameObject.FindGameObjectWithTag("FlamethrowerText");
+        bText = GameObject.FindGameObjectWithTag("HarvestBladeText");
+        hText = GameObject.FindGameObjectWithTag("HydroCannonText");
+        sText = GameObject.FindGameObjectWithTag("SeedShotgunText");
+        lText = GameObject.FindGameObjectWithTag("TillingLaserText");
+        WSPU = GameObject.FindGameObjectWithTag("WeaponSelectPopUp");
+
+        lText.SetActive(false);
+        sText.SetActive(false);
+        hText.SetActive(false);
+        bText.SetActive(false);
+        fText.SetActive(false);
+        WSPU.SetActive(false);
+
         WCDS1SliderLazer = WCDS1.GetComponent<UnityEngine.UI.Slider>();
         WCDS1SliderLazer.value = 0.0f;
 
@@ -648,11 +678,68 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log(dbugmsg + " " + typesOfWeapons[keyNumPress]);
                 CurrentWeapon = typesOfWeapons[keyNumPress];
+                UIWeaponText(CurrentWeapon);
                 UIWeaponSelection(keyNumPress);
+                //Action action = () => {UIWeaponTextOff();};
+                //TimerManager.AddTimer(action,3.0f);
+                
             }
         }
 
     }
+
+    public void UIWeaponText(String weapon) {
+        WSPU.SetActive(false);
+        switch (weapon) {
+        case "lazer":  
+            lText.SetActive(true);
+            sText.SetActive(false);
+            hText.SetActive(false);
+            bText.SetActive(false);
+            fText.SetActive(false);
+            break;
+        case "shotgun":
+            lText.SetActive(false);
+            sText.SetActive(true);
+            hText.SetActive(false);
+            bText.SetActive(false);
+            fText.SetActive(false);
+            break;
+        case "firehose":
+            lText.SetActive(false);
+            sText.SetActive(false);
+            hText.SetActive(true);
+            bText.SetActive(false);
+            fText.SetActive(false);
+            break;
+        case "sword":
+            lText.SetActive(false);
+            sText.SetActive(false);
+            hText.SetActive(false);
+            bText.SetActive(true);
+            fText.SetActive(false);
+            break;
+        case "flamethrower":
+            lText.SetActive(false);
+            sText.SetActive(false);
+            hText.SetActive(false);
+            bText.SetActive(false);
+            fText.SetActive(true);
+            break;                                         
+        }
+        WSPU.SetActive(true);
+    }
+/*
+    public void UIWeaponTextOff(){
+        lText.SetActive(false);
+        sText.SetActive(false);
+        hText.SetActive(false);
+        bText.SetActive(false);
+        fText.SetActive(false);
+        WSPU.SetActive(false);
+
+    }
+    */
 
     public void SetMove(bool move) {
         canMove = move;
