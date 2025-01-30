@@ -136,7 +136,8 @@ public class SeedHolder : MonoBehaviour
                 playerLogic.wallet -= seedPrice;
                 playerLogic.seeds.SeedLevel(maxSeedRefuel, SeedLogic.currentSeed);
                 Debug.Log(SeedLogic.currentSeed+":"+ playerLogic.seeds.GetSeedCount(SeedLogic.currentSeed));
-
+				//playing sound
+				GetComponent<AudioSource>().Play();
             }
             else {
                 Debug.Log("IDK something weird going you need to look into this");
