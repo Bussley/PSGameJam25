@@ -75,7 +75,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -396,7 +396,7 @@ TextureImporter:
       name: Props_01_12
       rect:
         serializedVersion: 2
-        x: 766
+        x: 768
         y: 0
         width: 256
         height: 512
@@ -502,6 +502,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Props_01_17
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 257
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2075a673b5b9bcc4f8b61919e9d02888
+      internalID: -1364065852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Props_01_18
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 256
+        width: 128
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beb7c4684b118404e949339f0f1c2010
+      internalID: -125640835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -525,6 +569,8 @@ TextureImporter:
       Props_01_14: 60413912
       Props_01_15: -383450178
       Props_01_16: 2038593247
+      Props_01_17: -1364065852
+      Props_01_18: -125640835
       Props_01_2: -875236539
       Props_01_3: -799769413
       Props_01_4: 1823332388

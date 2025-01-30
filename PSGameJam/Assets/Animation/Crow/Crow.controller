@@ -167,6 +167,7 @@ AnimatorController:
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: OnSpot
+  - m_Name: OnSpot
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
