@@ -166,6 +166,9 @@ public class PlayerController : MonoBehaviour
     private GameObject WCDS4;
     private UnityEngine.UI.Slider WCDS4SliderSword;
 
+    // HTP = How To Play
+     private GameObject HTP;
+
     private GameObject WCDS5;
     private UnityEngine.UI.Slider WCDS5SliderFlamethrower;
 
@@ -190,7 +193,8 @@ public class PlayerController : MonoBehaviour
         jetPackVFXGO.GetComponent<VisualEffect>().Stop();
         UIM = GameObject.FindGameObjectWithTag("UIMoney");
         UISSSC = GameObject.FindGameObjectWithTag("SeedSelectionSeedCount");
-
+        HTP = GameObject.FindGameObjectWithTag("HowToPlay");
+        HTP.SetActive(false);
         WCDS1 = GameObject.FindGameObjectWithTag("Slot1CoolDown");
         WCDS2 = GameObject.FindGameObjectWithTag("Slot2CoolDown");
         WCDS3 = GameObject.FindGameObjectWithTag("Slot3CoolDown");
@@ -734,4 +738,28 @@ public class PlayerController : MonoBehaviour
         UIselect[uiweapon - 1].SetActive(true);
 		sfx.playSound(9);
     }
+
+    public void ShowMenu (InputAction.CallbackContext context)
+    {
+        if (context.control.name == "escape") {
+            if (context.performed && HTP.active) {
+                 HTP.SetActive(false);
+            }
+            else if (context.performed && !HTP.active){
+                HTP.SetActive(true);
+            }
+            
+        }
+        if (context.control.name == "tab") {
+            if (context.performed) {
+                HTP.SetActive(true);
+            }
+            if (context.canceled) {
+                HTP.SetActive(false);
+            }
+
+        }
+    }
+
+
 }

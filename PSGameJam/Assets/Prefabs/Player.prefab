@@ -505,6 +505,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 19d5fff3-b2e1-49f1-b95c-8db4cf340ed3
     m_ActionName: 'Player/SwitchSeeds[/Keyboard/u]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3351602065597119800}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: ShowMenu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2ed99de4-61e4-4fee-a492-d5fffa0eb677
+    m_ActionName: 'Player/Menu[/Keyboard/tab,/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
