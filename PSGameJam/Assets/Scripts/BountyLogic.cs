@@ -28,6 +28,8 @@ public class BountyLogic : MonoBehaviour
     [SerializeField]
     private float bountyMaxTime = 200.0f;
 
+    private bool firstBounty = true;
+
 
     // Have we started the bounty
     [SerializeField]
@@ -134,7 +136,7 @@ public class BountyLogic : MonoBehaviour
         UITT = GameObject.FindGameObjectWithTag("UITaskText");
         UIOC = GameObject.FindGameObjectWithTag("UIOrderContainer");
         UIOC.SetActive(false);
-        BountyGenerate();
+        //BountyGenerate();
 
     }
 
@@ -177,19 +179,30 @@ public class BountyLogic : MonoBehaviour
         Debug.Log("Generating New Bounty!");
         bountyStart = true;
         startTimer = false;
-        // number of crops
-        int ncrops = cropMarketPrices.Count;
-        Debug.Log("Length of bounty dictionary " + ncrops);
-        var ran = UnityEngine.Random.Range(0, ncrops);
-        int counter = 0;
-        foreach (var key in cropMarketPrices.Keys){
-            
-            if (counter == ran){
-                Debug.Log("Generating bounty: " + key) ;
-                bountyCrop = key;
-            }
-            counter++;
+        if (firstBounty) {
+            int ncrops = cropMarketPrices.Count;
+            Debug.Log("First bounty will be Wheat!");
+            bountyCrop = "wheat";
+            firstBounty = false;
+            bountyMaxTime = 1200.0f;
+        }
+        else
+        {
+            bountyMaxTime = 200.0f;
+            // number of crops
+            int ncrops = cropMarketPrices.Count;
+            Debug.Log("Length of bounty dictionary " + ncrops);
+            var ran = UnityEngine.Random.Range(0, ncrops);
+            int counter = 0;
+            foreach (var key in cropMarketPrices.Keys){
 
+                if (counter == ran){
+                    Debug.Log("Generating bounty: " + key) ;
+                    bountyCrop = key;
+                }
+                counter++;
+
+            }
         }
         bountyCropCount = 0;
     }

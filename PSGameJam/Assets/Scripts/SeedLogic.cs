@@ -29,16 +29,21 @@ public class SeedLogic : MonoBehaviour
     };
 
 
+    // Out of Ammo
+    private GameObject OOA;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake() {
-        tomatoSeedCount = 15;
-        wheatSeedCount = 15;
-        potatoSeedCount = 15;
-        pepperSeedCount = 15;
-        strawBerrySeedCount = 10;
-        blackberrySeedCount = 10;
-        eggplantSeedCount = 15;
+        OOA = GameObject.FindGameObjectWithTag("OutOfAmmo");
+        tomatoSeedCount = 0;
+        wheatSeedCount = 10;
+        potatoSeedCount = 0;
+        pepperSeedCount = 0;
+        strawBerrySeedCount = 0;
+        blackberrySeedCount = 0;
+        eggplantSeedCount = 0;
+        OOA.SetActive(false);
 
     }
 
@@ -63,7 +68,7 @@ public class SeedLogic : MonoBehaviour
                 blackberrySeedCount += num;
                 break;
             case "eggplant":
-                blackberrySeedCount += num;
+                eggplantSeedCount += num;
                 break;                                             
         }
     }
@@ -123,6 +128,9 @@ public class SeedLogic : MonoBehaviour
             case "wheat":
                 int wnum = wheatSeedCount - seedShot;
                 if (wnum <= 0) {
+                    OOA.SetActive(true);
+                    Action action = () => {OOA.SetActive(false);};
+                    TimerManager.AddTimer(action,1.5f);                    
                     wheatSeedCount = 0;
                 }
                 else
@@ -131,8 +139,11 @@ public class SeedLogic : MonoBehaviour
                 }
                 return wheatSeedCount;
             case "tomato":
-                int tnum = wheatSeedCount - seedShot;
+                int tnum = tomatoSeedCount - seedShot;
                 if (tnum <= 0) {
+                    OOA.SetActive(true);
+                    Action action = () => {OOA.SetActive(false);};
+                    TimerManager.AddTimer(action,1.5f);                    
                     tomatoSeedCount = 0;
                 }
                 else
@@ -141,8 +152,11 @@ public class SeedLogic : MonoBehaviour
                 }            
                 return tomatoSeedCount;
             case "pepper":
-                int pnum = wheatSeedCount - seedShot;
+                int pnum = pepperSeedCount - seedShot;
                 if (pnum <= 0) {
+                    OOA.SetActive(true);
+                    Action action = () => {OOA.SetActive(false);};
+                    TimerManager.AddTimer(action,1.5f);                    
                     pepperSeedCount = 0;
                 }
                 else
@@ -151,8 +165,11 @@ public class SeedLogic : MonoBehaviour
                 }            
                 return pepperSeedCount;
             case "strawberry":
-                int snum = wheatSeedCount - seedShot;
+                int snum = strawBerrySeedCount - seedShot;
                 if (snum <= 0) {
+                    OOA.SetActive(true);
+                    Action action = () => {OOA.SetActive(false);};
+                    TimerManager.AddTimer(action,1.5f);                    
                     strawBerrySeedCount = 0;
                 }
                 else
@@ -161,8 +178,11 @@ public class SeedLogic : MonoBehaviour
                 } 
                 return strawBerrySeedCount;
             case "potato":
-                int ponum = wheatSeedCount - seedShot;
+                int ponum = potatoSeedCount - seedShot;
                 if (ponum <= 0) {
+                    OOA.SetActive(true);
+                    Action action = () => {OOA.SetActive(false);};
+                    TimerManager.AddTimer(action,1.5f);
                     potatoSeedCount = 0;
                 }
                 else
@@ -175,6 +195,9 @@ public class SeedLogic : MonoBehaviour
                 int bbnum = blackberrySeedCount - seedShot;
                 if (bbnum <= 0) {
                     blackberrySeedCount = 0;
+                    OOA.SetActive(true);
+                    Action action = () => {OOA.SetActive(false);};
+                    TimerManager.AddTimer(action,1.5f);
                 }
                 else
                 {
@@ -184,6 +207,9 @@ public class SeedLogic : MonoBehaviour
             case "eggplant":
                 int egnum = eggplantSeedCount - seedShot;
                 if (egnum <= 0) {
+                    OOA.SetActive(true);
+                    Action action = () => {OOA.SetActive(false);};
+                    TimerManager.AddTimer(action,1.5f);
                     eggplantSeedCount = 0;
                 }
                 else
