@@ -602,6 +602,7 @@ public class PlayerController : MonoBehaviour
     public void SwitchSeeds(InputAction.CallbackContext context) {
         if ((context.control.name == "e" || context.control.name == "q") && context.canceled) {
             seeds.NextSeed(context);
+			sfx.playSound(9);
         }
 
     }
@@ -667,5 +668,6 @@ public class PlayerController : MonoBehaviour
         }
 
         UIselect[uiweapon - 1].SetActive(true);
+		sfx.playSound(9);
     }
 }

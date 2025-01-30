@@ -612,6 +612,7 @@ MonoBehaviour:
   shotgunReload: {fileID: 8300000, guid: a127146d6135e844cb5a620f86275365, type: 3}
   footStep: {fileID: 8300000, guid: 57d526e5733e7574ab19b490cf1cde18, type: 3}
   stepVolume: 0.525
+  click: {fileID: 8300000, guid: 85dec0f528440d44484100374f9dc7d6, type: 3}
 --- !u!82 &266873412056456813
 AudioSource:
   m_ObjectHideFlags: 0

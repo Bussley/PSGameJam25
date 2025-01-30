@@ -32,13 +32,13 @@ public class SeedLogic : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake() {
-        tomatoSeedCount = 0;
-        wheatSeedCount = 10;
-        potatoSeedCount = 0;
-        pepperSeedCount = 0;
-        strawBerrySeedCount = 0;
-        blackberrySeedCount = 0;
-        eggplantSeedCount = 0;
+        tomatoSeedCount = 15;
+        wheatSeedCount = 15;
+        potatoSeedCount = 15;
+        pepperSeedCount = 15;
+        strawBerrySeedCount = 10;
+        blackberrySeedCount = 10;
+        eggplantSeedCount = 15;
 
     }
 

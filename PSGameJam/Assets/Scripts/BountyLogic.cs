@@ -87,7 +87,18 @@ public class BountyLogic : MonoBehaviour
     private GameObject UIOCTB;
     private UnityEngine.UI.Slider UIOCTBSlider;
 
-    
+    //sound
+	private AudioSource sfx;
+	
+	[SerializeField]
+	private AudioClip pickQuest;
+	[SerializeField]
+	private AudioClip winQuest;
+	[SerializeField]
+	private AudioClip loseQuest;
+	[SerializeField]
+	private AudioClip ticktock;
+	private bool ticktime = true;
 
 
     /*
@@ -105,6 +116,7 @@ public class BountyLogic : MonoBehaviour
     private void Awake() {
         playerObj = GameObject.FindGameObjectWithTag("Player");
         playerLogic = playerObj.GetComponent<PlayerController>();
+		sfx = transform.GetChild(0).GetComponent<AudioSource>();
 
         bountyRewardValue = 100;
         // Set values of Crop for max payout.
@@ -153,6 +165,9 @@ public class BountyLogic : MonoBehaviour
                 BountyGenerate();
                 startTimer = true;
                 Debug.Log("Accepting Bounty");
+				//playing sound
+				sfx.PlayOneShot(pickQuest);
+				ticktime=true;
             }
         }
     }
@@ -190,6 +205,8 @@ public class BountyLogic : MonoBehaviour
             playerLogic.wallet += bountyRewardValue;
             Debug.Log("Congradulations You've completed a bounty! Here is the number of completed bountys: " + bountyNumCompleted);
             Debug.Log("Player money: "+ playerLogic.wallet);
+			//playing sound
+			sfx.PlayOneShot(winQuest);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -216,10 +233,19 @@ public class BountyLogic : MonoBehaviour
         var timePassed = currentTime - bountyStartTime;
         //UIOCTBSlider.value = timePassed;
         //Debug.Log("Time passed: " + timePassed);
+		//PLAYING HURRY UP SOUND ONCE
+		if(timePassed >= bountyMaxTime && ticktime)
+		{
+			//playing sound
+			sfx.PlayOneShot(ticktock);
+			ticktime = false;
+		}
         if ( timePassed > bountyMaxTime ){
             Debug.Log("Failed to complete bounty!");
             bountyStart = false;
             bountyCropCount = 0;
+			//playing sound
+			sfx.PlayOneShot(loseQuest);
         }
         UIOCTBSlider.value = bountyMaxTime - timePassed;
     }
