@@ -1,7 +1,3 @@
-using System;
-using System.Threading.Tasks;
-using Unity.Mathematics;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class LaserLogic : MonoBehaviour

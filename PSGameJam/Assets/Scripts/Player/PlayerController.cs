@@ -5,9 +5,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.VFX;
 using TMPro;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 using NUnit.Framework.Internal;
 
 

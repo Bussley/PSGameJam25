@@ -89,8 +89,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: isCawing
-    m_EventTreshold: 0.001
+    m_ConditionEvent: Caws
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7058243769828006226}
   m_Solo: 0
@@ -167,12 +167,13 @@ AnimatorController:
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: OnSpot
+  - m_Name: OnSpot
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: isCawing
+  - m_Name: Caws
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -200,8 +201,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isCawing
-    m_EventTreshold: 1
+    m_ConditionEvent: Caws
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1864854310680724713}
   m_Solo: 0
