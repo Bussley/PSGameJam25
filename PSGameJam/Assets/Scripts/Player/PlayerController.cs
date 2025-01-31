@@ -470,7 +470,7 @@ public class PlayerController : MonoBehaviour
             usingJets = false;
 			
 			//STOP THE JET SOUND. FLOAT IS HOW LONG TO QUIET IT DOWN. 
-			sfx.stopSound(1.0f);
+			sfx.stopSound(0.1f);
 			foot.left = true;
         }
 
@@ -550,7 +550,7 @@ public class PlayerController : MonoBehaviour
             if (flameThrowerGO != null)
                 flameThrowerGO.GetComponent<FlameThrowerLogic>().StopFlame();
             usingWeapon = false;
-			sfx.stopSound(0.5f); //quiet the flame continuous sound
+			sfx.stopSound(0.1f); //quiet the flame continuous sound
         }
     }
 
