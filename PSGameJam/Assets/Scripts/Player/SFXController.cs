@@ -95,11 +95,11 @@ public class SFXController : MonoBehaviour
 	
 	private void FixedUpdate() 
 	{
-		if (countdown > 0)
+		if (countdown < Time.time && countdown != 0.0f)
 		{
 			myaudio.volume = myaudio.volume - 0.05f;
 			countdown = countdown - Time.deltaTime;
-			if (myaudio.volume == 0.0f)
+			if (myaudio.volume <= 0.0f)
 			{
 				myaudio.Stop();
 				countdown = 0.0f;
@@ -187,7 +187,7 @@ public class SFXController : MonoBehaviour
 	public void stopSound(float newCountdown)
 	{
 		//myaudio.Stop();
-		countdown = newCountdown;
+		countdown = Time.time + newCountdown;
 	}
 		
 }
