@@ -50,7 +50,17 @@ public class EnemyManager : MonoBehaviour
             // If crop found spawn crow
             if(crop != null)
             {
-                GameObject crow = Instantiate(crowPrefab);
+                int i = UnityEngine.Random.Range(0, 2);
+                GameObject crow;
+                if (i == 0)
+                {
+                    crow = Instantiate(crowPrefab);
+                    crow.transform.position = new Vector3(-crow.transform.position.x, crow.transform.position.y, 0.0f);
+                    crow.transform.localScale = Vector3.one;
+                }
+                else
+                    crow = Instantiate(crowPrefab);
+
                 crow.GetComponent<CrowLogic>().TargetCrop(crop);
             }
         }
