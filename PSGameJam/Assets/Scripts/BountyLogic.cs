@@ -306,12 +306,13 @@ public class BountyLogic : MonoBehaviour
                         bountyMaxCount = 14;
                         bountyRewardValue = 900;
                         break;
-            }
+                }
+                UIOCTBSlider.maxValue = bountyMaxTime;
                 break;
             } else if (questLine.Values.Last()) {
                 BountyGenerate();
+                UIOCTBSlider.maxValue = bountyMaxTime;
             }
-            UIOCTBSlider.maxValue = bountyMaxTime;
         }
     }
 
@@ -355,7 +356,6 @@ public class BountyLogic : MonoBehaviour
         var currentTime = Time.time;
         var timePassed = currentTime - bountyStartTime;
         UIOCTBSlider.value = timePassed;
-        Debug.Log("Time passed: " + timePassed);
         //PLAYING HURRY UP SOUND ONCE
         if (timePassed >= bountyMaxTime && ticktime)
         {
