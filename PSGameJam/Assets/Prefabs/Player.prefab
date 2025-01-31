@@ -249,7 +249,7 @@ MonoBehaviour:
   wallet: 0
   waterTankLevel: 100
   laserCooldown: 1
-  shotgunCooldown: 2
+  shotgunCooldown: 1.5
   fireHoseCooldown: 2
   harvestBladeCooldown: 0.5
   moveSpeed: 2
