@@ -6,6 +6,8 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
+using Unity.Burst.Intrinsics;
+using System.Linq;
 
 
 public class BountyLogic : MonoBehaviour
@@ -102,6 +104,8 @@ public class BountyLogic : MonoBehaviour
 	private AudioClip ticktock;
 	private bool ticktime = true;
 
+    private Dictionary<String, bool> questLine = new Dictionary<string, bool>();
+
 
     /*
     function that will payout if bounty is complete
@@ -129,13 +133,26 @@ public class BountyLogic : MonoBehaviour
         cropMarketPrices.Add("pepper", pepperValue);
         cropMarketPrices.Add("eggplant", eggplantValue);
         cropMarketPrices.Add("blackberry", blackberryValue);
+
+        questLine.Add("wheat", false);
+        questLine.Add("potato", false);
+        questLine.Add("pepper", false);
+        questLine.Add("eggplant", false);
+        questLine.Add("tomato", false);
+        questLine.Add("blackberry", false);
+        questLine.Add("strawberry", false);
+
         interactWithBoard = false;
         bountyStart = false;
         bountyMaxCount = 10;
         UIOCOA = GameObject.FindGameObjectWithTag("UIOrderContainerOrderAmount");
         UITT = GameObject.FindGameObjectWithTag("UITaskText");
         UIOC = GameObject.FindGameObjectWithTag("UIOrderContainer");
+        UIOCTB = GameObject.FindGameObjectWithTag("UIOCTimeBar");
+        UIOCTBSlider = UIOCTB.GetComponent<UnityEngine.UI.Slider>();
         UIOC.SetActive(false);
+
+
         //BountyGenerate();
 
     }
@@ -164,7 +181,8 @@ public class BountyLogic : MonoBehaviour
         }
         if (interactWithBoard) {
             if (!bountyStart && Input.GetKeyDown(KeyCode.F)) {
-                BountyGenerate();
+                QuestLineGenerate();
+                //BountyGenerate();
                 startTimer = true;
                 Debug.Log("Accepting Bounty");
 				//playing sound
@@ -179,32 +197,80 @@ public class BountyLogic : MonoBehaviour
         Debug.Log("Generating New Bounty!");
         bountyStart = true;
         startTimer = false;
+        /*
         if (firstBounty) {
             int ncrops = cropMarketPrices.Count;
             Debug.Log("First bounty will be Wheat!");
             bountyCrop = "wheat";
             firstBounty = false;
-            bountyMaxTime = 1200.0f;
+            bountyMaxTime = 600.0f;
         }
         else
         {
-            bountyMaxTime = 200.0f;
-            // number of crops
-            int ncrops = cropMarketPrices.Count;
-            Debug.Log("Length of bounty dictionary " + ncrops);
-            var ran = UnityEngine.Random.Range(0, ncrops);
-            int counter = 0;
-            foreach (var key in cropMarketPrices.Keys){
+        */
+        bountyMaxTime = 300.0f;
+        // number of crops
+        int ncrops = cropMarketPrices.Count;
+        Debug.Log("Length of bounty dictionary " + ncrops);
+        var ran = UnityEngine.Random.Range(0, ncrops);
+        int counter = 0;
+        foreach (var key in cropMarketPrices.Keys){
 
-                if (counter == ran){
-                    Debug.Log("Generating bounty: " + key) ;
-                    bountyCrop = key;
-                }
-                counter++;
-
+            if (counter == ran){
+                Debug.Log("Generating bounty: " + key);
+                bountyCrop = key;
             }
+            counter++;
+
         }
         bountyCropCount = 0;
+    }
+
+    private void QuestLineGenerate(){
+        foreach(string key in questLine.Keys) {
+            if (!questLine[key]) {
+                bountyStart = true;
+                startTimer = true;
+                Debug.Log("Generating bounty: " + key);
+                bountyCrop = key;
+                bountyCropCount = 0;
+                switch (key) {
+                case "wheat":
+                    bountyMaxTime = 600.0f;
+                    bountyMaxCount = 10;
+                    bountyRewardValue = 200;
+                    break;
+                case "tomato":
+                    bountyMaxCount = 34;
+                    bountyRewardValue = 1400;
+                    break;
+                case "pepper":
+                    bountyMaxCount = 20;
+                    bountyRewardValue = 700;
+                    break;
+                case "strawberry":
+                    bountyMaxCount = 1;
+                    bountyRewardValue = 6000;
+                    break;
+                case "potato":
+                    bountyMaxCount = 14;
+                    bountyRewardValue = 400;
+                    break;
+                case "blackberry":
+                    bountyMaxCount = 7;
+                    bountyRewardValue = 4000;
+                    break;
+                case "eggplant":
+                    bountyMaxCount = 14;
+                    bountyRewardValue = 900;
+                    break;  
+                }
+                break;
+            } else if (questLine.Values.Last()){
+                BountyGenerate();
+            }
+            UIOCTBSlider.maxValue = bountyMaxTime;
+        }
     }
 
     private void BountyIsComplete() {
@@ -218,8 +284,10 @@ public class BountyLogic : MonoBehaviour
             playerLogic.wallet += bountyRewardValue;
             Debug.Log("Congradulations You've completed a bounty! Here is the number of completed bountys: " + bountyNumCompleted);
             Debug.Log("Player money: "+ playerLogic.wallet);
+            questLine[bountyCrop] = true;
 			//playing sound
 			sfx.PlayOneShot(winQuest);
+            bountyCrop = "";
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -240,11 +308,10 @@ public class BountyLogic : MonoBehaviour
 
     // Put timer on bounty
     private void BountyCheckTimer() {
-        UIOCTB = GameObject.FindGameObjectWithTag("UIOCTimeBar");
-        UIOCTBSlider = UIOCTB.GetComponent<UnityEngine.UI.Slider>();
+
         var currentTime = Time.time;
         var timePassed = currentTime - bountyStartTime;
-        //UIOCTBSlider.value = timePassed;
+        UIOCTBSlider.value = timePassed;
         //Debug.Log("Time passed: " + timePassed);
 		//PLAYING HURRY UP SOUND ONCE
 		if(timePassed >= bountyMaxTime && ticktime)

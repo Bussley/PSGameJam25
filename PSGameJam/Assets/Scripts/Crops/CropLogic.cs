@@ -35,6 +35,8 @@ public class CropLogic : MonoBehaviour
     private float freezeTime;
     private float colorPoint;
 
+    private Color freezeoColor = new Color(0.0f, 0.517f, 1.0f);
+
     private void Awake() {
         name = cropSO.cropType;
         colorPoint = 0;
@@ -76,7 +78,7 @@ public class CropLogic : MonoBehaviour
                 }
 
                 colorPoint += Time.deltaTime / cropSO.cropFreezeDurabilityTime;
-                mSprite.color = Color.Lerp(Color.white, Color.blue, colorPoint);
+                mSprite.color = Color.Lerp(Color.white, freezeoColor, colorPoint);
             }
             else
             {
