@@ -539,9 +539,10 @@ public class PlayerController : MonoBehaviour
             usingWeapon = true;
 
         }
-        else if (context.canceled && flameThrowerGO != null)
+        else if (context.canceled)
         {
-            flameThrowerGO.GetComponent<FlameThrowerLogic>().StopFlame();
+            if (flameThrowerGO != null)
+                flameThrowerGO.GetComponent<FlameThrowerLogic>().StopFlame();
             usingWeapon = false;
 			sfx.stopSound(0.5f); //quiet the flame continuous sound
         }
