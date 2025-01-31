@@ -93,6 +93,6 @@ public class CrowLogic : MonoBehaviour
 
             CawRandomly();
         };
-        TimerManager.AddTimer(action, UnityEngine.Random.Range(10.0f, 25.0f));
+        TimerManager.AddTimer(action, UnityEngine.Random.Range(5.0f, 20.0f));
     }
 }
