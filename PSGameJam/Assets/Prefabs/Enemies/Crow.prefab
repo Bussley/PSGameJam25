@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flyInSpeed: 5
   spawnPoint: {x: -30, y: 10, z: 0}
+  sfx: {fileID: 6904567979375580053}
 --- !u!212 &4639597072211014972
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -216,7 +217,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.646
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

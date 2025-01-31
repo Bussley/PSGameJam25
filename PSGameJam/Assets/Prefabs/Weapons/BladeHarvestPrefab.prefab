@@ -52,6 +52,7 @@ MonoBehaviour:
   arcLength: 60
   rotateSpeed: 28
   rotatePoint: {x: -0.5, y: 0.2}
+  textValue: {fileID: 3767079676105415558, guid: a83037326dd333143a485a17168e4319, type: 3}
 --- !u!50 &-5713001889359000882
 Rigidbody2D:
   serializedVersion: 5

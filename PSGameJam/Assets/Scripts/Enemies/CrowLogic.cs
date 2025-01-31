@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CrowLogic : MonoBehaviour
@@ -7,6 +8,9 @@ public class CrowLogic : MonoBehaviour
 
     [SerializeField]
     private Vector3 spawnPoint;
+
+    [SerializeField]
+    private AudioSource sfx;
 
     private Animator animator;
     private GameObject cropTarget;
@@ -21,6 +25,11 @@ public class CrowLogic : MonoBehaviour
         animator.SetBool("OnSpot", false);
     }
 
+    private void Start()
+    {
+        cropTarget.GetComponent<CropLogic>().targeted = true;
+    }
+
     void FixedUpdate()
     {
         // Crop could be destroyed before crow gets to it 
@@ -28,10 +37,13 @@ public class CrowLogic : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, cropTarget.transform.position, flyInSpeed * Time.deltaTime);
 
-            if (transform.position == cropTarget.transform.position)
+            if (transform.position == cropTarget.transform.position && !onSpot)
             {
+                cropTarget.GetComponent<CropLogic>().CrowOnCrop(true);
                 animator.SetBool("OnSpot", true);
                 onSpot = true;
+                sfx.Play();
+                CawRandomly();
             }
         }
         else
@@ -50,6 +62,7 @@ public class CrowLogic : MonoBehaviour
     {
         if (collision.gameObject.layer == 10 || collision.gameObject.tag == "Player")
         {
+            sfx.Play();
             animator.SetBool("OnSpot", false);
             transform.localScale = Vector3.one;
             scaredAway = true;
@@ -57,15 +70,9 @@ public class CrowLogic : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Crop" && onSpot)
-            collision.gameObject.GetComponent<CropLogic>().CrowOnCrop(true);
-    }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Crop")
+        if (collision.gameObject == cropTarget)
         {
             collision.gameObject.GetComponent<CropLogic>().targeted = false;
             collision.gameObject.GetComponent<CropLogic>().CrowOnCrop(false);
@@ -77,5 +84,15 @@ public class CrowLogic : MonoBehaviour
         cropTarget = target;
     }
 
+    private void CawRandomly()
+    {
+        Action action = () =>
+        {
+            if(this!=null)
+                sfx.Play();
 
+            CawRandomly();
+        };
+        TimerManager.AddTimer(action, UnityEngine.Random.Range(10.0f, 25.0f));
+    }
 }

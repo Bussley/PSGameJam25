@@ -18,9 +18,6 @@ public class FireHoseLogic : MonoBehaviour
     private float waterSpreadY = 3;
 
     [SerializeField]
-    private float firehoseSpeed;
-
-    [SerializeField]
     private float waterShootTime;
 
     [SerializeField]

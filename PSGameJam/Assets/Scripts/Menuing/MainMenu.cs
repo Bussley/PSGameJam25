@@ -8,8 +8,11 @@ public class MainMenu : MonoBehaviour
 	
     [SerializeField]
     private GameObject howToPlayScreen;
-	
-	[SerializeField]
+
+    [SerializeField]
+    private GameObject creditScreen;
+
+    [SerializeField]
 	private AudioClip onClick;
 	
 	[SerializeField]
@@ -22,11 +25,14 @@ public class MainMenu : MonoBehaviour
 	private float countdown = 0.0f;
 	private bool cutscene;
 
+	private bool interactMenuButtons;
 
     private void Start()
     {
+		interactMenuButtons = true;
         howToPlayScreen.SetActive(false);
-		myaudio = GetComponent<AudioSource>();
+        creditScreen.SetActive(false);
+        myaudio = GetComponent<AudioSource>();
     }
 	
 	private void FixedUpdate()
@@ -45,39 +51,55 @@ public class MainMenu : MonoBehaviour
 			{
 				if(cutscene)
 					SceneManager.LoadSceneAsync("Cutscene");
-				else
-					SceneManager.LoadSceneAsync("Credits");
 			}
 		}
 	}
 
     public void GoToCutscene()
     {
-		myaudio.PlayOneShot(onClick, 0.3f);
-		countdown = 1.0f;
-		cutscene = true;
-        //SceneManager.LoadSceneAsync("Cutscene");
+		if (interactMenuButtons)
+		{
+			myaudio.PlayOneShot(onClick, 0.3f);
+			countdown = 1.0f;
+			cutscene = true;
+		}
     }
 
-    public void GoToCredits()
+    public void SpawnCredits()
     {
-		myaudio.PlayOneShot(onClick, 0.3f);
-		countdown = 1.0f;
-        //SceneManager.LoadSceneAsync("Credits");
+		if (interactMenuButtons)
+        {
+            interactMenuButtons = false;
+            myaudio.PlayOneShot(onClick, 0.3f);
+			creditScreen.SetActive(true);
+		}
     }
 
     public void SpawnHowToPlay()
     {
-		myaudio.PlayOneShot(onClick, 0.3f);
-        howToPlayScreen.SetActive(true);
+		if (interactMenuButtons)
+		{
+			interactMenuButtons = false;
+			myaudio.PlayOneShot(onClick, 0.3f);
+			howToPlayScreen.SetActive(true);
+		}
     }
 
     public void QuitHowToPlay()
     {
-		myaudio.PlayOneShot(onClick, 0.3f);
+        interactMenuButtons = true;
+        myaudio.PlayOneShot(onClick, 0.3f);
         howToPlayScreen.SetActive(false);
     }
-	public void PlayHoverSound()
+	
+    public void QuitCredits()
+    {
+        interactMenuButtons = true;
+        myaudio.PlayOneShot(onClick, 0.3f);
+        creditScreen.SetActive(false);
+    }
+
+    public void PlayHoverSound()
 	{
 		myaudio.PlayOneShot(onHover, 0.3f);
 	}

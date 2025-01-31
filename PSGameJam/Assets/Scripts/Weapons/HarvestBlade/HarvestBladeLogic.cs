@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -23,15 +24,17 @@ public class HarvestBladeLogic : MonoBehaviour
     private float curTime;
     private Vector3 offsetPosition;
 
-
     private PlayerController playerLogic;
 
     private BountyLogic bountyLogic;
 
     private GameObject bountyObj;
 
+    private UILogic uiLogic;
+
 
     private void Awake() {
+        uiLogic = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<UILogic>();
         playerLogic = transform.parent.GetComponent<PlayerController>();
         bountyObj = GameObject.FindGameObjectWithTag("CropMarketBoard");
         bountyLogic = bountyObj.GetComponent<BountyLogic>();
@@ -64,7 +67,12 @@ public class HarvestBladeLogic : MonoBehaviour
 
             playerLogic.seeds.SeedLevel(UnityEngine.Random.Range(seedMin, seeMax),collision.gameObject.name);
 
-            playerLogic.wallet += CropMarketPlaceLogic.GetCropPrice(collision.gameObject.name);
+            int money_gained = CropMarketPlaceLogic.GetCropPrice(collision.gameObject.name);
+
+            playerLogic.wallet += money_gained;
+
+            // Spawn Money
+            uiLogic.SpawnMoneyText(collision.gameObject.transform.position, money_gained.ToString());
 
             if (collision.gameObject.name == bountyLogic.bountyCrop && bountyLogic.bountyStart) {
                 bountyLogic.bountyCropCount += 1;
