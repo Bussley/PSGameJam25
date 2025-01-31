@@ -60,6 +60,9 @@ TagManager:
   - FlamethrowerText
   - TillingLaserText
   - MainCanvas
+  - SeedCratePressF
+  - FirehoseText
+  - OutOfWaterText
   - WinScreen
   - WinText
   layers:

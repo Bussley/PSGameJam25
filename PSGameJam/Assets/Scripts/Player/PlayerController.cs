@@ -184,7 +184,8 @@ public class PlayerController : MonoBehaviour
     private GameObject WCDS5;
     private UnityEngine.UI.Slider WCDS5SliderFlamethrower;
 
-
+    // Out of Water
+    private GameObject OOW;
     
     private void Awake() {
         wallet = 0.0f;
@@ -253,6 +254,11 @@ public class PlayerController : MonoBehaviour
         UIMBCOBlider.value = overheatVal;
 
         UIselect = new List<GameObject>();
+
+        OOW = GameObject.FindGameObjectWithTag("OutOfAmmo");
+        OOW.SetActive(false);
+
+
 
         for (int i = 1; i < typesOfWeapons.Length; i++)
         {
@@ -607,7 +613,14 @@ public class PlayerController : MonoBehaviour
     }
 
     public void FireWaterHose(InputAction.CallbackContext context) {
-        if (context.started && waterTankLevel > 0.0f && !usingWeapon && fireHoseCooldownTimer < Time.time)
+        if (context.started && waterTankLevel <= 0.0f && !usingWeapon && fireHoseCooldownTimer < Time.time)
+        {
+            OOW.SetActive(true);
+            Action action = () => {OOW.SetActive(false);};
+            TimerManager.AddTimer(action,1.5f); 
+
+        }
+        else if (context.started && waterTankLevel > 0.0f && !usingWeapon && fireHoseCooldownTimer < Time.time)
         {
 
             fireHoseCooldownTimer = Time.time + fireHoseCooldown;
