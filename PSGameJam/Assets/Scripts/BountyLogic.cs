@@ -272,30 +272,37 @@ public class BountyLogic : MonoBehaviour
                 bountyCropCount = 0;
                 switch (key) {
                     case "wheat":
+                        bountyMaxTime = 600.0f;
                         bountyMaxCount = 10;
                         bountyRewardValue = 200;
                         break;
                     case "tomato":
+                        bountyMaxTime = 300.0f;
                         bountyMaxCount = 34;
                         bountyRewardValue = 1400;
                         break;
                     case "pepper":
+                        bountyMaxTime = 300.0f;
                         bountyMaxCount = 20;
                         bountyRewardValue = 700;
                         break;
                     case "strawberry":
+                        bountyMaxTime = 300.0f;
                         bountyMaxCount = 15;
                         bountyRewardValue = 6000;
                         break;
                     case "potato":
+                        bountyMaxTime = 300.0f;
                         bountyMaxCount = 14;
                         bountyRewardValue = 400;
                         break;
                     case "blackberry":
+                        bountyMaxTime = 300.0f;
                         bountyMaxCount = 7;
                         bountyRewardValue = 4000;
                         break;
                     case "eggplant":
+                        bountyMaxTime = 300.0f;
                         bountyMaxCount = 14;
                         bountyRewardValue = 900;
                         break;
