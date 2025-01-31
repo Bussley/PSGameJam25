@@ -285,13 +285,13 @@ MonoBehaviour:
   showText: '{ Press F to Refuel Seeds }'
   seedRefuelAllowed: 1
   maxSeedRefuel: 10
-  wheatValue: 1
-  potatoValue: 2
-  tomatoValue: 5
-  strawberryValue: 7
-  pepperValue: 3
-  eggplantValue: 4
-  blackberryValue: 6
+  wheatValue: 0
+  potatoValue: 100
+  tomatoValue: 750
+  strawberryValue: 1500
+  pepperValue: 250
+  eggplantValue: 500
+  blackberryValue: 1000
 --- !u!82 &417852872552317379
 AudioSource:
   m_ObjectHideFlags: 0
