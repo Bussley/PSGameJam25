@@ -312,7 +312,7 @@ public class BountyLogic : MonoBehaviour
         var currentTime = Time.time;
         var timePassed = currentTime - bountyStartTime;
         UIOCTBSlider.value = timePassed;
-        Debug.Log("Time passed: " + timePassed);
+        //Debug.Log("Time passed: " + timePassed);
 		//PLAYING HURRY UP SOUND ONCE
 		if(timePassed >= bountyMaxTime && ticktime)
 		{
