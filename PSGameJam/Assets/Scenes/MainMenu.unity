@@ -898,8 +898,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -49, y: -34}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 41.66932, y: -34}
+  m_SizeDelta: {x: 381.3385, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &559588430
 MonoBehaviour:
@@ -921,7 +921,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Katie Heinlein
+  m_text: Katie Heinlein (idontknowyouguys)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
   m_sharedMaterial: {fileID: -6034789748944304746, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
@@ -1177,8 +1177,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19.800476, y: -248.74004}
-  m_SizeDelta: {x: 455.399, y: 374.52}
+  m_AnchoredPosition: {x: 522, y: 0}
+  m_SizeDelta: {x: 369.0139, y: 303.477}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &628920694
 MonoBehaviour:
@@ -1974,7 +1974,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 446.14, y: -84.063}
+  m_AnchoredPosition: {x: 293, y: -84.063}
   m_SizeDelta: {x: 429.8009, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1098414776
@@ -2778,8 +2778,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -49, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 30.148, y: -62}
+  m_SizeDelta: {x: 358.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1418005733
 MonoBehaviour:
@@ -2801,7 +2801,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Someone
+  m_text: Bussley
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
   m_sharedMaterial: {fileID: -6034789748944304746, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
@@ -3101,8 +3101,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -49, y: -34}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 30.148, y: -34}
+  m_SizeDelta: {x: 358.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1462036942
 MonoBehaviour:
@@ -3124,7 +3124,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RCCOLA96
+  m_text: RCCOLA96 (flammable._.)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
   m_sharedMaterial: {fileID: -6034789748944304746, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
@@ -3237,8 +3237,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -49, y: -34}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 37.219208, y: -34}
+  m_SizeDelta: {x: 372.4384, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1462773677
 MonoBehaviour:
@@ -3260,7 +3260,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RCCOLA96
+  m_text: RCCOLA96 (flammable._.)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
   m_sharedMaterial: {fileID: -6034789748944304746, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
@@ -3396,7 +3396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Morra
+  m_text: Morra (morra812)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
   m_sharedMaterial: {fileID: -6034789748944304746, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
@@ -3509,8 +3509,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.031502, y: -34}
-  m_SizeDelta: {x: 316.0631, y: 50}
+  m_AnchoredPosition: {x: 42.97441, y: -323.0887}
+  m_SizeDelta: {x: 632.9899, y: 628.1777}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1554318644
 MonoBehaviour:
@@ -3532,7 +3532,73 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Some fucko off  of freesound.org
+  m_text: 'Laser Shot Small 1 by bubaproducer -- https://freesound.org/s/151025/
+    -- License: Attribution 4.0
+
+    
+
+    PS_Wood_Fire_Burning_(Loopable)_01 by
+    PoundSoundUK -- https://freesound.org/s/717807/ -- License: Attribution 4.0
+
+    
+
+    Large
+    sword swing by Squirrel_404 -- https://freesound.org/s/737748/ -- License: Attribution
+    4.0
+
+    
+
+    DD Shotgun 2 by DTheTech -- https://freesound.org/s/734057/
+    -- License: Attribution NonCommercial 4.0
+
+    
+
+    Shotgun Cocks Mix 01.mp3
+    by PNMCarrieRailfan -- https://freesound.org/s/681696/ -- License: Attribution
+    NonCommercial 4.0
+
+    
+
+    Water Magic Impact by EminYILDIRIM -- https://freesound.org/s/572006/
+    -- License: Attribution 4.0
+
+    
+
+    mover stop.wav by dingus23 -- https://freesound.org/s/436385/
+    -- License: Attribution 4.0
+
+    
+
+    Blade_Slice_Metal_02 by Artninja --
+    https://freesound.org/s/777102/ -- License: Attribution 4.0
+
+    
+
+    alarm
+    misc accept confirm positive open notification arp by jerry.berumen -- https://freesound.org/s/762106/
+    -- License: Attribution 4.0
+
+    
+
+    oldtada.wav by Logatron -- https://freesound.org/s/666280/
+    -- License: Attribution 4.0
+
+    
+
+    BUISSON_Manara_2017-2018_WaveSound.wav
+    by univ_lyon3 -- https://freesound.org/s/410832/ -- License: Attribution 4.0
+
+    
+
+    "Ancient
+    Rite", "Danse Morialta", "Promises to Keep"
+
+    Kevin MacLeod (incompetech.com)
+
+    Licensed
+    under Creative Commons: By Attribution 3.0
+
+    http://creativecommons.org/licenses/by/3.0/'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
   m_sharedMaterial: {fileID: -6034789748944304746, guid: fd0b1ff872a1874488453f5e1edf836b, type: 2}
@@ -3559,8 +3625,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3597,7 +3663,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 9.51, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
