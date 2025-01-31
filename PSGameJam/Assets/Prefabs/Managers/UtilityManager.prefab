@@ -77,8 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc8ab40b292c6342b8833a7c7b8a004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crowSpawnTimerMin: 20
-  crowSpawnTimerMax: 40
+  crowSpawnTimerMin: 30
+  crowSpawnTimerMax: 60
   crowPrefab: {fileID: 248034251025000828, guid: 6fe2be8efb2c01c4b900a5f7559a6936, type: 3}
   scareCrowPrefab: {fileID: 2144086706409290232, guid: 0c269dd47cf96bb47bfa170b0eac4c45, type: 3}
 --- !u!114 &5210325241299362435

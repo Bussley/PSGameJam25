@@ -124,6 +124,7 @@ public class CropLogic : MonoBehaviour
     }
 
     private void Dehydrate() {
+        if (this == null) return;
         // Maybe move implmentation to soil logic
         // Crops die if hydration level is 0?
         if(hydrationLevel == 0) {
