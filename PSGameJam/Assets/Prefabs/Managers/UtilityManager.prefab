@@ -65,6 +65,18 @@ MonoBehaviour:
   tillableTiles:
   - Grass_Center
   - Dirt_Center
+  - Terrain_01_0
+  - Terrain_01_1
+  - Terrain_01_3
+  - Terrain_01_4
+  - Terrain_01_5
+  - Terrain_01_6
+  - Terrain_01_7
+  - Terrain_01_10
+  - Terrain_01_11
+  - Terrain_01_12
+  - Terrain_01_13
+  - Terrain_01_13
 --- !u!114 &-1937792012087931326
 MonoBehaviour:
   m_ObjectHideFlags: 0
