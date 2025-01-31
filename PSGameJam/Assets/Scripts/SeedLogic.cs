@@ -36,13 +36,13 @@ public class SeedLogic : MonoBehaviour
 
     private void Awake() {
         OOA = GameObject.FindGameObjectWithTag("OutOfAmmo");
-        tomatoSeedCount = 0;
-        wheatSeedCount = 10;
-        potatoSeedCount = 0;
-        pepperSeedCount = 0;
-        strawBerrySeedCount = 0;
-        blackberrySeedCount = 0;
-        eggplantSeedCount = 0;
+        tomatoSeedCount = 5;
+        wheatSeedCount = 30;
+        potatoSeedCount = 20;
+        pepperSeedCount = 15;
+        strawBerrySeedCount = 3;
+        blackberrySeedCount = 3;
+        eggplantSeedCount = 10;
         OOA.SetActive(false);
 
     }

@@ -43,6 +43,7 @@ public class SeedHolder : MonoBehaviour
 
     private GameObject seedCrateObj;
     private GameObject seedCrateObj1;
+    private GameObject seedCrateObj2;
 
     private string scStext = "< Q   E >";
 
@@ -50,10 +51,13 @@ public class SeedHolder : MonoBehaviour
     {
         seedCrateObj = GameObject.FindGameObjectWithTag("SeedCrateText");
         seedCrateObj1 = GameObject.FindGameObjectWithTag("SeedCreateSwitchText");
+        seedCrateObj2 = GameObject.FindGameObjectWithTag("SeedCratePressF");
+
         playerObj = GameObject.FindGameObjectWithTag("Player");
         playerLogic = playerObj.GetComponent<PlayerController>();
         seedCrateObj.SetActive(false);
         seedCrateObj1.SetActive(false);
+        seedCrateObj2.SetActive(false);
 
         seedRefuelAllowed = false;
         
@@ -100,8 +104,9 @@ public class SeedHolder : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            seedCrateObj1.gameObject.SetActive(true);
             seedCrateObj.gameObject.SetActive(true);
+            seedCrateObj1.gameObject.SetActive(true);
+            seedCrateObj2.gameObject.SetActive(true);
             seedRefuelAllowed = true;
         }
     }
@@ -113,6 +118,8 @@ public class SeedHolder : MonoBehaviour
             Debug.Log("Good by. Please come back to get more seeds!");
             seedCrateObj.gameObject.SetActive(false);
             seedCrateObj1.gameObject.SetActive(false);
+            seedCrateObj2.gameObject.SetActive(false);
+
 
             seedRefuelAllowed = false;
         }

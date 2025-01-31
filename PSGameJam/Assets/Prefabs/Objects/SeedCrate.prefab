@@ -684,7 +684,7 @@ GameObject:
   - component: {fileID: 5419251243424678734}
   m_Layer: 0
   m_Name: Press F
-  m_TagString: SeedCreateSwitchText
+  m_TagString: SeedCratePressF
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
