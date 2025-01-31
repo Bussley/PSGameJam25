@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimPrefab: {fileID: 965893174730871508, guid: f4ca80542a83ffe4bb7ea11981034b62, type: 3}
   firehosePrefab: {fileID: 7100451901593884084, guid: 6dcefc81d191b7342bb7c39e70d6ed0e, type: 3}
-  waterSpreadY: 3
+  waterSpreadY: 2
   firehoseSpeed: 1
   waterShootTime: 1.5
   fireHoseVFX: {fileID: 6167005718246072467}

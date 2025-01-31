@@ -52,6 +52,14 @@ TagManager:
   - UIPayday
   - WitheredCrop
   - OutOfAmmo
+  - HowToPlay
+  - WeaponSelectPopUp
+  - HydroCannonText
+  - SeedShotgunText
+  - HarvestBladeText
+  - FlamethrowerText
+  - TillingLaserText
+  - MainCanvas
   layers:
   - Default
   - TransparentFX

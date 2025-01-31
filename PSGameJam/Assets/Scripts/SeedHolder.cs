@@ -128,6 +128,9 @@ public class SeedHolder : MonoBehaviour
 			//playing sound
 			GetComponent<AudioSource>().Play();
         }
+        else if (currentSeed == "wheat" && playerLogic.seeds.GetSeedCount(currentSeed) >= 40) {
+            Debug.Log("You have max amount of seeds to hold for wheat");
+        }
         else {
             if (seedPrice > currentMoney) {
                 Debug.Log("You don't have any money. You can't buy any seeds!");

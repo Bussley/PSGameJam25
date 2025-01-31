@@ -103,6 +103,7 @@ public class CropLogic : MonoBehaviour
         if ( growthPercentage < 100) {
             if (growthPercentage == cropSO.growToYoungCrop) { // Switch from Crop to young crop
                 mSprite.sprite = cropSO.youngCropSprite;
+                mSprite.sortingOrder = 3;
             }
             else if (growthPercentage == cropSO.growToGrowingCrop) { // Switch from young crop to growing
                 mSprite.sprite = cropSO.growingCropSprite;
@@ -123,6 +124,7 @@ public class CropLogic : MonoBehaviour
     }
 
     private void Dehydrate() {
+        if (this == null) return;
         // Maybe move implmentation to soil logic
         // Crops die if hydration level is 0?
         if(hydrationLevel == 0) {
@@ -131,7 +133,7 @@ public class CropLogic : MonoBehaviour
             //Just so it doesn't keep counting down for now
             hydrationLevel -= 1;
         }
-        else if (hydrationLevel > 1)
+        else if (hydrationLevel >= 1)
             hydrationLevel -= 1;
 
         Action repeatDehydration = () =>

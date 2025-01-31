@@ -21,31 +21,38 @@ public class CutScene : MonoBehaviour
     private Image image3;
 
     private int clicks;
-
+    private float waitTime = 1.0f;
+    private float waitButtonInteract;
 
     private void Start()
     {
-        StartCoroutine(FadeTextToFullAlpha(1.0f, sentence1));
+        waitButtonInteract = Time.time + waitTime;
+        StartCoroutine(FadeTextToFullAlpha(waitTime, sentence1));
     }
 
     public void Progress()
     {
-        clicks++;
-        if (clicks >= 3)
-            SceneManager.LoadSceneAsync("MainScene");
-        else if (clicks == 2)
+        if (waitButtonInteract < Time.time)
         {
-            StartCoroutine(FadeImageToFullAlpha(1.0f, image3));
-            StartCoroutine(FadeImageToZeroAlpha(1.0f, image2));
-            StartCoroutine(FadeTextToZeroAlpha(1.0f, sentence2));
-            StartCoroutine(FadeTextToFullAlpha(1.0f, sentence3));
-        }
-        else if (clicks == 1)
-        {
-            StartCoroutine(FadeImageToFullAlpha(1.0f, image2));
-            StartCoroutine(FadeImageToZeroAlpha(1.0f, image1));
-            StartCoroutine(FadeTextToZeroAlpha(1.0f, sentence1));
-            StartCoroutine(FadeTextToFullAlpha(1.0f, sentence2));
+            clicks++;
+            if (clicks >= 3)
+                SceneManager.LoadSceneAsync("MainScene");
+            else if (clicks == 2)
+            {
+                waitButtonInteract = Time.time + waitTime;
+                StartCoroutine(FadeImageToFullAlpha(waitTime, image3));
+                StartCoroutine(FadeImageToZeroAlpha(waitTime, image2));
+                StartCoroutine(FadeTextToZeroAlpha(waitTime, sentence2));
+                StartCoroutine(FadeTextToFullAlpha(waitTime, sentence3));
+            }
+            else if (clicks == 1)
+            {
+                waitButtonInteract = Time.time + waitTime;
+                StartCoroutine(FadeImageToFullAlpha(waitTime, image2));
+                StartCoroutine(FadeImageToZeroAlpha(waitTime, image1));
+                StartCoroutine(FadeTextToZeroAlpha(waitTime, sentence1));
+                StartCoroutine(FadeTextToFullAlpha(waitTime, sentence2));
+            }
         }
     }
 
