@@ -26,6 +26,7 @@ public class FireHoseLogic : MonoBehaviour
 
     public float SprayWater(float chargeTime) {
         Debug.Log("Time charging: " +chargeTime);
+		GetComponent<AudioSource>().Stop();
         float scaleWater = 1.0f;
         //EDITED THE CHARGE TIMES TO BE MORE FORGIVING AND QUICK -RCCOLA
         if (chargeTime <= 2.0f && chargeTime > 1.0f) {
@@ -35,7 +36,7 @@ public class FireHoseLogic : MonoBehaviour
         } else if (chargeTime > 6.0f)
         {
             Destroy(gameObject);
-			//play burst noise
+			
             return 0.0f;
         }
         Debug.Log("Scale Water: " + scaleWater);
