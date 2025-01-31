@@ -32,6 +32,8 @@ public class BountyLogic : MonoBehaviour
 
     private bool firstBounty = true;
 
+    private bool hasWon = false;
+
 
     // Have we started the bounty
     [SerializeField]
@@ -45,7 +47,7 @@ public class BountyLogic : MonoBehaviour
     [SerializeField]
     private int bountyNumCompleted;
 
-    
+
     private PlayerController playerLogic;
 
     private GameObject playerObj;
@@ -92,17 +94,20 @@ public class BountyLogic : MonoBehaviour
     private UnityEngine.UI.Slider UIOCTBSlider;
 
     //sound
-	private AudioSource sfx;
-	
-	[SerializeField]
-	private AudioClip pickQuest;
-	[SerializeField]
-	private AudioClip winQuest;
-	[SerializeField]
-	private AudioClip loseQuest;
-	[SerializeField]
-	private AudioClip ticktock;
-	private bool ticktime = true;
+    private AudioSource sfx;
+
+    [SerializeField]
+    private AudioClip pickQuest;
+    [SerializeField]
+    private AudioClip winQuest;
+    [SerializeField]
+    private AudioClip loseQuest;
+    [SerializeField]
+    private AudioClip ticktock;
+    private bool ticktime = true;
+
+    [SerializeField]
+    private UnityEvent winEvent;
 
     private Dictionary<String, bool> questLine = new Dictionary<string, bool>();
 
@@ -122,7 +127,7 @@ public class BountyLogic : MonoBehaviour
     private void Awake() {
         playerObj = GameObject.FindGameObjectWithTag("Player");
         playerLogic = playerObj.GetComponent<PlayerController>();
-		sfx = transform.GetChild(0).GetComponent<AudioSource>();
+        sfx = transform.GetChild(0).GetComponent<AudioSource>();
 
         bountyRewardValue = 100;
         // Set values of Crop for max payout.
@@ -157,20 +162,20 @@ public class BountyLogic : MonoBehaviour
 
     }
 
-    private void Update(){
+    private void Update() {
         if (bountyStart) {
             //UIOCTBSlider.value = bountyMaxTime;
             UIOC.SetActive(true);
             BountyIsComplete();
             BountyCheckTimer();
             UIOCOA.GetComponent<TMP_Text>().text = bountyCropCount + "/" + bountyMaxCount;
-            UITT.GetComponent<TMP_Text>().text = "Please harvest "+ bountyMaxCount + " " + bountyCrop +"s. Reward: $" + bountyRewardValue;
+            UITT.GetComponent<TMP_Text>().text = "Please harvest " + bountyMaxCount + " " + bountyCrop + "s. Reward: $" + bountyRewardValue;
         }
         else {
             if (UIOC.active) {
                 UIOC.SetActive(false);
             }
-            
+
             UIOCOA.GetComponent<TMP_Text>().text = "";
             UITT.GetComponent<TMP_Text>().text = "Go to the Stalk Market to accept an order.";
             bountyCrop = "";
@@ -185,9 +190,9 @@ public class BountyLogic : MonoBehaviour
                 //BountyGenerate();
                 startTimer = true;
                 Debug.Log("Accepting Bounty");
-				//playing sound
-				sfx.PlayOneShot(pickQuest);
-				ticktime=true;
+                //playing sound
+                sfx.PlayOneShot(pickQuest);
+                ticktime = true;
             }
         }
     }
@@ -214,9 +219,9 @@ public class BountyLogic : MonoBehaviour
         Debug.Log("Length of bounty dictionary " + ncrops);
         var ran = UnityEngine.Random.Range(0, ncrops);
         int counter = 0;
-        foreach (var key in cropMarketPrices.Keys){
+        foreach (var key in cropMarketPrices.Keys) {
 
-            if (counter == ran){
+            if (counter == ran) {
                 Debug.Log("Generating bounty: " + key);
                 bountyCrop = key;
             }
@@ -226,8 +231,8 @@ public class BountyLogic : MonoBehaviour
         bountyCropCount = 0;
     }
 
-    private void QuestLineGenerate(){
-        foreach(string key in questLine.Keys) {
+    private void QuestLineGenerate() {
+        foreach (string key in questLine.Keys) {
             if (!questLine[key]) {
                 bountyStart = true;
                 startTimer = true;
@@ -235,38 +240,38 @@ public class BountyLogic : MonoBehaviour
                 bountyCrop = key;
                 bountyCropCount = 0;
                 switch (key) {
-                case "wheat":
-                    bountyMaxTime = 600.0f;
-                    bountyMaxCount = 10;
-                    bountyRewardValue = 200;
-                    break;
-                case "tomato":
-                    bountyMaxCount = 34;
-                    bountyRewardValue = 1400;
-                    break;
-                case "pepper":
-                    bountyMaxCount = 20;
-                    bountyRewardValue = 700;
-                    break;
-                case "strawberry":
-                    bountyMaxCount = 1;
-                    bountyRewardValue = 6000;
-                    break;
-                case "potato":
-                    bountyMaxCount = 14;
-                    bountyRewardValue = 400;
-                    break;
-                case "blackberry":
-                    bountyMaxCount = 7;
-                    bountyRewardValue = 4000;
-                    break;
-                case "eggplant":
-                    bountyMaxCount = 14;
-                    bountyRewardValue = 900;
-                    break;  
+                    case "wheat":
+                        bountyMaxTime = 600.0f;
+                        bountyMaxCount = 10;
+                        bountyRewardValue = 200;
+                        break;
+                    case "tomato":
+                        bountyMaxCount = 34;
+                        bountyRewardValue = 1400;
+                        break;
+                    case "pepper":
+                        bountyMaxCount = 20;
+                        bountyRewardValue = 700;
+                        break;
+                    case "strawberry":
+                        bountyMaxCount = 1;
+                        bountyRewardValue = 6000;
+                        break;
+                    case "potato":
+                        bountyMaxCount = 14;
+                        bountyRewardValue = 400;
+                        break;
+                    case "blackberry":
+                        bountyMaxCount = 7;
+                        bountyRewardValue = 4000;
+                        break;
+                    case "eggplant":
+                        bountyMaxCount = 14;
+                        bountyRewardValue = 900;
+                        break;
                 }
                 break;
-            } else if (questLine.Values.Last()){
+            } else if (questLine.Values.Last()) {
                 BountyGenerate();
             }
             UIOCTBSlider.maxValue = bountyMaxTime;
@@ -283,11 +288,12 @@ public class BountyLogic : MonoBehaviour
             //playerLogic.wallet += cropMarketPrices[bountyCrop];
             playerLogic.wallet += bountyRewardValue;
             Debug.Log("Congradulations You've completed a bounty! Here is the number of completed bountys: " + bountyNumCompleted);
-            Debug.Log("Player money: "+ playerLogic.wallet);
+            Debug.Log("Player money: " + playerLogic.wallet);
             questLine[bountyCrop] = true;
-			//playing sound
-			sfx.PlayOneShot(winQuest);
+            //playing sound
+            sfx.PlayOneShot(winQuest);
             bountyCrop = "";
+            CheckCompletedBounties();
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -313,20 +319,29 @@ public class BountyLogic : MonoBehaviour
         var timePassed = currentTime - bountyStartTime;
         UIOCTBSlider.value = timePassed;
         Debug.Log("Time passed: " + timePassed);
-		//PLAYING HURRY UP SOUND ONCE
-		if(timePassed >= bountyMaxTime && ticktime)
-		{
-			//playing sound
-			sfx.PlayOneShot(ticktock);
-			ticktime = false;
-		}
-        if ( timePassed > bountyMaxTime ){
+        //PLAYING HURRY UP SOUND ONCE
+        if (timePassed >= bountyMaxTime && ticktime)
+        {
+            //playing sound
+            sfx.PlayOneShot(ticktock);
+            ticktime = false;
+        }
+        if (timePassed > bountyMaxTime) {
             Debug.Log("Failed to complete bounty!");
             bountyStart = false;
             bountyCropCount = 0;
-			//playing sound
-			sfx.PlayOneShot(loseQuest);
+            //playing sound
+            sfx.PlayOneShot(loseQuest);
         }
         UIOCTBSlider.value = bountyMaxTime - timePassed;
+    }
+
+    private void CheckCompletedBounties()
+    {
+        if (bountyNumCompleted >= 7 && !hasWon)
+        {
+            hasWon = true;
+            winEvent.Invoke();
+        }
     }
 }
