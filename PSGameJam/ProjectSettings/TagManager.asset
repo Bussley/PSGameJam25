@@ -60,6 +60,8 @@ TagManager:
   - FlamethrowerText
   - TillingLaserText
   - MainCanvas
+  - WinScreen
+  - WinText
   layers:
   - Default
   - TransparentFX

@@ -505,6 +505,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 27807440-ff51-488b-8e86-f96a44ae7e0a
     m_ActionName: 'Player/Menu[/Keyboard/tab,/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a7ca5786-cc36-4cbb-8043-ec039f5260e5
+    m_ActionName: 'Player/Interact[/Keyboard/f]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
