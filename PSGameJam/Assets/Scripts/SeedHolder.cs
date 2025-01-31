@@ -97,7 +97,6 @@ public class SeedHolder : MonoBehaviour
     private void Refuel()
     {
         BuySeeds();
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

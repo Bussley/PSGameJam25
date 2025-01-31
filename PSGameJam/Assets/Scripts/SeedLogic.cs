@@ -132,7 +132,7 @@ public class SeedLogic : MonoBehaviour
                     Action action = () => {OOA.SetActive(false);};
                     TimerManager.AddTimer(action,1.5f);                    
                     wheatSeedCount = 0;
-					sfx.PlaySound(9);
+					sfx.playSound(9);
                 }
                 else
                 {
@@ -146,7 +146,7 @@ public class SeedLogic : MonoBehaviour
                     Action action = () => {OOA.SetActive(false);};
                     TimerManager.AddTimer(action,1.5f);                    
                     tomatoSeedCount = 0;
-					sfx.PlaySound(9);
+					sfx.playSound(9);
                 }
                 else
                 {
@@ -160,7 +160,7 @@ public class SeedLogic : MonoBehaviour
                     Action action = () => {OOA.SetActive(false);};
                     TimerManager.AddTimer(action,1.5f);                    
                     pepperSeedCount = 0;
-					sfx.PlaySound(9);
+					sfx.playSound(9);
                 }
                 else
                 {
@@ -174,7 +174,7 @@ public class SeedLogic : MonoBehaviour
                     Action action = () => {OOA.SetActive(false);};
                     TimerManager.AddTimer(action,1.5f);                    
                     strawBerrySeedCount = 0;
-					sfx.PlaySound(9);
+					sfx.playSound(9);
                 }
                 else
                 {
@@ -188,7 +188,7 @@ public class SeedLogic : MonoBehaviour
                     Action action = () => {OOA.SetActive(false);};
                     TimerManager.AddTimer(action,1.5f);
                     potatoSeedCount = 0;
-					sfx.PlaySound(9);
+					sfx.playSound(9);
                 }
                 else
                 {
@@ -200,7 +200,7 @@ public class SeedLogic : MonoBehaviour
                 int bbnum = blackberrySeedCount - seedShot;
                 if (bbnum <= 0) {
                     blackberrySeedCount = 0;
-					sfx.PlaySound(9);
+					sfx.playSound(9);
                     OOA.SetActive(true);
                     Action action = () => {OOA.SetActive(false);};
                     TimerManager.AddTimer(action,1.5f);
@@ -217,7 +217,7 @@ public class SeedLogic : MonoBehaviour
                     Action action = () => {OOA.SetActive(false);};
                     TimerManager.AddTimer(action,1.5f);
                     eggplantSeedCount = 0;
-					sfx.PlaySound(9);
+					sfx.playSound(9);
                 }
                 else
                 {

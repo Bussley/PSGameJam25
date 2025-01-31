@@ -255,7 +255,7 @@ public class PlayerController : MonoBehaviour
 
         UIselect = new List<GameObject>();
 
-        OOW = GameObject.FindGameObjectWithTag("OutOfAmmo");
+        OOW = GameObject.FindGameObjectWithTag("OutOfWaterText");
         OOW.SetActive(false);
 
 
