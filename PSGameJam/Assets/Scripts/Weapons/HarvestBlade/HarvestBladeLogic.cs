@@ -65,8 +65,6 @@ public class HarvestBladeLogic : MonoBehaviour
                 return;
             }
 
-            playerLogic.seeds.SeedLevel(UnityEngine.Random.Range(seedMin, seeMax),collision.gameObject.name);
-
             int money_gained = CropMarketPlaceLogic.GetCropPrice(collision.gameObject.name);
 
             playerLogic.wallet += money_gained;
