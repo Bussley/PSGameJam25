@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 8215194280769094780}
   - component: {fileID: 2110487730783684609}
   - component: {fileID: -2328417313217859927}
+  - component: {fileID: 2138706940209713890}
   m_Layer: 13
   m_Name: CropMarketBoard
   m_TagString: CropMarketBoard
@@ -274,6 +275,21 @@ MonoBehaviour:
   winQuest: {fileID: 8300000, guid: f80d0b294dbaa88439d30e835711cf82, type: 3}
   loseQuest: {fileID: 8300000, guid: 6048a6e27894a1a449f8166b40ce39d2, type: 3}
   ticktock: {fileID: 8300000, guid: 07ec8dc8713be9042a2d38f2b423e4fb, type: 3}
+  winEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2138706940209713890}
+        m_TargetAssemblyTypeName: WinScreen, Assembly-CSharp
+        m_MethodName: Win
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!60 &2110487730783684609
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -427,3 +443,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2138706940209713890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8423950987056503866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6e94a98e09a2542bbc81749ef5af15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
