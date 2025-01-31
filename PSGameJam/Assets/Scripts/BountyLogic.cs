@@ -169,7 +169,7 @@ public class BountyLogic : MonoBehaviour
             BountyIsComplete();
             BountyCheckTimer();
             UIOCOA.GetComponent<TMP_Text>().text = bountyCropCount + "/" + bountyMaxCount;
-            UITT.GetComponent<TMP_Text>().text = "Please harvest " + bountyMaxCount + " " + bountyCrop + "s. Reward: $" + bountyRewardValue;
+            UITT.GetComponent<TMP_Text>().text = "Please harvest " + bountyMaxCount + " " + bountyCrop + "o. Reward: $" + bountyRewardValue;
         }
         else {
             if (UIOC.active) {
@@ -225,8 +225,39 @@ public class BountyLogic : MonoBehaviour
                 Debug.Log("Generating bounty: " + key);
                 bountyCrop = key;
             }
+
             counter++;
 
+        }
+        switch (bountyCrop) {
+            case "wheat":
+                bountyMaxCount = 15;
+                bountyRewardValue = 200;
+                break;
+            case "tomato":
+                bountyMaxCount = 34;
+                bountyRewardValue = 1400;
+                break;
+            case "pepper":
+                bountyMaxCount = 20;
+                bountyRewardValue = 700;
+                break;
+            case "strawberry":
+                bountyMaxCount = 20;
+                bountyRewardValue = 6000;
+                break;
+            case "potato":
+                bountyMaxCount = 18;
+                bountyRewardValue = 400;
+                break;
+            case "blackberry":
+                bountyMaxCount = 12;
+                bountyRewardValue = 4000;
+                break;
+            case "eggplant":
+                bountyMaxCount = 14;
+                bountyRewardValue = 900;
+                break;
         }
         bountyCropCount = 0;
     }
@@ -241,7 +272,6 @@ public class BountyLogic : MonoBehaviour
                 bountyCropCount = 0;
                 switch (key) {
                     case "wheat":
-                        bountyMaxTime = 600.0f;
                         bountyMaxCount = 10;
                         bountyRewardValue = 200;
                         break;
@@ -254,7 +284,7 @@ public class BountyLogic : MonoBehaviour
                         bountyRewardValue = 700;
                         break;
                     case "strawberry":
-                        bountyMaxCount = 1;
+                        bountyMaxCount = 15;
                         bountyRewardValue = 6000;
                         break;
                     case "potato":
@@ -269,7 +299,7 @@ public class BountyLogic : MonoBehaviour
                         bountyMaxCount = 14;
                         bountyRewardValue = 900;
                         break;
-                }
+            }
                 break;
             } else if (questLine.Values.Last()) {
                 BountyGenerate();
